@@ -1,47 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Lojinha do Desafio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lojinha Recomendada | Magno Garcia</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <header class="topo">
-<img src="img/selo-magno.svg" class="logo">
-<h1>Lojinha Recomendada</h1>
-<p>Equipamentos escolhidos para alunos de violão</p>
+
+<img src="img/selo_magno_garcia.png" class="logo" alt="Magno Garcia Ensino de Música">
+
+<h1>Equipamentos recomendados para alunos do desafio</h1>
+
+<p>
+Equipamentos e acessórios com melhor custo-benefício
+para acelerar sua evolução no violão.
+</p>
+
 </header>
 
-<section id="produtos" class="grid"></section>
+
+<section class="container">
+
+<div id="produtos" class="grid"></div>
+
+</section>
+
+
 
 <script>
 
 async function carregarProdutos(){
 
-const res = await fetch("produtos.json")
-const produtos = await res.json()
+try{
+
+const resposta = await fetch("produtos.json")
+
+if(!resposta.ok){
+
+throw new Error("Erro ao carregar produtos")
+
+}
+
+const produtos = await resposta.json()
 
 const grid = document.getElementById("produtos")
 
-produtos.forEach(p=>{
+grid.innerHTML=""
+
+produtos.forEach(produto=>{
 
 const card = document.createElement("div")
 card.className="card"
 
 card.innerHTML=`
 
-<img src="${p.image}" class="produto-img">
+<img src="${produto.image}" class="produto-img">
 
-<h3>${p.title}</h3>
+<h3>${produto.title}</h3>
 
-<p class="preco">${p.price}</p>
+<p class="preco">${produto.price}</p>
 
-<img src="img/selo-mercadolivre.svg" class="selo">
+<img src="img/selo_afiliado_mercado_livre.png" class="selo">
 
-<a href="${p.affiliate_link}" target="_blank" class="botao">
-Comprar no Mercado Livre
+<a href="${produto.affiliate_link}" target="_blank" class="botao">
+Aproveite o desconto
 </a>
 
 `
@@ -52,9 +83,28 @@ grid.appendChild(card)
 
 }
 
+catch(erro){
+
+console.error("Erro:",erro)
+
+document.getElementById("produtos").innerHTML=`
+
+<p style="text-align:center;color:white">
+
+Não foi possível carregar os produtos.
+
+</p>
+
+`
+
+}
+
+}
+
 carregarProdutos()
 
 </script>
 
 </body>
+
 </html>
