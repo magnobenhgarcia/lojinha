@@ -126,14 +126,18 @@ margin-top:10px;
 
 position:absolute;
 
-top:12px;
+top:10px;
 
-right:12px;
+right:10px;
 
-width:95px; /* maior */
+width:120px;
 
-mix-blend-mode:multiply;
+height:auto;
 
+}
+
+.card{
+overflow:hidden;
 }
 
 /* TITULO PRODUTO */
