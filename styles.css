@@ -5,14 +5,34 @@ color:white;
 margin:0;
 }
 
+
+/* ===== TOPO ===== */
+
+.topo{
+text-align:center;
+padding:40px 20px;
+}
+
+.logo{
+width:160px;
+display:block;
+margin:0 auto 20px auto;
+}
+
+
+/* ===== TITULOS ===== */
+
 h1{
 text-align:center;
-margin-top:40px;
+margin-top:10px;
 }
 
 p{
 text-align:center;
 }
+
+
+/* ===== GRID ===== */
 
 .grid{
 display:grid;
@@ -20,8 +40,11 @@ grid-template-columns:repeat(3,1fr);
 gap:30px;
 max-width:1100px;
 margin:auto;
-padding:40px;
+padding:40px 20px;
 }
+
+
+/* ===== CARD ===== */
 
 .card{
 background:white;
@@ -32,10 +55,14 @@ text-align:center;
 box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
 
-.card img{
+.produto-img{
 width:100%;
-border-radius:8px;
+height:220px;
+object-fit:contain;
 }
+
+
+/* ===== PREÇO ===== */
 
 .preco{
 color:#00a650;
@@ -44,7 +71,10 @@ font-weight:bold;
 margin:10px 0;
 }
 
-.btn{
+
+/* ===== BOTÃO ===== */
+
+.botao{
 display:inline-block;
 background:#ffd600;
 color:black;
@@ -55,11 +85,14 @@ text-decoration:none;
 margin-top:10px;
 }
 
-.btn:hover{
+.botao:hover{
 background:#ffea70;
 }
 
-.selo-ml{
+
+/* ===== SELO MERCADO LIVRE ===== */
+
+.selo{
 width:120px;
 margin-top:10px;
 }
