@@ -1,94 +1,64 @@
 body{
-margin:0;
 font-family:Arial;
-background:linear-gradient(135deg,#3b0078,#6d23c8);
+background:#0f0f14;
 color:white;
+margin:0;
 }
 
-.hero{
+.topo{
 text-align:center;
-padding:60px 20px;
+padding:40px;
 }
 
-.hero h1{
-font-size:32px;
+.logo{
+height:80px;
 margin-bottom:10px;
 }
 
-.hero p{
-max-width:600px;
-margin:auto;
-opacity:0.9;
-}
-
-.selo-magno{
-width:200px;
-margin-top:25px;
-}
-
-.filtros{
-display:flex;
-justify-content:center;
-gap:12px;
-margin:30px 0;
-}
-
-.filtros button{
-background:#7a37cf;
-border:none;
-padding:10px 18px;
-border-radius:25px;
-color:white;
-cursor:pointer;
-}
-
-.filtros button.active{
-background:#ffd400;
-color:black;
-}
-
-.produtos-grid{
-max-width:1200px;
-margin:auto;
+.grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:25px;
-padding:30px;
+gap:30px;
+padding:40px;
+max-width:1200px;
+margin:auto;
 }
 
 .card{
-background:white;
-color:black;
-border-radius:15px;
-padding:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
+background:#1c1c24;
+border-radius:12px;
+padding:20px;
+text-align:center;
+box-shadow:0 0 10px rgba(0,0,0,.5);
 }
 
-.card img{
+.produto-img{
 width:100%;
 border-radius:10px;
 }
 
 .preco{
-color:#0a8f3c;
+color:#00ff88;
 font-size:22px;
 font-weight:bold;
-margin:10px 0;
 }
 
-.selo-ml{
-width:70px;
+.botao{
 display:block;
-margin:10px auto;
-}
-
-.btn{
-background:#ffd400;
+margin-top:15px;
+padding:12px;
+background:#ffd600;
 color:black;
-text-align:center;
-display:block;
-padding:10px;
-border-radius:10px;
-text-decoration:none;
 font-weight:bold;
+border-radius:8px;
+text-decoration:none;
+}
+
+.botao:hover{
+background:#ffe74a;
+}
+
+.selo{
+height:40px;
+margin-top:10px;
 }
