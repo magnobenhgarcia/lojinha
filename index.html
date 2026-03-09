@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
@@ -18,10 +19,11 @@
 
 <div class="container">
 
-<img 
-src="./img/selo_magno_garcia.png" 
-class="logo" 
+<img
+src="./img/selo_magno_garcia.png"
+class="logo"
 alt="Magno Garcia Ensino de Música"
+
 >
 
 <h1>Lojinha Recomendada</h1>
@@ -32,91 +34,19 @@ alt="Magno Garcia Ensino de Música"
 
 </header>
 
-
 <main>
-  <div class="container">
-    <div id="categorias" class="categorias"></div>
-    <section id="produtos" class="grid"></section>
-  </div>
+
+<div class="container">
+
+<div id="categorias" class="categorias"></div>
+
+<section id="produtos" class="grid"></section>
+
+</div>
+
 </main>
 
-
-<script>
-
-async function carregarProdutos(){
-
-try{
-
-const resposta = await fetch("./produtos.json")
-
-if(!resposta.ok){
-throw new Error("Erro ao carregar produtos")
-}
-
-const produtos = await resposta.json()
-
-const grid = document.getElementById("produtos")
-
-grid.innerHTML = ""
-
-produtos.forEach(produto => {
-
-const card = document.createElement("div")
-card.className = "card"
-
-card.innerHTML = `
-
-<img 
-src="${produto.image}" 
-class="produto-img"
-alt="${produto.title}"
->
-
-<h3>${produto.title}</h3>
-
-<p class="preco">${produto.price}</p>
-
-<img 
-src="./img/selo_afiliado_mercado_livre.png" 
-class="selo"
-alt="Afiliado Mercado Livre"
->
-
-<a 
-href="${produto.affiliate_link}" 
-target="_blank" 
-class="botao"
->
-Aproveite o desconto
-</a>
-
-`
-
-grid.appendChild(card)
-
-})
-
-}
-
-catch(erro){
-
-console.error("Erro ao carregar produtos:", erro)
-
-document.getElementById("produtos").innerHTML = `
-
-<p style="text-align:center">
-Não foi possível carregar os produtos.
-</p>
-
-`
-
-}
-
-}
-
-document.addEventListener("DOMContentLoaded", carregarProdutos)
-
-</script>
+<script src="./loja.js"></script>
 
 </body>
 </html>
