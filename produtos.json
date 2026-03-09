@@ -1,8 +1,20 @@
 [
   {
     "title": "Violão Eletroacústico Strinberg FS1A Forest 6 Cordas Tobacco Satin",
+    "description": "Violão eletroacústico com equalização",
     "price": "R$ 771,60",
-    "image": "https://http2.mlstatic.com/D_NQ_NP_914379-MLA96654876505_102025-O.webp",
-    "affiliate_link": "https://meli.la/1ca6iTS"
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_914379-MLA96654876505_102025-O.webp",
+    "affiliate_url": "https://meli.la/1ca6iTS",
+    "category": "Violões",
+    "order": 1
+  },
+  {
+    "title": "Afinador Digital Clip Violão",
+    "description": "Afinador cromático preciso",
+    "price": "R$ 29,90",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_2X_920239-MLB50151230467_062022-F.webp",
+    "affiliate_url": "https://meli.la/xxxxx",
+    "category": "Afinadores",
+    "order": 2
   }
 ]
