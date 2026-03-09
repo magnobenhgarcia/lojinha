@@ -28,7 +28,9 @@ alt="Magno Garcia Ensino de Música"
 
 <h1>Lojinha Recomendada</h1>
 
-<p>Equipamentos escolhidos para alunos de violão</p>
+<p class="subtitulo">
+Equipamentos escolhidos para alunos de violão
+</p>
 
 </div>
 
@@ -38,13 +40,37 @@ alt="Magno Garcia Ensino de Música"
 
 <div class="container">
 
-<div id="categorias" class="categorias"></div>
+<!-- FILTRO DE CATEGORIAS -->
+
+<nav id="categorias" class="categorias"></nav>
+
+<!-- GRID DE PRODUTOS -->
 
 <section id="produtos" class="grid"></section>
+
+<!-- ESTADO DE CARREGAMENTO -->
+
+<div id="loading" class="estado">
+Carregando produtos...
+</div>
+
+<!-- ESTADO SEM PRODUTOS -->
+
+<div id="empty" class="estado hidden">
+Nenhum produto disponível.
+</div>
 
 </div>
 
 </main>
+
+<footer class="rodape">
+
+<p>
+Alguns links desta página são afiliados do Mercado Livre.
+</p>
+
+</footer>
 
 <script src="./loja.js"></script>
 
