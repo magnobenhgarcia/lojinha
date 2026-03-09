@@ -8,7 +8,8 @@
 
 <title>Lojinha Recomendada | Magno Garcia</title>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="./styles.css">
+
 </head>
 
 <body>
@@ -17,7 +18,11 @@
 
 <div class="container">
 
-<img src="img/selo_magno_garcia.png" class="logo" alt="Magno Garcia Ensino de Música">
+<img 
+src="./img/selo_magno_garcia.png" 
+class="logo" 
+alt="Magno Garcia Ensino de Música"
+>
 
 <h1>Lojinha Recomendada</h1>
 
@@ -28,9 +33,13 @@
 </header>
 
 
-<main class="container">
+<main>
+
+<div class="container">
 
 <section id="produtos" class="grid"></section>
+
+</div>
 
 </main>
 
@@ -41,7 +50,7 @@ async function carregarProdutos(){
 
 try{
 
-const resposta = await fetch("produtos.json")
+const resposta = await fetch("./produtos.json")
 
 if(!resposta.ok){
 throw new Error("Erro ao carregar produtos")
@@ -51,24 +60,36 @@ const produtos = await resposta.json()
 
 const grid = document.getElementById("produtos")
 
-grid.innerHTML=""
+grid.innerHTML = ""
 
-produtos.forEach(produto=>{
+produtos.forEach(produto => {
 
 const card = document.createElement("div")
-card.className="card"
+card.className = "card"
 
-card.innerHTML=`
+card.innerHTML = `
 
-<img src="${produto.image}" class="produto-img">
+<img 
+src="${produto.image}" 
+class="produto-img"
+alt="${produto.title}"
+>
 
 <h3>${produto.title}</h3>
 
 <p class="preco">${produto.price}</p>
 
-<img src="img/selo_afiliado_mercado_livre.png" class="selo">
+<img 
+src="./img/selo_afiliado_mercado_livre.png" 
+class="selo"
+alt="Afiliado Mercado Livre"
+>
 
-<a href="${produto.affiliate_link}" target="_blank" class="botao">
+<a 
+href="${produto.affiliate_link}" 
+target="_blank" 
+class="botao"
+>
 Aproveite o desconto
 </a>
 
@@ -82,16 +103,21 @@ grid.appendChild(card)
 
 catch(erro){
 
-console.error("Erro:",erro)
+console.error("Erro ao carregar produtos:", erro)
 
-document.getElementById("produtos").innerHTML=
-"<p>Erro ao carregar produtos.</p>"
+document.getElementById("produtos").innerHTML = `
+
+<p style="text-align:center">
+Não foi possível carregar os produtos.
+</p>
+
+`
 
 }
 
 }
 
-carregarProdutos()
+document.addEventListener("DOMContentLoaded", carregarProdutos)
 
 </script>
 
