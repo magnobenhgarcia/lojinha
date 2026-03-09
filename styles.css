@@ -19,7 +19,7 @@ width:140px;
 margin-bottom:20px;
 
 /* remove fundo branco */
-mix-blend-mode:multiply;
+mix-blend-mode:unitary;
 }
 
 /* TITULOS */
