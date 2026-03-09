@@ -1,44 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Lojinha do Desafio Violão</title>
-
-<link rel="stylesheet" href="styles.css">
-
+<title>Lojinha do Desafio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<section class="hero">
+<header class="topo">
+<img src="img/selo-magno.svg" class="logo">
+<h1>Lojinha Recomendada</h1>
+<p>Equipamentos escolhidos para alunos de violão</p>
+</header>
 
-<h1>Equipamentos recomendados para alunos do desafio</h1>
+<section id="produtos" class="grid"></section>
 
-<p>
-Equipamentos e acessórios com melhor custo-benefício
-selecionados para acelerar sua evolução no violão.
-</p>
+<script>
 
-<img class="selo-magno" src="img/selo_magno_garcia.svg">
+async function carregarProdutos(){
 
-</section>
+const res = await fetch("produtos.json")
+const produtos = await res.json()
 
-<section class="filtros">
+const grid = document.getElementById("produtos")
 
-<button class="active">Todos</button>
-<button>Violões</button>
-<button>Afinadores</button>
-<button>Capotraste</button>
+produtos.forEach(p=>{
 
-</section>
+const card = document.createElement("div")
+card.className="card"
 
-<section id="produtos" class="produtos-grid"></section>
+card.innerHTML=`
 
-<script src="loja.js"></script>
+<img src="${p.image}" class="produto-img">
+
+<h3>${p.title}</h3>
+
+<p class="preco">${p.price}</p>
+
+<img src="img/selo-mercadolivre.svg" class="selo">
+
+<a href="${p.affiliate_link}" target="_blank" class="botao">
+Comprar no Mercado Livre
+</a>
+
+`
+
+grid.appendChild(card)
+
+})
+
+}
+
+carregarProdutos()
+
+</script>
 
 </body>
 </html>
