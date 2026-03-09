@@ -8,7 +8,7 @@ const empty = document.getElementById("empty")
 try {
 
 ```
-const resposta = await fetch("./data/produtos.json")
+const resposta = await fetch("data/produtos.json")
 
 if (!resposta.ok) {
   throw new Error("Erro ao carregar produtos.json")
