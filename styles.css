@@ -15,11 +15,10 @@ padding:60px 20px 40px 20px;
 /* LOGO MAGNO */
 
 .logo{
+position:absolute; 
 width:140px;
 margin-bottom:20px;
 
-/* remove fundo branco */
-position:absolute; 
 }
 
 /* TITULOS */
