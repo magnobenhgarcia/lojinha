@@ -52,12 +52,11 @@ async function carregarProdutos() {
     }
 
     function criarCard(produto) {
-      const imageUrl = produto.image_url || "";
+      const imageUrl = produto.image_url || produto.image || "";
       const title = produto.title || "";
       const description = produto.description || "";
       const price = produto.price || "";
-      const affiliateUrl = produto.affiliate_url || "#";
-
+      const affiliateUrl = produto.affiliate_url || produto.affiliate_link || "#";
       return `
         <article class="card">
           <div class="card-image-wrap">
