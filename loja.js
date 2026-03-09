@@ -7,58 +7,63 @@ const empty = document.getElementById("empty");
 
 try {
 
-```
 const resposta = await fetch("data/produtos.json");
+
+if (!resposta.ok) {
+throw new Error("Erro ao carregar JSON");
+}
+
 const produtos = await resposta.json();
 
 loading.style.display = "none";
 
 if (!produtos.length) {
-  empty.classList.remove("hidden");
-  return;
+empty.classList.remove("hidden");
+return;
 }
 
 produtos.sort((a, b) => (a.order || 0) - (b.order || 0));
 
 const categorias = [
-  "Todos",
-  ...new Set(produtos.map(p => p.category).filter(Boolean))
+"Todos",
+...new Set(produtos.map(p => p.category || "Outros"))
 ];
 
 function renderizarCategorias() {
 
-  categoriasContainer.innerHTML = "";
+categoriasContainer.innerHTML = "";
 
-  categorias.forEach((categoria, index) => {
+categorias.forEach((categoria, index) => {
 
-    const btn = document.createElement("button");
-    btn.textContent = categoria;
-    btn.className = "categoria-btn";
+const btn = document.createElement("button");
 
-    if (index === 0) btn.classList.add("active");
+btn.textContent = categoria;
 
-    btn.onclick = () => {
+btn.className = "categoria-btn";
 
-      document
-        .querySelectorAll(".categoria-btn")
-        .forEach(b => b.classList.remove("active"));
+if (index === 0) btn.classList.add("active");
 
-      btn.classList.add("active");
+btn.onclick = () => {
 
-      renderizarProdutos(categoria);
-    };
+document
+.querySelectorAll(".categoria-btn")
+.forEach(b => b.classList.remove("active"));
 
-    categoriasContainer.appendChild(btn);
+btn.classList.add("active");
 
-  });
+renderizarProdutos(categoria);
+
+};
+
+categoriasContainer.appendChild(btn);
+
+});
 
 }
 
 function criarCard(produto) {
 
-  return `
-```
-
+return `
 <article class="card">
 
 <div class="card-image-wrap">
@@ -67,16 +72,12 @@ function criarCard(produto) {
 src="${produto.image_url}"
 class="produto-img"
 alt="${produto.title}"
-loading="lazy"
-
->
+loading="lazy">
 
 <img
 src="./img/selo_afiliado_mercado_livre.png"
 class="selo-card"
-alt="Afiliado Mercado Livre"
-
->
+alt="Afiliado Mercado Livre">
 
 </div>
 
@@ -92,45 +93,42 @@ alt="Afiliado Mercado Livre"
 href="${produto.affiliate_url}"
 target="_blank"
 rel="noopener noreferrer"
-class="card-button"
+class="card-button">
 
->
+Aproveite o desconto
 
-Aproveite o desconto </a>
+</a>
 
 </div>
 
 </article>
 `;
-    }
 
-```
+}
+
 function renderizarProdutos(categoria = "Todos") {
 
-  let lista = produtos;
+let lista = produtos;
 
-  if (categoria !== "Todos") {
-    lista = produtos.filter(p => p.category === categoria);
-  }
+if (categoria !== "Todos") {
+lista = produtos.filter(p => p.category === categoria);
+}
 
-  grid.innerHTML = lista.map(criarCard).join("");
+grid.innerHTML = lista.map(criarCard).join("");
 
 }
 
 renderizarCategorias();
 renderizarProdutos();
-```
 
 }
 
 catch (erro) {
 
-```
-console.error(erro);
+console.error("Erro:", erro);
 
 loading.style.display = "none";
 empty.classList.remove("hidden");
-```
 
 }
 
