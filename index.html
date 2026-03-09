@@ -16,24 +16,24 @@
 
 <header class="topo">
 
+<div class="container">
+
 <img src="img/selo_magno_garcia.png" class="logo" alt="Magno Garcia Ensino de Música">
 
-<h1>Equipamentos recomendados para alunos do desafio</h1>
+<h1>Lojinha Recomendada</h1>
 
-<p>
-Equipamentos e acessórios com melhor custo-benefício
-para acelerar sua evolução no violão.
-</p>
+<p>Equipamentos escolhidos para alunos de violão</p>
+
+</div>
 
 </header>
 
 
-<section class="container">
+<main class="container">
 
-<div id="produtos" class="grid"></div>
+<section id="produtos" class="grid"></section>
 
-</section>
-
+</main>
 
 
 <script>
@@ -45,9 +45,7 @@ try{
 const resposta = await fetch("produtos.json")
 
 if(!resposta.ok){
-
 throw new Error("Erro ao carregar produtos")
-
 }
 
 const produtos = await resposta.json()
@@ -87,15 +85,8 @@ catch(erro){
 
 console.error("Erro:",erro)
 
-document.getElementById("produtos").innerHTML=`
-
-<p style="text-align:center;color:white">
-
-Não foi possível carregar os produtos.
-
-</p>
-
-`
+document.getElementById("produtos").innerHTML=
+"<p>Erro ao carregar produtos.</p>"
 
 }
 
@@ -106,5 +97,4 @@ carregarProdutos()
 </script>
 
 </body>
-
 </html>
