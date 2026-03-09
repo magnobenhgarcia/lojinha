@@ -1,9 +1,14 @@
 async function carregarProdutos() {
 
+const grid = document.getElementById("produtos")
+const categoriasContainer = document.getElementById("categorias")
+const loading = document.getElementById("loading")
+const empty = document.getElementById("empty")
+
 try {
 
 ```
-const resposta = await fetch("data/produtos.json")
+const resposta = await fetch("./data/produtos.json")
 
 if (!resposta.ok) {
   throw new Error("Erro ao carregar produtos.json")
@@ -11,44 +16,46 @@ if (!resposta.ok) {
 
 const produtos = await resposta.json()
 
-const grid = document.getElementById("produtos")
-const filtros = document.getElementById("categorias")
+loading.style.display = "none"
 
-if (!grid) {
-  throw new Error("Elemento #produtos não encontrado")
+if (!produtos || !produtos.length) {
+  empty.classList.remove("hidden")
+  return
 }
 
 // ordenar produtos
 produtos.sort((a, b) => (a.order || 0) - (b.order || 0))
 
+// extrair categorias
 const categorias = [
   "Todos",
   ...new Set(
     produtos
-      .map((p) => p.category)
-      .filter((c) => c && String(c).trim() !== "")
-  ),
+      .map(p => p.category)
+      .filter(c => c && String(c).trim() !== "")
+  )
 ]
 
 function renderizarCategorias() {
 
-  if (!filtros) return
-
-  filtros.innerHTML = ""
+  categoriasContainer.innerHTML = ""
 
   categorias.forEach((categoria, index) => {
 
     const btn = document.createElement("button")
 
-    btn.className = "categoria-btn" + (index === 0 ? " active" : "")
     btn.textContent = categoria
-    btn.dataset.categoria = categoria
+    btn.className = "categoria-btn"
+
+    if (index === 0) {
+      btn.classList.add("active")
+    }
 
     btn.addEventListener("click", () => {
 
       document
         .querySelectorAll(".categoria-btn")
-        .forEach((b) => b.classList.remove("active"))
+        .forEach(b => b.classList.remove("active"))
 
       btn.classList.add("active")
 
@@ -56,7 +63,7 @@ function renderizarCategorias() {
 
     })
 
-    filtros.appendChild(btn)
+    categoriasContainer.appendChild(btn)
 
   })
 
@@ -64,54 +71,52 @@ function renderizarCategorias() {
 
 function criarCard(produto) {
 
-  const imageUrl = produto.image_url || produto.image || ""
+  const image = produto.image_url || produto.image || ""
   const title = produto.title || ""
   const description = produto.description || ""
   const price = produto.price || ""
-  const affiliateUrl = produto.affiliate_url || produto.affiliate_link || "#"
+  const link = produto.affiliate_url || produto.affiliate_link || "#"
 
   return `
+    <article class="card">
 
-  <article class="card">
+      <div class="card-image-wrap">
 
-    <div class="card-image-wrap">
+        <img
+          src="${image}"
+          class="produto-img"
+          alt="${title}"
+          loading="lazy"
+        >
 
-      <img
-        src="${imageUrl}"
-        class="produto-img"
-        alt="${title}"
-        loading="lazy"
-      >
+        <img
+          src="./img/selo_afiliado_mercado_livre.png"
+          class="selo-card"
+          alt="Afiliado Mercado Livre"
+        >
 
-      <img
-        src="./img/selo_afiliado_mercado_livre.png"
-        class="selo-card"
-        alt="Afiliado Mercado Livre"
-      >
+      </div>
 
-    </div>
+      <div class="card-content">
 
-    <div class="card-content">
+        <h3 class="card-title">${title}</h3>
 
-      <h3 class="card-title">${title}</h3>
+        <p class="card-price">${price}</p>
 
-      <p class="card-price">${price}</p>
+        <p class="card-description">${description}</p>
 
-      <p class="card-description">${description}</p>
+        <a
+          href="${link}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card-button"
+        >
+          Aproveite o desconto
+        </a>
 
-      <a
-        href="${affiliateUrl}"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="card-button"
-      >
-        Aproveite o desconto
-      </a>
+      </div>
 
-    </div>
-
-  </article>
-
+    </article>
   `
 }
 
@@ -120,21 +125,17 @@ function renderizarProdutos(categoria = "Todos") {
   let lista = produtos
 
   if (categoria !== "Todos") {
-    lista = produtos.filter((p) => p.category === categoria)
+    lista = produtos.filter(p => p.category === categoria)
   }
 
   grid.innerHTML = ""
 
   if (!lista.length) {
-
-    grid.innerHTML = `
-    <div class="sem-produtos">
-      Nenhum produto disponível nesta categoria.
-    </div>
-    `
+    empty.classList.remove("hidden")
     return
-
   }
+
+  empty.classList.add("hidden")
 
   grid.innerHTML = lista.map(criarCard).join("")
 
@@ -142,7 +143,7 @@ function renderizarProdutos(categoria = "Todos") {
 
 renderizarCategorias()
 
-renderizarProdutos("Todos")
+renderizarProdutos()
 ```
 
 }
@@ -152,17 +153,9 @@ catch (erro) {
 ```
 console.error(erro)
 
-const grid = document.getElementById("produtos")
+loading.style.display = "none"
 
-if (grid) {
-
-  grid.innerHTML = `
-  <div class="sem-produtos">
-    Não foi possível carregar os produtos.
-  </div>
-  `
-
-}
+empty.classList.remove("hidden")
 ```
 
 }
