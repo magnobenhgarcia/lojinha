@@ -16,14 +16,19 @@ if (!resposta.ok) {
 
 const produtos = await resposta.json()
 
-loading.style.display = "none"
+// esconder loading
+if (loading) {
+  loading.style.display = "none"
+}
 
-if (!produtos || !produtos.length) {
-  empty.classList.remove("hidden")
+if (!produtos || produtos.length === 0) {
+  if (empty) {
+    empty.classList.remove("hidden")
+  }
   return
 }
 
-// ordenar produtos
+// ordenar
 produtos.sort((a, b) => (a.order || 0) - (b.order || 0))
 
 // extrair categorias
@@ -37,6 +42,8 @@ const categorias = [
 ]
 
 function renderizarCategorias() {
+
+  if (!categoriasContainer) return
 
   categoriasContainer.innerHTML = ""
 
@@ -131,18 +138,21 @@ function renderizarProdutos(categoria = "Todos") {
   grid.innerHTML = ""
 
   if (!lista.length) {
-    empty.classList.remove("hidden")
+    if (empty) {
+      empty.classList.remove("hidden")
+    }
     return
   }
 
-  empty.classList.add("hidden")
+  if (empty) {
+    empty.classList.add("hidden")
+  }
 
   grid.innerHTML = lista.map(criarCard).join("")
 
 }
 
 renderizarCategorias()
-
 renderizarProdutos()
 ```
 
@@ -153,9 +163,13 @@ catch (erro) {
 ```
 console.error(erro)
 
-loading.style.display = "none"
+if (loading) {
+  loading.style.display = "none"
+}
 
-empty.classList.remove("hidden")
+if (empty) {
+  empty.classList.remove("hidden")
+}
 ```
 
 }
