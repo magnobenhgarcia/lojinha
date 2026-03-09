@@ -99,15 +99,14 @@ object-fit:contain;
 display:block;
 margin:10px auto 8px auto;
 }
+
 /* SELO AFILIADO */
 
 .selo{
 position:absolute;
-top:12px;
-right:12px;
-width:86px;
-height:auto;
-display:block;
+top:14px;
+right:14px;
+width:90px;
 transform:rotate(8deg);
 }
 
