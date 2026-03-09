@@ -18,17 +18,11 @@ if (!produtos.length) {
   return;
 }
 
-// ordenar produtos
 produtos.sort((a, b) => (a.order || 0) - (b.order || 0));
 
-// categorias únicas
 const categorias = [
   "Todos",
-  ...new Set(
-    produtos
-      .map(p => p.category)
-      .filter(Boolean)
-  )
+  ...new Set(produtos.map(p => p.category).filter(Boolean))
 ];
 
 function renderizarCategorias() {
@@ -38,7 +32,6 @@ function renderizarCategorias() {
   categorias.forEach((categoria, index) => {
 
     const btn = document.createElement("button");
-
     btn.textContent = categoria;
     btn.className = "categoria-btn";
 
@@ -64,48 +57,54 @@ function renderizarCategorias() {
 function criarCard(produto) {
 
   return `
-  <article class="card">
+```
 
-    <div class="card-image-wrap">
+<article class="card">
 
-      <img
-        src="${produto.image_url}"
-        class="produto-img"
-        alt="${produto.title}"
-        loading="lazy"
-      >
+<div class="card-image-wrap">
 
-      <img
-        src="./img/selo_afiliado_mercado_livre.png"
-        class="selo-card"
-        alt="Afiliado Mercado Livre"
-      >
+<img
+src="${produto.image_url}"
+class="produto-img"
+alt="${produto.title}"
+loading="lazy"
 
-    </div>
+>
 
-    <div class="card-content">
+<img
+src="./img/selo_afiliado_mercado_livre.png"
+class="selo-card"
+alt="Afiliado Mercado Livre"
 
-      <h3 class="card-title">${produto.title}</h3>
+>
 
-      <p class="card-price">${produto.price}</p>
+</div>
 
-      <p class="card-description">${produto.description || ""}</p>
+<div class="card-content">
 
-      <a
-        href="${produto.affiliate_url}"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="card-button"
-      >
-        Aproveite o desconto
-      </a>
+<h3 class="card-title">${produto.title}</h3>
 
-    </div>
+<p class="card-price">${produto.price}</p>
 
-  </article>
-  `;
-}
+<p class="card-description">${produto.description || ""}</p>
 
+<a
+href="${produto.affiliate_url}"
+target="_blank"
+rel="noopener noreferrer"
+class="card-button"
+
+>
+
+Aproveite o desconto </a>
+
+</div>
+
+</article>
+`;
+    }
+
+```
 function renderizarProdutos(categoria = "Todos") {
 
   let lista = produtos;
