@@ -101,6 +101,9 @@ class="card-button">
 Ver oferta no Mercado Livre →
 
 </a>
+<div class="card-safe">
+Abrirá no site oficial do Mercado Livre
+</div>
 
 </div>
 
