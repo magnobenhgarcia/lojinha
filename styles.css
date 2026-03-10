@@ -116,10 +116,43 @@ color:#222;
   height:100%;
 }
 
-.carousel-track {
-  display: flex;
-  gap: 16px;
-  overflow: hidden;
+.kits-carousel{
+position:relative;
+display:flex;
+align-items:center;
+}
+
+.carousel-prev,
+.carousel-next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+z-index:5;
+width:34px;
+height:34px;
+border-radius:50%;
+background:white;
+box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+
+.carousel-prev{
+left:-10px;
+}
+
+.carousel-next{
+right:-10px;
+}
+
+.carousel-track{
+display:flex;
+gap:16px;
+overflow-x:auto;
+scroll-behavior:smooth;
+scrollbar-width:none;
+}
+
+.carousel-track::-webkit-scrollbar{
+display:none;
 }
 
 /* KIT CARD */
