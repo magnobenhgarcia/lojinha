@@ -40,8 +40,10 @@
           "image_url": "",
           "affiliate_url": ""
         }
+      ]
+    },
 
-        {
+    {
       "title": "Kit Barulho Controlado",
       "items": [
         {
@@ -58,5 +60,6 @@
         }
       ]
     }
+
   ]
 }
