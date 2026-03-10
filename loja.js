@@ -157,6 +157,7 @@ renderHero(dados.hero);
 
 if(dados.kits){
 renderKits(dados.kits);
+iniciarCarrossel();
 }
 
 }
@@ -166,6 +167,36 @@ catch(erro){
 console.error("Erro ao carregar destaques:", erro);
 
 }
+
+}
+
+function iniciarCarrossel(){
+
+const track = document.querySelector(".carousel-track");
+const prev = document.querySelector(".carousel-prev");
+const next = document.querySelector(".carousel-next");
+
+if(!track || !prev || !next) return;
+
+const cardWidth = 276; // largura do card + gap
+
+prev.addEventListener("click", () => {
+
+track.scrollBy({
+left: -cardWidth,
+behavior: "smooth"
+});
+
+});
+
+next.addEventListener("click", () => {
+
+track.scrollBy({
+left: cardWidth,
+behavior: "smooth"
+});
+
+});
 
 }
 
