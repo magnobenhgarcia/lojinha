@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "title": "Violão recomendado para iniciantes",
+    "description": "Um violão equilibrado, confortável e com ótimo custo-benefício para quem está começando.",
+    "image_url": "",
+    "affiliate_url": ""
+  },
+
+  "kits": [
+    {
+      "title": "Kit iniciante essencial",
+      "items": [
+        {
+          "image_url": "",
+          "affiliate_url": ""
+        },
+        {
+          "image_url": "",
+          "affiliate_url": ""
+        },
+        {
+          "image_url": "",
+          "affiliate_url": ""
+        }
+      ]
+    },
+
+    {
+      "title": "Kit básico para estudo",
+      "items": [
+        {
+          "image_url": "",
+          "affiliate_url": ""
+        },
+        {
+          "image_url": "",
+          "affiliate_url": ""
+        },
+        {
+          "image_url": "",
+          "affiliate_url": ""
+        }
+      ]
+    }
+  ]
+}
