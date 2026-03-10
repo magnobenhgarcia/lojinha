@@ -70,7 +70,7 @@ margin:40px auto;
 display:grid;
 grid-template-columns:420px 1fr;
 gap:30px;
-align-items:start;
+align-items:center;
 }
 
 
@@ -113,6 +113,7 @@ color:#222;
   position: relative;
   display: flex;
   align-items: center;
+  height:100%;
 }
 
 .carousel-track {
