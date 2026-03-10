@@ -176,14 +176,15 @@ const track = document.querySelector(".carousel-track");
 const prev = document.querySelector(".carousel-prev");
 const next = document.querySelector(".carousel-next");
 
-if(!track || !prev || !next) return;
-
-const cardWidth = 276; // largura do card + gap
+if(!track || !prev || !next){
+console.log("Carrossel não encontrado");
+return;
+}
 
 prev.addEventListener("click", () => {
 
 track.scrollBy({
-left: -cardWidth,
+left: -300,
 behavior: "smooth"
 });
 
@@ -192,7 +193,7 @@ behavior: "smooth"
 next.addEventListener("click", () => {
 
 track.scrollBy({
-left: cardWidth,
+left: 300,
 behavior: "smooth"
 });
 
