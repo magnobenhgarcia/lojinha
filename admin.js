@@ -1,4 +1,11 @@
 let produtos = JSON.parse(localStorage.getItem("produtos_admin")) || [];
+let destaques = JSON.parse(localStorage.getItem("destaques_admin")) || {
+hero:{},
+kits:[]
+};
+function salvarDestaquesLocal(){
+localStorage.setItem("destaques_admin", JSON.stringify(destaques));
+}
 
 let editandoIndex = null;
 
@@ -513,6 +520,189 @@ msg.remove();
 
 }
 
+function salvarHero(){
+
+destaques.hero = {
+
+title: document.getElementById("heroTitle").value,
+description: document.getElementById("heroDescription").value,
+image_url: document.getElementById("heroImage").value,
+affiliate_url: document.getElementById("heroLink").value
+
+};
+
+salvarDestaquesLocal();
+
+mostrarMensagem("Hero salvo ✔");
+
+}
+
 
 
 renderizarProdutos();
+
+/* ============================
+   HERO + KITS (ADMIN)
+============================ */
+
+let destaques = JSON.parse(localStorage.getItem("destaques_admin")) || {
+hero:{},
+kits:[]
+};
+
+function salvarDestaquesLocal(){
+localStorage.setItem("destaques_admin", JSON.stringify(destaques));
+}
+
+/* HERO */
+
+function salvarHero(){
+
+destaques.hero = {
+
+title: document.getElementById("heroTitle").value,
+description: document.getElementById("heroDescription").value,
+image_url: document.getElementById("heroImage").value,
+affiliate_url: document.getElementById("heroLink").value
+
+};
+
+salvarDestaquesLocal();
+
+mostrarMensagem("Hero salvo ✔");
+
+}
+
+/* KITS */
+
+function novoKit(){
+
+destaques.kits.push({
+title:"Novo Kit",
+items:[]
+});
+
+salvarDestaquesLocal();
+renderizarKitsAdmin();
+
+}
+
+function renderizarKitsAdmin(){
+
+const container = document.getElementById("listaKits");
+
+if(!container) return;
+
+container.innerHTML="";
+
+destaques.kits.forEach((kit,kitIndex)=>{
+
+const div = document.createElement("div");
+
+div.style.background="white";
+div.style.color="#222";
+div.style.padding="16px";
+div.style.borderRadius="12px";
+div.style.marginBottom="16px";
+
+let itemsHTML="";
+
+kit.items.forEach((item,index)=>{
+
+const produto = produtos[item];
+
+if(!produto) return;
+
+itemsHTML += `
+
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+
+<img src="${produto.image_url}" style="width:40px;height:40px">
+
+<span>${produto.title}</span>
+
+<button onclick="removerItemKit(${kitIndex},${index})">
+❌
+</button>
+
+</div>
+
+`;
+
+});
+
+div.innerHTML = `
+
+<input
+value="${kit.title}"
+onchange="alterarTituloKit(${kitIndex},this.value)"
+style="width:100%;margin-bottom:10px">
+
+<div>${itemsHTML}</div>
+
+<select onchange="addItemKit(${kitIndex},this.value)">
+<option value="">Adicionar produto</option>
+
+${produtos.map((p,i)=>`<option value="${i}">${p.title}</option>`).join("")}
+
+</select>
+
+<br><br>
+
+<button onclick="removerKit(${kitIndex})">
+Remover kit
+</button>
+
+`;
+
+container.appendChild(div);
+
+});
+
+}
+
+function alterarTituloKit(index,titulo){
+
+destaques.kits[index].title = titulo;
+
+salvarDestaquesLocal();
+
+}
+
+function addItemKit(kitIndex,produtoIndex){
+
+if(produtoIndex==="") return;
+
+destaques.kits[kitIndex].items.push(parseInt(produtoIndex));
+
+salvarDestaquesLocal();
+
+renderizarKitsAdmin();
+
+}
+
+function removerItemKit(kitIndex,itemIndex){
+
+destaques.kits[kitIndex].items.splice(itemIndex,1);
+
+salvarDestaquesLocal();
+
+renderizarKitsAdmin();
+
+}
+
+function removerKit(index){
+
+if(!confirm("Excluir kit?")) return;
+
+destaques.kits.splice(index,1);
+
+salvarDestaquesLocal();
+
+renderizarKitsAdmin();
+
+}
+
+/* iniciar render */
+
+renderizarKitsAdmin();
