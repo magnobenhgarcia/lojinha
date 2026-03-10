@@ -114,6 +114,7 @@ color:#222;
   display: flex;
   align-items: center;
   height:100%;
+  overflow:hidden;
 }
 
 .kits-carousel{
@@ -164,12 +165,16 @@ display:none;
 
 /* KIT CARD */
 
-.kit-card {
-  background: white;
-  padding: 16px;
-  border-radius: 12px;
-  width:260px; flex-shrink:0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+.kit-card{
+background:white;
+padding:16px;
+border-radius:12px;
+width:260px;
+flex-shrink:0;
+display:flex;
+flex-direction:column;
+justify-content:flex-start;
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 
 .kit-items {
