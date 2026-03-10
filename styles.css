@@ -172,17 +172,17 @@ min-height:40px;
 display:block;
 background:#ffe600;
 color:black;
-padding:12px;
+padding:13px 18px;
 border-radius:10px;
 font-weight:bold;
 text-decoration:none;
-margin-top:12px;
+margin-top:10px;
 transition:all .2s ease;
 }
 
 .card-button:hover{
 background:#ffd000;
-transform:scale(1.03);
+transform:scale(1.05);
 }
 
 .card-safe{
