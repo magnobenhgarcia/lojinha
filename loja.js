@@ -139,5 +139,117 @@ empty.classList.remove("hidden");
 }
 
 }
+async function carregarDestaques() {
 
-document.addEventListener("DOMContentLoaded", carregarProdutos);
+try {
+
+const resposta = await fetch("data/destaques.json");
+
+if(!resposta.ok){
+throw new Error("Erro ao carregar destaques");
+}
+
+const dados = await resposta.json();
+
+if(dados.hero){
+renderHero(dados.hero);
+}
+
+if(dados.kits){
+renderKits(dados.kits);
+}
+
+}
+
+catch(erro){
+
+console.error("Erro ao carregar destaques:", erro);
+
+}
+
+}
+
+function renderHero(hero){
+
+const heroCard = document.querySelector(".hero-card");
+
+if(!heroCard) return;
+
+heroCard.innerHTML = `
+<img src="${hero.image_url}" class="hero-image" alt="${hero.title}">
+
+<div class="hero-content">
+
+<h2>🎸 ${hero.title}</h2>
+
+<p>${hero.description}</p>
+
+<a
+href="${hero.affiliate_url}"
+target="_blank"
+class="hero-button">
+
+Ver oferta no Mercado Livre →
+
+</a>
+
+</div>
+`;
+
+}
+
+function renderKits(kits){
+
+const track = document.querySelector(".carousel-track");
+
+if(!track) return;
+
+track.innerHTML = "";
+
+kits.forEach(kit => {
+
+let itensHTML = "";
+
+kit.items.forEach(item => {
+
+itensHTML += `
+<div class="kit-item">
+
+<img src="${item.image_url}">
+
+<a
+href="${item.affiliate_url}"
+target="_blank">
+
+Ver oferta
+
+</a>
+
+</div>
+`;
+
+});
+
+track.innerHTML += `
+<div class="kit-card">
+
+<h3>${kit.title}</h3>
+
+<div class="kit-items">
+${itensHTML}
+</div>
+
+</div>
+`;
+
+});
+
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+carregarProdutos();
+carregarDestaques();
+
+});
