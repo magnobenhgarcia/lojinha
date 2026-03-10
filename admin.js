@@ -253,13 +253,45 @@ ${produto.price}
 
 <p>${produto.description}</p>
 
-<div style="margin-top:20px;display:flex;gap:10px;justify-content:center">
+<div style="
+margin-top:20px;
+display:flex;
+gap:12px;
+justify-content:center;
+">
 
-<button onclick="this.closest('.previewModal').remove()">Cancelar</button>
-
-<button onclick="confirmarPreview('${produto.title}','${produto.price}','${produto.image}','${produto.description}')">
-Confirmar e usar
+<button
+style="
+padding:10px 16px;
+border-radius:8px;
+border:none;
+background:#777;
+color:white;
+cursor:pointer;
+font-weight:bold;
+"
+onclick="this.closest('.previewModal').remove()"
+>
+Cancelar
 </button>
+
+<button
+style="
+padding:10px 18px;
+border-radius:8px;
+border:none;
+background:#ffe600;
+color:black;
+cursor:pointer;
+font-weight:bold;
+font-size:14px;
+"
+onclick="confirmarPreview('${produto.title}','${produto.price}','${produto.image}','${produto.description}')"
+>
+✔ Confirmar e usar
+</button>
+
+</div>
 
 </div>
 
