@@ -439,12 +439,11 @@ localStorage.setItem("github_token", token);
 const owner = "magnobenhgarcia";
 const repo = "lojinha";
 
-const json = gerarJSON();
-const produtos = JSON.parse(json);
-
 for(const produto of produtos){
 
-if(produto.html){
+const html = produto.product_html_snapshot;
+
+if(html){
 
 const path = `html/produto_${produto.order}.html`;
 
@@ -453,24 +452,37 @@ token,
 owner,
 repo,
 path,
-produto.html,
+html,
 `update produto ${produto.order}`
 );
 
 produto.html_file = path;
 
-delete produto.html;
-
 }
 
 }
+
+/* gerar JSON leve */
+
+const lista = produtos.map(p=>({
+
+title: p.title,
+description: p.description,
+price: p.price,
+image_url: p.image_url,
+affiliate_url: p.affiliate_url,
+category: p.category,
+order: p.order,
+html_file: p.html_file
+
+}));
 
 await salvarArquivoGithub(
 token,
 owner,
 repo,
 "data/produtos.json",
-JSON.stringify(produtos,null,2),
+JSON.stringify(lista,null,2),
 "update produtos"
 );
 
