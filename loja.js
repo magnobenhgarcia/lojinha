@@ -5,6 +5,9 @@ const categoriasContainer = document.getElementById("categorias");
 const loading = document.getElementById("loading");
 const empty = document.getElementById("empty");
 
+if(loading) loading.style.display="none";
+if(empty) empty.style.display="block";
+
 try {
 
 const resposta = await fetch("data/produtos.json");
