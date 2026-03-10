@@ -1,15 +1,6 @@
 let produtos = JSON.parse(localStorage.getItem("produtos_admin")) || [];
-let destaques = JSON.parse(localStorage.getItem("destaques_admin")) || {
-hero:{},
-kits:[]
-};
-function salvarDestaquesLocal(){
-localStorage.setItem("destaques_admin", JSON.stringify(destaques));
-}
 
 let editandoIndex = null;
-
-
 
 function salvarLocal(){
 localStorage.setItem("produtos_admin", JSON.stringify(produtos));
@@ -28,7 +19,6 @@ categorias.forEach(cat =>{
 const option = document.createElement("option");
 
 option.value = cat;
-
 option.textContent = cat;
 
 select.appendChild(option);
@@ -36,8 +26,6 @@ select.appendChild(option);
 });
 
 }
-
-
 
 function renderizarProdutos(){
 
@@ -80,11 +68,9 @@ lista.appendChild(item);
 
 });
 
-  atualizarCategorias();
+atualizarCategorias();
 
 }
-
-
 
 function abrirModal(){
 
@@ -98,13 +84,9 @@ document.getElementById("ordem").value = produtos.length + 1;
 
 }
 
-
-
 function fecharModal(){
 document.getElementById("modalProduto").style.display = "none";
 }
-
-
 
 function limparCampos(){
 
@@ -115,12 +97,11 @@ document.getElementById("htmlProduto").value = "";
 document.getElementById("linkAfiliado").value = "";
 document.getElementById("preco").value = "";
 document.getElementById("imagem").value = "";
-document.getElementById("categoria").value = "";
 document.getElementById("ordem").value = "";
+document.getElementById("categoriaInput").value = "";
+document.getElementById("categoriaSelect").value = "";
 
 }
-
-
 
 function salvarProduto(){
 
@@ -162,13 +143,9 @@ product_html_snapshot: document.getElementById("htmlProduto").value
 };
 
 if(editandoIndex === null){
-
 produtos.push(produto);
-
 }else{
-
 produtos[editandoIndex] = produto;
-
 }
 
 salvarLocal();
@@ -176,8 +153,6 @@ renderizarProdutos();
 fecharModal();
 
 }
-
-
 
 function editarProduto(index){
 
@@ -195,11 +170,10 @@ document.getElementById("linkAfiliado").value = p.affiliate_url;
 document.getElementById("preco").value = p.price;
 document.getElementById("imagem").value = p.image_url;
 document.getElementById("categoriaInput").value = p.category;
+document.getElementById("categoriaSelect").value = "";
 document.getElementById("ordem").value = p.order;
 
 }
-
-
 
 function excluirProduto(index){
 
@@ -208,12 +182,9 @@ if(!confirm("Excluir produto?")) return;
 produtos.splice(index,1);
 
 salvarLocal();
-
 renderizarProdutos();
 
 }
-
-
 
 function formatarPreco(valor){
 
@@ -229,20 +200,15 @@ return "R$ " + numero.replace(".",",");
 
 }
 
-
-
 function extrairDados(){
 
 const html = document.getElementById("htmlProduto").value;
 
 const titleMatch = html.match(/<meta property="og:title" content="([^"]+)"/);
-
 const imageMatch = html.match(/<meta property="og:image" content="([^"]+)"/);
 
 let title = titleMatch ? titleMatch[1] : "";
-
 let image = imageMatch ? imageMatch[1] : "";
-
 let price = "";
 
 const priceMatch = title.match(/R\$\s?[\d\.,]+/);
@@ -250,7 +216,6 @@ const priceMatch = title.match(/R\$\s?[\d\.,]+/);
 if(priceMatch){
 
 price = formatarPreco(priceMatch[0]);
-
 title = title.replace(/-?\s?R\$\s?[\d\.,]+/,"").trim();
 
 }
@@ -265,8 +230,6 @@ description: title.substring(0,60)
 mostrarPreview(produtoPreview);
 
 }
-
-
 
 function mostrarPreview(produto){
 
@@ -347,8 +310,6 @@ onclick="confirmarPreview('${produto.title}','${produto.price}','${produto.image
 
 </div>
 
-</div>
-
 `;
 
 modal.className = "previewModal";
@@ -357,23 +318,16 @@ document.body.appendChild(modal);
 
 }
 
-
-
 function confirmarPreview(title,price,image,description){
 
 document.getElementById("titulo").value = title;
-
 document.getElementById("preco").value = price;
-
 document.getElementById("imagem").value = image;
-
 document.getElementById("descricao").value = description;
 
 document.querySelector(".previewModal").remove();
 
 }
-
-
 
 function atualizarPrecos(){
 
@@ -382,7 +336,6 @@ produtos.forEach(p=>{
 const html = p.product_html_snapshot;
 
 const titleMatch = html.match(/<meta property="og:title" content="([^"]+)"/);
-
 const imageMatch = html.match(/<meta property="og:image" content="([^"]+)"/);
 
 if(titleMatch){
@@ -394,9 +347,7 @@ const priceMatch = title.match(/R\$\s?[\d\.,]+/);
 if(priceMatch){
 
 p.price = formatarPreco(priceMatch[0]);
-
 title = title.replace(/-?\s?R\$\s?[\d\.,]+/,"").trim();
-
 p.title = title;
 
 }
@@ -404,22 +355,17 @@ p.title = title;
 }
 
 if(imageMatch){
-
 p.image_url = imageMatch[1];
-
 }
 
 });
 
 salvarLocal();
-
 renderizarProdutos();
 
 alert("Preços atualizados");
 
 }
-
-
 
 function gerarJSON(){
 
@@ -439,8 +385,6 @@ return JSON.stringify(lista,null,2);
 
 }
 
-
-
 async function salvarGithub(){
 
 let token = localStorage.getItem("github_token");
@@ -456,7 +400,6 @@ localStorage.setItem("github_token", token);
 }
 
 const json = gerarJSON();
-
 const content = btoa(unescape(encodeURIComponent(json)));
 
 const owner = "magnobenhgarcia";
@@ -466,9 +409,7 @@ const path = "data/produtos.json";
 const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
 const get = await fetch(url);
-
 const data = await get.json();
-
 const sha = data.sha;
 
 await fetch(url,{
@@ -495,7 +436,6 @@ mostrarMensagem("Produtos salvos no GitHub ✔");
 
 }
 
-
 function mostrarMensagem(texto){
 
 const msg = document.createElement("div");
@@ -520,189 +460,4 @@ msg.remove();
 
 }
 
-function salvarHero(){
-
-destaques.hero = {
-
-title: document.getElementById("heroTitle").value,
-description: document.getElementById("heroDescription").value,
-image_url: document.getElementById("heroImage").value,
-affiliate_url: document.getElementById("heroLink").value
-
-};
-
-salvarDestaquesLocal();
-
-mostrarMensagem("Hero salvo ✔");
-
-}
-
-
-
 renderizarProdutos();
-
-/* ============================
-   HERO + KITS (ADMIN)
-============================ */
-
-let destaques = JSON.parse(localStorage.getItem("destaques_admin")) || {
-hero:{},
-kits:[]
-};
-
-function salvarDestaquesLocal(){
-localStorage.setItem("destaques_admin", JSON.stringify(destaques));
-}
-
-/* HERO */
-
-function salvarHero(){
-
-destaques.hero = {
-
-title: document.getElementById("heroTitle").value,
-description: document.getElementById("heroDescription").value,
-image_url: document.getElementById("heroImage").value,
-affiliate_url: document.getElementById("heroLink").value
-
-};
-
-salvarDestaquesLocal();
-
-mostrarMensagem("Hero salvo ✔");
-
-}
-
-/* KITS */
-
-function novoKit(){
-
-destaques.kits.push({
-title:"Novo Kit",
-items:[]
-});
-
-salvarDestaquesLocal();
-renderizarKitsAdmin();
-
-}
-
-function renderizarKitsAdmin(){
-
-const container = document.getElementById("listaKits");
-
-if(!container) return;
-
-container.innerHTML="";
-
-destaques.kits.forEach((kit,kitIndex)=>{
-
-const div = document.createElement("div");
-
-div.style.background="white";
-div.style.color="#222";
-div.style.padding="16px";
-div.style.borderRadius="12px";
-div.style.marginBottom="16px";
-
-let itemsHTML="";
-
-kit.items.forEach((item,index)=>{
-
-const produto = produtos[item];
-
-if(!produto) return;
-
-itemsHTML += `
-
-<div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
-
-<img src="${produto.image_url}" style="width:40px;height:40px">
-
-<span>${produto.title}</span>
-
-<button onclick="removerItemKit(${kitIndex},${index})">
-❌
-</button>
-
-</div>
-
-`;
-
-});
-
-div.innerHTML = `
-
-<input
-value="${kit.title}"
-onchange="alterarTituloKit(${kitIndex},this.value)"
-style="width:100%;margin-bottom:10px">
-
-<div>${itemsHTML}</div>
-
-<select onchange="addItemKit(${kitIndex},this.value)">
-<option value="">Adicionar produto</option>
-
-${produtos.map((p,i)=>`<option value="${i}">${p.title}</option>`).join("")}
-
-</select>
-
-<br><br>
-
-<button onclick="removerKit(${kitIndex})">
-Remover kit
-</button>
-
-`;
-
-container.appendChild(div);
-
-});
-
-}
-
-function alterarTituloKit(index,titulo){
-
-destaques.kits[index].title = titulo;
-
-salvarDestaquesLocal();
-
-}
-
-function addItemKit(kitIndex,produtoIndex){
-
-if(produtoIndex==="") return;
-
-destaques.kits[kitIndex].items.push(parseInt(produtoIndex));
-
-salvarDestaquesLocal();
-
-renderizarKitsAdmin();
-
-}
-
-function removerItemKit(kitIndex,itemIndex){
-
-destaques.kits[kitIndex].items.splice(itemIndex,1);
-
-salvarDestaquesLocal();
-
-renderizarKitsAdmin();
-
-}
-
-function removerKit(index){
-
-if(!confirm("Excluir kit?")) return;
-
-destaques.kits.splice(index,1);
-
-salvarDestaquesLocal();
-
-renderizarKitsAdmin();
-
-}
-
-/* iniciar render */
-
-renderizarKitsAdmin();
