@@ -61,16 +61,18 @@ color:black;
 
 /* CARROSSEL DE DESTAQUES */
 
-.destaques {
-  padding: 40px 20px;
+.destaques{
+max-width:1100px;
+margin:40px auto;
 }
 
-.destaques-container {
-  display: grid;
-  grid-template-columns: 1.5fr 2fr;
-  gap: 24px;
-  align-items: stretch;
+.destaques-container{
+display:grid;
+grid-template-columns:520px 1fr;
+gap:24px;
+align-items:start;
 }
+
 
 /* HERO */
 
@@ -79,6 +81,10 @@ color:black;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.hero-card{
+color:#222;
 }
 
 .hero-image {
@@ -121,7 +127,7 @@ color:black;
   background: white;
   padding: 16px;
   border-radius: 12px;
-  min-width: 220px;
+  width:220px; flex-shrink:0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
