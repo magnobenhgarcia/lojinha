@@ -460,4 +460,123 @@ msg.remove();
 
 }
 
+let destaques = JSON.parse(localStorage.getItem("destaques_admin")) || {
+hero:null,
+kits:[]
+};
+
+function salvarDestaquesLocal(){
+localStorage.setItem("destaques_admin", JSON.stringify(destaques));
+}
+
+/* HERO */
+
+function abrirHero(){
+
+document.getElementById("modalHero").style.display="flex";
+
+const select=document.getElementById("heroProduto");
+
+select.innerHTML="";
+
+produtos.forEach((p,i)=>{
+
+const option=document.createElement("option");
+
+option.value=i;
+
+option.textContent=p.title;
+
+select.appendChild(option);
+
+});
+
+}
+
+function fecharHero(){
+document.getElementById("modalHero").style.display="none";
+}
+
+function salvarHero(){
+
+destaques.hero={
+produto:document.getElementById("heroProduto").value,
+title:document.getElementById("heroTitulo").value,
+description:document.getElementById("heroDescricao").value,
+cta:document.getElementById("heroCTA").value
+};
+
+salvarDestaquesLocal();
+
+fecharHero();
+
+alert("Hero salvo");
+}
+
+/* KITS */
+
+function abrirKits(){
+
+document.getElementById("modalKits").style.display="flex";
+
+document.getElementById("kitProdutos").innerHTML="";
+
+adicionarProdutoKit();
+
+}
+
+function fecharKits(){
+document.getElementById("modalKits").style.display="none";
+}
+
+function adicionarProdutoKit(){
+
+const container=document.getElementById("kitProdutos");
+
+const select=document.createElement("select");
+
+produtos.forEach((p,i)=>{
+
+const option=document.createElement("option");
+
+option.value=i;
+
+option.textContent=p.title;
+
+select.appendChild(option);
+
+});
+
+container.appendChild(select);
+
+}
+
+function salvarKit(){
+
+const selects=document.querySelectorAll("#kitProdutos select");
+
+const items=[...selects].map(s=>Number(s.value));
+
+const kit={
+
+title:document.getElementById("kitTitulo").value,
+
+description:document.getElementById("kitDescricao").value,
+
+cta:document.getElementById("kitCTA").value,
+
+items:items
+
+};
+
+destaques.kits.push(kit);
+
+salvarDestaquesLocal();
+
+fecharKits();
+
+alert("Kit salvo");
+
+}
+
 renderizarProdutos();
