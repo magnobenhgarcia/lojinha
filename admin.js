@@ -436,38 +436,43 @@ localStorage.setItem("github_token", token);
 
 }
 
-const json = gerarJSON();
-const content = btoa(unescape(encodeURIComponent(json)));
-
 const owner = "magnobenhgarcia";
 const repo = "lojinha";
-const path = "data/produtos.json";
 
-const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+const json = gerarJSON();
+const produtos = JSON.parse(json);
 
-const get = await fetch(url);
-const data = await get.json();
-const sha = data.sha;
+for(const produto of produtos){
 
-await fetch(url,{
+if(produto.html){
 
-method:"PUT",
+const path = `html/produto_${produto.order}.html`;
 
-headers:{
-Authorization:`Bearer ${token}`,
-"Content-Type":"application/json"
-},
+await salvarArquivoGithub(
+token,
+owner,
+repo,
+path,
+produto.html,
+`update produto ${produto.order}`
+);
 
-body: JSON.stringify({
+produto.html_file = path;
 
-message:"update produtos",
-content:content,
-sha:sha,
-branch:"main"
+delete produto.html;
 
-})
+}
 
-});
+}
+
+await salvarArquivoGithub(
+token,
+owner,
+repo,
+"data/produtos.json",
+JSON.stringify(produtos,null,2),
+"update produtos"
+);
 
 mostrarMensagem("Produtos salvos no GitHub ✔");
 
