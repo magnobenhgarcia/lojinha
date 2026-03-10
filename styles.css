@@ -69,6 +69,7 @@ gap:70px;
 max-width:1100px;
 margin:70px auto;
 padding:0 20px;
+align-items:start;
 }
 
 /* CARD PRODUTO */
@@ -182,4 +183,24 @@ transition:all .2s ease;
 .card-button:hover{
 background:#ffd000;
 transform:scale(1.03);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.grid{
+grid-template-columns:repeat(2,260px);
+gap:40px;
+}
+
+}
+
+@media(max-width:600px){
+
+.grid{
+grid-template-columns:1fr;
+justify-items:center;
+}
+
 }
