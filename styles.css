@@ -63,10 +63,10 @@ color:black;
 
 .grid{
 display:grid;
-grid-template-columns:repeat(2,260px);
+grid-template-columns:repeat(3,260px);
 justify-content:center;
 gap:70px;
-max-width:900px;
+max-width:1100px;
 margin:70px auto;
 padding:0 20px;
 }
