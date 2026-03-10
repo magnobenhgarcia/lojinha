@@ -2,9 +2,13 @@ let produtos = JSON.parse(localStorage.getItem("produtos_admin")) || [];
 
 let editandoIndex = null;
 
+
+
 function salvarLocal(){
 localStorage.setItem("produtos_admin", JSON.stringify(produtos));
 }
+
+
 
 function renderizarProdutos(){
 
@@ -49,6 +53,8 @@ lista.appendChild(item);
 
 }
 
+
+
 function abrirModal(){
 
 editandoIndex = null;
@@ -61,9 +67,13 @@ document.getElementById("ordem").value = produtos.length + 1;
 
 }
 
+
+
 function fecharModal(){
 document.getElementById("modalProduto").style.display = "none";
 }
+
+
 
 function limparCampos(){
 
@@ -78,6 +88,8 @@ document.getElementById("categoria").value = "";
 document.getElementById("ordem").value = "";
 
 }
+
+
 
 function salvarProduto(){
 
@@ -113,6 +125,8 @@ fecharModal();
 
 }
 
+
+
 function editarProduto(index){
 
 const p = produtos[index];
@@ -133,6 +147,8 @@ document.getElementById("ordem").value = p.order;
 
 }
 
+
+
 function excluirProduto(index){
 
 if(!confirm("Excluir produto?")) return;
@@ -144,6 +160,8 @@ salvarLocal();
 renderizarProdutos();
 
 }
+
+
 
 function formatarPreco(valor){
 
@@ -158,6 +176,8 @@ numero = Number(numero).toFixed(2);
 return "R$ " + numero.replace(".",",");
 
 }
+
+
 
 function extrairDados(){
 
@@ -183,15 +203,93 @@ title = title.replace(/-?\s?R\$\s?[\d\.,]+/,"").trim();
 
 }
 
+const produtoPreview = {
+title,
+price,
+image,
+description: title.substring(0,60)
+};
+
+mostrarPreview(produtoPreview);
+
+}
+
+
+
+function mostrarPreview(produto){
+
+const modal = document.createElement("div");
+
+modal.style.position = "fixed";
+modal.style.top = "0";
+modal.style.left = "0";
+modal.style.width = "100%";
+modal.style.height = "100%";
+modal.style.background = "rgba(0,0,0,0.8)";
+modal.style.display = "flex";
+modal.style.alignItems = "center";
+modal.style.justifyContent = "center";
+
+modal.innerHTML = `
+
+<div style="
+background:#2a0f4a;
+padding:30px;
+border-radius:16px;
+max-width:400px;
+text-align:center;
+color:white;
+">
+
+<h2>🔎 Confirme o Produto</h2>
+
+<img src="${produto.image}" style="width:100%;border-radius:10px;margin-bottom:10px;">
+
+<h3>${produto.title}</h3>
+
+<p style="color:#00e676;font-size:20px;font-weight:bold">
+${produto.price}
+</p>
+
+<p>${produto.description}</p>
+
+<div style="margin-top:20px;display:flex;gap:10px;justify-content:center">
+
+<button onclick="this.closest('.previewModal').remove()">Cancelar</button>
+
+<button onclick="confirmarPreview('${produto.title}','${produto.price}','${produto.image}','${produto.description}')">
+Confirmar e usar
+</button>
+
+</div>
+
+</div>
+
+`;
+
+modal.className = "previewModal";
+
+document.body.appendChild(modal);
+
+}
+
+
+
+function confirmarPreview(title,price,image,description){
+
 document.getElementById("titulo").value = title;
 
 document.getElementById("preco").value = price;
 
 document.getElementById("imagem").value = image;
 
-document.getElementById("descricao").value = title.substring(0,60);
+document.getElementById("descricao").value = description;
+
+document.querySelector(".previewModal").remove();
 
 }
+
+
 
 function atualizarPrecos(){
 
@@ -237,6 +335,8 @@ alert("Preços atualizados");
 
 }
 
+
+
 function gerarJSON(){
 
 const lista = produtos.map(p=>({
@@ -254,6 +354,8 @@ order: p.order
 return JSON.stringify(lista,null,2);
 
 }
+
+
 
 async function salvarGithub(){
 
@@ -300,5 +402,7 @@ branch:"main"
 alert("Loja atualizada no GitHub!");
 
 }
+
+
 
 renderizarProdutos();
