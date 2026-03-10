@@ -431,7 +431,11 @@ const path = "data/produtos.json";
 
 const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
-const get = await fetch(url);
+const get = await fetch(url,{
+headers:{
+Authorization:`Bearer ${token}`
+}
+});
 
 const data = await get.json();
 
