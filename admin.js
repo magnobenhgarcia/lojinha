@@ -8,6 +8,28 @@ function salvarLocal(){
 localStorage.setItem("produtos_admin", JSON.stringify(produtos));
 }
 
+function atualizarCategorias(){
+
+const select = document.getElementById("categoriaSelect");
+
+select.innerHTML = `<option value="">Selecionar existente</option>`;
+
+const categorias = [...new Set(produtos.map(p => p.category).filter(Boolean))];
+
+categorias.forEach(cat =>{
+
+const option = document.createElement("option");
+
+option.value = cat;
+
+option.textContent = cat;
+
+select.appendChild(option);
+
+});
+
+}
+
 
 
 function renderizarProdutos(){
@@ -50,6 +72,8 @@ item.innerHTML = `
 lista.appendChild(item);
 
 });
+
+  atualizarCategorias();
 
 }
 
@@ -101,7 +125,9 @@ mercado_livre_url: document.getElementById("produtoLink").value,
 affiliate_url: document.getElementById("linkAfiliado").value,
 price: document.getElementById("preco").value,
 image_url: document.getElementById("imagem").value,
-category: document.getElementById("categoria").value,
+category:
+document.getElementById("categoriaInput").value ||
+document.getElementById("categoriaSelect").value,
 order: parseInt(document.getElementById("ordem").value),
 product_html_snapshot: document.getElementById("htmlProduto").value
 
@@ -142,7 +168,7 @@ document.getElementById("htmlProduto").value = p.product_html_snapshot;
 document.getElementById("linkAfiliado").value = p.affiliate_url;
 document.getElementById("preco").value = p.price;
 document.getElementById("imagem").value = p.image_url;
-document.getElementById("categoria").value = p.category;
+document.getElementById("categoriaInput").value = p.category;
 document.getElementById("ordem").value = p.order;
 
 }
