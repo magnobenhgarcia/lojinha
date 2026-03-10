@@ -136,6 +136,14 @@ border:none;
 + Adicionar oferta
 </button>
 
+<button class="admin-button" onclick="abrirHero()">
+⭐ Hero
+</button>
+
+<button class="admin-button" onclick="abrirKits()">
+📦 Kits
+</button>
+
 <button class="admin-button" onclick="salvarGithub()">
 💾 Salvar Loja
 </button>
@@ -207,6 +215,81 @@ Salvar
 </div>
 
 </div>
+
+  <!-- MODAL HERO -->
+
+<div class="modal" id="modalHero">
+
+<div class="modal-content">
+
+<h2>⭐ Configurar Hero</h2>
+
+<label>Selecionar produto</label>
+<select id="heroProduto"></select>
+
+<label>Título</label>
+<input id="heroTitulo">
+
+<label>Descrição</label>
+<input id="heroDescricao">
+
+<label>Texto do botão</label>
+<input id="heroCTA">
+
+<div style="display:flex;gap:10px">
+
+<button class="admin-button" onclick="fecharHero()">
+Cancelar
+</button>
+
+<button class="admin-button" onclick="salvarHero()">
+Salvar Hero
+</button>
+
+</div>
+
+</div>
+</div>
+
+  <!-- MODAL KITS -->
+
+<div class="modal" id="modalKits">
+
+<div class="modal-content">
+
+<h2>📦 Criar Kit</h2>
+
+<label>Título do kit</label>
+<input id="kitTitulo">
+
+<label>Descrição</label>
+<input id="kitDescricao">
+
+<div id="kitProdutos"></div>
+
+<button class="admin-button" onclick="adicionarProdutoKit()">
++ Adicionar produto
+</button>
+
+<label>Texto do botão</label>
+<input id="kitCTA">
+
+<div style="display:flex;gap:10px">
+
+<button class="admin-button" onclick="fecharKits()">
+Cancelar
+</button>
+
+<button class="admin-button" onclick="salvarKit()">
+Salvar Kit
+</button>
+
+</div>
+
+</div>
+</div>
+
+  
 
 <script src="admin.js"></script>
 
