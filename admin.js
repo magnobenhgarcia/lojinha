@@ -417,9 +417,17 @@ return JSON.stringify(lista,null,2);
 
 async function salvarGithub(){
 
-const token = prompt("Digite seu GitHub Token");
+let token = localStorage.getItem("github_token");
+
+if(!token){
+
+token = prompt("Digite seu GitHub Token");
 
 if(!token) return;
+
+localStorage.setItem("github_token", token);
+
+}
 
 const json = gerarJSON();
 
@@ -431,11 +439,7 @@ const path = "data/produtos.json";
 
 const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
-const get = await fetch(url,{
-headers:{
-Authorization:`Bearer ${token}`
-}
-});
+const get = await fetch(url);
 
 const data = await get.json();
 
@@ -461,7 +465,32 @@ branch:"main"
 
 });
 
-alert("Loja atualizada no GitHub!");
+mostrarMensagem("Produtos salvos no GitHub ✔");
+
+}
+
+
+function mostrarMensagem(texto){
+
+const msg = document.createElement("div");
+
+msg.innerText = texto;
+
+msg.style.position="fixed";
+msg.style.bottom="30px";
+msg.style.right="30px";
+msg.style.background="#00a650";
+msg.style.color="white";
+msg.style.padding="12px 18px";
+msg.style.borderRadius="10px";
+msg.style.fontWeight="bold";
+msg.style.zIndex="9999";
+
+document.body.appendChild(msg);
+
+setTimeout(()=>{
+msg.remove();
+},3000);
 
 }
 
