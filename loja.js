@@ -232,49 +232,41 @@ Ver oferta no Mercado Livre →
 
 function renderKits(kits){
 
-const track = document.querySelector(".carousel-track");
+  const track = document.querySelector(".carousel-track");
+  if(!track) return;
 
-if(!track) return;
+  track.innerHTML = "";
 
-track.innerHTML = "";
+  kits.forEach(kit => {
 
-kits.forEach(kit => {
+    let itensHTML = "";
 
-let itensHTML = "";
+    kit.items.forEach(item => {
 
-kit.items.forEach(item => {
+      itensHTML += `
+        <div class="kit-item">
+          <img src="${item.image_url}" alt="">
+          <a href="${item.affiliate_url}" target="_blank">
+            Ver oferta
+          </a>
+        </div>
+      `;
 
-itensHTML += `
-<div class="kit-item">
+    });
 
-<img src="${item.image_url}">
+    const card = document.createElement("div");
+    card.className = "kit-card";
 
-<a
-href="${item.affiliate_url}"
-target="_blank">
+    card.innerHTML = `
+      <h3>${kit.title}</h3>
+      <div class="kit-items">
+        ${itensHTML}
+      </div>
+    `;
 
-Ver oferta
+    track.appendChild(card);
 
-</a>
-
-</div>
-`;
-
-});
-
-track.innerHTML += `
-<div class="kit-card">
-
-<h3>${kit.title}</h3>
-
-<div class="kit-items">
-${itensHTML}
-</div>
-
-</div>
-`;
-
-});
+  });
 
 }
 
