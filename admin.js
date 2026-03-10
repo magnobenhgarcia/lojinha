@@ -117,6 +117,27 @@ document.getElementById("ordem").value = "";
 
 function salvarProduto(){
 
+let ordemInput = document.getElementById("ordem").value;
+
+let ordemFinal;
+
+if(ordemInput){
+
+ordemFinal = parseInt(ordemInput);
+
+}else{
+
+if(produtos.length === 0){
+ordemFinal = 1;
+}else{
+
+const maiorOrdem = Math.max(...produtos.map(p=>p.order || 0));
+ordemFinal = maiorOrdem + 1;
+
+}
+
+}
+
 const produto = {
 
 title: document.getElementById("titulo").value,
@@ -128,7 +149,7 @@ image_url: document.getElementById("imagem").value,
 category:
 document.getElementById("categoriaInput").value ||
 document.getElementById("categoriaSelect").value,
-order: parseInt(document.getElementById("ordem").value),
+order: ordemFinal,
 product_html_snapshot: document.getElementById("htmlProduto").value
 
 };
@@ -144,9 +165,7 @@ produtos[editandoIndex] = produto;
 }
 
 salvarLocal();
-
 renderizarProdutos();
-
 fecharModal();
 
 }
