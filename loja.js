@@ -98,7 +98,7 @@ target="_blank"
 rel="noopener noreferrer"
 class="card-button">
 
-Aproveite o desconto
+Ver oferta no Mercado Livre →
 
 </a>
 
