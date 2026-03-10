@@ -145,10 +145,13 @@ right:-10px;
 
 .carousel-track{
 display:flex;
+flex-wrap:nowrap;
 gap:16px;
 overflow-x:auto;
 scroll-behavior:smooth;
 scrollbar-width:none;
+align-items:stretch;
+width:100%;
 }
 
 .carousel-track::-webkit-scrollbar{
