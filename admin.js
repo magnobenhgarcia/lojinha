@@ -385,6 +385,43 @@ return JSON.stringify(lista,null,2);
 
 }
 
+async function salvarArquivoGithub(token, owner, repo, path, conteudo, mensagem){
+
+const content = btoa(unescape(encodeURIComponent(conteudo)));
+
+const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+const get = await fetch(url);
+
+let sha = null;
+
+if(get.status === 200){
+const data = await get.json();
+sha = data.sha;
+}
+
+await fetch(url,{
+
+method:"PUT",
+
+headers:{
+Authorization:`Bearer ${token}`,
+"Content-Type":"application/json"
+},
+
+body: JSON.stringify({
+
+message:mensagem,
+content:content,
+sha:sha,
+branch:"main"
+
+})
+
+});
+
+}
+
 async function salvarGithub(){
 
 let token = localStorage.getItem("github_token");
