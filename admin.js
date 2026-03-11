@@ -12,6 +12,11 @@ carregarProdutos();
 
 let editandoIndex = null;
 
+let destaques = {
+  hero: null,
+  kits: []
+};
+
 function salvarLocal(){
 /* não salvamos mais produtos no localStorage */
 }
