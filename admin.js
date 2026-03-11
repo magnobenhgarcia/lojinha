@@ -734,7 +734,7 @@ lista.innerHTML+=`
 
 }
 
-  async function salvarDestaquesGithub(){
+async function salvarDestaquesGithub(){
 
 let token = localStorage.getItem("github_token");
 
@@ -753,6 +753,6 @@ repo,
 "data/destaques.json",
 JSON.stringify(destaques,null,2),
 "update destaques"
-  });
+);
 
 }
