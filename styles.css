@@ -73,28 +73,27 @@ gap:30px;
 align-items:center;
 }
 
-/* SCROLL VERTICAL PARA MODAIS */
-
-#modalProduto,
-#modalHero,
-#modalKits{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-}
-
-/* CONTEÚDO INTERNO DO MODAL */
+/* SCROLL VERTICAL NOS MODAIS */
 
 #modalProduto > div,
 #modalHero > div,
 #modalKits > div{
-    max-height: 90vh;
+
+    max-height: 85vh;
     overflow-y: auto;
+
 }
 
+/* CONTEÚDO INTERNO DO MODAL */
+
+#modalProduto img,
+#modalHero img,
+#modalKits img{
+
+    max-width:100%;
+    height:auto;
+
+}
 
 /* HERO */
 
