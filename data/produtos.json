@@ -18,5 +18,15 @@
     "category": "Pedais e Efeitos",
     "order": 2,
     "html_file": "html/produto_2.html"
+  },
+  {
+    "title": "Violão Class Strinberg Cld41ce Folk Natural E Sunburst",
+    "description": "Violão Class Strinberg Cld41ce Folk Natural E Sunburst",
+    "price": "R$ 611,34",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_882051-MLB82914228144_032025-O-violo-class-strinberg-cld41ce-folk-natural-e-sunburst.webp",
+    "affiliate_url": "https://meli.la/2sFNqmW",
+    "category": "Violões",
+    "order": 3,
+    "html_file": "html/produto_3.html"
   }
 ]
