@@ -204,9 +204,16 @@ behavior: "smooth"
 
 function renderHero(hero){
 
+const heroContainer = document.getElementById("hero");
+
+if(!heroContainer) return;
+
 const produto = produtos[hero.produto];
 
-const heroContainer = document.getElementById("hero");
+if(!produto){
+console.log("Produto do hero não encontrado");
+return;
+}
 
 heroContainer.innerHTML = `
 <div class="hero-card">
@@ -234,6 +241,8 @@ function renderKits(kits){
 
 const track = document.querySelector(".carousel-track");
 
+if(!track) return;
+
 track.innerHTML = "";
 
 kits.forEach(kit => {
@@ -242,10 +251,12 @@ const itemsHTML = kit.items.map(i => {
 
 const p = produtos[i];
 
+if(!p) return "";
+
 return `
 <div class="kit-item">
 
-<img src="${p.image_url}">
+<img src="${p.image_url}" loading="lazy">
 
 <a href="${p.affiliate_url}" target="_blank">
 Ver oferta
