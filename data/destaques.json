@@ -1,65 +1,16 @@
 {
   "hero": {
+    "produto": 0,
     "title": "Violão recomendado para iniciantes",
-    "description": "Um violão equilibrado, confortável e com ótimo custo-benefício para quem está começando.",
-    "image_url": "",
-    "affiliate_url": ""
+    "description": "Um violão equilibrado, confortável e com ótimo custo-benefício.",
+    "cta": "Ver oferta no Mercado Livre →"
   },
-
   "kits": [
     {
-      "title": "Kit iniciante essencial",
-      "items": [
-        {
-          "image_url": "",
-          "affiliate_url": ""
-        },
-        {
-          "image_url": "",
-          "affiliate_url": ""
-        },
-        {
-          "image_url": "",
-          "affiliate_url": ""
-        }
-      ]
-    },
-
-    {
-      "title": "Kit básico para estudo",
-      "items": [
-        {
-          "image_url": "",
-          "affiliate_url": ""
-        },
-        {
-          "image_url": "",
-          "affiliate_url": ""
-        },
-        {
-          "image_url": "",
-          "affiliate_url": ""
-        }
-      ]
-    },
-
-    {
-      "title": "Kit Barulho Controlado",
-      "items": [
-        {
-          "image_url": "",
-          "affiliate_url": ""
-        },
-        {
-          "image_url": "",
-          "affiliate_url": ""
-        },
-        {
-          "image_url": "",
-          "affiliate_url": ""
-        }
-      ]
+      "title": "Kit iniciante",
+      "description": "Tudo que você precisa para começar",
+      "cta": "Ver ofertas",
+      "items": [0,1,2]
     }
-
   ]
 }
