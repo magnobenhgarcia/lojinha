@@ -586,8 +586,6 @@ msg.remove();
 
 /* HERO */
 
-<div id="listaHero"></div>
-
 function abrirHero(){
 
 document.getElementById("modalHero").style.display="flex";
@@ -654,8 +652,6 @@ lista.innerHTML=`
 }
 
 /* KITS */
-
-<div id="listaKits"></div>
 
 function abrirKits(){
 
