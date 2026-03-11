@@ -83,6 +83,22 @@ gap:12px;
 min-width:0;
 }
 
+.carousel-track .kit-card{
+
+transform:scale(0.92);
+opacity:0.7;
+
+transition:all .35s ease;
+
+}
+
+.carousel-track .kit-card.active{
+
+transform:scale(1);
+opacity:1;
+
+}
+
 /* SCROLL VERTICAL NOS MODAIS */
 
 #modalProduto > div,
