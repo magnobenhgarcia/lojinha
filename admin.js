@@ -1,4 +1,14 @@
 let produtos = [];
+async function carregarProdutos(){
+
+const res = await fetch("data/produtos.json");
+produtos = await res.json();
+
+renderizarProdutos();
+
+}
+
+carregarProdutos();
 
 let editandoIndex = null;
 
