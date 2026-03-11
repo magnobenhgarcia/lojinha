@@ -227,6 +227,18 @@ box-shadow:0 4px 12px rgba(0,0,0,0.08);
   padding: 8px;
 }
 
+/* SCROLL HERO E KITS */
+
+.modalHero,
+.modalKits{
+max-height:90vh;
+overflow-y:auto;
+}
+.modal{
+max-height:90vh;
+overflow-y:auto;
+}
+
 
 
 /* GRID */
