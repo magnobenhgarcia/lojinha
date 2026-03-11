@@ -164,7 +164,7 @@ fecharModal();
 
 }
 
-function editarProduto(index){
+async function editarProduto(index){
 
 const p = produtos[index];
 
@@ -174,14 +174,28 @@ document.getElementById("modalProduto").style.display = "flex";
 
 document.getElementById("titulo").value = p.title;
 document.getElementById("descricao").value = p.description;
-document.getElementById("produtoLink").value = p.mercado_livre_url;
-document.getElementById("htmlProduto").value = p.product_html_snapshot;
+document.getElementById("produtoLink").value = p.mercado_livre_url || "";
 document.getElementById("linkAfiliado").value = p.affiliate_url;
 document.getElementById("preco").value = p.price;
 document.getElementById("imagem").value = p.image_url;
 document.getElementById("categoriaInput").value = p.category;
 document.getElementById("categoriaSelect").value = "";
 document.getElementById("ordem").value = p.order;
+
+/* carregar HTML salvo no GitHub */
+
+if(p.html_file){
+
+const res = await fetch(p.html_file);
+const html = await res.text();
+
+document.getElementById("htmlProduto").value = html;
+
+}else{
+
+document.getElementById("htmlProduto").value = "";
+
+}
 
 }
 
