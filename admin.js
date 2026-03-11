@@ -661,6 +661,9 @@ cta:document.getElementById("heroCTA").value
 
 await salvarDestaquesGithub();
 
+/* atualizar lista visual */
+renderListaHero();
+
 fecharHero();
 
 alert("Hero salvo");
@@ -743,6 +746,9 @@ items:items
 destaques.kits.push(kit);
 
 await salvarDestaquesGithub();
+
+/* atualizar lista visual */
+renderListaKits();
 
 alert("Kit salvo");
 
