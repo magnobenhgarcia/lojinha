@@ -1,3 +1,4 @@
+let produtos = [];
 async function carregarProdutos() {
 
 const grid = document.getElementById("produtos");
@@ -16,7 +17,7 @@ if (!resposta.ok) {
 throw new Error("Erro ao carregar JSON");
 }
 
-const produtos = await resposta.json();
+produtos = await resposta.json();
 
 loading.style.display = "none";
 
@@ -277,33 +278,10 @@ ${itemsHTML}
 
 }
 
-    const card = document.createElement("div");
-    card.className = "kit-card";
 
-    card.innerHTML = `
-      <h3>${kit.title}</h3>
-      <div class="kit-items">
-        ${itensHTML}
-      </div>
-    `;
-
-    track.appendChild(card);
-
-  });
-
-}
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-carregarProdutos();
-async function iniciarLoja(){
+document.addEventListener("DOMContentLoaded", async () => {
 
 await carregarProdutos();
 await carregarDestaques();
-
-}
-
-iniciarLoja();
 
 });
