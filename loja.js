@@ -177,25 +177,43 @@ const track = document.querySelector(".carousel-track");
 const prev = document.querySelector(".carousel-prev");
 const next = document.querySelector(".carousel-next");
 
-if(!track || !prev || !next){
-console.log("Carrossel não encontrado");
-return;
+if(!track) return;
+
+let position = 0;
+
+const cardWidth = 340;
+const visibleCards = Math.floor(track.parentElement.offsetWidth / cardWidth);
+
+next.addEventListener("click",()=>{
+
+position += cardWidth;
+
+if(position >= track.scrollWidth - track.clientWidth){
+
+position = 0;
+
 }
 
-prev.addEventListener("click", () => {
-
-track.scrollBy({
-left: -300,
-behavior: "smooth"
+track.scrollTo({
+left: position,
+behavior:"smooth"
 });
 
 });
 
-next.addEventListener("click", () => {
+prev.addEventListener("click",()=>{
 
-track.scrollBy({
-left: 300,
-behavior: "smooth"
+position -= cardWidth;
+
+if(position < 0){
+
+position = track.scrollWidth - track.clientWidth;
+
+}
+
+track.scrollTo({
+left: position,
+behavior:"smooth"
 });
 
 });
