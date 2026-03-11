@@ -157,8 +157,16 @@ renderHero(dados.hero);
 }
 
 if(dados.kits){
+
+const track = document.querySelector(".carousel-track");
+
+/* evita renderizar duas vezes */
+if(track && track.children.length === 0){
 renderKits(dados.kits);
+}
+
 iniciarCarrossel();
+
 }
 
 }
@@ -329,7 +337,7 @@ Ver oferta
 
 }).join("");
 
-track.innerHTML += `
+track.insertAdjacentHTML("beforeend", `
 
 <div class="kit-card">
 
