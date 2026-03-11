@@ -338,7 +338,6 @@ Ver oferta
 }).join("");
 
 track.insertAdjacentHTML("beforeend", `
-
 <div class="kit-card">
 
 <h3>${kit.title}</h3>
@@ -346,14 +345,11 @@ track.insertAdjacentHTML("beforeend", `
 <p>${kit.description}</p>
 
 <div class="kit-items">
-
 ${itemsHTML}
-
 </div>
 
 </div>
-
-`;
+`);
 
 });
 
