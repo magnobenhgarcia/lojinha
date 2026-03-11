@@ -583,14 +583,6 @@ msg.remove();
 
 }
 
-let destaques = JSON.parse(localStorage.getItem("destaques_admin")) || {
-hero:null,
-kits:[]
-};
-
-function salvarDestaquesLocal(){
-localStorage.setItem("destaques_admin", JSON.stringify(destaques));
-}
 
 /* HERO */
 
@@ -620,20 +612,21 @@ function fecharHero(){
 document.getElementById("modalHero").style.display="none";
 }
 
-function salvarHero(){
+async function salvarHero(){
 
 destaques.hero={
-produto:document.getElementById("heroProduto").value,
+produto:Number(document.getElementById("heroProduto").value),
 title:document.getElementById("heroTitulo").value,
 description:document.getElementById("heroDescricao").value,
 cta:document.getElementById("heroCTA").value
 };
 
-salvarDestaquesLocal();
+await salvarDestaquesGithub();
 
 fecharHero();
 
 alert("Hero salvo");
+
 }
 
 /* KITS */
@@ -674,30 +667,46 @@ container.appendChild(select);
 
 }
 
-function salvarKit(){
+async function salvarKit(){
 
 const selects=document.querySelectorAll("#kitProdutos select");
 
 const items=[...selects].map(s=>Number(s.value));
 
 const kit={
-
 title:document.getElementById("kitTitulo").value,
-
 description:document.getElementById("kitDescricao").value,
-
 cta:document.getElementById("kitCTA").value,
-
 items:items
-
 };
 
 destaques.kits.push(kit);
 
-salvarDestaquesLocal();
-
-fecharKits();
+await salvarDestaquesGithub();
 
 alert("Kit salvo");
+
+}
+
+  async function salvarDestaquesGithub(){
+
+let token = localStorage.getItem("github_token");
+
+if(!token){
+token = prompt("Digite seu GitHub Token");
+localStorage.setItem("github_token", token);
+}
+
+const owner="magnobenhgarcia";
+const repo="lojinha";
+
+await salvarArquivoGithub(
+token,
+owner,
+repo,
+"data/destaques.json",
+JSON.stringify(destaques,null,2),
+"update destaques"
+);
 
 }
