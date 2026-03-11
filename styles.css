@@ -71,11 +71,14 @@ display:grid;
 grid-template-columns:360px 1fr;
 gap:28px;
 align-items:center;
+
+min-width:0;
 }
 
 .kits-carousel{
 display:flex;
 align-items:center;
+min-width:0;
 position:relative;
 overflow:hidden;
 }
@@ -248,6 +251,8 @@ font-weight:600;
 .carousel-viewport{
 overflow:hidden;
 width:100%;
+position:relative;
+max-width:520px;
 }
 
 
@@ -256,6 +261,7 @@ display:flex;
 gap:18px;
 will-change:transform;
 transition:transform .45s ease;
+padding:4px 0;
 }
 
 
