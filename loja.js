@@ -171,50 +171,97 @@ console.error("Erro ao carregar destaques:", erro);
 
 }
 
-function iniciarCarrossel(){
+function iniciarCarrossel() {
+  const track = document.querySelector(".carousel-track");
+  const prevOld = document.querySelector(".carousel-prev");
+  const nextOld = document.querySelector(".carousel-next");
 
-const track = document.querySelector(".carousel-track");
-const prev = document.querySelector(".carousel-prev");
-const next = document.querySelector(".carousel-next");
+  if (!track || !prevOld || !nextOld) return;
+  if (track.children.length < 2) return;
 
-if(!track) return;
+  /* limpa listeners antigos trocando os botões por clones limpos */
+  const prev = prevOld.cloneNode(true);
+  const next = nextOld.cloneNode(true);
 
-const cards = Array.from(track.children);
+  prevOld.parentNode.replaceChild(prev, prevOld);
+  nextOld.parentNode.replaceChild(next, nextOld);
 
-const cardWidth = cards[0].offsetWidth + 20;
+  let animando = false;
 
-let index = 0;
+  function getGap() {
+    const estilos = window.getComputedStyle(track);
+    return parseFloat(estilos.columnGap || estilos.gap || 0);
+  }
 
-function atualizar(){
+  function getCardWidth() {
+    const primeiro = track.children[0];
+    if (!primeiro) return 0;
+    return primeiro.offsetWidth + getGap();
+  }
 
-track.style.transform = `translateX(-${index * cardWidth}px)`;
+  function moverProximo() {
+    if (animando) return;
+    animando = true;
 
-}
+    const distancia = getCardWidth();
+    if (!distancia) {
+      animando = false;
+      return;
+    }
 
-next.addEventListener("click",()=>{
+    track.style.transition = "transform .45s ease";
+    track.style.transform = `translateX(-${distancia}px)`;
 
-index++;
+    const onEnd = () => {
+      track.removeEventListener("transitionend", onEnd);
 
-if(index > cards.length - 3){
-index = 0;
-}
+      const primeiro = track.children[0];
+      track.appendChild(primeiro);
 
-atualizar();
+      track.style.transition = "none";
+      track.style.transform = "translateX(0)";
 
-});
+      /* força reflow para o browser aplicar o reset sem piscar */
+      void track.offsetWidth;
 
-prev.addEventListener("click",()=>{
+      animando = false;
+    };
 
-index--;
+    track.addEventListener("transitionend", onEnd, { once: true });
+  }
 
-if(index < 0){
-index = cards.length - 3;
-}
+  function moverAnterior() {
+    if (animando) return;
+    animando = true;
 
-atualizar();
+    const distancia = getCardWidth();
+    if (!distancia) {
+      animando = false;
+      return;
+    }
 
-});
+    const ultimo = track.lastElementChild;
+    track.insertBefore(ultimo, track.firstElementChild);
 
+    track.style.transition = "none";
+    track.style.transform = `translateX(-${distancia}px)`;
+
+    /* força reflow antes de animar de volta */
+    void track.offsetWidth;
+
+    track.style.transition = "transform .45s ease";
+    track.style.transform = "translateX(0)";
+
+    const onEnd = () => {
+      track.removeEventListener("transitionend", onEnd);
+      animando = false;
+    };
+
+    track.addEventListener("transitionend", onEnd, { once: true });
+  }
+
+  next.addEventListener("click", moverProximo);
+  prev.addEventListener("click", moverAnterior);
 }
 
 function renderHero(hero){
