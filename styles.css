@@ -209,6 +209,7 @@ transform:translateY(-2px);
 .kit-card{
 background:white;
 border-radius:16px;
+transform-origin:center bottom;
 
 padding:20px 16px;
 
