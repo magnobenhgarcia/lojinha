@@ -586,6 +586,8 @@ msg.remove();
 
 /* HERO */
 
+<div id="listaHero"></div>
+
 function abrirHero(){
 
 document.getElementById("modalHero").style.display="flex";
@@ -628,8 +630,32 @@ fecharHero();
 alert("Hero salvo");
 
 }
+  
+  function renderListaHero(){
+
+const lista=document.getElementById("listaHero");
+
+if(!destaques.hero){
+
+lista.innerHTML="<p>Nenhum hero definido</p>";
+return;
+
+}
+
+const p=produtos[destaques.hero.produto];
+
+lista.innerHTML=`
+<div class="produto-item">
+<img src="${p.image_url}">
+<div>${p.title}</div>
+</div>
+`;
+
+}
 
 /* KITS */
+
+<div id="listaKits"></div>
 
 function abrirKits(){
 
@@ -685,6 +711,30 @@ destaques.kits.push(kit);
 await salvarDestaquesGithub();
 
 alert("Kit salvo");
+
+}
+
+  function renderListaKits(){
+
+const lista=document.getElementById("listaKits");
+
+lista.innerHTML="";
+
+destaques.kits.forEach((kit,i)=>{
+
+lista.innerHTML+=`
+<div class="kit-admin">
+
+<h4>${kit.title}</h4>
+
+<p>${kit.description}</p>
+
+<button onclick="removerKit(${i})">Remover</button>
+
+</div>
+`;
+
+});
 
 }
 
