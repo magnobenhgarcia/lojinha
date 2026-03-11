@@ -216,38 +216,30 @@ text-align:center;
 }
 
 .kit-items{
-
 display:flex;
 justify-content:center;
 align-items:center;
-
-gap:14px;
-
-margin-top:8px;
-
+gap:12px;
+margin-top:12px;
 }
 
 .kit-item img{
-width:70px;
-height:70px;
+width:90px;
+height:90px;
 object-fit:contain;
 }
 
 .kit-item a{
-
 background:#ff6a00;
 color:white;
-
-padding:6px 12px;
-
+padding:8px 14px;
 border-radius:8px;
-
 font-size:12px;
-
 text-decoration:none;
-
 font-weight:600;
 
+display:inline-block;
+margin-top:6px;
 }
 
 .carousel-viewport{
@@ -282,6 +274,9 @@ border-radius:999px;
 box-shadow:0 5px 15px rgba(0,0,0,0.15);
 padding:0;
 flex-shrink:0;
+
+position:relative;
+z-index:5;
 }
 
 /* SCROLL HERO E KITS */
