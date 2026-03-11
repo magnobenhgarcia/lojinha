@@ -358,3 +358,4 @@ await carregarProdutos();
 await carregarDestaques();
 
 });
+}
