@@ -203,27 +203,26 @@ behavior: "smooth"
 
 function renderHero(hero){
 
-const heroCard = document.querySelector(".hero-card");
+const produto = produtos[hero.produto];
 
-if(!heroCard) return;
+const heroContainer = document.getElementById("hero");
 
-heroCard.innerHTML = `
-<img src="${hero.image_url}" class="hero-image" alt="${hero.title}">
+heroContainer.innerHTML = `
+<div class="hero-card">
+
+<img class="hero-image" src="${produto.image_url}">
 
 <div class="hero-content">
 
-<h2>🎸 ${hero.title}</h2>
+<h2>${hero.title}</h2>
 
 <p>${hero.description}</p>
 
-<a
-href="${hero.affiliate_url}"
-target="_blank"
-class="hero-button">
-
-Ver oferta no Mercado Livre →
-
+<a class="hero-button" href="${produto.affiliate_url}" target="_blank">
+${hero.cta}
 </a>
+
+</div>
 
 </div>
 `;
@@ -232,27 +231,51 @@ Ver oferta no Mercado Livre →
 
 function renderKits(kits){
 
-  const track = document.querySelector(".carousel-track");
-  if(!track) return;
+const track = document.querySelector(".carousel-track");
 
-  track.innerHTML = "";
+track.innerHTML = "";
 
-  kits.forEach(kit => {
+kits.forEach(kit => {
 
-    let itensHTML = "";
+const itemsHTML = kit.items.map(i => {
 
-    kit.items.forEach(item => {
+const p = produtos[i];
 
-      itensHTML += `
-        <div class="kit-item">
-          <img src="${item.image_url}" alt="">
-          <a href="${item.affiliate_url}" target="_blank">
-            Ver oferta
-          </a>
-        </div>
-      `;
+return `
+<div class="kit-item">
 
-    });
+<img src="${p.image_url}">
+
+<a href="${p.affiliate_url}" target="_blank">
+Ver oferta
+</a>
+
+</div>
+`;
+
+}).join("");
+
+track.innerHTML += `
+
+<div class="kit-card">
+
+<h3>${kit.title}</h3>
+
+<p>${kit.description}</p>
+
+<div class="kit-items">
+
+${itemsHTML}
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
 
     const card = document.createElement("div");
     card.className = "kit-card";
@@ -274,6 +297,13 @@ function renderKits(kits){
 document.addEventListener("DOMContentLoaded", () => {
 
 carregarProdutos();
-carregarDestaques();
+async function iniciarLoja(){
+
+await carregarProdutos();
+await carregarDestaques();
+
+}
+
+iniciarLoja();
 
 });
