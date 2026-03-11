@@ -68,9 +68,9 @@ margin:40px auto;
 
 .destaques-container{
 display:grid;
-grid-template-columns:420px 1fr;
-gap:40px;
-align-items:stretch;
+grid-template-columns:360px 1fr;
+gap:28px;
+align-items:center;
 }
 
 .kits-carousel{
@@ -107,18 +107,13 @@ overflow:hidden;
 .hero-card{
 display:flex;
 align-items:center;
-gap:28px;
-
+gap:18px;
 background:white;
-
-border-radius:18px;
-
-padding:26px;
-
+border-radius:16px;
+padding:20px;
 width:100%;
-min-height:240px;
-
-box-shadow:0 18px 40px rgba(0,0,0,0.18);
+min-height:200px;
+box-shadow:0 12px 30px rgba(0,0,0,0.18);
 }
 
 .hero-image{
@@ -190,11 +185,11 @@ transform:translateY(-2px);
 
 .kit-card{
 background:white;
-border-radius:18px;
-padding:20px;
-
-width:300px;
-flex:0 0 300px;
+border-radius:16px;
+padding:18px;
+width:240px;
+flex:0 0 240px;
+}
 
 box-shadow:0 15px 35px rgba(0,0,0,0.18);
 
@@ -258,8 +253,9 @@ width:100%;
 
 .carousel-track{
 display:flex;
-gap:24px;
+gap:18px;
 will-change:transform;
+transition:transform .45s ease;
 }
 
 
