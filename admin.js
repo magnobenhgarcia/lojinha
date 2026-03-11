@@ -410,47 +410,72 @@ return JSON.stringify(lista,null,2);
 }
 
 async function salvarArquivoGithub(token, owner, repo, path, conteudo, mensagem) {
-  const content = btoa(unescape(encodeURIComponent(conteudo)));
-  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
-  const get = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  });
+const content = btoa(unescape(encodeURIComponent(conteudo)));
 
-  let sha = null;
+const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
-  if (get.status === 200) {
-    const data = await get.json();
-    sha = data.sha;
-  } else if (get.status !== 404) {
-    const erroGet = await get.text();
-    throw new Error(`Erro ao buscar SHA de ${path}: ${get.status} - ${erroGet}`);
-  }
-
-  const put = await fetch(url, {
-  method: "PUT",
-  headers: {
-    Authorization: `token ${token}`,
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    message: mensagem,
-    content: content,
-    sha: sha,
-    branch: "main"
-  })
+const get = await fetch(url,{
+headers:{
+Authorization:`token ${token}`
+}
 });
 
-  const resultado = await put.text();
+let sha = null;
 
-  if (!put.ok) {
-    throw new Error(`Erro ao salvar ${path}: ${put.status} - ${resultado}`);
-  }
+if(get.status === 200){
 
-  console.log(`Arquivo salvo com sucesso: ${path}`);
-  return resultado;
+const data = await get.json();
+sha = data.sha;
+
+}else if(get.status === 401){
+
+localStorage.removeItem("github_token");
+throw new Error("TOKEN_INVALIDO");
+
+}else if(get.status !== 404){
+
+const erroGet = await get.text();
+throw new Error(`Erro ao buscar SHA de ${path}: ${erroGet}`);
+
+}
+
+const put = await fetch(url,{
+
+method:"PUT",
+
+headers:{
+Authorization:`token ${token}`,
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+message:mensagem,
+content:content,
+sha:sha,
+branch:"main"
+
+})
+
+});
+
+if(put.status === 401){
+
+localStorage.removeItem("github_token");
+throw new Error("TOKEN_INVALIDO");
+
+}
+
+if(!put.ok){
+
+const erro = await put.text();
+throw new Error(`Erro ao salvar ${path}: ${erro}`);
+
+}
+
+console.log("Arquivo salvo com Sucesso!:",path);
+
 }
 
 async function salvarGithub() {
@@ -514,10 +539,24 @@ async function salvarGithub() {
     );
 
     mostrarMensagem("Produtos salvos no GitHub ✔");
-  } catch (erro) {
-    console.error("ERRO AO SALVAR NO GITHUB:", erro);
-    alert("Erro ao salvar no GitHub:\n\n" + erro.message);
-  }
+  }catch(erro){
+
+if(erro.message === "TOKEN_INVALIDO"){
+
+alert("Seu token GitHub expirou. Insira um novo token.");
+
+localStorage.removeItem("github_token");
+
+salvarGithub(); // tenta novamente
+
+return;
+
+}
+
+console.error("ERRO AO SALVAR:",erro);
+
+alert("Erro ao salvar no GitHub:\n\n"+erro.message);
+
 }
 
 function mostrarMensagem(texto){
