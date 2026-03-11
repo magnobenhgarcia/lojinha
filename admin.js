@@ -385,109 +385,115 @@ return JSON.stringify(lista,null,2);
 
 }
 
-async function salvarArquivoGithub(token, owner, repo, path, conteudo, mensagem){
+async function salvarArquivoGithub(token, owner, repo, path, conteudo, mensagem) {
+  const content = btoa(unescape(encodeURIComponent(conteudo)));
+  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
-const content = btoa(unescape(encodeURIComponent(conteudo)));
+  const get = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
 
-const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+  let sha = null;
 
-const get = await fetch(url);
+  if (get.status === 200) {
+    const data = await get.json();
+    sha = data.sha;
+  } else if (get.status !== 404) {
+    const erroGet = await get.text();
+    throw new Error(`Erro ao buscar SHA de ${path}: ${get.status} - ${erroGet}`);
+  }
 
-let sha = null;
+  const put = await fetch(url, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      message: mensagem,
+      content: content,
+      sha: sha,
+      branch: "main"
+    })
+  });
 
-if(get.status === 200){
-const data = await get.json();
-sha = data.sha;
+  const resultado = await put.text();
+
+  if (!put.ok) {
+    throw new Error(`Erro ao salvar ${path}: ${put.status} - ${resultado}`);
+  }
+
+  console.log(`Arquivo salvo com sucesso: ${path}`);
+  return resultado;
 }
 
-await fetch(url,{
+async function salvarGithub() {
+  try {
+    let token = localStorage.getItem("github_token");
 
-method:"PUT",
+    if (!token) {
+      token = prompt("Digite seu GitHub Token");
+      if (!token) return;
+      localStorage.setItem("github_token", token);
+    }
 
-headers:{
-Authorization:`Bearer ${token}`,
-"Content-Type":"application/json"
-},
+    const owner = "magnobenhgarcia";
+    const repo = "lojinha";
 
-body: JSON.stringify({
+    console.log("Produtos antes de salvar:", produtos);
 
-message:mensagem,
-content:content,
-sha:sha,
-branch:"main"
+    for (const produto of produtos) {
+      const html = produto.product_html_snapshot;
 
-})
+      console.log("Produto analisado:", produto.title, {
+        ordem: produto.order,
+        temHtml: !!html,
+        tamanhoHtml: html ? html.length : 0
+      });
 
-});
+      if (html && html.trim()) {
+        const path = `html/produto_${produto.order}.html`;
 
-}
+        await salvarArquivoGithub(
+          token,
+          owner,
+          repo,
+          path,
+          html,
+          `update produto ${produto.order}`
+        );
 
-async function salvarGithub(){
+        produto.html_file = path;
+      }
+    }
 
-let token = localStorage.getItem("github_token");
+    const lista = produtos.map(p => ({
+      title: p.title,
+      description: p.description,
+      price: p.price,
+      image_url: p.image_url,
+      affiliate_url: p.affiliate_url,
+      category: p.category,
+      order: p.order,
+      html_file: p.html_file || `html/produto_${p.order}.html`
+    }));
 
-if(!token){
+    await salvarArquivoGithub(
+      token,
+      owner,
+      repo,
+      "data/produtos.json",
+      JSON.stringify(lista, null, 2),
+      "update produtos"
+    );
 
-token = prompt("Digite seu GitHub Token");
-
-if(!token) return;
-
-localStorage.setItem("github_token", token);
-
-}
-
-const owner = "magnobenhgarcia";
-const repo = "lojinha";
-
-for(const produto of produtos){
-
-const html = produto.product_html_snapshot;
-
-if(html){
-
-const path = `html/produto_${produto.order}.html`;
-
-await salvarArquivoGithub(
-token,
-owner,
-repo,
-path,
-html,
-`update produto ${produto.order}`
-);
-
-produto.html_file = path;
-
-}
-
-}
-
-/* gerar JSON leve */
-
-const lista = produtos.map(p=>({
-
-title: p.title,
-description: p.description,
-price: p.price,
-image_url: p.image_url,
-affiliate_url: p.affiliate_url,
-category: p.category,
-order: p.order,
-html_file: p.html_file
-
-}));
-
-await salvarArquivoGithub(
-token,
-owner,
-repo,
-"data/produtos.json",
-JSON.stringify(lista,null,2),
-"update produtos"
-);
-
-mostrarMensagem("Produtos salvos no GitHub ✔");
-
+    mostrarMensagem("Produtos salvos no GitHub ✔");
+  } catch (erro) {
+    console.error("ERRO AO SALVAR NO GITHUB:", erro);
+    alert("Erro ao salvar no GitHub:\n\n" + erro.message);
+  }
 }
 
 function mostrarMensagem(texto){
