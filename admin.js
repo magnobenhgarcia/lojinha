@@ -644,6 +644,9 @@ select.appendChild(option);
 
 });
 
+/* mostrar hero atual */
+renderListaHero();
+
 }
 
 function fecharHero(){
@@ -701,6 +704,9 @@ document.getElementById("modalKits").style.display="flex";
 document.getElementById("kitProdutos").innerHTML="";
 
 adicionarProdutoKit();
+
+/* mostrar kits existentes */
+renderListaKits();
 
 }
 
