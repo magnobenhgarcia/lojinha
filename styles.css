@@ -261,6 +261,18 @@ text-decoration:none;
 font-weight:600;
 
 }
+.carousel-track{
+
+display:flex;
+gap:24px;
+
+overflow:hidden;
+
+scroll-behavior:smooth;
+
+padding:10px;
+
+}
 
 
 /* BOTÕES DO CARROSSEL */
