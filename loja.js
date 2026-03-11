@@ -180,64 +180,38 @@ const next = document.querySelector(".carousel-next");
 if(!track) return;
 
 const cards = Array.from(track.children);
-const cardWidth = cards[0].offsetWidth + 18;
+
+const cardWidth = cards[0].offsetWidth + 20;
 
 let index = 0;
 
-/* CLONES PARA LOOP */
+function atualizar(){
 
-const clonesBefore = cards.slice(-2).map(el => el.cloneNode(true));
-const clonesAfter = cards.slice(0,2).map(el => el.cloneNode(true));
+track.style.transform = `translateX(-${index * cardWidth}px)`;
 
-clonesBefore.forEach(clone => track.prepend(clone));
-clonesAfter.forEach(clone => track.append(clone));
-
-let allCards = Array.from(track.children);
-
-index = 2;
-track.style.transform = `translateX(-${cardWidth * index}px)`;
-
-/* NEXT */
+}
 
 next.addEventListener("click",()=>{
 
 index++;
 
-track.style.transition = "transform .45s ease";
-track.style.transform = `translateX(-${cardWidth * index}px)`;
+if(index > cards.length - 3){
+index = 0;
+}
+
+atualizar();
 
 });
-
-/* PREV */
 
 prev.addEventListener("click",()=>{
 
 index--;
 
-track.style.transition = "transform .45s ease";
-track.style.transform = `translateX(-${cardWidth * index}px)`;
-
-});
-
-/* LOOP INFINITO */
-
-track.addEventListener("transitionend",()=>{
-
-if(index >= allCards.length - 2){
-
-track.style.transition = "none";
-index = 2;
-track.style.transform = `translateX(-${cardWidth * index}px)`;
-
+if(index < 0){
+index = cards.length - 3;
 }
 
-if(index <= 1){
-
-track.style.transition = "none";
-index = allCards.length - 3;
-track.style.transform = `translateX(-${cardWidth * index}px)`;
-
-}
+atualizar();
 
 });
 
