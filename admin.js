@@ -648,5 +648,3 @@ fecharKits();
 alert("Kit salvo");
 
 }
-
-renderizarProdutos();
