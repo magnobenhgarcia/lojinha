@@ -98,64 +98,86 @@ align-items:center;
 /* HERO */
 
 .hero-card{
+
 display:flex;
 align-items:center;
-gap:20px;
+gap:28px;
 
 background:white;
-border-radius:16px;
 
-padding:20px;
+border-radius:18px;
 
-max-width:520px;
-height:220px;
+padding:26px;
 
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
+max-width:540px;
+height:240px;
 
-overflow:hidden;
+box-shadow:0 18px 40px rgba(0,0,0,0.18);
+
 }
 
 .hero-image{
-width:180px;
-height:180px;
+
+width:170px;
+height:170px;
+
 object-fit:contain;
+
 }
 
 .hero-content{
-flex:1;
+
+display:flex;
+flex-direction:column;
+gap:10px;
+
 }
 
 .hero-content h2{
-font-size:20px;
-margin-bottom:8px;
+
+font-size:22px;
+font-weight:700;
+
+color:#111;
+
+line-height:1.2;
+
 }
 
 .hero-content p{
+
 font-size:14px;
-color:#444;
-margin-bottom:12px;
+color:#555;
+
+max-width:260px;
+
 }
 
 .hero-button{
-display:inline-block;
 
 background:#ff6a00;
+
 color:white;
 
-padding:10px 16px;
+padding:12px 18px;
 
-border-radius:8px;
+border-radius:10px;
+
+font-weight:600;
 
 text-decoration:none;
 
-font-weight:bold;
+width:max-content;
 
-transition:all .2s;
+transition:.2s;
+
 }
 
 .hero-button:hover{
-background:#ff7f1f;
-transform:translateY(-1px);
+
+background:#ff7c1a;
+transform:translateY(-2px);
+
 }
 
 
@@ -165,106 +187,81 @@ transform:translateY(-1px);
 
 background:white;
 
-border-radius:16px;
+border-radius:18px;
 
-padding:18px;
+padding:20px;
 
-min-width:260px;
+min-width:320px;
+height:200px;
 
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
+box-shadow:0 15px 35px rgba(0,0,0,0.18);
 
 display:flex;
 flex-direction:column;
+
+justify-content:center;
 align-items:center;
-gap:12px;
+
+gap:14px;
 
 }
 
 .kit-card h3{
-font-size:16px;
-margin-bottom:4px;
-}
 
-.kit-card p{
-font-size:13px;
-color:#555;
+font-size:16px;
+font-weight:600;
+
 text-align:center;
+
 }
 
 .kit-items{
 
 display:flex;
-justify-content:center;
-gap:12px;
 
-margin-top:10px;
+justify-content:center;
+align-items:center;
+
+gap:18px;
 
 }
 
 .kit-item{
+
 display:flex;
 flex-direction:column;
 align-items:center;
+
 gap:6px;
+
 }
 
 .kit-item img{
-width:70px;
-height:70px;
+
+width:80px;
+height:80px;
+
 object-fit:contain;
+
 }
 
 .kit-item a{
 
-font-size:12px;
-
 background:#ff6a00;
 color:white;
 
-padding:4px 8px;
+padding:6px 12px;
 
-border-radius:6px;
+border-radius:8px;
+
+font-size:12px;
 
 text-decoration:none;
-}
 
-.kits-carousel{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.carousel-track{
-
-display:flex;
-gap:20px;
-
-overflow-x:auto;
-scroll-behavior:smooth;
-
-padding:10px;
+font-weight:600;
 
 }
 
-.carousel-prev,
-.carousel-next{
-
-background:white;
-
-border:none;
-
-width:36px;
-height:36px;
-
-border-radius:50%;
-
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
-
-cursor:pointer;
-
-font-size:16px;
-
-}
 
 /* BOTÕES DO CARROSSEL */
 
