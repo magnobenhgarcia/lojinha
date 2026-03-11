@@ -293,7 +293,7 @@ cards[1].classList.add("active");
     };
 
     track.addEventListener("transitionend", onEnd, { once: true });
-
+  }
     
   next.addEventListener("click", () => {
 
