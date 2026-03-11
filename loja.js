@@ -340,9 +340,9 @@ Ver oferta
 track.insertAdjacentHTML("beforeend", `
 <div class="kit-card">
 
-<h3>${kit.title}</h3>
+<h3 class="kit-title">${kit.title}</h3>
 
-<p>${kit.description}</p>
+<p class="kit-desc">${kit.description}</p>
 
 <div class="kit-items">
 ${itemsHTML}
@@ -350,10 +350,6 @@ ${itemsHTML}
 
 </div>
 `);
-
-});
-
-}
 
 
 document.addEventListener("DOMContentLoaded", async () => {
