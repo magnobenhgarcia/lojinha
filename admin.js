@@ -753,6 +753,6 @@ repo,
 "data/destaques.json",
 JSON.stringify(destaques,null,2),
 "update destaques"
-);
+  });
 
 }
