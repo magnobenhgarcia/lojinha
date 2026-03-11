@@ -351,6 +351,9 @@ ${itemsHTML}
 </div>
 `);
 
+});
+
+}
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -358,4 +361,3 @@ await carregarProdutos();
 await carregarDestaques();
 
 });
-}
