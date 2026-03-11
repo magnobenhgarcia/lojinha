@@ -167,15 +167,15 @@ renderKits(dados.kits);
 
   function atualizarCardAtivo(){
 
-const cards = document.querySelectorAll(".carousel-track .kit-card");
+const cards = track.querySelectorAll(".kit-card");
 
-cards.forEach(card => {
-card.classList.remove("active");
-});
+cards.forEach(c => c.classList.remove("active"));
 
-/* o segundo card do carrossel é o central */
-if(cards[1]){
-cards[1].classList.add("active");
+/* o card central é o segundo */
+const ativo = cards[1];
+
+if(ativo){
+ativo.classList.add("active");
 }
 
 }
