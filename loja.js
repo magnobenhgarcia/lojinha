@@ -179,42 +179,65 @@ const next = document.querySelector(".carousel-next");
 
 if(!track) return;
 
-let position = 0;
+const cards = Array.from(track.children);
+const cardWidth = cards[0].offsetWidth + 18;
 
-const cardWidth = 340;
-const visibleCards = Math.floor(track.parentElement.offsetWidth / cardWidth);
+let index = 0;
+
+/* CLONES PARA LOOP */
+
+const clonesBefore = cards.slice(-2).map(el => el.cloneNode(true));
+const clonesAfter = cards.slice(0,2).map(el => el.cloneNode(true));
+
+clonesBefore.forEach(clone => track.prepend(clone));
+clonesAfter.forEach(clone => track.append(clone));
+
+let allCards = Array.from(track.children);
+
+index = 2;
+track.style.transform = `translateX(-${cardWidth * index}px)`;
+
+/* NEXT */
 
 next.addEventListener("click",()=>{
 
-position += cardWidth;
+index++;
 
-if(position >= track.scrollWidth - track.clientWidth){
-
-position = 0;
-
-}
-
-track.scrollTo({
-left: position,
-behavior:"smooth"
-});
+track.style.transition = "transform .45s ease";
+track.style.transform = `translateX(-${cardWidth * index}px)`;
 
 });
+
+/* PREV */
 
 prev.addEventListener("click",()=>{
 
-position -= cardWidth;
+index--;
 
-if(position < 0){
+track.style.transition = "transform .45s ease";
+track.style.transform = `translateX(-${cardWidth * index}px)`;
 
-position = track.scrollWidth - track.clientWidth;
+});
+
+/* LOOP INFINITO */
+
+track.addEventListener("transitionend",()=>{
+
+if(index >= allCards.length - 2){
+
+track.style.transition = "none";
+index = 2;
+track.style.transform = `translateX(-${cardWidth * index}px)`;
 
 }
 
-track.scrollTo({
-left: position,
-behavior:"smooth"
-});
+if(index <= 1){
+
+track.style.transition = "none";
+index = allCards.length - 3;
+track.style.transform = `translateX(-${cardWidth * index}px)`;
+
+}
 
 });
 
