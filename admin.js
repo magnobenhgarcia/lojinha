@@ -558,6 +558,7 @@ console.error("ERRO AO SALVAR:",erro);
 alert("Erro ao salvar no GitHub:\n\n"+erro.message);
 
 }
+}
 
 function mostrarMensagem(texto){
 
