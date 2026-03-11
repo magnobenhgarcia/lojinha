@@ -8,7 +8,39 @@ renderizarProdutos();
 
 }
 
-carregarProdutos();
+async function carregarDestaquesAdmin(){
+
+try{
+
+const res = await fetch("data/destaques.json");
+
+if(!res.ok){
+throw new Error("Erro ao carregar destaques");
+}
+
+destaques = await res.json();
+
+}catch(erro){
+
+console.error("Erro ao carregar destaques no admin:", erro);
+
+destaques = {
+hero:null,
+kits:[]
+};
+
+}
+
+}
+
+async function iniciarAdmin(){
+
+await carregarProdutos();
+await carregarDestaquesAdmin();
+
+}
+
+iniciarAdmin();
 
 let editandoIndex = null;
 
