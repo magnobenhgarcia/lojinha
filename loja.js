@@ -207,6 +207,18 @@ function iniciarCarrossel() {
     return primeiro.offsetWidth + getGap();
   }
 
+  function atualizarCardAtivo(){
+
+const cards = track.querySelectorAll(".kit-card");
+
+cards.forEach(c => c.classList.remove("active"));
+
+if(cards[1]){
+cards[1].classList.add("active");
+}
+
+}
+
   function moverProximo() {
     if (animando) return;
     animando = true;
@@ -266,10 +278,24 @@ function iniciarCarrossel() {
     };
 
     track.addEventListener("transitionend", onEnd, { once: true });
-  }
 
-  next.addEventListener("click", moverProximo);
-  prev.addEventListener("click", moverAnterior);
+    
+  next.addEventListener("click", () => {
+
+moverProximo();
+atualizarCardAtivo();
+
+});
+
+prev.addEventListener("click", () => {
+
+moverAnterior();
+atualizarCardAtivo();
+
+});
+
+atualizarCardAtivo();
+
 }
 
 function renderHero(hero){
