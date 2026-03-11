@@ -749,8 +749,12 @@ cta:document.getElementById("kitCTA").value,
 items:items
 };
 
-destaques.kits.push(kit);
+if(!kit.title){
+alert("Digite um título para o kit");
+return;
+}
 
+destaques.kits.push(kit);
 await salvarDestaquesGithub();
 
 /* atualizar lista visual */
@@ -781,6 +785,36 @@ lista.innerHTML+=`
 `;
 
 });
+
+}
+
+function removerKit(index){
+
+if(!confirm("Remover este kit?")) return;
+
+/* remove do array */
+destaques.kits.splice(index,1);
+
+/* redesenha a lista */
+renderListaKits();
+
+/* salva novamente no GitHub */
+salvarDestaquesGithub();
+
+}
+
+function removerKit(index){
+
+if(!confirm("Deseja remover este kit?")) return;
+
+/* remove do array */
+destaques.kits.splice(index,1);
+
+/* atualiza lista visual */
+renderListaKits();
+
+/* salva novamente no GitHub */
+salvarDestaquesGithub();
 
 }
 
