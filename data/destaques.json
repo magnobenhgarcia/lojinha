@@ -23,6 +23,16 @@
         0,
         2
       ]
+    },
+    {
+      "title": "Kit teste",
+      "description": "Fazendo teste com 3 produtos",
+      "cta": "",
+      "items": [
+        0,
+        2,
+        1
+      ]
     }
   ]
 }
