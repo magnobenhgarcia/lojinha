@@ -226,10 +226,34 @@ function iniciarCarrossel() {
 
 const cards = track.querySelectorAll(".kit-card");
 
-cards.forEach(c => c.classList.remove("active"));
+cards.forEach(card=>{
+card.classList.remove("active");
+});
 
-if(cards[1]){
-cards[1].classList.add("active");
+const trackRect = track.getBoundingClientRect();
+const centroTrack = trackRect.left + trackRect.width / 2;
+
+let cardMaisProximo = null;
+let menorDistancia = Infinity;
+
+cards.forEach(card => {
+
+const rect = card.getBoundingClientRect();
+const centroCard = rect.left + rect.width / 2;
+
+const distancia = Math.abs(centroTrack - centroCard);
+
+if(distancia < menorDistancia){
+
+menorDistancia = distancia;
+cardMaisProximo = card;
+
+}
+
+});
+
+if(cardMaisProximo){
+cardMaisProximo.classList.add("active");
 }
 
 }
