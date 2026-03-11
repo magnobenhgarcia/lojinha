@@ -406,18 +406,18 @@ async function salvarArquivoGithub(token, owner, repo, path, conteudo, mensagem)
   }
 
   const put = await fetch(url, {
-    method: "PUT",
-    headers:{
-Authorization:`token ${token}`,
-"Content-Type":"application/json"
-},
-    body: JSON.stringify({
-      message: mensagem,
-      content: content,
-      sha: sha,
-      branch: "main"
-    })
-  });
+  method: "PUT",
+  headers: {
+    Authorization: `token ${token}`,
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    message: mensagem,
+    content: content,
+    sha: sha,
+    branch: "main"
+  })
+});
 
   const resultado = await put.text();
 
