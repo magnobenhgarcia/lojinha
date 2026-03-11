@@ -1,9 +1,9 @@
-let produtos = JSON.parse(localStorage.getItem("produtos_admin")) || [];
+let produtos = [];
 
 let editandoIndex = null;
 
 function salvarLocal(){
-localStorage.setItem("produtos_admin", JSON.stringify(produtos));
+/* não salvamos mais produtos no localStorage */
 }
 
 function atualizarCategorias(){
