@@ -69,8 +69,8 @@ margin:40px auto;
 .destaques-container{
 display:grid;
 grid-template-columns:420px 1fr;
-gap:30px;
-align-items:center;
+gap:40px;
+align-items:stretch;
 }
 
 .kits-carousel{
@@ -105,7 +105,6 @@ overflow:hidden;
 /* HERO */
 
 .hero-card{
-
 display:flex;
 align-items:center;
 gap:28px;
@@ -116,11 +115,10 @@ border-radius:18px;
 
 padding:26px;
 
-max-width:540px;
-height:240px;
+width:100%;
+min-height:240px;
 
 box-shadow:0 18px 40px rgba(0,0,0,0.18);
-
 }
 
 .hero-image{
@@ -191,14 +189,12 @@ transform:translateY(-2px);
 /* CARROSSEL */
 
 .kit-card{
-
 background:white;
-
 border-radius:18px;
-
 padding:20px;
 
-width:280px;
+width:300px;
+flex:0 0 300px;
 
 box-shadow:0 15px 35px rgba(0,0,0,0.18);
 
@@ -254,23 +250,42 @@ font-weight:600;
 
 }
 
+.carousel-viewport{
+overflow:hidden;
+width:100%;
+}
+
 
 .carousel-track{
 display:flex;
 gap:24px;
-transition:transform .4s ease;
+will-change:transform;
 }
 
 
 /* BOTÕES DO CARROSSEL */
 
 .carousel-prev,
-.carousel-next {
-  background: white;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-  padding: 8px;
+.carousel-next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:white;
+border:none;
+font-size:22px;
+cursor:pointer;
+padding:10px;
+border-radius:50%;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+z-index:2;
+}
+
+.carousel-prev{
+left:-12px;
+}
+
+.carousel-next{
+right:-12px;
 }
 
 /* SCROLL HERO E KITS */
