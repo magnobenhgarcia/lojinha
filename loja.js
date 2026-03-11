@@ -165,6 +165,21 @@ if(track && track.children.length === 0){
 renderKits(dados.kits);
 }
 
+  function atualizarCardAtivo(){
+
+const cards = document.querySelectorAll(".carousel-track .kit-card");
+
+cards.forEach(card => {
+card.classList.remove("active");
+});
+
+/* o segundo card do carrossel é o central */
+if(cards[1]){
+cards[1].classList.add("active");
+}
+
+}
+
 iniciarCarrossel();
 
 }
