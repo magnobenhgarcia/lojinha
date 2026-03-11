@@ -78,9 +78,9 @@ min-width:0;
 .kits-carousel{
 display:flex;
 align-items:center;
-min-width:0;
 position:relative;
 overflow:hidden;
+min-width:0;
 }
 
 /* SCROLL VERTICAL NOS MODAIS */
@@ -251,14 +251,13 @@ font-weight:600;
 .carousel-viewport{
 overflow:hidden;
 width:100%;
-position:relative;
-max-width:520px;
+min-width:0;
 }
 
 
 .carousel-track{
 display:flex;
-gap:18px;
+gap:20px;
 will-change:transform;
 transition:transform .45s ease;
 padding:4px 0;
