@@ -5,5 +5,15 @@
     "description": "Um dos Melhores violões Custo-Benefício, com excelente acabamento e Som Incrível!",
     "cta": "Aproveite a Dica e o Preço"
   },
-  "kits": []
+  "kits": [
+    {
+      "title": "Kit Iniciante",
+      "description": "Com Esse Kit você consegue fazer o Desafio Violão 10 em 30 e tocar Muito!",
+      "cta": "",
+      "items": [
+        0,
+        1
+      ]
+    }
+  ]
 }
