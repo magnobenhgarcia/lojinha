@@ -8,5 +8,15 @@
     "category": "Violões",
     "order": 1,
     "html_file": "html/produto_1.html"
+  },
+  {
+    "title": "Pedal de Efeito M-Vave Cube Baby Preto Multifuncional Guitarra Elétrica",
+    "description": "Pedal de Efeito M-Vave Cube Baby Preto Multifuncional Guitar",
+    "price": "R$ 239,19",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_968308-MLA99454844904_112025-O.webp",
+    "affiliate_url": "https://meli.la/1FetqQJ",
+    "category": "Pedais e Efeitos",
+    "order": 2,
+    "html_file": "html/produto_2.html"
   }
 ]
