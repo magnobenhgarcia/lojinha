@@ -1,16 +1,20 @@
 {
   "hero": {
     "produto": 0,
-    "title": "Violão recomendado para iniciantes",
-    "description": "Um violão equilibrado, confortável e com ótimo custo-benefício.",
-    "cta": "Ver oferta no Mercado Livre →"
+    "title": "Dica do Professor para Você Iniciante! ❤️🎵",
+    "description": "Um dos Melhores violões Custo-Benefício, com excelente acabamento e Som Incrível!",
+    "cta": "Aproveite a Dica e o Preço"
   },
   "kits": [
     {
       "title": "Kit iniciante",
       "description": "Tudo que você precisa para começar",
       "cta": "Ver ofertas",
-      "items": [0,1,2]
+      "items": [
+        0,
+        1,
+        2
+      ]
     }
   ]
 }
