@@ -226,13 +226,13 @@ function iniciarCarrossel() {
   function moverProximo(){
     const primeiro = track.firstElementChild;
     track.appendChild(primeiro);
-    atualizarCardAtivo();
+    requestAnimationFrame(atualizarCardAtivo);
   }
 
   function moverAnterior(){
     const ultimo = track.lastElementChild;
     track.insertBefore(ultimo, track.firstElementChild);
-    atualizarCardAtivo();
+    requestAnimationFrame(atualizarCardAtivo);
   }
 
   next.addEventListener("click", moverProximo);
@@ -240,29 +240,6 @@ function iniciarCarrossel() {
 
   atualizarCardAtivo();
 
-}
-
-  function moverProximo(){
-    const primeiro = track.firstElementChild;
-    track.appendChild(primeiro);
-  }
-
-  function moverAnterior(){
-    const ultimo = track.lastElementChild;
-    track.insertBefore(ultimo, track.firstElementChild);
-  }
-
- next.addEventListener("click", () => {
-  moverProximo();
-  requestAnimationFrame(atualizarCardAtivo);
-});
-
-prev.addEventListener("click", () => {
-  moverAnterior();
-  requestAnimationFrame(atualizarCardAtivo);
-});
-
-  atualizarCardAtivo();
 }
 
 
