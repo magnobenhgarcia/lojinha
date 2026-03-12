@@ -165,7 +165,7 @@ if(track && track.children.length === 0){
 renderKits(dados.kits);
 }
 
-  function atualizarCardAtivo(){
+ function atualizarCardAtivo(){
 
   const cards = track.querySelectorAll(".kit-card");
 
@@ -208,7 +208,9 @@ renderKits(dados.kits);
 }
 
 function iniciarCarrossel() {
+
   const track = document.querySelector(".carousel-track");
+  const viewport = document.querySelector(".carousel-viewport");
   const prevOld = document.querySelector(".carousel-prev");
   const nextOld = document.querySelector(".carousel-next");
 
@@ -221,20 +223,24 @@ function iniciarCarrossel() {
   prevOld.parentNode.replaceChild(prev, prevOld);
   nextOld.parentNode.replaceChild(next, nextOld);
 
-  function atualizarCardAtivo(){
-
-    const cards = track.querySelectorAll(".kit-card");
-
-    cards.forEach(card => {
-      card.classList.remove("active");
-    });
-
-    const ativo = cards[1];
-
-    if(ativo){
-      ativo.classList.add("active");
-    }
+  function moverProximo(){
+    const primeiro = track.firstElementChild;
+    track.appendChild(primeiro);
+    atualizarCardAtivo();
   }
+
+  function moverAnterior(){
+    const ultimo = track.lastElementChild;
+    track.insertBefore(ultimo, track.firstElementChild);
+    atualizarCardAtivo();
+  }
+
+  next.addEventListener("click", moverProximo);
+  prev.addEventListener("click", moverAnterior);
+
+  atualizarCardAtivo();
+
+}
 
   function moverProximo(){
     const primeiro = track.firstElementChild;
