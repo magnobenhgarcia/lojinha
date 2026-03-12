@@ -293,36 +293,27 @@ nextOld.parentNode.replaceChild(next, nextOld);
 
 function moverProximo(){
 
-track.style.transition="transform .45s ease";
-track.style.transform="translateX(-280px)";
+const track = document.querySelector(".carousel-track");
 
-track.addEventListener("transitionend", () => {
-
-track.style.transition="none";
+/* RESET DO TRANSFORM */
+track.style.transform = "translateX(0px)";
 
 const primeiro = track.firstElementChild;
 track.appendChild(primeiro);
 
-track.style.transform="translateX(0)";
-
 requestAnimationFrame(atualizarCardAtivo);
-
-},{once:true});
 
 }
 
 function moverAnterior(){
 
+const track = document.querySelector(".carousel-track");
+
+/* RESET DO TRANSFORM */
+track.style.transform = "translateX(0px)";
+
 const ultimo = track.lastElementChild;
 track.insertBefore(ultimo, track.firstElementChild);
-
-track.style.transition="none";
-track.style.transform="translateX(-280px)";
-
-requestAnimationFrame(()=>{
-track.style.transition="transform .45s ease";
-track.style.transform="translateX(0)";
-});
 
 requestAnimationFrame(atualizarCardAtivo);
 
