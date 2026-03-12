@@ -39,6 +39,20 @@ opacity:0.8;
 margin-bottom:20px;
 }
 
+.quebra-sessao{
+
+width:100%;
+height:160px;
+
+background-image:url("images/images 1.jpg");
+
+background-size:cover;
+background-position:center;
+
+margin-top:40px;
+
+}
+
 .divisor-loja{
 
 width:100%;
@@ -147,11 +161,13 @@ z-index:2;
 
 .secao-hero{
 
-padding:80px 0;
+background-color:#ffd54f;
 
 background-image:url("images/imagem 2.avif");
 background-size:cover;
 background-position:center;
+
+padding:80px 0;
 
 }
 
