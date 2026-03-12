@@ -167,30 +167,43 @@ renderKits(dados.kits);
 
   function atualizarCardAtivo(){
 
-const cards = track.querySelectorAll(".kit-card");
+  const cards = track.querySelectorAll(".kit-card");
 
-cards.forEach(c => c.classList.remove("active"));
+  cards.forEach(card=>{
+    card.classList.remove("active");
+  });
 
-/* o card central é o segundo */
-const ativo = cards[1];
+  const viewportRect = viewport.getBoundingClientRect();
+  const centroViewport = viewportRect.left + viewportRect.width / 2;
 
-if(ativo){
-ativo.classList.add("active");
-}
+  let cardMaisProximo = null;
+  let menorDistancia = Infinity;
 
-}
+  cards.forEach(card=>{
 
-iniciarCarrossel();
+    const rect = card.getBoundingClientRect();
+    const centroCard = rect.left + rect.width / 2;
 
-}
+    const distancia = Math.abs(centroViewport - centroCard);
 
-}
+    if(distancia < menorDistancia){
+      menorDistancia = distancia;
+      cardMaisProximo = card;
+    }
 
-catch(erro){
+  });
 
-console.error("Erro ao carregar destaques:", erro);
+  if(cardMaisProximo){
 
-}
+    cardMaisProximo.classList.add("active");
+
+    const rect = cardMaisProximo.getBoundingClientRect();
+    const centroCard = rect.left + rect.width / 2;
+
+    const delta = centroViewport - centroCard;
+
+    track.style.transform = `translateX(${delta}px)`;
+  }
 
 }
 
