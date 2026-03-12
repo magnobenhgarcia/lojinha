@@ -122,6 +122,9 @@ align-items:center;
 position:relative;
 z-index:5;
 
+/* ajuste do corte do card */
+margin-top:-20px;
+
 }
 
 .kits-carousel{
@@ -445,7 +448,7 @@ white-space:nowrap;
 
 .carousel-viewport{
 
-overflow:hidden;
+overflow:visible;
 padding:0 120px;
 width:100%;
 
