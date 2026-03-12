@@ -245,17 +245,18 @@ function atualizarCardAtivo(){
 
 const track = document.querySelector(".carousel-track");
 const viewport = document.querySelector(".carousel-viewport");
+const hero = document.querySelector(".hero-card");
 
-if(!track || !viewport) return;
+if(!track || !viewport || !hero) return;
 
 const cards = track.querySelectorAll(".kit-card");
 
 cards.forEach(card => card.classList.remove("active"));
 
-const hero = document.querySelector(".hero-card");
 const heroRect = hero.getBoundingClientRect();
 
-const centroViewport = heroRect.right + 120;
+/* eixo visual do carrossel */
+const eixoCentro = heroRect.right + 160;
 
 let cardMaisProximo = null;
 let menorDistancia = Infinity;
@@ -265,7 +266,7 @@ cards.forEach(card => {
 const rect = card.getBoundingClientRect();
 const centroCard = rect.left + rect.width / 2;
 
-const distancia = Math.abs(centroViewport - centroCard);
+const distancia = Math.abs(eixoCentro - centroCard);
 
 if(distancia < menorDistancia){
 menorDistancia = distancia;
@@ -281,7 +282,8 @@ cardMaisProximo.classList.add("active");
 const rect = cardMaisProximo.getBoundingClientRect();
 const centroCard = rect.left + rect.width / 2;
 
-const delta = centroViewport - centroCard - 8;
+/* move o track para alinhar o card ao eixo */
+const delta = eixoCentro - centroCard;
 
 track.style.transform = `translateX(${delta}px)`;
 
