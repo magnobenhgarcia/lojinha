@@ -111,6 +111,7 @@ margin:40px auto;
 
 max-width:1100px;
 margin:0 auto;
+overflow:hidden;
 
 display:grid;
 grid-template-columns:420px 1fr;
@@ -133,6 +134,7 @@ grid-template-columns:44px 1fr 44px;
 align-items:center;
 gap:12px;
 min-width:0;
+padding-right:40px;
 }
 
 .carousel-track .kit-card{
@@ -448,7 +450,8 @@ white-space:nowrap;
 
 .carousel-viewport{
 
-overflow:visible;
+overflow:hidden;
+max-width:100%;
 padding:0 120px;
 width:100%;
 
@@ -487,6 +490,9 @@ max-width:220px;
 .carousel-track{
 display:flex;
 gap:24px;
+
+position:relative;
+left:0;
 
 transition: transform .45s cubic-bezier(.22,.61,.36,1);
 will-change: transform;
