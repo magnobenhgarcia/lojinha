@@ -252,8 +252,10 @@ const cards = track.querySelectorAll(".kit-card");
 
 cards.forEach(card => card.classList.remove("active"));
 
-const viewportRect = viewport.getBoundingClientRect();
-const centroViewport = viewportRect.left + viewportRect.width / 2;
+const hero = document.querySelector(".hero-card");
+const heroRect = hero.getBoundingClientRect();
+
+const centroViewport = heroRect.right + 120;
 
 let cardMaisProximo = null;
 let menorDistancia = Infinity;
@@ -303,15 +305,40 @@ prevOld.parentNode.replaceChild(prev, prevOld);
 nextOld.parentNode.replaceChild(next, nextOld);
 
 function moverProximo(){
+
+track.style.transition="transform .45s ease";
+track.style.transform="translateX(-280px)";
+
+track.addEventListener("transitionend", () => {
+
+track.style.transition="none";
+
 const primeiro = track.firstElementChild;
 track.appendChild(primeiro);
+
+track.style.transform="translateX(0)";
+
 requestAnimationFrame(atualizarCardAtivo);
+
+},{once:true});
+
 }
 
 function moverAnterior(){
+
 const ultimo = track.lastElementChild;
 track.insertBefore(ultimo, track.firstElementChild);
+
+track.style.transition="none";
+track.style.transform="translateX(-280px)";
+
+requestAnimationFrame(()=>{
+track.style.transition="transform .45s ease";
+track.style.transform="translateX(0)";
+});
+
 requestAnimationFrame(atualizarCardAtivo);
+
 }
 
 next.addEventListener("click", moverProximo);
