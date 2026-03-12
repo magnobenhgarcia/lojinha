@@ -279,7 +279,7 @@ cardMaisProximo.classList.add("active");
 const rect = cardMaisProximo.getBoundingClientRect();
 const centroCard = rect.left + rect.width / 2;
 
-const delta = centroViewport - centroCard;
+const delta = centroViewport - centroCard - 8;
 
 track.style.transform = `translateX(${delta}px)`;
 
