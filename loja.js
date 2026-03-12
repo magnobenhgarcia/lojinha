@@ -1,4 +1,9 @@
 let produtos = [];
+
+/* ============================= */
+/* CARREGAR PRODUTOS */
+/* ============================= */
+
 async function carregarProdutos() {
 
 const grid = document.getElementById("produtos");
@@ -42,7 +47,6 @@ categorias.forEach((categoria, index) => {
 const btn = document.createElement("button");
 
 btn.textContent = categoria;
-
 btn.className = "categoria-btn";
 
 if (index === 0) btn.classList.add("active");
@@ -102,6 +106,7 @@ class="card-button">
 Ver oferta no Mercado Livre →
 
 </a>
+
 <div class="card-safe">
 Abrirá no site oficial do Mercado Livre
 </div>
@@ -140,107 +145,10 @@ empty.classList.remove("hidden");
 }
 
 }
-async function carregarDestaques() {
 
-try {
-
-const resposta = await fetch("data/destaques.json");
-
-if(!resposta.ok){
-throw new Error("Erro ao carregar destaques");
-}
-
-const dados = await resposta.json();
-
-if(dados.hero){
-renderHero(dados.hero);
-}
-
-if(dados.kits){
-
-const track = document.querySelector(".carousel-track");
-
-/* evita renderizar duas vezes */
-if(track && track.children.length === 0){
-renderKits(dados.kits);
-}
-
- function atualizarCardAtivo(){
-
-  const cards = track.querySelectorAll(".kit-card");
-
-  cards.forEach(card=>{
-    card.classList.remove("active");
-  });
-
-  const viewportRect = viewport.getBoundingClientRect();
-  const centroViewport = viewportRect.left + viewportRect.width / 2;
-
-  let cardMaisProximo = null;
-  let menorDistancia = Infinity;
-
-  cards.forEach(card=>{
-
-    const rect = card.getBoundingClientRect();
-    const centroCard = rect.left + rect.width / 2;
-
-    const distancia = Math.abs(centroViewport - centroCard);
-
-    if(distancia < menorDistancia){
-      menorDistancia = distancia;
-      cardMaisProximo = card;
-    }
-
-  });
-
-  if(cardMaisProximo){
-
-    cardMaisProximo.classList.add("active");
-
-    const rect = cardMaisProximo.getBoundingClientRect();
-    const centroCard = rect.left + rect.width / 2;
-
-    const delta = centroViewport - centroCard;
-
-    track.style.transform = `translateX(${delta}px)`;
-  }
-
-}
-
-function iniciarCarrossel() {
-
-  const track = document.querySelector(".carousel-track");
-  const viewport = document.querySelector(".carousel-viewport");
-  const prevOld = document.querySelector(".carousel-prev");
-  const nextOld = document.querySelector(".carousel-next");
-
-  if (!track || !prevOld || !nextOld) return;
-  if (track.children.length < 2) return;
-
-  const prev = prevOld.cloneNode(true);
-  const next = nextOld.cloneNode(true);
-
-  prevOld.parentNode.replaceChild(prev, prevOld);
-  nextOld.parentNode.replaceChild(next, nextOld);
-
-  function moverProximo(){
-    const primeiro = track.firstElementChild;
-    track.appendChild(primeiro);
-    requestAnimationFrame(atualizarCardAtivo);
-  }
-
-  function moverAnterior(){
-    const ultimo = track.lastElementChild;
-    track.insertBefore(ultimo, track.firstElementChild);
-    requestAnimationFrame(atualizarCardAtivo);
-  }
-
-  next.addEventListener("click", moverProximo);
-  prev.addEventListener("click", moverAnterior);
-
-  atualizarCardAtivo();
-
-}
+/* ============================= */
+/* HERO */
+/* ============================= */
 
 function renderHero(hero){
 
@@ -276,6 +184,10 @@ ${hero.cta}
 `;
 
 }
+
+/* ============================= */
+/* KITS */
+/* ============================= */
 
 function renderKits(kits){
 
@@ -325,9 +237,139 @@ ${itemsHTML}
 
 }
 
+/* ============================= */
+/* CARROSSEL */
+/* ============================= */
+
+function atualizarCardAtivo(){
+
+const track = document.querySelector(".carousel-track");
+const viewport = document.querySelector(".carousel-viewport");
+
+if(!track || !viewport) return;
+
+const cards = track.querySelectorAll(".kit-card");
+
+cards.forEach(card => card.classList.remove("active"));
+
+const viewportRect = viewport.getBoundingClientRect();
+const centroViewport = viewportRect.left + viewportRect.width / 2;
+
+let cardMaisProximo = null;
+let menorDistancia = Infinity;
+
+cards.forEach(card => {
+
+const rect = card.getBoundingClientRect();
+const centroCard = rect.left + rect.width / 2;
+
+const distancia = Math.abs(centroViewport - centroCard);
+
+if(distancia < menorDistancia){
+menorDistancia = distancia;
+cardMaisProximo = card;
+}
+
+});
+
+if(cardMaisProximo){
+
+cardMaisProximo.classList.add("active");
+
+const rect = cardMaisProximo.getBoundingClientRect();
+const centroCard = rect.left + rect.width / 2;
+
+const delta = centroViewport - centroCard;
+
+track.style.transform = `translateX(${delta}px)`;
+
+}
+
+}
+
+function iniciarCarrossel(){
+
+const track = document.querySelector(".carousel-track");
+const prevOld = document.querySelector(".carousel-prev");
+const nextOld = document.querySelector(".carousel-next");
+
+if (!track || !prevOld || !nextOld) return;
+if (track.children.length < 2) return;
+
+const prev = prevOld.cloneNode(true);
+const next = nextOld.cloneNode(true);
+
+prevOld.parentNode.replaceChild(prev, prevOld);
+nextOld.parentNode.replaceChild(next, nextOld);
+
+function moverProximo(){
+const primeiro = track.firstElementChild;
+track.appendChild(primeiro);
+requestAnimationFrame(atualizarCardAtivo);
+}
+
+function moverAnterior(){
+const ultimo = track.lastElementChild;
+track.insertBefore(ultimo, track.firstElementChild);
+requestAnimationFrame(atualizarCardAtivo);
+}
+
+next.addEventListener("click", moverProximo);
+prev.addEventListener("click", moverAnterior);
+
+atualizarCardAtivo();
+
+}
+
+/* ============================= */
+/* DESTAQUES */
+/* ============================= */
+
+async function carregarDestaques(){
+
+try{
+
+const resposta = await fetch("data/destaques.json");
+
+if(!resposta.ok){
+throw new Error("Erro ao carregar destaques");
+}
+
+const dados = await resposta.json();
+
+if(dados.hero){
+renderHero(dados.hero);
+}
+
+if(dados.kits){
+
+const track = document.querySelector(".carousel-track");
+
+if(track && track.children.length === 0){
+renderKits(dados.kits);
+}
+
+iniciarCarrossel();
+
+}
+
+}
+
+catch(erro){
+
+console.error("Erro ao carregar destaques:", erro);
+
+}
+
+}
+
+/* ============================= */
+/* START */
+/* ============================= */
+
 document.addEventListener("DOMContentLoaded", async () => {
 
-  await carregarProdutos();
-  await carregarDestaques();
+await carregarProdutos();
+await carregarDestaques();
 
 });
