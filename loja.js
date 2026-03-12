@@ -202,140 +202,50 @@ function iniciarCarrossel() {
   if (!track || !prevOld || !nextOld) return;
   if (track.children.length < 2) return;
 
-  /* limpa listeners antigos trocando os botões por clones limpos */
   const prev = prevOld.cloneNode(true);
   const next = nextOld.cloneNode(true);
 
   prevOld.parentNode.replaceChild(prev, prevOld);
   nextOld.parentNode.replaceChild(next, nextOld);
 
-  let animando = false;
-
-  function getGap() {
-    const estilos = window.getComputedStyle(track);
-    return parseFloat(estilos.columnGap || estilos.gap || 0);
-  }
-
-  function getCardWidth() {
-    const primeiro = track.children[0];
-    if (!primeiro) return 0;
-    return primeiro.offsetWidth + getGap();
-  }
-
   function atualizarCardAtivo(){
 
-const cards = track.querySelectorAll(".kit-card");
+    const cards = track.querySelectorAll(".kit-card");
 
-cards.forEach(card=>{
-card.classList.remove("active");
-});
+    cards.forEach(card => {
+      card.classList.remove("active");
+    });
 
-const trackRect = track.getBoundingClientRect();
-const centroTrack = trackRect.left + trackRect.width / 2;
+    const ativo = cards[1];
 
-let cardMaisProximo = null;
-let menorDistancia = Infinity;
-
-cards.forEach(card => {
-
-const rect = card.getBoundingClientRect();
-const centroCard = rect.left + rect.width / 2;
-
-const distancia = Math.abs(centroTrack - centroCard);
-
-if(distancia < menorDistancia){
-
-menorDistancia = distancia;
-cardMaisProximo = card;
-
-}
-
-});
-
-if(cardMaisProximo){
-cardMaisProximo.classList.add("active");
-}
-
-}
-
-  function moverProximo() {
-    if (animando) return;
-    animando = true;
-
-    const distancia = getCardWidth();
-    if (!distancia) {
-      animando = false;
-      return;
+    if(ativo){
+      ativo.classList.add("active");
     }
-
-    track.style.transition = "transform .45s ease";
-    track.style.transform = `translateX(-${distancia}px)`;
-
-    const onEnd = () => {
-      track.removeEventListener("transitionend", onEnd);
-
-      const primeiro = track.children[0];
-      track.appendChild(primeiro);
-
-      track.style.transition = "none";
-      track.style.transform = "translateX(0)";
-
-      /* força reflow para o browser aplicar o reset sem piscar */
-      void track.offsetWidth;
-
-      animando = false;
-    };
-
-    track.addEventListener("transitionend", onEnd, { once: true });
   }
 
-  function moverAnterior() {
-    if (animando) return;
-    animando = true;
+  function moverProximo(){
+    const primeiro = track.firstElementChild;
+    track.appendChild(primeiro);
+  }
 
-    const distancia = getCardWidth();
-    if (!distancia) {
-      animando = false;
-      return;
-    }
-
+  function moverAnterior(){
     const ultimo = track.lastElementChild;
     track.insertBefore(ultimo, track.firstElementChild);
-
-    track.style.transition = "none";
-    track.style.transform = `translateX(-${distancia}px)`;
-
-    /* força reflow antes de animar de volta */
-    void track.offsetWidth;
-
-    track.style.transition = "transform .45s ease";
-    track.style.transform = "translateX(0)";
-
-    const onEnd = () => {
-      track.removeEventListener("transitionend", onEnd);
-      animando = false;
-    };
-
-    track.addEventListener("transitionend", onEnd, { once: true });
   }
-    
-  next.addEventListener("click", () => {
 
-moverProximo();
-atualizarCardAtivo();
-
+ next.addEventListener("click", () => {
+  moverProximo();
+  requestAnimationFrame(atualizarCardAtivo);
 });
 
 prev.addEventListener("click", () => {
-
-moverAnterior();
-atualizarCardAtivo();
-
+  moverAnterior();
+  requestAnimationFrame(atualizarCardAtivo);
 });
 
-atualizarCardAtivo();
-
+  atualizarCardAtivo();
 }
+
 
 function renderHero(hero){
 
