@@ -245,18 +245,14 @@ function atualizarCardAtivo(){
 
 const track = document.querySelector(".carousel-track");
 const viewport = document.querySelector(".carousel-viewport");
-const hero = document.querySelector(".hero-card");
 
-if(!track || !viewport || !hero) return;
+if(!track || !viewport) return;
 
 const cards = track.querySelectorAll(".kit-card");
 
-cards.forEach(card => card.classList.remove("active"));
-
-const heroRect = hero.getBoundingClientRect();
-
-/* eixo visual do carrossel */
-const eixoCentro = heroRect.right + 160;
+/* centro real do carrossel */
+const viewportRect = viewport.getBoundingClientRect();
+const eixoCentro = viewportRect.left + viewportRect.width / 2;
 
 let cardMaisProximo = null;
 let menorDistancia = Infinity;
@@ -275,16 +271,20 @@ cardMaisProximo = card;
 
 });
 
+/* remove active */
+cards.forEach(card => card.classList.remove("active"));
+
 if(cardMaisProximo){
 
 cardMaisProximo.classList.add("active");
 
+/* calcula correção */
 const rect = cardMaisProximo.getBoundingClientRect();
 const centroCard = rect.left + rect.width / 2;
 
-/* move o track para alinhar o card ao eixo */
 const delta = eixoCentro - centroCard;
 
+/* move o track */
 track.style.transform = `translateX(${delta}px)`;
 
 }
