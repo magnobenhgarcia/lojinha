@@ -445,6 +445,7 @@ white-space:nowrap;
 .carousel-viewport{
 
 overflow:hidden;
+padding:0 120px;
 width:100%;
 
 display:flex;
@@ -483,8 +484,8 @@ max-width:220px;
 display:flex;
 gap:24px;
 
-will-change:transform;
-transition: transform .35s ease;
+transition: transform .45s cubic-bezier(.22,.61,.36,1);
+will-change: transform;
 }
 
 
