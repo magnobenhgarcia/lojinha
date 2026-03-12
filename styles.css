@@ -78,10 +78,11 @@ display:flex;
 justify-content:center;
 gap:12px;
 flex-wrap:wrap;
-margin-bottom:40px;
-
+    
 position:relative;
-z-index:6;
+z-index:20;
+
+margin-top:60px;
 }
 
 .categoria-btn{
