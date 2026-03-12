@@ -247,6 +247,7 @@ border-radius:20px;
 padding:32px;
 
 position:relative;
+z-index:5;
 
 }
 
@@ -335,6 +336,7 @@ background:white;
 border-radius:16px;
 transform-origin:center bottom;
 
+
 padding:20px 16px;
 
 display:flex;
@@ -347,6 +349,7 @@ text-align:center;
 
 gap:4px;
 transition: transform .35s ease, opacity .35s ease;
+opacity:.6;
 }
 
 box-shadow:0 15px 35px rgba(0,0,0,0.18);
@@ -438,9 +441,13 @@ white-space:nowrap;
 }
 
 .carousel-viewport{
+
 overflow:hidden;
 width:100%;
-min-width:0;
+
+display:flex;
+justify-content:center;
+
 }
 
 .kit-title{
@@ -476,6 +483,7 @@ will-change:transform;
 
 display:flex;
 gap:24px;
+transform:translateX(-120px); /* AJUSTE AQUI */
 transition: transform .35s ease;
 }
 
