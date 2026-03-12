@@ -242,7 +242,6 @@ function iniciarCarrossel() {
 
 }
 
-
 function renderHero(hero){
 
 const heroContainer = document.getElementById("hero");
@@ -328,7 +327,7 @@ ${itemsHTML}
 
 document.addEventListener("DOMContentLoaded", async () => {
 
-await carregarProdutos();
-await carregarDestaques();
+  await carregarProdutos();
+  await carregarDestaques();
 
 });
