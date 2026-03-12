@@ -250,7 +250,7 @@ if(!track || !viewport) return;
 
 const cards = track.querySelectorAll(".kit-card");
 
-/* centro real do carrossel */
+/* centro FIXO do carrossel */
 const viewportRect = viewport.getBoundingClientRect();
 const eixoCentro = viewportRect.left + viewportRect.width / 2;
 
@@ -278,13 +278,12 @@ if(cardMaisProximo){
 
 cardMaisProximo.classList.add("active");
 
-/* calcula correção */
 const rect = cardMaisProximo.getBoundingClientRect();
 const centroCard = rect.left + rect.width / 2;
 
+/* move o track para alinhar ao centro */
 const delta = eixoCentro - centroCard;
 
-/* move o track */
 track.style.transform = `translateX(${delta}px)`;
 
 }
