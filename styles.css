@@ -478,12 +478,10 @@ max-width:220px;
 
 
 .carousel-track{
-transform:translateX(0);
-will-change:transform;
-
 display:flex;
 gap:24px;
-transform:translateX(-120px); /* AJUSTE AQUI */
+
+will-change:transform;
 transition: transform .35s ease;
 }
 
