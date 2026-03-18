@@ -966,3 +966,42 @@ min-height:auto !important;
 }
 
 }
+
+    /* ===== AJUSTE FINAL HERO MOBILE ===== */
+@media (max-width: 768px){
+
+.hero-card{
+display:flex !important;
+flex-direction:column !important;
+align-items:center !important;
+text-align:center !important;
+}
+
+.hero-content{
+display:flex !important;
+flex-direction:column !important;
+align-items:center !important;
+}
+
+.hero-content h2{
+order:1;
+font-size:18px !important;
+}
+
+.hero-image{
+order:2;
+width:90px !important;
+margin:8px 0 !important;
+}
+
+.hero-content p{
+order:3;
+font-size:13px !important;
+}
+
+.hero-button{
+order:4;
+width:100% !important;
+}
+
+}
