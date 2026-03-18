@@ -675,24 +675,14 @@ white-space:nowrap;
 }
 
 /* =========================
-   MOBILE CORREÇÃO REAL
+   MOBILE SEGURO (SEM QUEBRAR GRID)
 ========================= */
 
 @media (max-width: 768px){
 
-.destaques-container{
-display:flex;
-flex-direction:column;
-gap:20px;
-}
-
 /* HERO */
-@media (max-width:768px){
-
 .hero-card{
-display:flex;
 flex-direction:column;
-align-items:center;
 text-align:center;
 padding:16px;
 }
@@ -703,105 +693,39 @@ height:auto;
 margin-bottom:10px;
 }
 
-.hero-content{
-padding:0;
-}
-
-.hero-content h2{
-font-size:20px;
-}
-
-.hero-content p{
-font-size:14px;
-}
-
-.hero-button{
-width:100%;
-}
-
-}
-
-/* CARROSSEL */
-.kits-carousel{
-width:100%;
-position:relative;
-z-index:1;
-}
-
-/* TRACK */
-.carousel-track{
-transform:none !important;
+/* CONTAINER GERAL */
+.destaques-container{
 display:flex;
 flex-direction:column;
-gap:12px;
+gap:20px;
 }
 
-/* ESCONDER SETAS */
+/* CARROSSEL (SEM QUEBRAR ESTRUTURA) */
+.kits-carousel{
+display:block;
+width:100%;
+}
+
+/* NÃO mexe no track global */
+.carousel-track{
+display:flex;
+overflow-x:auto;
+gap:12px;
+padding:10px;
+}
+
+/* cards lado a lado scrollável */
+.kit-card{
+min-width:85%;
+flex-shrink:0;
+opacity:1;
+transform:none;
+}
+
+/* esconder setas só no mobile */
 .carousel-prev,
 .carousel-next{
 display:none;
-}
-
-/* CARDS */
-.kit-card{
-width:100%;
-opacity:1 !important;
-transform:none !important;
-}
-
-}
-
-.carousel-viewport{
-overflow:visible !important;
-}
-
-@media(max-width:600px){
-
-.grid{
-grid-template-columns:1fr !important;
-justify-items:center;
-gap:30px;
-}
-
-}
-
-@media (max-width:768px){
-
-.hero-image{
-max-height:120px;
-object-fit:contain;
-}
-
-.hero-content h2{
-font-size:20px;
-}
-
-.hero-content p{
-font-size:14px;
-}
-
-}
-
-@media (max-width: 768px){
-
-.kits-carousel{
-width:100%;
-}
-
-.carousel-track{
-display:flex !important;
-flex-direction:column !important;
-align-items:stretch;
-gap:16px;
-transform:none !important;
-}
-
-.kit-card{
-width:100% !important;
-min-width:100% !important;
-max-width:100% !important;
-padding:16px;
-box-sizing:border-box;
 }
 
 }
