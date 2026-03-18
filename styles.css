@@ -674,70 +674,103 @@ white-space:nowrap;
 }
 
 /* =========================
-   MOBILE - DESTAQUES
+   MOBILE CORREÇÃO REAL
 ========================= */
 
 @media(max-width:768px){
 
+/* CONTAINER PRINCIPAL */
+
+.destaques{
+padding:20px 12px;
+}
+
+/* STACK VERTICAL */
+
 .destaques-container{
 display:flex;
 flex-direction:column;
-gap:20px;
+gap:16px;
+align-items:center;
 }
 
 /* HERO */
 
 .hero-card{
 width:100%;
+padding:14px;
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
 }
 
+/* IMAGEM DO HERO */
+
 .hero-image{
-height:180px;
+width:140px;
+height:auto;
+margin-bottom:10px;
+}
+
+/* TEXTO HERO */
+
+.hero-content h2{
+font-size:18px;
+line-height:1.3;
+margin-bottom:8px;
+}
+
+.hero-content p{
+font-size:14px;
+margin-bottom:10px;
+}
+
+/* BOTÃO HERO */
+
+.hero-button{
+width:100%;
+font-size:14px;
+padding:10px;
 }
 
 /* CARROSSEL */
 
 .kits-carousel{
 width:100%;
+margin-top:10px;
 }
 
+/* TRACK */
+
 .carousel-track{
-overflow-x:auto;
 display:flex;
 gap:12px;
+overflow-x:auto;
+scroll-behavior:smooth;
 padding-bottom:10px;
 }
 
-/* KIT */
-
-.kit-card{
-min-width:220px;
-flex-shrink:0;
-}
-
-/* BOTÕES (opcional esconder no mobile) */
+/* ESCONDER SETAS (mobile usa swipe) */
 
 .carousel-prev,
 .carousel-next{
 display:none;
 }
 
+/* KIT */
+
+.kit-card{
+min-width:200px;
+flex-shrink:0;
+padding:12px;
 }
 
-@media(max-width:900px){
+/* MINIATURAS */
 
-.grid{
-grid-template-columns:repeat(2,260px);
-gap:40px;
-}
-
-}
-
-@media(max-width:600px){
-
-.grid{
-grid-template-columns:1fr;
-justify-items:center;
+.kit-item img{
+width:50px;
+height:50px;
 }
 
 }
