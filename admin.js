@@ -576,6 +576,11 @@ async function salvarGithub() {
     );
 
     mostrarMensagem("Produtos salvos no GitHub ✔");
+   
+    setTimeout(() => {
+  location.href = location.pathname + "?v=" + new Date().getTime();
+}, 1000);
+    
   }catch(erro){
 
 if(erro.message === "TOKEN_INVALIDO"){
