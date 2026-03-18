@@ -794,3 +794,104 @@ max-width:320px;
 }
 
 }
+
+/* =========================
+   AJUSTE FINO DAS DOBRAS (MOBILE)
+========================= */
+
+@media (max-width: 768px){
+
+/* =========================
+   1ª DOBRA (COMPACTAR HERO)
+========================= */
+
+/* reduz espaço do topo */
+.topo{
+padding:30px 16px 10px;
+}
+
+/* sobe o hero */
+.secao-hero{
+padding:40px 0 20px;
+}
+
+/* HERO mais compacto */
+.hero-card{
+flex-direction:column;
+align-items:center;
+text-align:center;
+
+padding:14px;
+margin:-20px auto 0; /* puxa pra cima */
+
+max-width:90%;
+}
+
+/* imagem menor */
+.hero-image{
+width:100px;
+margin-bottom:6px;
+}
+
+/* título do hero menor */
+.hero-content h2{
+font-size:18px;
+}
+
+/* texto menor */
+.hero-content p{
+font-size:13px;
+}
+
+/* botão mais compacto */
+.hero-button{
+padding:10px;
+font-size:14px;
+width:100%;
+}
+
+
+/* 🔥 MOVE O TÍTULO PRA CIMA DA IMAGEM */
+.hero-content{
+order:1;
+}
+
+.hero-image{
+order:2;
+}
+
+
+/* =========================
+   EVITAR VAZAMENTO PRA 2ª DOBRA
+========================= */
+
+.secao-hero{
+overflow:hidden;
+}
+
+
+/* =========================
+   2ª DOBRA (CARROSSEL)
+========================= */
+
+.destaques{
+margin-top:10px;
+}
+
+/* garante centralização */
+.carousel-track{
+align-items:center;
+}
+
+/* leve ajuste visual */
+.kit-card{
+margin-top:10px;
+}
+
+
+/* =========================
+   3ª DOBRA (NÃO ALTERAR)
+========================= */
+/* (intencionalmente vazio — mantido como está) */
+
+}
