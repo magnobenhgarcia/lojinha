@@ -673,7 +673,56 @@ line-height:1.3;
 white-space:nowrap;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE - DESTAQUES
+========================= */
+
+@media(max-width:768px){
+
+.destaques-container{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+/* HERO */
+
+.hero-card{
+width:100%;
+}
+
+.hero-image{
+height:180px;
+}
+
+/* CARROSSEL */
+
+.kits-carousel{
+width:100%;
+}
+
+.carousel-track{
+overflow-x:auto;
+display:flex;
+gap:12px;
+padding-bottom:10px;
+}
+
+/* KIT */
+
+.kit-card{
+min-width:220px;
+flex-shrink:0;
+}
+
+/* BOTÕES (opcional esconder no mobile) */
+
+.carousel-prev,
+.carousel-next{
+display:none;
+}
+
+}
 
 @media(max-width:900px){
 
