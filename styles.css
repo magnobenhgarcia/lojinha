@@ -901,72 +901,69 @@ margin-top:10px;
    HERO ULTRA COMPACTO (DOBRA 1 PERFEITA)
 ========================= */
 
+@media (max-width: 768px){
+
+/* HERO ULTRA COMPACTO (FORÇADO) */
+
 .secao-hero{
-padding:20px 0 10px;
+padding:15px 0 5px !important;
+overflow:hidden !important;
 }
 
-/* container mais compacto */
 .hero-card{
-padding:12px;
-margin:-30px auto 0;
+padding:10px !important;
+margin:-40px auto 0 !important;
 
-max-width:92%;
-gap:8px;
+max-width:92% !important;
+gap:6px !important;
+
+flex-direction:column !important;
+align-items:center !important;
+text-align:center !important;
 }
 
-/* ORDEM CORRETA */
+/* ORDEM */
 .hero-content{
-order:1;
+order:1 !important;
 }
 
 .hero-image{
-order:2;
+order:2 !important;
 }
 
 .hero-content p{
-order:3;
+order:3 !important;
 }
 
 .hero-button{
-order:4;
+order:4 !important;
 }
 
-/* imagem menor ainda */
+/* TAMANHO */
 .hero-image{
-width:85px;
-height:auto;
-margin:4px 0;
+width:70px !important;
+margin:2px 0 !important;
 }
 
-/* título menor */
 .hero-content h2{
-font-size:16px;
-line-height:1.2;
+font-size:15px !important;
 }
 
-/* descrição menor */
 .hero-content p{
-font-size:12px;
-line-height:1.4;
-margin:4px 0;
+font-size:11px !important;
+margin:2px 0 !important;
 }
 
-/* botão compacto */
 .hero-button{
-padding:8px;
-font-size:13px;
+padding:7px !important;
+font-size:12px !important;
+width:100% !important;
 }
 
-/* remove alturas desnecessárias */
+/* REMOVE ALTURAS */
 .hero-card,
 .hero-content{
 min-height:auto !important;
 }
 
-/* evita qualquer overflow */
-.secao-hero{
-overflow:hidden;
 }
-
-}
-
