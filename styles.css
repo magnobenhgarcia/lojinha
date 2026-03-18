@@ -895,3 +895,78 @@ margin-top:10px;
 /* (intencionalmente vazio — mantido como está) */
 
 }
+@media (max-width: 768px){
+
+/* =========================
+   HERO ULTRA COMPACTO (DOBRA 1 PERFEITA)
+========================= */
+
+.secao-hero{
+padding:20px 0 10px;
+}
+
+/* container mais compacto */
+.hero-card{
+padding:12px;
+margin:-30px auto 0;
+
+max-width:92%;
+gap:8px;
+}
+
+/* ORDEM CORRETA */
+.hero-content{
+order:1;
+}
+
+.hero-image{
+order:2;
+}
+
+.hero-content p{
+order:3;
+}
+
+.hero-button{
+order:4;
+}
+
+/* imagem menor ainda */
+.hero-image{
+width:85px;
+height:auto;
+margin:4px 0;
+}
+
+/* título menor */
+.hero-content h2{
+font-size:16px;
+line-height:1.2;
+}
+
+/* descrição menor */
+.hero-content p{
+font-size:12px;
+line-height:1.4;
+margin:4px 0;
+}
+
+/* botão compacto */
+.hero-button{
+padding:8px;
+font-size:13px;
+}
+
+/* remove alturas desnecessárias */
+.hero-card,
+.hero-content{
+min-height:auto !important;
+}
+
+/* evita qualquer overflow */
+.secao-hero{
+overflow:hidden;
+}
+
+}
+
