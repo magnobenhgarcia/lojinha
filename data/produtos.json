@@ -28,5 +28,35 @@
     "category": "Violões",
     "order": 3,
     "html_file": "html/produto_3.html"
+  },
+  {
+    "title": "Doterra Breathe 15ml - Mix De Óleos Essenciais",
+    "description": "Doterra Breathe 15ml - Mix De Óleos Essenciais",
+    "price": "R$ 127,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_801570-MLB87497733233_072025-O.webp",
+    "affiliate_url": "https://meli.la/2Cgzi5R",
+    "category": "Loja Casa e Cuidados",
+    "order": 4,
+    "html_file": "html/produto_4.html"
+  },
+  {
+    "title": "Óleo Essencial Mix Doterra Serenity Para Difusor e Massagens 15ml",
+    "description": "Óleo Essencial Mix Doterra Serenity Para Difusor e Massagens",
+    "price": "R$ 167,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_793296-MLA105390738316_012026-O.webp",
+    "affiliate_url": "https://meli.la/1cjBqym",
+    "category": "Loja Casa e Cuidados",
+    "order": 5,
+    "html_file": "html/produto_5.html"
+  },
+  {
+    "title": "Toalha De Banho Gigante Karsten Unika Algodão 86x150 Cor Branco",
+    "description": "Toalha De Banho Gigante Karsten Unika Algodão 86x150 Cor Bra",
+    "price": "R$ 78,90",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_704624-MLA96140290475_102025-O.webp",
+    "affiliate_url": "https://meli.la/2AqYkmU",
+    "category": "Loja Casa e Cuidados",
+    "order": 6,
+    "html_file": "html/produto_6.html"
   }
 ]
