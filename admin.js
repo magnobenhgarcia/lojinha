@@ -390,41 +390,68 @@ document.querySelector(".previewModal").remove();
 
 }
 
-function atualizarPrecos(){
+async function atualizarPrecos(){
 
-produtos.forEach(p=>{
+for(const p of produtos){
 
-const html = p.product_html_snapshot;
+let html = p.product_html_snapshot;
 
+// 🔥 1. Se NÃO tem snapshot → busca no HTML local
+if(!html || html.trim() === ""){
+
+  if(!p.html_path){
+    console.warn("Sem html_path:", p);
+    continue;
+  }
+
+  try{
+    const res = await fetch(p.html_path);
+    html = await res.text();
+
+    // salva snapshot automaticamente
+    p.product_html_snapshot = html;
+
+    console.log("Snapshot recriado:", p.html_path);
+
+  }catch(e){
+    console.warn("Erro ao buscar HTML:", p.html_path, e);
+    continue;
+  }
+
+}
+
+// 🔥 2. A partir daqui SEMPRE temos HTML válido
+
+if(typeof html !== "string") continue;
+
+// extrair dados
 const titleMatch = html.match(/<meta property="og:title" content="([^"]+)"/);
 const imageMatch = html.match(/<meta property="og:image" content="([^"]+)"/);
 
 if(titleMatch){
 
-let title = titleMatch[1];
+  let title = titleMatch[1];
 
-const priceMatch = title.match(/R\$\s?[\d\.,]+/);
+  const priceMatch = title.match(/R\$\s?[\d\.,]+/);
 
-if(priceMatch){
-
-p.price = formatarPreco(priceMatch[0]);
-title = title.replace(/-?\s?R\$\s?[\d\.,]+/,"").trim();
-p.title = title;
-
-}
+  if(priceMatch){
+    p.price = formatarPreco(priceMatch[0]);
+    title = title.replace(/-?\s?R\$\s?[\d\.,]+/,"").trim();
+    p.title = title;
+  }
 
 }
 
 if(imageMatch){
-p.image_url = imageMatch[1];
+  p.image_url = imageMatch[1];
 }
 
-});
+}
 
 salvarLocal();
 renderizarProdutos();
 
-alert("Preços atualizados");
+alert("Preços atualizados com fallback inteligente!");
 
 }
 
