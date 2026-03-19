@@ -392,39 +392,35 @@ document.querySelector(".previewModal").remove();
 
 async function atualizarPrecos(){
 
-for(const p of produtos){
+for(const [index, p] of produtos.entries()){
 
 let html = p.product_html_snapshot;
 
-// 🔥 1. Se NÃO tem snapshot → busca no HTML local
-if(!html || html.trim() === ""){
-
-  if(!p.html_path){
-    console.warn("Sem html_path:", p);
-    continue;
-  }
+// 🔥 1. FALLBACK → se snapshot não existe
+if(!html || typeof html !== "string" || html.trim() === ""){
 
   try{
-    const res = await fetch(p.html_path);
+
+    // gera caminho automático baseado no índice
+    const caminho = `html/produto_${index+1}.html`;
+
+    const res = await fetch(caminho);
     html = await res.text();
 
     // salva snapshot automaticamente
     p.product_html_snapshot = html;
 
-    console.log("Snapshot recriado:", p.html_path);
+    console.log("Snapshot recriado:", caminho);
 
   }catch(e){
-    console.warn("Erro ao buscar HTML:", p.html_path, e);
+    console.warn("Erro ao carregar HTML:", index+1, e);
     continue;
   }
 
 }
 
-// 🔥 2. A partir daqui SEMPRE temos HTML válido
+// 🔥 2. EXTRAÇÃO (igual botão individual)
 
-if(typeof html !== "string") continue;
-
-// extrair dados
 const titleMatch = html.match(/<meta property="og:title" content="([^"]+)"/);
 const imageMatch = html.match(/<meta property="og:image" content="([^"]+)"/);
 
@@ -448,10 +444,11 @@ if(imageMatch){
 
 }
 
+// 💾 salvar e atualizar UI
 salvarLocal();
 renderizarProdutos();
 
-alert("Preços atualizados com fallback inteligente!");
+alert("Preços atualizados com fallback automático!");
 
 }
 
