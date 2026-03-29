@@ -1,15 +1,12 @@
-script.css lojinha
-
-
 body{
 font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(
+background: #f5f5f5;
 180deg,
 #2b0a4a 0%,
 #3a0f6a 40%,
 #2b0a4a 100%
 );
-color:white;
+color:yellow;
 margin:0;
 }
 
