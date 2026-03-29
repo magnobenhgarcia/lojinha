@@ -1,12 +1,12 @@
 body{
 font-family:Arial, Helvetica, sans-serif;
-background: #f5f5f5;
+background: #FFE600;
 180deg,
-#2b0a4a 0%,
-#3a0f6a 40%,
-#2b0a4a 100%
+##2D3277 0%,
+##2D3277 40%,
+##2D3277 100%
 );
-color:yellow;
+color:black;
 margin:0;
 }
 
