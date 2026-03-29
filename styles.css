@@ -1,6 +1,6 @@
 body{
 font-family:Arial, Helvetica, sans-serif;
-background:linear-gradient(180deg,#2b0a4a,#3a0f6a,#2b0a4a);
+background:linear-gradient(180deg,#2c0f57,#14052b);
 color:white;
 margin:0;
 }
@@ -9,16 +9,20 @@ margin:0;
 
 .topo{
 text-align:center;
-padding:60px 20px 40px;
+padding:60px 20px 40px 20px;
 }
+
+/* LOGO MAGNO */
 
 .logo{
 width:140px;
 height:140px;
 object-fit:contain;
 display:block;
-margin:0 auto 20px;
+margin:0 auto 20px auto;
 }
+
+/* TITULOS */
 
 h1{
 font-size:32px;
@@ -26,7 +30,7 @@ margin-bottom:10px;
 }
 
 .subtitulo{
-opacity:.8;
+opacity:0.8;
 margin-bottom:20px;
 }
 
@@ -37,7 +41,7 @@ display:flex;
 justify-content:center;
 gap:12px;
 flex-wrap:wrap;
-margin:40px 0;
+margin-bottom:40px;
 }
 
 .categoria-btn{
@@ -55,14 +59,11 @@ background:#ffe600;
 color:black;
 }
 
-/* ========================= */
-/* DESTAQUES */
-/* ========================= */
+/* CARROSSEL DE DESTAQUES */
 
 .destaques{
 max-width:1100px;
 margin:40px auto;
-padding:0 20px;
 }
 
 .destaques-container{
@@ -72,54 +73,69 @@ gap:30px;
 align-items:center;
 }
 
+/* SCROLL VERTICAL NOS MODAIS */
+
+#modalProduto > div,
+#modalHero > div,
+#modalKits > div{
+max-height: 85vh;
+overflow-y: auto;
+}
+
+/* CONTEÚDO INTERNO DO MODAL */
+
+#modalProduto img,
+#modalHero img,
+#modalKits img{
+max-width:100%;
+height:auto;
+}
+
 /* HERO */
 
 .hero-card{
 display:flex;
 align-items:center;
-gap:18px;
-
+gap:28px;
 background:white;
 border-radius:18px;
-padding:20px;
-
-width:100%;
-max-width:420px;
-height:200px;
-
-box-shadow:0 15px 35px rgba(0,0,0,0.2);
+padding:26px;
+max-width:540px;
+height:240px;
+box-shadow:0 18px 40px rgba(0,0,0,0.18);
 }
 
 .hero-image{
-width:140px;
-height:140px;
+width:170px;
+height:170px;
 object-fit:contain;
 }
 
 .hero-content{
 display:flex;
 flex-direction:column;
-gap:8px;
+gap:10px;
 }
 
 .hero-content h2{
-font-size:18px;
+font-size:22px;
+font-weight:700;
 color:#111;
-margin:0;
+line-height:1.2;
 }
 
 .hero-content p{
-font-size:13px;
+font-size:14px;
 color:#555;
-margin:0;
+max-width:260px;
 }
 
 .hero-button{
 background:#ff6a00;
 color:white;
-padding:10px 14px;
-border-radius:8px;
-font-weight:bold;
+padding:12px 18px;
+border-radius:10px;
+font-weight:600;
 text-decoration:none;
 width:max-content;
 transition:.2s;
@@ -127,154 +143,158 @@ transition:.2s;
 
 .hero-button:hover{
 background:#ff7c1a;
+transform:translateY(-2px);
 }
 
-/* ========================= */
 /* CARROSSEL */
-/* ========================= */
-
-.kits-carousel{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.carousel-track{
-display:flex;
-gap:20px;
-overflow:hidden;
-}
-
-/* CARD KIT */
 
 .kit-card{
 background:white;
-border-radius:16px;
-
-padding:16px;
-
-min-width:260px;
+border-radius:18px;
+padding:20px;
+min-width:320px;
 height:200px;
-
+box-shadow:0 15px 35px rgba(0,0,0,0.18);
 display:flex;
 flex-direction:column;
-align-items:center;
 justify-content:center;
+align-items:center;
+gap:14px;
+}
 
+.kit-card h3{
+font-size:16px;
+font-weight:600;
 text-align:center;
-gap:10px;
-
-opacity:.5;
-transform:scale(.85);
-
-transition:.4s;
-
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
-
-.kit-card.active{
-opacity:1;
-transform:scale(1.05);
-box-shadow:0 20px 40px rgba(0,0,0,0.25);
-}
-
-/* ITENS DO KIT */
 
 .kit-items{
 display:flex;
-gap:10px;
-align-items:center;
 justify-content:center;
+align-items:center;
+gap:18px;
 }
 
 .kit-item{
 display:flex;
 flex-direction:column;
 align-items:center;
-gap:5px;
+gap:6px;
 }
 
 .kit-item img{
-width:70px;
-height:70px;
+width:80px;
+height:80px;
 object-fit:contain;
 }
 
 .kit-item a{
 background:#ff6a00;
 color:white;
-padding:6px 10px;
+padding:6px 12px;
 border-radius:8px;
 font-size:12px;
-font-weight:bold;
 text-decoration:none;
+font-weight:600;
 }
 
-.kit-item a:hover{
-background:#ff7c1a;
+.carousel-track{
+display:flex;
+gap:24px;
+overflow:hidden;
+scroll-behavior:smooth;
+padding:10px;
 }
 
-/* BOTÕES */
+/* BOTÕES DO CARROSSEL */
 
 .carousel-prev,
-.carousel-next{
-background:white;
-border:none;
-width:40px;
-height:40px;
-border-radius:50%;
-cursor:pointer;
-font-size:18px;
+.carousel-next {
+background: white;
+border: none;
+font-size: 22px;
+cursor: pointer;
+padding: 8px;
 }
 
-/* ========================= */
-/* PRODUTOS */
-/* ========================= */
+/* SCROLL HERO E KITS */
+
+.modalHero,
+.modalKits{
+max-height:90vh;
+overflow-y:auto;
+}
+
+.modal{
+max-height:90vh;
+overflow-y:auto;
+}
+
+/* GRID */
 
 .grid{
 display:grid;
 grid-template-columns:repeat(3,260px);
 justify-content:center;
-gap:50px;
+gap:70px;
 max-width:1100px;
-margin:60px auto;
+margin:70px auto;
 padding:0 20px;
+align-items:start;
 }
+
+/* CARD PRODUTO */
 
 .card{
+position:relative;
 width:260px;
 height:520px;
-
 background:white;
 color:#222;
-
-border-radius:20px;
-padding:18px;
-
+border-radius:24px;
+padding:20px;
+text-align:center;
 display:flex;
 flex-direction:column;
-
+/* 🔥 CORREÇÃO: removido justify-content:space-between */
 border:3px solid #d4af37;
-box-shadow:0 20px 60px rgba(0,0,0,0.3);
+box-shadow:0 20px 60px rgba(0,0,0,0.35);
+transition:all .25s ease;
 }
 
-/* IMAGEM */
+/* HOVER */
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:
+0 0 0 4px #e5c45a,
+0 30px 70px rgba(0,0,0,0.45);
+}
+
+/* WRAP DA IMAGEM */
 
 .card-image-wrap{
 position:relative;
 }
 
+/* IMAGEM PRODUTO */
+
 .produto-img{
 width:100%;
-height:200px;
+height:210px;
 object-fit:contain;
+display:block;
+margin:10px auto;
 }
+
+/* SELO AFILIADO */
 
 .selo-card{
 position:absolute;
 top:8px;
 right:8px;
-width:70px;
+width:80px;
+transform:rotate(8deg);
 }
 
 /* CONTEUDO */
@@ -282,95 +302,80 @@ width:70px;
 .card-content{
 display:flex;
 flex-direction:column;
+justify-content:space-between;
 flex-grow:1;
 }
 
-/* TITULO */
+/* TITULO PRODUTO */
 
 .card-title{
-font-size:16px;
-color:#4a148c;
-text-align:center;
+font-size:17px;
+line-height:1.3;
 margin:10px 0;
-
-display:-webkit-box;
--webkit-line-clamp:3;
--webkit-box-orient:vertical;
-overflow:hidden;
+color:#4a148c;
+min-height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
 }
 
 /* PREÇO */
 
 .card-price{
 color:#00a650;
-font-size:22px;
+font-size:24px;
 font-weight:bold;
-text-align:center;
+margin:10px 0;
 }
 
 /* DESCRIÇÃO */
 
 .card-description{
-font-size:13px;
+font-size:14px;
 color:#555;
-text-align:center;
-margin:8px 0;
+min-height:40px;
 }
 
-/* BOTÃO FIXO */
+/* BOTÃO */
 
 .card-button{
-margin-top:auto;
-
+display:block;
 background:#ffe600;
 color:black;
-
-padding:12px;
+padding:13px 18px;
 border-radius:10px;
-
 font-weight:bold;
 text-decoration:none;
-text-align:center;
+margin-top:auto; /* 🔥 CORREÇÃO PRINCIPAL */
+transition:all .2s ease;
 }
 
 .card-button:hover{
 background:#ffd000;
+transform:scale(1.05);
 }
 
 .card-safe{
 font-size:12px;
-text-align:center;
 color:#777;
-margin-top:5px;
+margin-top:6px;
+line-height:1.3;
+white-space:nowrap;
 }
 
-/* ========================= */
 /* MOBILE */
-/* ========================= */
 
-@media(max-width:768px){
-
-.destaques-container{
-display:flex;
-flex-direction:column;
+@media(max-width:900px){
+.grid{
+grid-template-columns:repeat(2,260px);
+gap:40px;
+}
 }
 
-.hero-card{
-flex-direction:column;
-text-align:center;
-height:auto;
-}
-
-.hero-image{
-width:100px;
-}
-
+@media(max-width:600px){
 .grid{
 grid-template-columns:1fr;
+justify-items:center;
 }
-
-.card{
-width:90%;
-}
-
 }
