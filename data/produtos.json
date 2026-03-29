@@ -68,5 +68,15 @@
     "category": "Loja Casa e Cuidados",
     "order": 7,
     "html_file": "html/produto_7.html"
+  },
+  {
+    "title": "Capacete Aberto Pro Tork New Liberty 3 Three Masculino Femin",
+    "description": "Capacete Aberto Pro Tork New Liberty 3 Three Masculino Femin",
+    "price": "R$ 128,99",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_603874-MLB88724721458_072025-O.webp",
+    "affiliate_url": "https://meli.la/1EX3gu2",
+    "category": "Loja Casa e Cuidados",
+    "order": 8,
+    "html_file": "html/produto_8.html"
   }
 ]
