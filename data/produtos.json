@@ -78,5 +78,15 @@
     "category": "Loja Casa e Cuidados",
     "order": 8,
     "html_file": "html/produto_8.html"
+  },
+  {
+    "title": "Microfone Jbl Duplo S/ Fio Wireless Jbl Micbr2 Karaokê Party",
+    "description": "Microfone Jbl Duplo S/ Fio Wireless Jbl Micbr2 Karaokê Party",
+    "price": "R$ 619,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_931300-MLA100016337885_122025-O.webp",
+    "affiliate_url": "https://meli.la/2Z1B4Ge",
+    "category": "Microfones",
+    "order": 9,
+    "html_file": "html/produto_9.html"
   }
 ]
