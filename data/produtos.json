@@ -1,23 +1,23 @@
 [
   {
-    "title": "Violão Baby Strinberg Forest Fs2b Mgs Mahogany Baby Forest",
-    "description": "Violão Baby Strinberg Forest Fs2b Mgs Mahogany Baby Forest",
-    "price": "R$ 913,00",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_762170-MLB94072095059_102025-O.webp",
-    "affiliate_url": "https://meli.la/1oUUPUu",
+    "title": "Violão Acústico Strinberg FS2B Mini Folk 3/4 Mahogany Satin Sapele 6 Cordas",
+    "description": "Violão Acústico Strinberg FS2B Mini Folk 3/4 Mahogany Satin ",
+    "price": "R$ 932,00",
+    "image_url": "assets/products/violao-white.png",
+    "affiliate_url": "https://meli.la/17UofHy",
     "category": "Violões",
     "order": 1,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/violao-baby-strinberg-forest-fs2b-mgs-mahogany-baby-forest/up/MLBU2179182907#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=1&type=product&tracking_id=41a34253-8feb-48d8-b263-8b28c0ca0761&wid=MLB2713923514&sid=search"
+    "html_file": "html/produto_1.html"
   },
   {
-    "title": "Pedal Pedaleira M-vave Cube Baby",
-    "description": "Pedal Pedaleira M-vave Cube Baby",
-    "price": "R$ 230,00",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_914987-MLA99562184340_122025-O.webp",
-    "affiliate_url": "https://meli.la/26nnkS9",
+    "title": "Pedal de Efeito M-Vave Cube Baby Preto Multifuncional Guitarra Elétrica",
+    "description": "Pedal de Efeito M-Vave Cube Baby Preto Multifuncional Guitar",
+    "price": "R$ 239,19",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_968308-MLA99454844904_112025-O.webp",
+    "affiliate_url": "https://meli.la/1FetqQJ",
     "category": "Pedais e Efeitos",
     "order": 2,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/pedal-pedaleira-mvave-cube-baby/up/MLBU3840903937?pdp_filters=SHIPPING_ORIGIN%3A10215068#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=8&type=product&tracking_id=6c0f0554-2855-4990-9f1a-fcdb6ac62dc8&wid=MLB4534278091&sid=search"
+    "html_file": "html/produto_2.html"
   },
   {
     "title": "Violão Eletroacústico CLASS CLD41CE Folk 6 Cordas Mogno Spruce",
