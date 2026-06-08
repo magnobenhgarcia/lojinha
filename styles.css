@@ -217,7 +217,8 @@ h1 {
 
 .recommendation-card {
   width: 100%;
-  min-height: 430px;
+  aspect-ratio: 10 / 16;
+  min-height: 0;
   padding: 38px 28px;
   display: grid;
 }
@@ -341,12 +342,18 @@ h1 {
 
 .kits-panel {
   overflow: hidden;
-  border: 1px solid rgba(53, 31, 11, .24);
+  border: 1px solid rgba(111, 63, 17, .28);
   border-radius: 8px;
   padding: 24px;
-  background: rgba(20, 13, 7, .9);
-  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(255, 246, 220, .86), rgba(213, 148, 62, .48)),
+    url("./assets/leather-carousel-cover.jpg") center / cover no-repeat;
+  color: #211407;
   width: 100%;
+  box-shadow:
+    0 38px 54px -28px rgba(36, 20, 5, .45),
+    inset 0 1px 0 rgba(255, 255, 255, .44),
+    inset 0 -1px 0 rgba(74, 37, 8, .28);
 }
 
 .kits-header {
@@ -402,22 +409,23 @@ h1 {
   flex-direction: column;
   gap: 16px;
   padding: 22px;
-  border: 1px solid rgba(242, 193, 90, .24);
+  border: 1px solid rgba(118, 72, 22, .28);
   border-radius: 8px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .03)),
-    #0b0907;
+    linear-gradient(180deg, rgba(255, 255, 255, .76), rgba(255, 247, 225, .62)),
+    rgba(255, 250, 238, .72);
+  box-shadow: 0 16px 28px -20px rgba(48, 28, 8, .5);
 }
 
 .kit-card h4 {
   margin: 0;
-  color: var(--gold-bright);
+  color: #8a520f;
   font-size: 22px;
 }
 
 .kit-card p {
   margin: 0;
-  color: rgba(255, 255, 255, .76);
+  color: #3b2914;
   line-height: 1.4;
 }
 
