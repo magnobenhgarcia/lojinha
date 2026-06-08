@@ -261,7 +261,7 @@ function atualizarCarrossel() {
 
   if (!track || !card) return;
 
-  const gap = 18;
+  const gap = 0;
   const deslocamento = kitAtual * (card.getBoundingClientRect().width + gap);
   track.style.transform = `translateX(-${deslocamento}px)`;
 }
