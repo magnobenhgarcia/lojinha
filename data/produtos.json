@@ -11,23 +11,25 @@
     "html_file": "html/produto_1.html"
   },
   {
-    "title": "Pedal de Efeito M-Vave Cube Baby Preto Multifuncional Guitarra Elétrica",
-    "description": "Pedal de Efeito M-Vave Cube Baby Preto Multifuncional Guitar",
-    "price": "R$ 239,19",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_968308-MLA99454844904_112025-O.webp",
-    "affiliate_url": "https://meli.la/1FetqQJ",
+    "title": "Pedal Pedaleira M-vave Cube Baby",
+    "description": "Pedal Pedaleira M-vave Cube Baby",
+    "price": "R$ 230,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_914987-MLA99562184340_122025-O.webp",
+    "affiliate_url": "https://meli.la/26nnkS9",
     "category": "Pedais e Efeitos",
     "order": 2,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/pedal-pedaleira-mvave-cube-baby/up/MLBU3840903937#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=30&type=product&tracking_id=4f973411-97ed-45a9-ba14-ff5a55830448&wid=MLB4534278091&sid=search",
     "html_file": "html/produto_2.html"
   },
   {
-    "title": "Violão Class Strinberg Cld41ce Folk Natural E Sunburst",
-    "description": "Violão Class Strinberg Cld41ce Folk Natural E Sunburst",
-    "price": "R$ 611,34",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_882051-MLB82914228144_032025-O-violo-class-strinberg-cld41ce-folk-natural-e-sunburst.webp",
-    "affiliate_url": "https://meli.la/2sFNqmW",
+    "title": "Violão Eletroacústico CLASS CLD41CE Folk 6 Cordas Mogno Spruce",
+    "description": "Violão Eletroacústico CLASS CLD41CE Folk 6 Cordas Mogno Spru",
+    "price": "R$ 575,59",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_816254-MLA100698389988_122025-O.webp",
+    "affiliate_url": "https://meli.la/2D5ea3Z",
     "category": "Violões",
     "order": 3,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-class-cld41ce-folk-6-cordas-mogno-spruce/p/MLB63124013#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=3&type=product&tracking_id=fed32068-ace4-40ac-a464-ad2ee6b6a20c&wid=MLB6048448544&sid=search",
     "html_file": "html/produto_3.html"
   },
   {
