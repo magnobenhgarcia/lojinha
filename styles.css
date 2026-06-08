@@ -345,10 +345,10 @@ h1 {
   border: 1px solid rgba(111, 63, 17, .28);
   border-radius: 8px;
   padding: 24px;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1 / 1;
   background:
     linear-gradient(135deg, rgba(15, 7, 2, .06), rgba(15, 7, 2, .16)),
-    url("./assets/leather-kits-cover.jpg") center / contain no-repeat;
+    url("./assets/leather-kits-square.png") center / contain no-repeat;
   background-color: #170c05;
   color: #fff;
   width: 100%;
