@@ -1,12 +1,13 @@
 [
   {
-    "title": "Violão Acústico Strinberg FS2B Mini Folk 3/4 Mahogany Satin Sapele 6 Cordas",
-    "description": "Violão Acústico Strinberg FS2B Mini Folk 3/4 Mahogany Satin ",
-    "price": "R$ 932,00",
-    "image_url": "assets/products/violao-white.png",
-    "affiliate_url": "https://meli.la/17UofHy",
+    "title": "Violão Baby Strinberg Forest Fs2b Mgs Mahogany Baby Forest",
+    "description": "Violão Baby Strinberg Forest Fs2b Mgs Mahogany Baby Forest",
+    "price": "R$ 913,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_762170-MLB94072095059_102025-O.webp",
+    "affiliate_url": "https://meli.la/1oUUPUu",
     "category": "Violões",
     "order": 1,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violao-baby-strinberg-forest-fs2b-mgs-mahogany-baby-forest/up/MLBU2179182907#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=1&type=product&tracking_id=3ebacf51-b9ec-425f-bd6e-10665e4b59c2&wid=MLB2713923514&sid=search",
     "html_file": "html/produto_1.html"
   },
   {
@@ -20,14 +21,14 @@
     "html_file": "html/produto_2.html"
   },
   {
-    "title": "Violão Eletroacústico CLASS CLD41CE Folk 6 Cordas Mogno Spruce",
-    "description": "Violão Eletroacústico CLASS CLD41CE Folk 6 Cordas Mogno Spru",
-    "price": "R$ 575,59",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_816254-MLA100698389988_122025-O.webp",
-    "affiliate_url": "https://meli.la/2D5ea3Z",
+    "title": "Violão Class Strinberg Cld41ce Folk Natural E Sunburst",
+    "description": "Violão Class Strinberg Cld41ce Folk Natural E Sunburst",
+    "price": "R$ 611,34",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_882051-MLB82914228144_032025-O-violo-class-strinberg-cld41ce-folk-natural-e-sunburst.webp",
+    "affiliate_url": "https://meli.la/2sFNqmW",
     "category": "Violões",
     "order": 3,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-class-cld41ce-folk-6-cordas-mogno-spruce/p/MLB63124013#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=3&type=product&tracking_id=86728edf-97ce-4adc-99f7-18ec13c059c5&wid=MLB6048448544&sid=search"
+    "html_file": "html/produto_3.html"
   },
   {
     "title": "Doterra Breathe 15ml - Mix De Óleos Essenciais",
