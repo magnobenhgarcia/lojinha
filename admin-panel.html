@@ -1,299 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Admin Lojinha | Magno Garcia</title>
-
-<link rel="stylesheet" href="./styles.css">
-
-<style>
-
-.admin-container{
-max-width:1100px;
-margin:auto;
-padding:40px 20px;
-}
-
-.admin-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:30px;
-}
-
-.admin-header h1{
-margin:0;
-}
-
-.admin-actions{
-display:flex;
-gap:12px;
-}
-
-.admin-button{
-background:#ffe600;
-border:none;
-padding:12px 16px;
-border-radius:10px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.admin-button:hover{
-background:#ffd000;
-}
-
-.produto-item{
-display:flex;
-gap:16px;
-background:white;
-color:#222;
-border-radius:14px;
-padding:14px;
-margin-bottom:14px;
-align-items:center;
-}
-
-.produto-item img{
-width:70px;
-height:70px;
-object-fit:cover;
-border-radius:10px;
-}
-
-.produto-info{
-flex:1;
-}
-
-.produto-title{
-font-weight:bold;
-}
-
-.produto-price{
-color:#00a650;
-font-weight:bold;
-}
-
-.produto-actions{
-display:flex;
-gap:8px;
-}
-
-.modal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-display:none;
-align-items:center;
-justify-content:center;
-}
-
-.modal-content{
-background:#1e0c3f;
-padding:30px;
-border-radius:16px;
-width:500px;
-max-width:90%;
-}
-
-.modal-content input,
-.modal-content textarea,
-.modal-content select{
-width:100%;
-padding:10px;
-margin-top:6px;
-margin-bottom:14px;
-border-radius:8px;
-border:none;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="admin-container">
-
-<div class="admin-header">
-
-<h1>🛒 Lojinha do Desafio</h1>
-
-<div class="admin-actions">
-
-<button class="admin-button" onclick="atualizarPrecos()">
-🔄 Atualizar todos os preços
-</button>
-
-<button class="admin-button" onclick="abrirModal()">
-+ Adicionar oferta
-</button>
-
-<button class="admin-button" onclick="abrirHero()">
-⭐ Hero
-</button>
-
-<button class="admin-button" onclick="abrirKits()">
-📦 Kits
-</button>
-
-<button class="admin-button" onclick="salvarGithub()">
-💾 Salvar Loja
-</button>
-
-</div>
-
-</div>
-
-<div id="listaProdutos"></div>
-
-</div>
-
-<!-- MODAL -->
-
-<div class="modal" id="modalProduto">
-
-<div class="modal-content">
-
-<h2>Oferta</h2>
-
-<label>Título</label>
-<input id="titulo">
-
-<label>Descrição</label>
-<input id="descricao">
-
-<label>Link Produto</label>
-<input id="produtoLink">
-
-<label>HTML do produto</label>
-<textarea id="htmlProduto" rows="5"></textarea>
-
-<button onclick="extrairDados()">Extrair dados</button>
-
-<label>Link Afiliado</label>
-<input id="linkAfiliado">
-
-<label>Preço</label>
-<input id="preco">
-
-<label>Imagem</label>
-<input id="imagem">
-
-<label>Categoria</label>
-
-<div style="display:flex;gap:10px">
-
-<select id="categoriaSelect"></select>
-
-<input id="categoriaInput" placeholder="ou nova categoria">
-
-</div>
-
-<label>Ordem</label>
-<input id="ordem" type="number">
-
-<div style="display:flex;gap:10px">
-
-<button class="admin-button" onclick="fecharModal()">
-Cancelar
-</button>
-
-<button class="admin-button" onclick="salvarProduto()">
-Salvar
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-  <!-- MODAL HERO -->
-
-<div class="modal" id="modalHero">
-
-<div class="modal-content">
-
-<h2>⭐ Configurar Hero</h2>
-<div id="listaHero" style="margin-top:20px"></div>
-
-<label>Selecionar produto</label>
-<select id="heroProduto"></select>
-
-<label>Título</label>
-<input id="heroTitulo">
-
-<label>Descrição</label>
-<input id="heroDescricao">
-
-<label>Texto do botão</label>
-<input id="heroCTA">
-
-<div style="display:flex;gap:10px">
-
-<button class="admin-button" onclick="fecharHero()">
-Cancelar
-</button>
-
-<button class="admin-button" onclick="salvarHero()">
-Salvar Hero
-</button>
-
-</div>
-
-</div>
-</div>
-
-  <!-- MODAL KITS -->
-
-<div class="modal" id="modalKits">
-
-<div class="modal-content">
-
-<h2>📦 Criar Kit</h2>
-<div id="listaKits" style="margin-top:20px"></div>
-
-<label>Título do kit</label>
-<input id="kitTitulo">
-
-<label>Descrição</label>
-<input id="kitDescricao">
-
-<div id="kitProdutos"></div>
-
-<button class="admin-button" onclick="adicionarProdutoKit()">
-+ Adicionar produto
-</button>
-
-<label>Texto do botão</label>
-<input id="kitCTA">
-
-<div style="display:flex;gap:10px">
-
-<button class="admin-button" onclick="fecharKits()">
-Cancelar
-</button>
-
-<button class="admin-button" onclick="salvarKit()">
-Salvar Kit
-</button>
-
-</div>
-
-</div>
-</div>
-
-  
-
-<script src="admin.js"></script>
-
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Editor | Lojinha Magno Garcia</title>
+    <link rel="stylesheet" href="./admin.css">
+  </head>
+  <body>
+    <header class="editor-header">
+      <div>
+        <p class="eyebrow">Editor online</p>
+        <h1>Lojinha Magno Garcia</h1>
+      </div>
+      <div class="actions">
+        <a class="ghost-button" href="./" target="_blank" rel="noopener noreferrer">Ver loja</a>
+        <a class="ghost-button" href="./loja-casa-e-cuidados/" target="_blank" rel="noopener noreferrer">Ver Casa</a>
+        <button type="button" onclick="salvarGithub()">Salvar loja</button>
+      </div>
+    </header>
+
+    <main class="editor-layout">
+      <section class="panel products-panel">
+        <div class="section-title">
+          <div>
+            <h2>Ofertas</h2>
+            <p>Gerencie os produtos que aparecem na lojinha e nas páginas de categoria.</p>
+          </div>
+          <div class="section-actions">
+            <button type="button" onclick="abrirModal()">Adicionar oferta</button>
+            <button class="ghost-action" type="button" onclick="atualizarPrecos()">Atualizar preços</button>
+          </div>
+        </div>
+
+        <div id="listaProdutos" class="product-list"></div>
+      </section>
+
+      <aside class="panel help-panel">
+        <h2>Como usar</h2>
+        <p>Edite produtos, Hero e Kits. Depois clique em <strong>Salvar loja</strong> para publicar no GitHub.</p>
+        <div class="quick-actions">
+          <button type="button" onclick="abrirHero()">Configurar Hero</button>
+          <button type="button" onclick="abrirKits()">Configurar Kits</button>
+        </div>
+        <label>Token do GitHub
+          <input id="github-token-field" type="password" autocomplete="off" placeholder="Cole seu token aqui">
+        </label>
+        <div class="token-actions">
+          <button id="save-token" type="button">Salvar token</button>
+          <button id="clear-token" class="danger-button" type="button">Apagar token</button>
+        </div>
+        <p>O token fica salvo apenas neste navegador. O painel antigo ainda aceita pedir o token por janela, mas esta área deixa o uso mais simples.</p>
+        <p>Repositório usado pelo painel: <strong>magnobenhgarcia/lojinha</strong>.</p>
+      </aside>
+    </main>
+
+    <div class="modal" id="modalProduto">
+      <div class="modal-content">
+        <div class="modal-title">
+          <h2>Oferta</h2>
+          <button class="icon-close" type="button" onclick="fecharModal()">Fechar</button>
+        </div>
+
+        <label>Título <input id="titulo" type="text"></label>
+        <label>Descrição <input id="descricao" type="text"></label>
+        <label>Link Produto <input id="produtoLink" type="url"></label>
+        <label>HTML do produto <textarea id="htmlProduto" rows="5"></textarea></label>
+
+        <button class="ghost-action" type="button" onclick="extrairDados()">Extrair dados</button>
+
+        <label>Link Afiliado <input id="linkAfiliado" type="url"></label>
+        <label>Preço <input id="preco" type="text"></label>
+        <label>Imagem <input id="imagem" type="text"></label>
+
+        <label>Categoria</label>
+        <div class="split-fields">
+          <select id="categoriaSelect"></select>
+          <input id="categoriaInput" type="text" placeholder="ou nova categoria">
+        </div>
+
+        <label>Ordem <input id="ordem" type="number"></label>
+
+        <div class="modal-actions">
+          <button class="ghost-action" type="button" onclick="fecharModal()">Cancelar</button>
+          <button type="button" onclick="salvarProduto()">Salvar oferta</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modalHero">
+      <div class="modal-content">
+        <div class="modal-title">
+          <h2>Configurar Hero</h2>
+          <button class="icon-close" type="button" onclick="fecharHero()">Fechar</button>
+        </div>
+
+        <div id="listaHero" class="mini-list"></div>
+
+        <label>Selecionar produto <select id="heroProduto"></select></label>
+        <label>Título <input id="heroTitulo" type="text"></label>
+        <label>Descrição <input id="heroDescricao" type="text"></label>
+        <label>Texto do botão <input id="heroCTA" type="text"></label>
+
+        <div class="modal-actions">
+          <button class="ghost-action" type="button" onclick="fecharHero()">Cancelar</button>
+          <button type="button" onclick="salvarHero()">Salvar Hero</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modalMenorPreco">
+      <div class="modal-content menor-preco-modal">
+        <div class="modal-title">
+          <h2>Buscar menor preço</h2>
+          <button class="icon-close" type="button" onclick="fecharMenorPreco()">Fechar</button>
+        </div>
+
+        <div id="menorPrecoConteudo"></div>
+
+        <div class="modal-actions">
+          <button class="ghost-action" type="button" onclick="copiarTituloMenorPreco()">Copiar título</button>
+          <button type="button" onclick="abrirBuscaMenorPreco()">Abrir busca no Mercado Livre</button>
+          <button type="button" onclick="aplicarMenorPrecoNoProduto()">Aplicar na oferta</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modalKits">
+      <div class="modal-content">
+        <div class="modal-title">
+          <h2>Criar Kit</h2>
+          <button class="icon-close" type="button" onclick="fecharKits()">Fechar</button>
+        </div>
+
+        <div id="listaKits" class="kit-list"></div>
+
+        <label>Título do kit <input id="kitTitulo" type="text"></label>
+        <label>Descrição <input id="kitDescricao" type="text"></label>
+
+        <div id="kitProdutos" class="kit-products"></div>
+
+        <button class="ghost-action" type="button" onclick="adicionarProdutoKit()">Adicionar produto</button>
+
+        <label>Texto do botão <input id="kitCTA" type="text"></label>
+
+        <div class="modal-actions">
+          <button class="ghost-action" type="button" onclick="fecharKits()">Cancelar</button>
+          <button type="button" onclick="salvarKit()">Salvar Kit</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./admin.js?v=20260608-0949"></script>
+  </body>
 </html>

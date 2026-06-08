@@ -1,4 +1,11 @@
 let produtos = [];
+
+function normalizarImagemAdmin(src = ""){
+if(!src) return "";
+if(src.startsWith("http") || src.startsWith("data:") || src.startsWith("/")) return src;
+return src;
+}
+
 async function carregarProdutos(){
 
 const res = await fetch("data/produtos.json");
@@ -42,7 +49,45 @@ await carregarDestaquesAdmin();
 
 iniciarAdmin();
 
+document.addEventListener("DOMContentLoaded", () => {
+
+const tokenInput = document.getElementById("github-token-field");
+const saveToken = document.getElementById("save-token");
+const clearToken = document.getElementById("clear-token");
+
+if(tokenInput && localStorage.getItem("github_token")){
+tokenInput.placeholder = "Token salvo neste navegador";
+}
+
+if(saveToken){
+saveToken.addEventListener("click", () => {
+const token = tokenInput.value.trim();
+if(!token){
+alert("Cole um token antes de salvar.");
+return;
+}
+localStorage.setItem("github_token", token);
+tokenInput.value = "";
+tokenInput.placeholder = "Token salvo neste navegador";
+mostrarMensagem("Token salvo ✔");
+});
+}
+
+if(clearToken){
+clearToken.addEventListener("click", () => {
+localStorage.removeItem("github_token");
+if(tokenInput){
+tokenInput.value = "";
+tokenInput.placeholder = "Cole seu token aqui";
+}
+mostrarMensagem("Token apagado");
+});
+}
+
+});
+
 let editandoIndex = null;
+let menorPrecoIndex = null;
 
 let destaques = {
   hero: null,
@@ -51,6 +96,29 @@ let destaques = {
 
 function salvarLocal(){
 /* não salvamos mais produtos no localStorage */
+}
+
+function escaparHtml(valor = ""){
+return String(valor)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+}
+
+function criarSlugMercadoLivre(texto = ""){
+return texto
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"")
+.replace(/[^a-zA-Z0-9]+/g,"-")
+.replace(/^-+|-+$/g,"")
+.toLowerCase();
+}
+
+function gerarUrlBuscaMenorPreco(produto){
+const slug = criarSlugMercadoLivre(produto.title || "");
+return `https://lista.mercadolivre.com.br/${slug}_OrderId_PRICE`;
 }
 
 function atualizarCategorias(){
@@ -88,7 +156,7 @@ const item = document.createElement("div");
 item.className = "produto-item";
 
 item.innerHTML = `
-<img src="${p.image_url}">
+<img src="${normalizarImagemAdmin(p.image_url)}">
 
 <div class="produto-info">
 
@@ -104,6 +172,8 @@ item.innerHTML = `
 
 <div class="produto-actions">
 
+<button class="ghost-action" onclick="abrirMenorPreco(${index})">Menor preço</button>
+
 <button onclick="editarProduto(${index})">Editar</button>
 
 <button onclick="excluirProduto(${index})">Excluir</button>
@@ -117,6 +187,118 @@ lista.appendChild(item);
 
 atualizarCategorias();
 
+}
+
+function abrirMenorPreco(index){
+menorPrecoIndex = index;
+
+const produto = produtos[index];
+const buscaUrl = gerarUrlBuscaMenorPreco(produto);
+const produtoAtualUrl = produto.mercado_livre_url || produto.affiliate_url || "";
+const conteudo = document.getElementById("menorPrecoConteudo");
+
+conteudo.innerHTML = `
+<div class="menor-preco-card">
+  <img src="${escaparHtml(normalizarImagemAdmin(produto.image_url))}" alt="">
+  <div>
+    <p class="eyebrow">Produto de referência</p>
+    <h3>${escaparHtml(produto.title)}</h3>
+    <p class="menor-preco-price">Preço atual na lojinha: ${escaparHtml(produto.price || "sem preço")}</p>
+    <p>Abra a busca ordenada pelo menor preço, confira se é o mesmo produto e gere o link de afiliado no Mercado Livre.</p>
+  </div>
+</div>
+<div class="menor-preco-links">
+  <a href="${escaparHtml(buscaUrl)}" target="_blank" rel="noopener noreferrer">Abrir busca por menor preço</a>
+  ${produtoAtualUrl ? `<a href="${escaparHtml(produtoAtualUrl)}" target="_blank" rel="noopener noreferrer">Abrir produto atual</a>` : ""}
+</div>
+<label>Busca gerada
+  <input id="menorPrecoUrl" type="text" readonly value="${escaparHtml(buscaUrl)}">
+</label>
+<label>Link do anúncio escolhido
+  <input id="menorPrecoNovoLink" type="url" placeholder="Cole aqui o link do produto mais barato">
+</label>
+<label>Link afiliado novo
+  <input id="menorPrecoNovoAfiliado" type="url" placeholder="Depois de gerar no ML, cole aqui">
+</label>
+<label>HTML do anúncio escolhido
+  <textarea id="menorPrecoNovoHtml" rows="5" placeholder="Opcional: cole aqui o código-fonte do anúncio novo para trocar título, preço e imagem"></textarea>
+</label>
+`;
+
+document.getElementById("modalMenorPreco").style.display = "flex";
+}
+
+function fecharMenorPreco(){
+document.getElementById("modalMenorPreco").style.display = "none";
+menorPrecoIndex = null;
+}
+
+function abrirBuscaMenorPreco(){
+if(menorPrecoIndex === null) return;
+window.open(gerarUrlBuscaMenorPreco(produtos[menorPrecoIndex]), "_blank", "noopener");
+}
+
+async function copiarTituloMenorPreco(){
+if(menorPrecoIndex === null) return;
+const titulo = produtos[menorPrecoIndex].title || "";
+
+try{
+await navigator.clipboard.writeText(titulo);
+mostrarMensagem("Título copiado");
+}catch(erro){
+prompt("Copie o titulo do produto:", titulo);
+}
+}
+
+function aplicarMenorPrecoNoProduto(){
+if(menorPrecoIndex === null) return;
+
+const novoLink = document.getElementById("menorPrecoNovoLink").value.trim();
+const novoAfiliado = document.getElementById("menorPrecoNovoAfiliado").value.trim();
+const novoHtml = document.getElementById("menorPrecoNovoHtml").value.trim();
+
+if(!novoLink && !novoAfiliado && !novoHtml){
+alert("Cole pelo menos o link do anúncio escolhido, o link afiliado novo ou o HTML do anúncio novo.");
+return;
+}
+
+if(novoLink){
+produtos[menorPrecoIndex].mercado_livre_url = novoLink;
+produtos[menorPrecoIndex].product_html_snapshot = "";
+delete produtos[menorPrecoIndex].html_file;
+}
+
+if(novoAfiliado){
+produtos[menorPrecoIndex].affiliate_url = novoAfiliado;
+}
+
+if(novoHtml){
+const dados = extrairDadosDoHtml(novoHtml);
+
+if(dados.title){
+produtos[menorPrecoIndex].title = dados.title;
+produtos[menorPrecoIndex].description = dados.description;
+}
+
+if(dados.price){
+produtos[menorPrecoIndex].price = dados.price;
+}
+
+if(dados.image){
+produtos[menorPrecoIndex].image_url = dados.image;
+}
+
+if(!novoLink && dados.url){
+produtos[menorPrecoIndex].mercado_livre_url = dados.url;
+}
+
+produtos[menorPrecoIndex].product_html_snapshot = novoHtml;
+delete produtos[menorPrecoIndex].html_file;
+}
+
+renderizarProdutos();
+fecharMenorPreco();
+mostrarMensagem(novoHtml ? "Dados novos aplicados na oferta" : "Link aplicado na oferta");
 }
 
 function abrirModal(){
@@ -150,7 +332,7 @@ document.getElementById("categoriaSelect").value = "";
 
 }
 
-function salvarProduto(){
+function obterProdutoDoFormulario(){
 
 let ordemInput = document.getElementById("ordem").value;
 
@@ -189,6 +371,13 @@ product_html_snapshot: document.getElementById("htmlProduto").value
 
 };
 
+return produto;
+}
+
+function salvarProduto(){
+
+const produto = obterProdutoDoFormulario();
+
 if(editandoIndex === null){
 produtos.push(produto);
 }else{
@@ -199,6 +388,25 @@ salvarLocal();
 renderizarProdutos();
 fecharModal();
 
+}
+
+function sincronizarProdutoAberto(){
+const modal = document.getElementById("modalProduto");
+
+if(!modal || modal.style.display !== "flex"){
+return;
+}
+
+const produto = obterProdutoDoFormulario();
+
+if(editandoIndex === null){
+produtos.push(produto);
+editandoIndex = produtos.length - 1;
+}else{
+produtos[editandoIndex] = produto;
+}
+
+renderizarProdutos();
 }
 
 async function editarProduto(index){
@@ -219,9 +427,11 @@ document.getElementById("categoriaInput").value = p.category;
 document.getElementById("categoriaSelect").value = "";
 document.getElementById("ordem").value = p.order;
 
-/* carregar HTML salvo no GitHub */
+if(p.product_html_snapshot){
 
-if(p.html_file){
+document.getElementById("htmlProduto").value = p.product_html_snapshot;
+
+}else if(p.html_file){
 
 const res = await fetch(p.html_file);
 const html = await res.text();
@@ -261,15 +471,20 @@ return "R$ " + numero.replace(".",",");
 
 }
 
-function extrairDados(){
+function decodificarHtml(valor = ""){
+const textarea = document.createElement("textarea");
+textarea.innerHTML = valor;
+return textarea.value;
+}
 
-const html = document.getElementById("htmlProduto").value;
-
+function extrairDadosDoHtml(html){
 const titleMatch = html.match(/<meta property="og:title" content="([^"]+)"/);
 const imageMatch = html.match(/<meta property="og:image" content="([^"]+)"/);
+const urlMatch = html.match(/<meta property="og:url" content="([^"]+)"/) || html.match(/<link rel="canonical" href="([^"]+)"/);
 
-let title = titleMatch ? titleMatch[1] : "";
-let image = imageMatch ? imageMatch[1] : "";
+let title = titleMatch ? decodificarHtml(titleMatch[1]) : "";
+let image = imageMatch ? decodificarHtml(imageMatch[1]) : "";
+let url = urlMatch ? decodificarHtml(urlMatch[1]) : "";
 let price = "";
 
 const priceMatch = title.match(/R\$\s?[\d\.,]+/);
@@ -281,12 +496,24 @@ title = title.replace(/-?\s?R\$\s?[\d\.,]+/,"").trim();
 
 }
 
-const produtoPreview = {
+return {
 title,
 price,
 image,
+url,
 description: title.substring(0,60)
 };
+}
+
+function extrairDados(){
+
+const html = document.getElementById("htmlProduto").value;
+const produtoPreview = extrairDadosDoHtml(html);
+
+if(!produtoPreview.title && !produtoPreview.image && !produtoPreview.price){
+alert("Não consegui encontrar dados neste HTML. Confira se você copiou o código-fonte da página do produto.");
+return;
+}
 
 mostrarPreview(produtoPreview);
 
@@ -470,16 +697,19 @@ return JSON.stringify(lista,null,2);
 
 }
 
-async function salvarArquivoGithub(token, owner, repo, path, conteudo, mensagem) {
+async function salvarArquivoGithub(token, owner, repo, path, conteudo, mensagem, tentativa = 1) {
 
 const content = btoa(unescape(encodeURIComponent(conteudo)));
 
 const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
 
-const get = await fetch(url,{
-headers:{
-Authorization:`token ${token}`
-}
+const headers = {
+Authorization:`token ${token}`,
+Accept:"application/vnd.github+json"
+};
+
+const get = await fetch(`${url}?ref=main`,{
+headers
 });
 
 let sha = null;
@@ -494,6 +724,10 @@ sha = data.sha;
 localStorage.removeItem("github_token");
 throw new Error("TOKEN_INVALIDO");
 
+}else if(get.status === 403){
+
+throw new Error("O token não tem permissão para editar este repositório. No GitHub, ajuste o token com acesso ao repositório lojinha e permissão Contents: Read and write.");
+
 }else if(get.status !== 404){
 
 const erroGet = await get.text();
@@ -506,7 +740,7 @@ const put = await fetch(url,{
 method:"PUT",
 
 headers:{
-Authorization:`token ${token}`,
+...headers,
 "Content-Type":"application/json"
 },
 
@@ -525,6 +759,20 @@ if(put.status === 401){
 
 localStorage.removeItem("github_token");
 throw new Error("TOKEN_INVALIDO");
+
+}
+
+if(put.status === 403){
+
+throw new Error("O token não tem permissão para salvar no GitHub. Ele precisa de Contents: Read and write no repositório lojinha.");
+
+}
+
+if(put.status === 409 && tentativa < 3){
+
+console.warn(`Conflito de SHA ao salvar ${path}. Tentando novamente...`);
+await new Promise(resolve => setTimeout(resolve, 700));
+return salvarArquivoGithub(token, owner, repo, path, conteudo, mensagem, tentativa + 1);
 
 }
 
@@ -552,16 +800,12 @@ async function salvarGithub() {
     const owner = "magnobenhgarcia";
     const repo = "lojinha";
 
+    sincronizarProdutoAberto();
+
     console.log("Produtos antes de salvar:", produtos);
 
     for (const produto of produtos) {
       const html = produto.product_html_snapshot;
-
-      console.log("Produto analisado:", produto.title, {
-        ordem: produto.order,
-        temHtml: !!html,
-        tamanhoHtml: html ? html.length : 0
-      });
 
       if (html && html.trim()) {
         const path = `html/produto_${produto.order}.html`;
@@ -579,16 +823,27 @@ async function salvarGithub() {
       }
     }
 
-    const lista = produtos.map(p => ({
+    const lista = produtos.map(p => {
+      const produto = {
       title: p.title,
       description: p.description,
       price: p.price,
       image_url: p.image_url,
       affiliate_url: p.affiliate_url,
       category: p.category,
-      order: p.order,
-      html_file: p.html_file || `html/produto_${p.order}.html`
-    }));
+      order: p.order
+      };
+
+      if(p.mercado_livre_url){
+        produto.mercado_livre_url = p.mercado_livre_url;
+      }
+
+      if(p.html_file){
+        produto.html_file = p.html_file;
+      }
+
+      return produto;
+    });
 
     await salvarArquivoGithub(
       token,
@@ -599,11 +854,7 @@ async function salvarGithub() {
       "update produtos"
     );
 
-    mostrarMensagem("Produtos salvos no GitHub ✔");
-   
-    setTimeout(() => {
-  location.href = location.pathname + "?v=" + new Date().getTime();
-}, 1000);
+    mostrarMensagem("Loja salva no GitHub ✔");
     
   }catch(erro){
 

@@ -1,380 +1,273 @@
 let produtos = [];
+let kits = [];
+let kitAtual = 0;
 
-/* ============================= */
-/* CARREGAR PRODUTOS */
-/* ============================= */
+const moneyRegex = /^R\$\s?[\d.,]+$/;
+const pageConfig = document.body?.dataset || {};
+const basePath = pageConfig.basePath || "./";
+const fixedCategory = pageConfig.pageCategory || "";
+const excludedCategories = (pageConfig.excludeCategories || "")
+  .split("|")
+  .map((category) => category.trim())
+  .filter(Boolean);
+
+function escapeHtml(value = "") {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function resolvePath(path = "") {
+  if (/^(https?:|data:|\/)/.test(path)) {
+    return path;
+  }
+
+  return `${basePath}${path}`;
+}
+
+function normalizarProduto(produto) {
+  return {
+    ...produto,
+    title: produto.title || "Produto recomendado",
+    description: produto.description || "",
+    price: moneyRegex.test(produto.price || "") ? produto.price : "",
+    category: produto.category || "Outros",
+    image_url: produto.image_url || "",
+    affiliate_url: produto.affiliate_url || "#",
+    order: Number(produto.order || 0)
+  };
+}
+
+async function carregarJSON(path) {
+  const separator = path.includes("?") ? "&" : "?";
+  const resposta = await fetch(`${path}${separator}v=${Date.now()}`, {
+    cache: "no-store"
+  });
+
+  if (!resposta.ok) {
+    throw new Error(`Erro ao carregar ${path}`);
+  }
+
+  return resposta.json();
+}
 
 async function carregarProdutos() {
+  const grid = document.getElementById("produtos");
+  const categoriasContainer = document.getElementById("categorias");
+  const loading = document.getElementById("loading");
+  const empty = document.getElementById("empty");
 
-const grid = document.getElementById("produtos");
-const categoriasContainer = document.getElementById("categorias");
-const loading = document.getElementById("loading");
-const empty = document.getElementById("empty");
+  try {
+    loading?.classList.remove("hidden");
+    empty?.classList.add("hidden");
 
-if(loading) loading.style.display="none";
-if(empty) empty.style.display="block";
+    const dados = await carregarJSON(resolvePath("data/produtos.json"));
 
-try {
+    produtos = dados
+      .map(normalizarProduto)
+      .filter((produto) => !excludedCategories.includes(produto.category))
+      .sort((a, b) => a.order - b.order);
 
-const resposta = await fetch("data/produtos.json");
+    loading?.classList.add("hidden");
 
-if (!resposta.ok) {
-throw new Error("Erro ao carregar JSON");
+    if (!produtos.length) {
+      grid.innerHTML = "";
+      empty?.classList.remove("hidden");
+      return;
+    }
+
+    renderizarCategorias(categoriasContainer);
+    renderizarProdutos(fixedCategory || "Todos");
+  } catch (erro) {
+    console.error("Erro:", erro);
+    loading?.classList.add("hidden");
+    empty?.classList.remove("hidden");
+  }
 }
 
-produtos = await resposta.json();
+function renderizarCategorias(container) {
+  if (!container) return;
 
-loading.style.display = "none";
+  if (fixedCategory) {
+    container.innerHTML = "";
+    container.classList.add("hidden");
+    return;
+  }
 
-if (!produtos.length) {
-empty.classList.remove("hidden");
-return;
-}
+  const categorias = ["Todos", ...new Set(produtos.map((produto) => produto.category))];
 
-produtos.sort((a, b) => (a.order || 0) - (b.order || 0));
+  container.innerHTML = categorias
+    .map((categoria, index) => `
+      <button class="categoria-btn ${index === 0 ? "active" : ""}" type="button" data-category="${escapeHtml(categoria)}">
+        ${escapeHtml(categoria)}
+      </button>
+    `)
+    .join("");
 
-const categorias = [
-"Todos",
-...new Set(produtos.map(p => p.category || "Outros"))
-];
-
-function renderizarCategorias() {
-
-categoriasContainer.innerHTML = "";
-
-categorias.forEach((categoria, index) => {
-
-const btn = document.createElement("button");
-
-btn.textContent = categoria;
-btn.className = "categoria-btn";
-
-if (index === 0) btn.classList.add("active");
-
-btn.onclick = () => {
-
-document
-.querySelectorAll(".categoria-btn")
-.forEach(b => b.classList.remove("active"));
-
-btn.classList.add("active");
-
-renderizarProdutos(categoria);
-
-};
-
-categoriasContainer.appendChild(btn);
-
-});
-
-}
-
-function criarCard(produto) {
-
-return `
-<article class="card">
-
-<div class="card-image-wrap">
-
-<img
-src="${produto.image_url}"
-class="produto-img"
-alt="${produto.title}"
-loading="lazy">
-
-<img
-src="./img/selo_afiliado_mercado_livre.png"
-class="selo-card"
-alt="Afiliado Mercado Livre">
-
-</div>
-
-<div class="card-content">
-
-<h3 class="card-title">${produto.title}</h3>
-
-<p class="card-price">${produto.price}</p>
-
-<p class="card-description">${produto.description || ""}</p>
-
-<a
-href="${produto.affiliate_url}"
-target="_blank"
-rel="noopener noreferrer"
-class="card-button">
-
-Ver oferta no Mercado Livre →
-
-</a>
-
-<div class="card-safe">
-Abrirá no site oficial do Mercado Livre
-</div>
-
-</div>
-
-</article>
-`;
-
+  container.querySelectorAll(".categoria-btn").forEach((botao) => {
+    botao.addEventListener("click", () => {
+      container.querySelectorAll(".categoria-btn").forEach((item) => item.classList.remove("active"));
+      botao.classList.add("active");
+      renderizarProdutos(botao.dataset.category);
+    });
+  });
 }
 
 function renderizarProdutos(categoria = "Todos") {
+  const grid = document.getElementById("produtos");
+  const empty = document.getElementById("empty");
 
-let lista = produtos;
+  if (!grid) return;
 
-if (categoria !== "Todos") {
-lista = produtos.filter(p => p.category === categoria);
+  const lista = categoria === "Todos"
+    ? produtos
+    : produtos.filter((produto) => produto.category === categoria);
+
+  if (!lista.length) {
+    grid.innerHTML = "";
+    empty?.classList.remove("hidden");
+    return;
+  }
+
+  empty?.classList.add("hidden");
+  grid.innerHTML = lista.map(criarCardProduto).join("");
 }
 
-grid.innerHTML = lista.map(criarCard).join("");
+function criarCardProduto(produto) {
+  return `
+    <article class="product-card">
+      <div class="product-surface">
+        <div class="product-category">${escapeHtml(produto.category)}</div>
 
+        <div class="product-image-wrap">
+          <img src="${escapeHtml(resolvePath(produto.image_url))}" class="produto-img" alt="${escapeHtml(produto.title)}" loading="lazy">
+          <img src="${escapeHtml(resolvePath("assets/selo_afiliado_mercado_livre.png"))}" class="selo-card" alt="Afiliado Mercado Livre" loading="lazy">
+        </div>
+
+        <div class="card-content">
+          <h3 class="card-title">${escapeHtml(produto.title)}</h3>
+          ${produto.price ? `<p class="card-price">${escapeHtml(produto.price)}</p>` : ""}
+          <p class="card-description">${escapeHtml(produto.description)}</p>
+          <a href="${escapeHtml(produto.affiliate_url)}" target="_blank" rel="noopener noreferrer" class="card-button">
+            Ver oferta
+          </a>
+          <div class="card-safe">Abre no site oficial do Mercado Livre</div>
+        </div>
+      </div>
+    </article>
+  `;
 }
 
-renderizarCategorias();
-renderizarProdutos();
+async function carregarDestaques() {
+  try {
+    const dados = await carregarJSON(resolvePath("data/destaques.json"));
 
+    if (dados.hero) {
+      renderHero(dados.hero);
+    }
+
+    kits = Array.isArray(dados.kits) ? dados.kits : [];
+    renderKits();
+    iniciarCarrossel();
+  } catch (erro) {
+    console.error("Erro ao carregar destaques:", erro);
+  }
 }
 
-catch (erro) {
-
-console.error("Erro:", erro);
-
-loading.style.display = "none";
-empty.classList.remove("hidden");
-
+function getProdutoPorIndice(indice) {
+  return produtos[Number(indice)] || null;
 }
 
+function renderHero(hero) {
+  const heroContainer = document.getElementById("hero");
+  const produto = getProdutoPorIndice(hero.produto);
+
+  if (!heroContainer || !produto) return;
+
+  heroContainer.innerHTML = `
+    <div class="recommendation-surface">
+      <div class="recommendation-content">
+        <div class="recommendation-image-wrap">
+          <img class="recommendation-product" src="${escapeHtml(resolvePath(produto.image_url))}" alt="${escapeHtml(produto.title)}">
+        </div>
+        <span class="recommendation-kicker">Escolha do Professor</span>
+        <h3>${escapeHtml(hero.title || produto.title)}</h3>
+        <p>${escapeHtml(hero.description || produto.description)}</p>
+      </div>
+      <a class="button-primary" href="${escapeHtml(produto.affiliate_url)}" target="_blank" rel="noopener noreferrer">
+        ${escapeHtml(hero.cta || "Ver oferta")}
+      </a>
+    </div>
+  `;
 }
 
-/* ============================= */
-/* HERO */
-/* ============================= */
+function renderKits() {
+  const track = document.querySelector(".carousel-track");
 
-function renderHero(hero){
+  if (!track) return;
 
-const heroContainer = document.getElementById("hero");
+  track.innerHTML = kits.map((kit) => {
+    const itemsHTML = (kit.items || [])
+      .map((indice) => getProdutoPorIndice(indice))
+      .filter(Boolean)
+      .slice(0, 3)
+      .map((produto) => `
+        <div class="kit-item">
+          <img src="${escapeHtml(resolvePath(produto.image_url))}" alt="${escapeHtml(produto.title)}" loading="lazy">
+          <a href="${escapeHtml(produto.affiliate_url)}" target="_blank" rel="noopener noreferrer">Oferta</a>
+        </div>
+      `)
+      .join("");
 
-if(!heroContainer) return;
+    return `
+      <article class="kit-card">
+        <div>
+          <h4>${escapeHtml(kit.title || "Kit recomendado")}</h4>
+          <p>${escapeHtml(kit.description || "")}</p>
+        </div>
+        <div class="kit-items">${itemsHTML}</div>
+      </article>
+    `;
+  }).join("");
 
-const produto = produtos[hero.produto];
-
-if(!produto){
-console.log("Produto do hero não encontrado");
-return;
+  atualizarCarrossel();
 }
 
-heroContainer.innerHTML = `
-<div class="hero-card">
+function iniciarCarrossel() {
+  const prev = document.querySelector(".carousel-prev");
+  const next = document.querySelector(".carousel-next");
 
-<img class="hero-image" src="${produto.image_url}">
+  if (!prev || !next) return;
 
-<div class="hero-content">
+  prev.addEventListener("click", () => {
+    if (!kits.length) return;
+    kitAtual = (kitAtual - 1 + kits.length) % kits.length;
+    atualizarCarrossel();
+  });
 
-<h2>${hero.title}</h2>
-
-<p>${hero.description}</p>
-
-<a class="hero-button" href="${produto.affiliate_url}" target="_blank">
-${hero.cta}
-</a>
-
-</div>
-
-</div>
-`;
-
+  next.addEventListener("click", () => {
+    if (!kits.length) return;
+    kitAtual = (kitAtual + 1) % kits.length;
+    atualizarCarrossel();
+  });
 }
 
-/* ============================= */
-/* KITS */
-/* ============================= */
+function atualizarCarrossel() {
+  const track = document.querySelector(".carousel-track");
+  const card = track?.querySelector(".kit-card");
 
-function renderKits(kits){
+  if (!track || !card) return;
 
-const track = document.querySelector(".carousel-track");
-
-if(!track) return;
-
-track.innerHTML = "";
-
-kits.forEach(kit => {
-
-const itemsHTML = kit.items.map(i => {
-
-const p = produtos[i];
-
-if(!p) return "";
-
-return `
-<div class="kit-item">
-
-<img src="${p.image_url}" loading="lazy">
-
-<a href="${p.affiliate_url}" target="_blank">
-Ver oferta
-</a>
-
-</div>
-`;
-
-}).join("");
-
-track.insertAdjacentHTML("beforeend", `
-<div class="kit-card">
-
-<h3 class="kit-title">${kit.title}</h3>
-
-<p class="kit-desc">${kit.description}</p>
-
-<div class="kit-items">
-${itemsHTML}
-</div>
-
-</div>
-`);
-
-});
-
+  const gap = 18;
+  const deslocamento = kitAtual * (card.getBoundingClientRect().width + gap);
+  track.style.transform = `translateX(-${deslocamento}px)`;
 }
-
-/* ============================= */
-/* CARROSSEL */
-/* ============================= */
-
-function atualizarCardAtivo(){
-
-const track = document.querySelector(".carousel-track");
-const viewport = document.querySelector(".carousel-viewport");
-
-if(!track || !viewport) return;
-
-const cards = track.querySelectorAll(".kit-card");
-
-/* remove active */
-cards.forEach(card => card.classList.remove("active"));
-
-/* card do meio da lista */
-const indiceCentro = Math.floor(cards.length / 2);
-const cardAtivo = cards[indiceCentro];
-
-if(!cardAtivo) return;
-
-cardAtivo.classList.add("active");
-
-/* centro do viewport */
-const viewportRect = viewport.getBoundingClientRect();
-const eixoCentro = viewportRect.left + viewportRect.width / 2;
-
-/* centro do card */
-const rect = cardAtivo.getBoundingClientRect();
-const centroCard = rect.left + rect.width / 2;
-
-/* move track */
-const delta = eixoCentro - centroCard;
-
-track.style.transform = `translateX(${delta}px)`;
-
-}
-
-function iniciarCarrossel(){
-
-const track = document.querySelector(".carousel-track");
-const prevOld = document.querySelector(".carousel-prev");
-const nextOld = document.querySelector(".carousel-next");
-
-if (!track || !prevOld || !nextOld) return;
-if (track.children.length < 2) return;
-
-const prev = prevOld.cloneNode(true);
-const next = nextOld.cloneNode(true);
-
-prevOld.parentNode.replaceChild(prev, prevOld);
-nextOld.parentNode.replaceChild(next, nextOld);
-
-function moverProximo(){
-
-const track = document.querySelector(".carousel-track");
-
-/* RESET DO TRANSFORM */
-track.style.transform = "translateX(0px)";
-
-const primeiro = track.firstElementChild;
-track.appendChild(primeiro);
-
-requestAnimationFrame(atualizarCardAtivo);
-
-}
-
-function moverAnterior(){
-
-const track = document.querySelector(".carousel-track");
-
-/* RESET DO TRANSFORM */
-track.style.transform = "translateX(0px)";
-
-const ultimo = track.lastElementChild;
-track.insertBefore(ultimo, track.firstElementChild);
-
-requestAnimationFrame(atualizarCardAtivo);
-
-}
-
-next.addEventListener("click", moverProximo);
-prev.addEventListener("click", moverAnterior);
-
-atualizarCardAtivo();
-
-}
-
-/* ============================= */
-/* DESTAQUES */
-/* ============================= */
-
-async function carregarDestaques(){
-
-try{
-
-const resposta = await fetch("data/destaques.json");
-
-if(!resposta.ok){
-throw new Error("Erro ao carregar destaques");
-}
-
-const dados = await resposta.json();
-
-if(dados.hero){
-renderHero(dados.hero);
-}
-
-if(dados.kits){
-
-const track = document.querySelector(".carousel-track");
-
-if(track && track.children.length === 0){
-renderKits(dados.kits);
-}
-
-iniciarCarrossel();
-
-}
-
-}
-
-catch(erro){
-
-console.error("Erro ao carregar destaques:", erro);
-
-}
-
-}
-
-/* ============================= */
-/* START */
-/* ============================= */
 
 document.addEventListener("DOMContentLoaded", async () => {
-
-await carregarProdutos();
-await carregarDestaques();
-
+  await carregarProdutos();
+  await carregarDestaques();
+  window.addEventListener("resize", atualizarCarrossel);
 });

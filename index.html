@@ -1,98 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Lojinha Recomendada | Magno Garcia</title>
-
-<link rel="stylesheet" href="./styles.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <title>Lojinha Recomendada | Magno Benhur Garcia</title>
+  <meta name="description" content="Equipamentos, acessórios e recomendações selecionadas por Magno Benhur Garcia.">
+  <link rel="preload" href="./assets/partitura-vintage-bg-mobile.jpg" as="image" media="(max-width: 760px)">
+  <link rel="preload" href="./assets/magno.png" as="image">
+  <link rel="stylesheet" href="./styles.css">
 </head>
+<body data-exclude-categories="Loja Casa e Cuidados">
+  <header class="site-hero">
+    <div class="hero-inner">
+      <a class="back-link" href="https://magnobenhurgarcialinks.pages.dev">← Mini-site</a>
 
-<body>
+      <div class="brand-lockup">
+        <img src="./assets/selo_magno_garcia.png" class="brand-seal" alt="Magno Garcia Ensino de Música">
+        <p class="eyebrow">Músico · Professor · Produtor</p>
+        <h1>Lojinha Recomendada</h1>
+        <p class="hero-copy">Equipamentos e acessórios escolhidos para estudar, tocar e montar seu som com mais confiança.</p>
+      </div>
 
-<header class="topo">
+      <img src="./assets/magno.png" class="hero-photo" alt="Magno Benhur Garcia com violão">
+    </div>
+  </header>
 
-<div class="container">
+  <main>
+    <section class="showcase-section" aria-labelledby="showcase-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <span></span>
+          <h2 id="showcase-title">Destaque do Professor</h2>
+        </div>
 
-<img
-src="./img/selo_magno_garcia.png"
-class="logo"
-alt="Magno Garcia Ensino de Música"
->
+        <div class="featured-layout">
+          <article id="hero" class="recommendation-card"></article>
 
-<h1>Lojinha Recomendada</h1>
+          <section class="kits-panel" aria-label="Kits recomendados">
+            <div class="kits-header">
+              <h3>Kits Prontos</h3>
+              <div class="carousel-controls">
+                <button class="carousel-prev" type="button" aria-label="Kit anterior">‹</button>
+                <button class="carousel-next" type="button" aria-label="Próximo kit">›</button>
+              </div>
+            </div>
+            <div class="carousel-viewport">
+              <div class="carousel-track"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
 
-<p class="subtitulo">
-Equipamentos escolhidos para alunos de violão
-</p>
+    <section class="products-section" aria-labelledby="products-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <span></span>
+          <h2 id="products-title">Vitrine de Produtos</h2>
+        </div>
 
-</div>
+        <nav id="categorias" class="categorias" aria-label="Categorias de produtos"></nav>
 
-</header>
+        <div id="loading" class="status-message">Carregando ofertas...</div>
+        <div id="empty" class="status-message hidden">Nenhum produto encontrado.</div>
+        <section id="produtos" class="product-grid" aria-live="polite"></section>
+      </div>
+    </section>
+  </main>
 
-<section class="secao-hero">
+  <footer class="site-footer">
+    <p>Os links desta página são afiliados do Mercado Livre de Magno Benhur Garcia.</p>
+  </footer>
 
-<div class="destaques-container">
-
-<!-- HERO -->
-<div id="hero" class="hero-card"></div>
-  
-<!-- CARROSSEL DE KITS -->
-<div class="kits-carousel">
-
-<button class="carousel-prev">◀</button>
-
-<div class="carousel-viewport">
-<div class="carousel-track"></div>
-</div>
-
-<button class="carousel-next">▶</button>
-
-</div>
-
-</div>
-
-</section>
-
-  
-<!-- ============================= -->
-<!-- PRODUTOS -->
-<!-- ============================= -->
-
-<main>
-
-<div class="container">
-
-<!-- FILTRO DE CATEGORIAS -->
-<nav id="categorias" class="categorias"></nav>
-
-<!-- GRID DE PRODUTOS -->
-<section id="produtos" class="grid"></section>
-
-</div>
-
-<div id="loading" style="display:none;"></div>
-<div id="empty" style="display:none;"></div>
-
-</main>
-
-<!-- ============================= -->
-<!-- RODAPÉ -->
-<!-- ============================= -->
-
-<footer class="rodape">
-
-<p>
-Os links desta página são afiliados do Mercado Livre de Magno Benhur Garcia.
-</p>
-
-</footer>
-
-<script src="./loja.js"></script>
-
+  <script src="./loja.js?v=20260608-0958"></script>
 </body>
 </html>
