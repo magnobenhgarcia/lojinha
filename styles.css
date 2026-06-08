@@ -344,8 +344,10 @@ h1 {
   overflow: hidden;
   border: 1px solid rgba(111, 63, 17, .28);
   border-radius: 8px;
-  padding: 24px;
+  padding: 46px 24px 24px;
   aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
   background:
     linear-gradient(135deg, rgba(15, 7, 2, .06), rgba(15, 7, 2, .16)),
     url("./assets/leather-kits-square.png") center / contain no-repeat;
@@ -368,8 +370,11 @@ h1 {
 
 .kits-header h3 {
   margin: 0;
+  color: #fff7df;
   font-size: 18px;
+  font-family: Georgia, "Times New Roman", serif;
   letter-spacing: .1em;
+  text-shadow: 0 3px 14px rgba(0, 0, 0, .48);
   text-transform: uppercase;
 }
 
@@ -395,6 +400,9 @@ h1 {
 }
 
 .carousel-viewport {
+  flex: 1;
+  display: flex;
+  align-items: center;
   overflow: hidden;
 }
 
@@ -414,28 +422,39 @@ h1 {
   border: 1px solid rgba(242, 193, 90, .24);
   border-radius: 8px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02)),
-    rgba(7, 6, 5, .68);
-  backdrop-filter: blur(2px);
+    linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .015)),
+    rgba(7, 6, 5, .48);
+  backdrop-filter: blur(3px);
   box-shadow: 0 16px 28px -20px rgba(0, 0, 0, .62);
 }
 
 .kit-card h4 {
   margin: 0;
-  color: var(--gold-bright);
-  font-size: 22px;
+  color: #ffd36d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: .015em;
+  line-height: 1.04;
+  text-shadow:
+    0 2px 0 rgba(55, 30, 4, .5),
+    0 10px 22px rgba(0, 0, 0, .42);
 }
 
 .kit-card p {
   margin: 0;
   color: rgba(255, 255, 255, .76);
+  font-size: 16px;
+  font-weight: 700;
   line-height: 1.4;
 }
 
 .kit-items {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 180px));
   gap: 12px;
+  justify-content: center;
+  align-items: start;
 }
 
 .kit-item {
