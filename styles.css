@@ -370,11 +370,14 @@ h1 {
 
 .kits-header h3 {
   margin: 0;
-  color: #fff7df;
-  font-size: 18px;
+  color: #d4af37;
+  font-size: 21px;
   font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: .1em;
-  text-shadow: 0 3px 14px rgba(0, 0, 0, .48);
+  font-weight: 800;
+  letter-spacing: .075em;
+  text-shadow:
+    0 1px 0 rgba(255, 246, 190, .24),
+    0 3px 14px rgba(0, 0, 0, .58);
   text-transform: uppercase;
 }
 
@@ -422,8 +425,8 @@ h1 {
   border: 1px solid rgba(242, 193, 90, .24);
   border-radius: 8px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .015)),
-    rgba(7, 6, 5, .48);
+    linear-gradient(180deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .01)),
+    rgba(7, 6, 5, .32);
   backdrop-filter: blur(3px);
   box-shadow: 0 16px 28px -20px rgba(0, 0, 0, .62);
 }
@@ -450,14 +453,15 @@ h1 {
 }
 
 .kit-items {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 180px));
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   justify-content: center;
   align-items: start;
 }
 
 .kit-item {
+  flex: 0 1 180px;
   display: grid;
   gap: 10px;
   align-content: start;
