@@ -344,7 +344,7 @@ h1 {
   overflow: hidden;
   border: 1px solid rgba(111, 63, 17, .28);
   border-radius: 8px;
-  padding: 46px 24px 24px;
+  padding: 64px 24px 28px;
   aspect-ratio: 1 / 1;
   display: flex;
   flex-direction: column;
@@ -365,19 +365,20 @@ h1 {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
 
 .kits-header h3 {
   margin: 0;
-  color: #d4af37;
-  font-size: 21px;
+  color: #ffd36d;
+  font-size: 27px;
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 800;
-  letter-spacing: .075em;
+  letter-spacing: .015em;
+  line-height: 1.04;
   text-shadow:
-    0 1px 0 rgba(255, 246, 190, .24),
-    0 3px 14px rgba(0, 0, 0, .58);
+    0 2px 0 rgba(55, 30, 4, .5),
+    0 10px 22px rgba(0, 0, 0, .42);
   text-transform: uppercase;
 }
 
@@ -420,14 +421,13 @@ h1 {
   flex: 0 0 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 22px;
+  gap: 13px;
+  padding: 18px 20px;
   border: 1px solid rgba(242, 193, 90, .24);
   border-radius: 8px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .01)),
-    rgba(7, 6, 5, .32);
-  backdrop-filter: blur(3px);
+    linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .01)),
+    rgba(7, 6, 5, .24);
   box-shadow: 0 16px 28px -20px rgba(0, 0, 0, .62);
 }
 
@@ -447,21 +447,19 @@ h1 {
 .kit-card p {
   margin: 0;
   color: rgba(255, 255, 255, .76);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.4;
 }
 
 .kit-items {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
-  justify-content: center;
   align-items: start;
 }
 
 .kit-item {
-  flex: 0 1 180px;
   display: grid;
   gap: 10px;
   align-content: start;
