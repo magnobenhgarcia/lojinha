@@ -113,5 +113,16 @@
     "order": 11,
     "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-com-clip-360-para-violo-guitarra-baixo-ukulele-e-violino-marca-lorben/p/MLB35435629?utm_source=chatgpt.com",
     "html_file": "html/produto_11.html"
+  },
+  {
+    "title": "Afinador Digital Cromático Saty ATS-10 Violão Guitarra Baixo Com Pinça",
+    "description": "Afinador Digital Cromático Saty ATS-10 Violão Guitarra Baixo",
+    "price": "R$ 35,42",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_953248-MLA99609051348_122025-O.webp",
+    "affiliate_url": "https://meli.la/2CYWewE",
+    "category": "Afinadores",
+    "order": 12,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-saty-ats-10-violo-guitarra-baixo-com-pinca/p/MLB26274464?utm_source=chatgpt.com",
+    "html_file": "html/produto_12.html"
   }
 ]
