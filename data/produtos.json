@@ -124,5 +124,49 @@
     "order": 12,
     "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-saty-ats-10-violo-guitarra-baixo-com-pinca/p/MLB26274464?utm_source=chatgpt.com",
     "html_file": "html/produto_12.html"
+  },
+  {
+    "title": "Violão Strinberg Forest Fs1a Mgs Aço Eletroacustico Artistic",
+    "description": "Violão Strinberg Forest Fs1a Mgs Aço Eletroacustico Artistic",
+    "price": "R$ 773,50",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_829824-MLA94583964165_102025-O.webp",
+    "affiliate_url": "https://meli.la/2EViHMa",
+    "category": "Violões",
+    "order": 13,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-strinberg-forest-fs1a-mgs-aco-eletroacustico-artistic/p/MLB38920108?matt_tool=18956390&pdp_filters=item_id%3AMLB4689036491&from=gshop&utm_source=chatgpt.com",
+    "html_file": "html/produto_13.html"
+  },
+  {
+    "title": "Violão Eletroacústico Strinberg SF200C Tobacco Satin 6 Cordas Com Cutaway",
+    "description": "Violão Eletroacústico Strinberg SF200C Tobacco Satin 6 Corda",
+    "price": "R$ 871,13",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_611927-MLA96144087381_102025-O.webp",
+    "affiliate_url": "https://meli.la/2Zdzz5f",
+    "category": "Violões",
+    "order": 14,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-strinberg-sf200c-tobacco-satin-6-cordas-com-cutaway/p/MLB16050819?matt_tool=18956390&pdp_filters=item_id%3AMLB5514450608&from=gshop&utm_source=chatgpt.com",
+    "html_file": "html/produto_14.html"
+  },
+  {
+    "title": "Violão Eletroacústico Strinberg SD200C MGS Folk 6 Cordas Mahogany",
+    "description": "Violão Eletroacústico Strinberg SD200C MGS Folk 6 Cordas Mah",
+    "price": "R$ 820,99",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_896406-MLA95634816091_102025-O.webp",
+    "affiliate_url": "https://meli.la/2qc2EkW",
+    "category": "Violões",
+    "order": 15,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-strinberg-sd200c-mgs-folk-6-cordas-mahogany/p/MLB28539802?utm_source=chatgpt.com",
+    "html_file": "html/produto_15.html"
+  },
+  {
+    "title": "Violão Elétrico Hofma HMF280 Folk Cutaway Natural 6 Cordas Com Afinador Digital",
+    "description": "Violão Elétrico Hofma HMF280 Folk Cutaway Natural 6 Cordas C",
+    "price": "R$ 712,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_966704-MLA99514968920_112025-O.webp",
+    "affiliate_url": "https://meli.la/1FNBfNG",
+    "category": "Violões",
+    "order": 16,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletrico-hofma-hmf280-folk-cutaway-natural-6-cordas-com-afinador-digital/p/MLB22950586?pdp_filters=item_id:MLB5337852286#is_advertising=true&searchVariation=MLB22950586&backend_model=search-backend&be_origin=backend&position=13&search_layout=grid&type=pad&tracking_id=9f8a7256-bd09-432e-afd2-ab02da30e8b2&ad_domain=VQCATCORE_LST&ad_position=13&ad_click_id=NjAxNTk0MDEtYjJjMS00MmFmLThjMTMtMDM2ZWFmY2RlMjFj",
+    "html_file": "html/produto_16.html"
   }
 ]
