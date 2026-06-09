@@ -91,5 +91,27 @@
     "category": "Microfones",
     "order": 9,
     "html_file": "html/produto_9.html"
+  },
+  {
+    "title": "Afinador Digital Cromático Violão Guitarra Baixo Ukulele Violino Bravo Music Bt02",
+    "description": "Afinador Digital Cromático Violão Guitarra Baixo Ukulele Vio",
+    "price": "R$ 28,40",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_829454-MLA99605929442_122025-O.webp",
+    "affiliate_url": "https://meli.la/1htkaLD",
+    "category": "Afinadores",
+    "order": 10,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-violo-guitarra-baixo-ukulele-violino-bravo-music-bt02/p/MLB41821610?utm_source=chatgpt.com",
+    "html_file": "html/produto_10.html"
+  },
+  {
+    "title": "Afinador Digital Cromático com Clip 360° - Para Violão, Guitarra, Baixo, Ukulele e Violino - Marca Lorben",
+    "description": "Afinador Digital Cromático com Clip 360° - Para Violão, Guit",
+    "price": "R$ 25,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_859344-MLU76369586360_052024-O.webp",
+    "affiliate_url": "https://meli.la/1sAdkB2",
+    "category": "Afinadores",
+    "order": 11,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-com-clip-360-para-violo-guitarra-baixo-ukulele-e-violino-marca-lorben/p/MLB35435629?utm_source=chatgpt.com",
+    "html_file": "html/produto_11.html"
   }
 ]
