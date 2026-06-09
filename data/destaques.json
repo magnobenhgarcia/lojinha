@@ -1,29 +1,9 @@
 {
   "hero": {
-    "produto": 0,
-    "title": "Dica do Professor para Você Iniciante! ❤️🎵",
+    "produto": 15,
+    "title": "Dica do Professor para Você! ",
     "description": "Um dos Melhores violões Custo-Benefício, com excelente acabamento e Som Incrível!",
     "cta": "Aproveite a Dica e o Preço"
   },
-  "kits": [
-    {
-      "title": "Kit 2 violões",
-      "description": "Com Esse Kit você consegue fazer o Desafio Violão 10 em 30 e tocar Muito!",
-      "cta": "",
-      "items": [
-        0,
-        2
-      ]
-    },
-    {
-      "title": "Kit teste",
-      "description": "Fazendo teste com 3 produtos",
-      "cta": "",
-      "items": [
-        0,
-        2,
-        1
-      ]
-    }
-  ]
+  "kits": []
 }
