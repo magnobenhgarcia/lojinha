@@ -1,16 +1,16 @@
 {
   "site": {
     "principal": {
-      "backLabel": "Mini-site",
+      "backLabel": "Voltar aos Meus Links",
       "backUrl": "https://magnobenhurgarcialinks.pages.dev",
       "sealImage": "assets/selo_magno_garcia.png",
       "sealAlt": "Magno Garcia Ensino de Música",
       "eyebrow": "Músico · Professor · Produtor",
-      "title": "Lojinha Recomendada",
-      "copy": "Equipamentos e acessórios escolhidos para estudar, tocar e montar seu som com mais confiança.",
-      "photo": "assets/magno.png",
-      "photoAlt": "Magno Benhur Garcia com violão",
-      "footerText": "Os links desta página são afiliados do Mercado Livre de Magno Benhur Garcia."
+      "title": "Lojinha Magno Benh Garcia",
+      "copy": "Equipamentos e acessórios escolhidos para você estudar e tocar, com a minha indicação de qualidade, melhor preço e a garantia do Mercado Livre.",
+      "photo": "",
+      "photoAlt": "",
+      "footerText": "Os Preços destas ofertas podem sofrer alterações, pois se tratam de Ofertas diárias.\nOs links desta página são afiliados do Mercado Livre de Magno Benhur Garcia."
     },
     "casa": {
       "backLabel": "Lojinha completa",
