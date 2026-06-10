@@ -927,7 +927,10 @@ async function salvarGithub() {
     renderizarProdutos();
 
     const ultimoProduto = produtos[produtos.length - 1]?.title || "produto";
-    mostrarMensagem(`Loja salva no GitHub. Aguardando publicar ${produtos.length} produtos...`);
+    mostrarMensagem(
+      `Loja salva no GitHub. Aguardando publicar ${produtos.length} produtos...`,
+      { persistente: true, carregando: true }
+    );
 
     const listaPublicada = await aguardarPublicacaoDaLoja(owner, repo, listaConfirmada);
 
@@ -960,27 +963,40 @@ alert("Erro ao salvar no GitHub:\n\n"+erro.message);
 }
 }
 
-function mostrarMensagem(texto){
+let mensagemAtual = null;
+let mensagemTimer = null;
+
+function mostrarMensagem(texto, opcoes = {}){
+
+if(mensagemAtual){
+mensagemAtual.remove();
+mensagemAtual = null;
+}
+
+if(mensagemTimer){
+clearTimeout(mensagemTimer);
+mensagemTimer = null;
+}
 
 const msg = document.createElement("div");
-
-msg.innerText = texto;
-
-msg.style.position="fixed";
-msg.style.bottom="30px";
-msg.style.right="30px";
-msg.style.background="#00a650";
-msg.style.color="white";
-msg.style.padding="12px 18px";
-msg.style.borderRadius="10px";
-msg.style.fontWeight="bold";
-msg.style.zIndex="9999";
+msg.className = `toast-message${opcoes.carregando ? " is-loading" : ""}`;
+msg.innerHTML = `
+  ${opcoes.carregando ? '<span class="toast-spinner" aria-hidden="true"></span>' : ""}
+  <span>${escaparHtml(texto)}</span>
+`;
 
 document.body.appendChild(msg);
+mensagemAtual = msg;
 
-setTimeout(()=>{
+if(!opcoes.persistente){
+mensagemTimer = setTimeout(()=>{
 msg.remove();
-},3000);
+if(mensagemAtual === msg){
+mensagemAtual = null;
+}
+mensagemTimer = null;
+},4200);
+}
 
 }
 
