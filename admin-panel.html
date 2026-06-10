@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex">
     <title>Editor | Lojinha Magno Garcia</title>
-    <link rel="stylesheet" href="./admin.css?v=20260610-order-fix">
+    <link rel="stylesheet" href="./admin.css?v=20260610-header-upload">
   </head>
   <body>
     <header class="editor-header">
@@ -105,14 +105,25 @@
 
         <label>Texto do link de voltar <input id="siteBackLabel" type="text"></label>
         <label>URL do link de voltar <input id="siteBackUrl" type="url"></label>
-        <label>Imagem da logo/selo <input id="siteSealImage" type="text"></label>
+        <label>Imagem da logo/selo
+          <div class="input-with-button">
+            <input id="siteSealImage" type="text">
+            <button class="ghost-action" type="button" onclick="selecionarUploadSite('seal')">Subir imagem</button>
+          </div>
+        </label>
         <label>Texto alternativo da logo <input id="siteSealAlt" type="text"></label>
         <label>Texto superior <input id="siteEyebrow" type="text"></label>
         <label>Título <input id="siteTitle" type="text"></label>
         <label>Descrição <textarea id="siteCopy" rows="3"></textarea></label>
-        <label>Foto do cabeçalho <input id="sitePhoto" type="text"></label>
+        <label>Foto do cabeçalho
+          <div class="input-with-button">
+            <input id="sitePhoto" type="text">
+            <button class="ghost-action" type="button" onclick="selecionarUploadSite('photo')">Subir foto</button>
+          </div>
+        </label>
         <label>Texto alternativo da foto <input id="sitePhotoAlt" type="text"></label>
         <label>Texto do rodapé <textarea id="siteFooterText" rows="3"></textarea></label>
+        <input id="siteUploadFile" type="file" accept="image/*" hidden>
 
         <div class="modal-actions">
           <button class="ghost-action" type="button" onclick="fecharSiteConfig()">Cancelar</button>
@@ -192,6 +203,6 @@
       </div>
     </div>
 
-    <script src="./admin.js?v=20260610-site-config"></script>
+    <script src="./admin.js?v=20260610-header-upload"></script>
   </body>
 </html>

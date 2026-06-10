@@ -848,6 +848,71 @@ return put.json();
 
 }
 
+async function salvarArquivoGithubBase64(token, owner, repo, path, conteudoBase64, mensagem, tentativa = 1) {
+const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+const headers = {
+Authorization:`token ${token}`,
+Accept:"application/vnd.github+json"
+};
+
+const get = await fetch(`${url}?ref=main`,{
+headers
+});
+
+let sha = null;
+
+if(get.status === 200){
+const data = await get.json();
+sha = data.sha;
+}else if(get.status === 401){
+localStorage.removeItem("github_token");
+throw new Error("TOKEN_INVALIDO");
+}else if(get.status === 403){
+throw new Error("O token não tem permissão para editar este repositório. No GitHub, ajuste o token com acesso ao repositório lojinha e permissão Contents: Read and write.");
+}else if(get.status !== 404){
+const erroGet = await get.text();
+throw new Error(`Erro ao buscar SHA de ${path}: ${erroGet}`);
+}
+
+const put = await fetch(url,{
+method:"PUT",
+headers:{
+...headers,
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+message:mensagem,
+content:conteudoBase64,
+sha:sha,
+branch:"main"
+})
+});
+
+if(put.status === 401){
+localStorage.removeItem("github_token");
+throw new Error("TOKEN_INVALIDO");
+}
+
+if(put.status === 403){
+throw new Error("O token não tem permissão para salvar no GitHub. Ele precisa de Contents: Read and write no repositório lojinha.");
+}
+
+if(put.status === 409 && tentativa < 3){
+console.warn(`Conflito de SHA ao salvar ${path}. Tentando novamente...`);
+await new Promise(resolve => setTimeout(resolve, 700));
+return salvarArquivoGithubBase64(token, owner, repo, path, conteudoBase64, mensagem, tentativa + 1);
+}
+
+if(!put.ok){
+const erro = await put.text();
+throw new Error(`Erro ao salvar ${path}: ${erro}`);
+}
+
+console.log("Arquivo salvo com Sucesso!:",path);
+return put.json();
+}
+
 async function carregarArquivoGithubJSON(token, owner, repo, path) {
 const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=main&v=${Date.now()}`;
 
@@ -1106,6 +1171,101 @@ document.getElementById("siteCopy").value = config.copy || "";
 document.getElementById("sitePhoto").value = config.photo || "";
 document.getElementById("sitePhotoAlt").value = config.photoAlt || "";
 document.getElementById("siteFooterText").value = config.footerText || "";
+}
+
+function normalizarNomeArquivo(texto = ""){
+return texto
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"")
+.replace(/[^a-zA-Z0-9]+/g,"-")
+.replace(/^-+|-+$/g,"")
+.toLowerCase();
+}
+
+function extensaoImagem(file){
+const porTipo = {
+"image/jpeg": "jpg",
+"image/png": "png",
+"image/webp": "webp",
+"image/gif": "gif"
+};
+
+if(porTipo[file.type]){
+return porTipo[file.type];
+}
+
+const ext = file.name.split(".").pop()?.toLowerCase();
+return ext || "png";
+}
+
+function lerArquivoComoDataURL(file){
+return new Promise((resolve, reject) => {
+const reader = new FileReader();
+reader.onload = () => resolve(reader.result);
+reader.onerror = () => reject(new Error("Não consegui ler a imagem selecionada."));
+reader.readAsDataURL(file);
+});
+}
+
+async function selecionarUploadSite(tipo){
+const input = document.getElementById("siteUploadFile");
+
+if(!input) return;
+
+input.value = "";
+input.onchange = async () => {
+const file = input.files?.[0];
+
+if(!file) return;
+
+try{
+let token = localStorage.getItem("github_token");
+
+if(!token){
+token = prompt("Digite seu GitHub Token");
+if(!token) return;
+localStorage.setItem("github_token", token);
+}
+
+const pagina = document.getElementById("siteConfigPagina").value || "principal";
+const dataURL = await lerArquivoComoDataURL(file);
+const base64 = String(dataURL).split(",")[1];
+const nomeBase = normalizarNomeArquivo(file.name.replace(/\.[^.]+$/,"")) || tipo;
+const ext = extensaoImagem(file);
+const path = `assets/uploads/${pagina}-${tipo}-${Date.now()}-${nomeBase}.${ext}`;
+
+mostrarMensagem("Subindo imagem para o GitHub...", { persistente: true, carregando: true });
+
+await salvarArquivoGithubBase64(
+token,
+"magnobenhgarcia",
+"lojinha",
+path,
+base64,
+`upload ${tipo} ${pagina}`
+);
+
+if(tipo === "seal"){
+document.getElementById("siteSealImage").value = path;
+}else{
+document.getElementById("sitePhoto").value = path;
+}
+
+mostrarMensagem("Imagem enviada. Clique em Salvar Cabeçalho.");
+
+}catch(erro){
+if(erro.message === "TOKEN_INVALIDO"){
+alert("Seu token GitHub expirou. Insira um novo token.");
+localStorage.removeItem("github_token");
+return;
+}
+
+console.error("Erro no upload:", erro);
+alert("Erro ao subir imagem:\n\n" + erro.message);
+}
+};
+
+input.click();
 }
 
 async function salvarSiteConfig(){

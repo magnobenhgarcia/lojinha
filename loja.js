@@ -97,8 +97,15 @@ function aplicarConfiguracaoPagina(siteConfig = {}) {
   }
 
   if (brandSeal) {
-    brandSeal.src = resolvePath(config.sealImage || siteConfigPadrao[pageKey].sealImage);
-    brandSeal.alt = config.sealAlt || siteConfigPadrao[pageKey].sealAlt;
+    if (config.sealImage) {
+      brandSeal.src = resolvePath(config.sealImage);
+      brandSeal.alt = config.sealAlt || siteConfigPadrao[pageKey].sealAlt;
+      brandSeal.hidden = false;
+    } else {
+      brandSeal.hidden = true;
+      brandSeal.removeAttribute("src");
+      brandSeal.alt = "";
+    }
   }
 
   if (eyebrow) eyebrow.textContent = config.eyebrow || "";
@@ -110,8 +117,15 @@ function aplicarConfiguracaoPagina(siteConfig = {}) {
   }
 
   if (photo) {
-    photo.src = resolvePath(config.photo || siteConfigPadrao[pageKey].photo);
-    photo.alt = config.photoAlt || siteConfigPadrao[pageKey].photoAlt;
+    if (config.photo) {
+      photo.src = resolvePath(config.photo);
+      photo.alt = config.photoAlt || siteConfigPadrao[pageKey].photoAlt;
+      photo.hidden = false;
+    } else {
+      photo.hidden = true;
+      photo.removeAttribute("src");
+      photo.alt = "";
+    }
   }
 
   if (footerText) footerText.textContent = config.footerText || "";
