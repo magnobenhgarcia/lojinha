@@ -206,6 +206,38 @@ function renderizarCategorias(container) {
   });
 }
 
+function criarPresellURL(produto) {
+  const url = new URL(resolvePath("presell.html"), window.location.href);
+  url.searchParams.set("produto", produto.order);
+  return url.href;
+}
+
+async function copiarPresellProduto(ordem) {
+  const produto = produtos.find((item) => Number(item.order) === Number(ordem));
+
+  if (!produto) return;
+
+  const link = criarPresellURL(produto);
+
+  try {
+    await navigator.clipboard.writeText(link);
+    mostrarToastLink("Link da presell copiado");
+  } catch (erro) {
+    prompt("Copie o link da presell:", link);
+  }
+}
+
+function mostrarToastLink(texto) {
+  document.querySelector(".copy-toast")?.remove();
+
+  const toast = document.createElement("div");
+  toast.className = "copy-toast";
+  toast.textContent = texto;
+  document.body.appendChild(toast);
+
+  setTimeout(() => toast.remove(), 2600);
+}
+
 function renderizarProdutos(categoria = "Todos") {
   const grid = document.getElementById("produtos");
   const empty = document.getElementById("empty");
@@ -234,7 +266,9 @@ function criarCardProduto(produto) {
 
         <div class="product-image-wrap">
           <img src="${escapeHtml(resolvePath(produto.image_url))}" class="produto-img" alt="${escapeHtml(produto.title)}" loading="lazy">
-          <img src="${escapeHtml(resolvePath("assets/selo_afiliado_mercado_livre.png"))}" class="selo-card" alt="Afiliado Mercado Livre" loading="lazy">
+          <button class="selo-card-button" type="button" onclick="copiarPresellProduto(${Number(produto.order)})" aria-label="Copiar link desta oferta">
+            <img src="${escapeHtml(resolvePath("assets/selo_afiliado_mercado_livre.png"))}" class="selo-card" alt="Afiliado Mercado Livre" loading="lazy">
+          </button>
         </div>
 
         <div class="card-content">
