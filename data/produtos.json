@@ -188,17 +188,18 @@
     "affiliate_url": "https://meli.la/1V8xELX",
     "category": "Capotrastes",
     "order": 18,
-    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-1854287207-capotraste-bracadeira-guitarra-e-violo-aco-e-nylon-preto-_JM"
+    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-1854287207-capotraste-bracadeira-guitarra-e-violo-aco-e-nylon-preto-_JM",
+    "html_file": "html/produto_18.html"
   },
   {
-    "title": "Capotraste Para Violão Aço E Nylon Guitarra Braçadeira Metal",
-    "description": "Capotraste Para Violão Aço E Nylon Guitarra Braçadeira Metal",
-    "price": "R$ 29,00",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_717265-MLB89762478168_082025-O-capotraste-para-violo-aco-e-nylon-guitarra-bracadeira-metal.webp",
-    "affiliate_url": "https://meli.la/2pt5abz",
+    "title": "Capotraste Abraçadeira Violão Guitarra Dolphin Metal Preto",
+    "description": "Capotraste Abraçadeira Violão Guitarra Dolphin Metal Preto",
+    "price": "R$ 22,66",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_848304-MLB28131624258_092018-O.webp",
+    "affiliate_url": "https://meli.la/1nJxyRH",
     "category": "Capotrastes",
     "order": 19,
-    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-3559304429-capotraste-para-violo-aco-e-nylon-guitarra-bracadeira-metal-_JM",
-    "html_file": "html/produto_18.html"
+    "mercado_livre_url": "https://www.mercadolivre.com.br/capotraste-abracadeira-violao-guitarra-dolphin-metal-preto/up/MLBU1573413440",
+    "html_file": "html/produto_19.html"
   }
 ]
