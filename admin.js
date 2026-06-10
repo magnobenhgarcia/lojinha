@@ -150,13 +150,65 @@ select.appendChild(option);
 
 }
 
+function normalizarOrdensProdutos(){
+produtos = produtos
+.map((produto, indiceOriginal) => ({ produto, indiceOriginal }))
+.sort((a, b) => {
+const ordemA = Number(a.produto.order || 0);
+const ordemB = Number(b.produto.order || 0);
+
+if(ordemA !== ordemB){
+return ordemA - ordemB;
+}
+
+return a.indiceOriginal - b.indiceOriginal;
+})
+.map(({ produto }, index) => ({
+...produto,
+order: index + 1
+}));
+
+return produtos;
+}
+
+function reposicionarProduto(produto, indiceAtual){
+const listaOrdenada = produtos
+.map((item, indiceOriginal) => ({ item, indiceOriginal }))
+.filter(({ indiceOriginal }) => indiceOriginal !== indiceAtual)
+.sort((a, b) => {
+const ordemA = Number(a.item.order || 0);
+const ordemB = Number(b.item.order || 0);
+
+if(ordemA !== ordemB){
+return ordemA - ordemB;
+}
+
+return a.indiceOriginal - b.indiceOriginal;
+})
+.map(({ item }) => item);
+
+const total = listaOrdenada.length + 1;
+const ordemDesejada = Math.min(
+Math.max(parseInt(produto.order, 10) || total, 1),
+total
+);
+
+listaOrdenada.splice(ordemDesejada - 1, 0, produto);
+produtos = listaOrdenada.map((item, index) => ({
+...item,
+order: index + 1
+}));
+
+return ordemDesejada - 1;
+}
+
 function renderizarProdutos(){
 
 const lista = document.getElementById("listaProdutos");
 
 lista.innerHTML = "";
 
-produtos.sort((a,b)=>a.order-b.order);
+normalizarOrdensProdutos();
 
 produtos.forEach((p,index)=>{
 
@@ -386,11 +438,7 @@ function salvarProduto(){
 
 const produto = obterProdutoDoFormulario();
 
-if(editandoIndex === null){
-produtos.push(produto);
-}else{
-produtos[editandoIndex] = produto;
-}
+reposicionarProduto(produto, editandoIndex);
 
 salvarLocal();
 renderizarProdutos();
@@ -407,12 +455,7 @@ return;
 
 const produto = obterProdutoDoFormulario();
 
-if(editandoIndex === null){
-produtos.push(produto);
-editandoIndex = produtos.length - 1;
-}else{
-produtos[editandoIndex] = produto;
-}
+editandoIndex = reposicionarProduto(produto, editandoIndex);
 
 renderizarProdutos();
 }
@@ -459,6 +502,7 @@ function excluirProduto(index){
 if(!confirm("Excluir produto?")) return;
 
 produtos.splice(index,1);
+normalizarOrdensProdutos();
 
 salvarLocal();
 renderizarProdutos();
@@ -859,6 +903,7 @@ async function salvarGithub() {
     const repo = "lojinha";
 
     sincronizarProdutoAberto();
+    normalizarOrdensProdutos();
 
     console.log("Produtos antes de salvar:", produtos);
 
