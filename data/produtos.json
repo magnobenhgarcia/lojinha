@@ -33,13 +33,24 @@
     "html_file": "html/produto_3.html"
   },
   {
+    "title": "Kit Violão Strinberg Folk Sd200c Ns Lh Canhoto + Acessórios",
+    "description": "Kit Violão Strinberg Folk Sd200c Ns Lh Canhoto + Acessórios",
+    "price": "R$ 1094,06",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_671059-MLB107568153587_022026-O.webp",
+    "affiliate_url": "https://meli.la/1wVBWsX",
+    "category": "Violões",
+    "order": 4,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/kit-violao-strinberg-folk-sd200c-ns-lh-canhoto--acessorios/up/MLBU2877173715",
+    "html_file": "html/produto_4.html"
+  },
+  {
     "title": "Doterra Breathe 15ml - Mix De Óleos Essenciais",
     "description": "Doterra Breathe 15ml - Mix De Óleos Essenciais",
     "price": "R$ 127,00",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_801570-MLB87497733233_072025-O.webp",
     "affiliate_url": "https://meli.la/2Cgzi5R",
     "category": "Loja Casa e Cuidados",
-    "order": 4,
+    "order": 5,
     "html_file": "html/produto_4.html"
   },
   {
@@ -49,7 +60,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_829454-MLA99605929442_122025-O.webp",
     "affiliate_url": "https://meli.la/1htkaLD",
     "category": "Afinadores",
-    "order": 5,
+    "order": 6,
     "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-violo-guitarra-baixo-ukulele-violino-bravo-music-bt02/p/MLB41821610?utm_source=chatgpt.com",
     "html_file": "html/produto_4.html"
   },
@@ -60,7 +71,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_793296-MLA105390738316_012026-O.webp",
     "affiliate_url": "https://meli.la/1cjBqym",
     "category": "Loja Casa e Cuidados",
-    "order": 6,
+    "order": 7,
     "html_file": "html/produto_5.html"
   },
   {
@@ -70,7 +81,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_848304-MLB28131624258_092018-O.webp",
     "affiliate_url": "https://meli.la/1nJxyRH",
     "category": "Capotrastes",
-    "order": 7,
+    "order": 8,
     "mercado_livre_url": "https://www.mercadolivre.com.br/capotraste-abracadeira-violao-guitarra-dolphin-metal-preto/up/MLBU1573413440",
     "html_file": "html/produto_5.html"
   },
@@ -81,7 +92,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_762170-MLB94072095059_102025-O.webp",
     "affiliate_url": "https://meli.la/1oUUPUu",
     "category": "Violões",
-    "order": 8,
+    "order": 9,
     "mercado_livre_url": "https://www.mercadolivre.com.br/violao-baby-strinberg-forest-fs2b-mgs-mahogany-baby-forest/up/MLBU2179182907#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=1&type=product&tracking_id=3ebacf51-b9ec-425f-bd6e-10665e4b59c2&wid=MLB2713923514&sid=search",
     "html_file": "html/produto_6.html"
   },
@@ -92,7 +103,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_704624-MLA96140290475_102025-O.webp",
     "affiliate_url": "https://meli.la/2AqYkmU",
     "category": "Loja Casa e Cuidados",
-    "order": 9,
+    "order": 10,
     "html_file": "html/produto_6.html"
   },
   {
@@ -102,7 +113,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_756843-MLA99366484770_112025-O.webp",
     "affiliate_url": "https://meli.la/2CHXuCv",
     "category": "Microfones",
-    "order": 10,
+    "order": 11,
     "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-de-mo-profissional-cardioide-samson-r21s-cor-preto/p/MLB23898664",
     "html_file": "html/produto_6.html"
   },
@@ -113,7 +124,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_641658-MLA99993913673_112025-O.webp",
     "affiliate_url": "https://meli.la/1NW8F8d",
     "category": "Pedais e Efeitos",
-    "order": 11,
+    "order": 12,
     "mercado_livre_url": "https://www.mercadolivre.com.br/pedal-de-efeito-cuvave-cube-baby-preto/p/MLB17366232?pdp_filters=item_id%3AMLB4103846897&matt_event_ts=1780938111601&matt_d2id=88113ce0-f6a6-4063-bb66-ecbea82324e8&matt_tracing_id=78a9d3c1-1bb4-4e29-b5d7-bfc0c74382aa#polycard_client=recommendations_home_affiliate-profile&wid=MLB4103846897&sid=recos&reco_backend=item_decorator&reco_client=home_affiliate-profile&reco_item_pos=0&source=affiliate-profile&reco_backend_type=function&reco_id=fb40c002-284b-47f9-a33b-4396d907f5c0&tracking_id=cee768e9-049e-4106-bae2-ee1e892c3173&c_id=/home/card-featured/element&c_uid=2a7840db-9de2-43ba-97d4-dc807166b4ef",
     "html_file": "html/produto_7.html"
   },
@@ -124,7 +135,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_738021-MLA99452645622_112025-O.webp",
     "affiliate_url": "https://meli.la/2oPTEi2",
     "category": "Loja Casa e Cuidados",
-    "order": 12,
+    "order": 13,
     "html_file": "html/produto_7.html"
   },
   {
@@ -134,7 +145,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_603874-MLB88724721458_072025-O.webp",
     "affiliate_url": "https://meli.la/1EX3gu2",
     "category": "Loja Casa e Cuidados",
-    "order": 13,
+    "order": 14,
     "html_file": "html/produto_8.html"
   },
   {
@@ -144,7 +155,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_859344-MLU76369586360_052024-O.webp",
     "affiliate_url": "https://meli.la/1sAdkB2",
     "category": "Afinadores",
-    "order": 14,
+    "order": 15,
     "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-com-clip-360-para-violo-guitarra-baixo-ukulele-e-violino-marca-lorben/p/MLB35435629?utm_source=chatgpt.com",
     "html_file": "html/produto_11.html"
   },
@@ -155,7 +166,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_953248-MLA99609051348_122025-O.webp",
     "affiliate_url": "https://meli.la/2CYWewE",
     "category": "Afinadores",
-    "order": 15,
+    "order": 16,
     "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-saty-ats-10-violo-guitarra-baixo-com-pinca/p/MLB26274464?utm_source=chatgpt.com",
     "html_file": "html/produto_12.html"
   },
@@ -166,7 +177,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_611927-MLA96144087381_102025-O.webp",
     "affiliate_url": "https://meli.la/2Zdzz5f",
     "category": "Violões",
-    "order": 16,
+    "order": 17,
     "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-strinberg-sf200c-tobacco-satin-6-cordas-com-cutaway/p/MLB16050819?matt_tool=18956390&pdp_filters=item_id%3AMLB5514450608&from=gshop&utm_source=chatgpt.com",
     "html_file": "html/produto_14.html"
   },
@@ -177,7 +188,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_896406-MLA95634816091_102025-O.webp",
     "affiliate_url": "https://meli.la/2qc2EkW",
     "category": "Violões",
-    "order": 17,
+    "order": 18,
     "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-strinberg-sd200c-mgs-folk-6-cordas-mahogany/p/MLB28539802?utm_source=chatgpt.com",
     "html_file": "html/produto_15.html"
   },
@@ -188,7 +199,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_722155-MLB74398517049_022024-O-capotraste-bracadeira-violo-guitarra-viola-ukulele-metal.webp",
     "affiliate_url": "https://meli.la/2vEfvUR",
     "category": "Capotrastes",
-    "order": 18,
+    "order": 19,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-1795530732-capotraste-bracadeira-violo-guitarra-viola-ukulele-metal-_JM",
     "html_file": "html/produto_17.html"
   },
@@ -199,7 +210,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_931421-MLB92293685978_092025-O-capotraste-bracadeira-guitarra-e-violo-aco-e-nylon-preto.webp",
     "affiliate_url": "https://meli.la/1V8xELX",
     "category": "Capotrastes",
-    "order": 19,
+    "order": 20,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-1854287207-capotraste-bracadeira-guitarra-e-violo-aco-e-nylon-preto-_JM",
     "html_file": "html/produto_18.html"
   },
@@ -210,7 +221,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_615612-MLA87782686580_072025-O.webp",
     "affiliate_url": "https://meli.la/2wF5ENj",
     "category": "Microfones",
-    "order": 20,
+    "order": 21,
     "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-com-fio-kadosh-k300-profissional-cor-preto/p/MLB52677184",
     "html_file": "html/produto_20.html"
   },
@@ -221,7 +232,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_954638-MLA99479879232_112025-O.webp",
     "affiliate_url": "https://meli.la/216Wa3K",
     "category": "Microfones",
-    "order": 21,
+    "order": 22,
     "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-kadosh-k-98-dinmico-cardioide-cor-azulprateado/p/MLB19076246",
     "html_file": "html/produto_21.html"
   },
@@ -232,8 +243,30 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_877999-MLA99933476061_112025-O.webp",
     "affiliate_url": "https://meli.la/2AzLWny",
     "category": "Microfones",
-    "order": 22,
+    "order": 23,
     "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-dinmico-cardioide-le-son-sm58-p4-com-fio-champanhe/p/MLB17450646",
     "html_file": "html/produto_22.html"
+  },
+  {
+    "title": "Violão Strinberg Acústico Folk Canhoto LE 30C 6 Cordas Aço",
+    "description": "Violão Strinberg Acústico Folk Canhoto LE 30C 6 Cordas Aço",
+    "price": "R$ 989,90",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_632588-MLA93094097612_092025-O.webp",
+    "affiliate_url": "https://meli.la/1fptmph",
+    "category": "Violões",
+    "order": 24,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-strinberg-acustico-folk-canhoto-le-30c-6-cordas-aco/p/MLB23572874",
+    "html_file": "html/produto_24.html"
+  },
+  {
+    "title": "Violão Tagima Andes Canhoto Folk EQ Aço Cor Natural",
+    "description": "Violão Tagima Andes Canhoto Folk EQ Aço Cor Natural",
+    "price": "R$ 877,85",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_971947-MLA112984148833_062026-O.webp",
+    "affiliate_url": "https://meli.la/1XkViUR",
+    "category": "Violões",
+    "order": 25,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-tagima-andes-canhoto-folk-eq-aco-cor-natural/p/MLB39346854",
+    "html_file": "html/produto_25.html"
   }
 ]
