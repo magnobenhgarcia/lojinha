@@ -1,35 +1,35 @@
 [
   {
-    "title": "Violão Baby Strinberg Forest Fs2b Mgs Mahogany Baby Forest",
-    "description": "Violão Baby Strinberg Forest Fs2b Mgs Mahogany Baby Forest",
-    "price": "R$ 913,00",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_762170-MLB94072095059_102025-O.webp",
-    "affiliate_url": "https://meli.la/1oUUPUu",
-    "category": "Violões",
-    "order": 1,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/violao-baby-strinberg-forest-fs2b-mgs-mahogany-baby-forest/up/MLBU2179182907#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=1&type=product&tracking_id=3ebacf51-b9ec-425f-bd6e-10665e4b59c2&wid=MLB2713923514&sid=search",
-    "html_file": "html/produto_1.html"
-  },
-  {
-    "title": "Pedal de efeito Cuvave Cube Baby preto",
-    "description": "Pedal de efeito Cuvave Cube Baby preto",
-    "price": "R$ 229,73",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_641658-MLA99993913673_112025-O.webp",
-    "affiliate_url": "https://meli.la/1NW8F8d",
-    "category": "Pedais e Efeitos",
-    "order": 2,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/pedal-de-efeito-cuvave-cube-baby-preto/p/MLB17366232?pdp_filters=item_id%3AMLB4103846897&matt_event_ts=1780938111601&matt_d2id=88113ce0-f6a6-4063-bb66-ecbea82324e8&matt_tracing_id=78a9d3c1-1bb4-4e29-b5d7-bfc0c74382aa#polycard_client=recommendations_home_affiliate-profile&wid=MLB4103846897&sid=recos&reco_backend=item_decorator&reco_client=home_affiliate-profile&reco_item_pos=0&source=affiliate-profile&reco_backend_type=function&reco_id=fb40c002-284b-47f9-a33b-4396d907f5c0&tracking_id=cee768e9-049e-4106-bae2-ee1e892c3173&c_id=/home/card-featured/element&c_uid=2a7840db-9de2-43ba-97d4-dc807166b4ef",
-    "html_file": "html/produto_2.html"
-  },
-  {
     "title": "Violão Eletroacústico CLASS CLD41CE Folk 6 Cordas Mogno Spruce",
     "description": "Violão Eletroacústico CLASS CLD41CE Folk 6 Cordas Mogno Spru",
     "price": "R$ 575,59",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_816254-MLA100698389988_122025-O.webp",
     "affiliate_url": "https://meli.la/2D5ea3Z",
     "category": "Violões",
-    "order": 3,
+    "order": 1,
     "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-class-cld41ce-folk-6-cordas-mogno-spruce/p/MLB63124013#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=3&type=product&tracking_id=fed32068-ace4-40ac-a464-ad2ee6b6a20c&wid=MLB6048448544&sid=search",
+    "html_file": "html/produto_1.html"
+  },
+  {
+    "title": "Violão Elétrico Hofma HMF280 Folk Cutaway Natural 6 Cordas Com Afinador Digital",
+    "description": "Violão Elétrico Hofma HMF280 Folk Cutaway Natural 6 Cordas C",
+    "price": "R$ 712,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_966704-MLA99514968920_112025-O.webp",
+    "affiliate_url": "https://meli.la/1FNBfNG",
+    "category": "Violões",
+    "order": 2,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletrico-hofma-hmf280-folk-cutaway-natural-6-cordas-com-afinador-digital/p/MLB22950586?pdp_filters=item_id:MLB5337852286#is_advertising=true&searchVariation=MLB22950586&backend_model=search-backend&be_origin=backend&position=13&search_layout=grid&type=pad&tracking_id=9f8a7256-bd09-432e-afd2-ab02da30e8b2&ad_domain=VQCATCORE_LST&ad_position=13&ad_click_id=NjAxNTk0MDEtYjJjMS00MmFmLThjMTMtMDM2ZWFmY2RlMjFj",
+    "html_file": "html/produto_2.html"
+  },
+  {
+    "title": "Violão Strinberg Forest Fs1a Mgs Aço Eletroacustico Artistic",
+    "description": "Violão Strinberg Forest Fs1a Mgs Aço Eletroacustico Artistic",
+    "price": "R$ 773,50",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_829824-MLA94583964165_102025-O.webp",
+    "affiliate_url": "https://meli.la/2EViHMa",
+    "category": "Violões",
+    "order": 3,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-strinberg-forest-fs1a-mgs-aco-eletroacustico-artistic/p/MLB38920108?matt_tool=18956390&pdp_filters=item_id%3AMLB4689036491&from=gshop&utm_source=chatgpt.com",
     "html_file": "html/produto_3.html"
   },
   {
@@ -43,6 +43,17 @@
     "html_file": "html/produto_4.html"
   },
   {
+    "title": "Afinador Digital Cromático Violão Guitarra Baixo Ukulele Violino Bravo Music Bt02",
+    "description": "Afinador Digital Cromático Violão Guitarra Baixo Ukulele Vio",
+    "price": "R$ 28,40",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_829454-MLA99605929442_122025-O.webp",
+    "affiliate_url": "https://meli.la/1htkaLD",
+    "category": "Afinadores",
+    "order": 4,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-violo-guitarra-baixo-ukulele-violino-bravo-music-bt02/p/MLB41821610?utm_source=chatgpt.com",
+    "html_file": "html/produto_4.html"
+  },
+  {
     "title": "Óleo Essencial Mix Doterra Serenity Para Difusor e Massagens 15ml",
     "description": "Óleo Essencial Mix Doterra Serenity Para Difusor e Massagens",
     "price": "R$ 167,00",
@@ -53,6 +64,28 @@
     "html_file": "html/produto_5.html"
   },
   {
+    "title": "Capotraste Abraçadeira Violão Guitarra Dolphin Metal Preto",
+    "description": "Capotraste Abraçadeira Violão Guitarra Dolphin Metal Preto",
+    "price": "R$ 22,66",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_848304-MLB28131624258_092018-O.webp",
+    "affiliate_url": "https://meli.la/1nJxyRH",
+    "category": "Capotrastes",
+    "order": 5,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/capotraste-abracadeira-violao-guitarra-dolphin-metal-preto/up/MLBU1573413440",
+    "html_file": "html/produto_5.html"
+  },
+  {
+    "title": "Violão Baby Strinberg Forest Fs2b Mgs Mahogany Baby Forest",
+    "description": "Violão Baby Strinberg Forest Fs2b Mgs Mahogany Baby Forest",
+    "price": "R$ 913,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_762170-MLB94072095059_102025-O.webp",
+    "affiliate_url": "https://meli.la/1oUUPUu",
+    "category": "Violões",
+    "order": 6,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violao-baby-strinberg-forest-fs2b-mgs-mahogany-baby-forest/up/MLBU2179182907#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=1&type=product&tracking_id=3ebacf51-b9ec-425f-bd6e-10665e4b59c2&wid=MLB2713923514&sid=search",
+    "html_file": "html/produto_6.html"
+  },
+  {
     "title": "Toalha De Banho Gigante Karsten Unika Algodão 86x150 Cor Branco",
     "description": "Toalha De Banho Gigante Karsten Unika Algodão 86x150 Cor Bra",
     "price": "R$ 78,90",
@@ -61,6 +94,28 @@
     "category": "Loja Casa e Cuidados",
     "order": 6,
     "html_file": "html/produto_6.html"
+  },
+  {
+    "title": "Microfone De Mão Profissional Cardioide Samson R21s Cor Preto",
+    "description": "Microfone De Mão Profissional Cardioide Samson R21s Cor Pret",
+    "price": "R$ 189,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_756843-MLA99366484770_112025-O.webp",
+    "affiliate_url": "https://meli.la/2CHXuCv",
+    "category": "Microfones",
+    "order": 6,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-de-mo-profissional-cardioide-samson-r21s-cor-preto/p/MLB23898664",
+    "html_file": "html/produto_6.html"
+  },
+  {
+    "title": "Pedal de efeito Cuvave Cube Baby preto",
+    "description": "Pedal de efeito Cuvave Cube Baby preto",
+    "price": "R$ 229,73",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_641658-MLA99993913673_112025-O.webp",
+    "affiliate_url": "https://meli.la/1NW8F8d",
+    "category": "Pedais e Efeitos",
+    "order": 7,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/pedal-de-efeito-cuvave-cube-baby-preto/p/MLB17366232?pdp_filters=item_id%3AMLB4103846897&matt_event_ts=1780938111601&matt_d2id=88113ce0-f6a6-4063-bb66-ecbea82324e8&matt_tracing_id=78a9d3c1-1bb4-4e29-b5d7-bfc0c74382aa#polycard_client=recommendations_home_affiliate-profile&wid=MLB4103846897&sid=recos&reco_backend=item_decorator&reco_client=home_affiliate-profile&reco_item_pos=0&source=affiliate-profile&reco_backend_type=function&reco_id=fb40c002-284b-47f9-a33b-4396d907f5c0&tracking_id=cee768e9-049e-4106-bae2-ee1e892c3173&c_id=/home/card-featured/element&c_uid=2a7840db-9de2-43ba-97d4-dc807166b4ef",
+    "html_file": "html/produto_7.html"
   },
   {
     "title": "Fervedor De Indução Tramontina Allegra Caneco Canecão Leiteira Aço Inox Cabo De Baquelite 14 Cm 2 Litros Altamente Durável Alta Segurança Design Estiloso Tecnologia Para Todos Os Tipos De Fogões",
@@ -81,17 +136,6 @@
     "category": "Loja Casa e Cuidados",
     "order": 8,
     "html_file": "html/produto_8.html"
-  },
-  {
-    "title": "Afinador Digital Cromático Violão Guitarra Baixo Ukulele Violino Bravo Music Bt02",
-    "description": "Afinador Digital Cromático Violão Guitarra Baixo Ukulele Vio",
-    "price": "R$ 28,40",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_829454-MLA99605929442_122025-O.webp",
-    "affiliate_url": "https://meli.la/1htkaLD",
-    "category": "Afinadores",
-    "order": 10,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-violo-guitarra-baixo-ukulele-violino-bravo-music-bt02/p/MLB41821610?utm_source=chatgpt.com",
-    "html_file": "html/produto_10.html"
   },
   {
     "title": "Afinador Digital Cromático com Clip 360° - Para Violão, Guitarra, Baixo, Ukulele e Violino - Marca Lorben",
@@ -116,17 +160,6 @@
     "html_file": "html/produto_12.html"
   },
   {
-    "title": "Violão Strinberg Forest Fs1a Mgs Aço Eletroacustico Artistic",
-    "description": "Violão Strinberg Forest Fs1a Mgs Aço Eletroacustico Artistic",
-    "price": "R$ 773,50",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_829824-MLA94583964165_102025-O.webp",
-    "affiliate_url": "https://meli.la/2EViHMa",
-    "category": "Violões",
-    "order": 13,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-strinberg-forest-fs1a-mgs-aco-eletroacustico-artistic/p/MLB38920108?matt_tool=18956390&pdp_filters=item_id%3AMLB4689036491&from=gshop&utm_source=chatgpt.com",
-    "html_file": "html/produto_13.html"
-  },
-  {
     "title": "Violão Eletroacústico Strinberg SF200C Tobacco Satin 6 Cordas Com Cutaway",
     "description": "Violão Eletroacústico Strinberg SF200C Tobacco Satin 6 Corda",
     "price": "R$ 871,13",
@@ -149,17 +182,6 @@
     "html_file": "html/produto_15.html"
   },
   {
-    "title": "Violão Elétrico Hofma HMF280 Folk Cutaway Natural 6 Cordas Com Afinador Digital",
-    "description": "Violão Elétrico Hofma HMF280 Folk Cutaway Natural 6 Cordas C",
-    "price": "R$ 712,00",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_966704-MLA99514968920_112025-O.webp",
-    "affiliate_url": "https://meli.la/1FNBfNG",
-    "category": "Violões",
-    "order": 16,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletrico-hofma-hmf280-folk-cutaway-natural-6-cordas-com-afinador-digital/p/MLB22950586?pdp_filters=item_id:MLB5337852286#is_advertising=true&searchVariation=MLB22950586&backend_model=search-backend&be_origin=backend&position=13&search_layout=grid&type=pad&tracking_id=9f8a7256-bd09-432e-afd2-ab02da30e8b2&ad_domain=VQCATCORE_LST&ad_position=13&ad_click_id=NjAxNTk0MDEtYjJjMS00MmFmLThjMTMtMDM2ZWFmY2RlMjFj",
-    "html_file": "html/produto_16.html"
-  },
-  {
     "title": "Capotraste Braçadeira Violão Guitarra Viola Ukulele (metal)",
     "description": "Capotraste Braçadeira Violão Guitarra Viola Ukulele (metal)",
     "price": "R$ 29,90",
@@ -180,17 +202,6 @@
     "order": 18,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-1854287207-capotraste-bracadeira-guitarra-e-violo-aco-e-nylon-preto-_JM",
     "html_file": "html/produto_18.html"
-  },
-  {
-    "title": "Capotraste Abraçadeira Violão Guitarra Dolphin Metal Preto",
-    "description": "Capotraste Abraçadeira Violão Guitarra Dolphin Metal Preto",
-    "price": "R$ 22,66",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_848304-MLB28131624258_092018-O.webp",
-    "affiliate_url": "https://meli.la/1nJxyRH",
-    "category": "Capotrastes",
-    "order": 19,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/capotraste-abracadeira-violao-guitarra-dolphin-metal-preto/up/MLBU1573413440",
-    "html_file": "html/produto_19.html"
   },
   {
     "title": "Microfone Com Fio Kadosh K300 Profissional Cor Preto",
@@ -223,17 +234,6 @@
     "category": "Microfones",
     "order": 22,
     "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-dinmico-cardioide-le-son-sm58-p4-com-fio-champanhe/p/MLB17450646",
-    "html_file": "html/produto_22.html"
-  },
-  {
-    "title": "Microfone De Mão Profissional Cardioide Samson R21s Cor Preto",
-    "description": "Microfone De Mão Profissional Cardioide Samson R21s Cor Pret",
-    "price": "R$ 189,00",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_756843-MLA99366484770_112025-O.webp",
-    "affiliate_url": "https://meli.la/2CHXuCv",
-    "category": "Microfones",
-    "order": 22,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-de-mo-profissional-cardioide-samson-r21s-cor-preto/p/MLB23898664",
     "html_file": "html/produto_22.html"
   }
 ]
