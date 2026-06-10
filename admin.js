@@ -95,6 +95,7 @@ mostrarMensagem("Token apagado");
 let editandoIndex = null;
 let menorPrecoIndex = null;
 let editandoKitIndex = null;
+let produtoPreviewAtual = null;
 
 let destaques = {
   hero: null,
@@ -528,77 +529,36 @@ mostrarPreview(produtoPreview);
 
 function mostrarPreview(produto){
 
+produtoPreviewAtual = produto;
+
 const modal = document.createElement("div");
 
-modal.style.position = "fixed";
-modal.style.top = "0";
-modal.style.left = "0";
-modal.style.width = "100%";
-modal.style.height = "100%";
-modal.style.background = "rgba(0,0,0,0.8)";
-modal.style.display = "flex";
-modal.style.alignItems = "center";
-modal.style.justifyContent = "center";
+modal.className = "previewModal";
 
 modal.innerHTML = `
 
-<div style="
-background:#2a0f4a;
-padding:30px;
-border-radius:16px;
-max-width:400px;
-text-align:center;
-color:white;
-">
+<div class="preview-card">
 
-<h2>🔎 Confirme o Produto</h2>
+<h2>Confirme o Produto</h2>
 
-<img src="${produto.image}" style="width:100%;border-radius:10px;margin-bottom:10px;">
+<div class="preview-image-box">
+  <img src="${escaparHtml(produto.image)}" alt="${escaparHtml(produto.title || "Produto")}">
+</div>
 
-<h3>${produto.title}</h3>
+<h3>${escaparHtml(produto.title)}</h3>
 
-<p style="color:#00e676;font-size:20px;font-weight:bold">
-${produto.price}
-</p>
+<p class="preview-price">${escaparHtml(produto.price)}</p>
 
-<p>${produto.description}</p>
+<p class="preview-description">${escaparHtml(produto.description)}</p>
 
-<div style="
-margin-top:20px;
-display:flex;
-gap:12px;
-justify-content:center;
-">
+<div class="preview-actions">
 
-<button
-style="
-padding:10px 16px;
-border-radius:8px;
-border:none;
-background:#777;
-color:white;
-cursor:pointer;
-font-weight:bold;
-"
-onclick="this.closest('.previewModal').remove()"
->
+<button class="preview-cancel" onclick="fecharPreviewProduto()">
 Cancelar
 </button>
 
-<button
-style="
-padding:10px 18px;
-border-radius:8px;
-border:none;
-background:#ffe600;
-color:black;
-cursor:pointer;
-font-weight:bold;
-font-size:14px;
-"
-onclick="confirmarPreview('${produto.title}','${produto.price}','${produto.image}','${produto.description}')"
->
-✔ Confirmar e usar
+<button class="preview-confirm" onclick="confirmarPreviewAtual()">
+Confirmar e usar
 </button>
 
 </div>
@@ -607,10 +567,24 @@ onclick="confirmarPreview('${produto.title}','${produto.price}','${produto.image
 
 `;
 
-modal.className = "previewModal";
-
 document.body.appendChild(modal);
 
+}
+
+function fecharPreviewProduto(){
+document.querySelector(".previewModal")?.remove();
+produtoPreviewAtual = null;
+}
+
+function confirmarPreviewAtual(){
+if(!produtoPreviewAtual) return;
+
+confirmarPreview(
+produtoPreviewAtual.title,
+produtoPreviewAtual.price,
+produtoPreviewAtual.image,
+produtoPreviewAtual.description
+);
 }
 
 function confirmarPreview(title,price,image,description){
@@ -620,7 +594,7 @@ document.getElementById("preco").value = price;
 document.getElementById("imagem").value = image;
 document.getElementById("descricao").value = description;
 
-document.querySelector(".previewModal").remove();
+fecharPreviewProduto();
 
 }
 
