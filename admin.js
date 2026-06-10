@@ -1,5 +1,18 @@
 let produtos = [];
 
+async function fetchJSONSemCache(path){
+const separator = path.includes("?") ? "&" : "?";
+const res = await fetch(`${path}${separator}v=${Date.now()}`, {
+cache: "no-store"
+});
+
+if(!res.ok){
+throw new Error(`Erro ao carregar ${path}`);
+}
+
+return res.json();
+}
+
 function normalizarImagemAdmin(src = ""){
 if(!src) return "";
 if(src.startsWith("http") || src.startsWith("data:") || src.startsWith("/")) return src;
@@ -8,8 +21,7 @@ return src;
 
 async function carregarProdutos(){
 
-const res = await fetch("data/produtos.json");
-produtos = await res.json();
+produtos = await fetchJSONSemCache("data/produtos.json");
 
 renderizarProdutos();
 
@@ -19,13 +31,7 @@ async function carregarDestaquesAdmin(){
 
 try{
 
-const res = await fetch("data/destaques.json");
-
-if(!res.ok){
-throw new Error("Erro ao carregar destaques");
-}
-
-destaques = await res.json();
+destaques = await fetchJSONSemCache("data/destaques.json");
 
 }catch(erro){
 
@@ -785,7 +791,34 @@ throw new Error(`Erro ao salvar ${path}: ${erro}`);
 }
 
 console.log("Arquivo salvo com Sucesso!:",path);
+return put.json();
 
+}
+
+async function carregarArquivoGithubJSON(token, owner, repo, path) {
+const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=main&v=${Date.now()}`;
+
+const resposta = await fetch(url, {
+headers: {
+Authorization:`token ${token}`,
+Accept:"application/vnd.github+json"
+},
+cache: "no-store"
+});
+
+if(resposta.status === 401){
+localStorage.removeItem("github_token");
+throw new Error("TOKEN_INVALIDO");
+}
+
+if(!resposta.ok){
+const erro = await resposta.text();
+throw new Error(`Erro ao conferir ${path}: ${erro}`);
+}
+
+const arquivo = await resposta.json();
+const conteudo = decodeURIComponent(escape(atob(arquivo.content.replace(/\n/g, ""))));
+return JSON.parse(conteudo);
 }
 
 async function salvarGithub() {
@@ -855,7 +888,22 @@ async function salvarGithub() {
       "update produtos"
     );
 
-    mostrarMensagem("Loja salva no GitHub ✔");
+    const listaConfirmada = await carregarArquivoGithubJSON(
+      token,
+      owner,
+      repo,
+      "data/produtos.json"
+    );
+
+    if(listaConfirmada.length !== lista.length){
+      throw new Error(`O GitHub confirmou ${listaConfirmada.length} produtos, mas o editor tentou salvar ${lista.length}. Reabra o editor antes de tentar de novo.`);
+    }
+
+    produtos = listaConfirmada;
+    renderizarProdutos();
+
+    const ultimoProduto = produtos[produtos.length - 1]?.title || "produto";
+    mostrarMensagem(`Loja salva no GitHub ✔ ${produtos.length} produtos. Último: ${ultimoProduto}`);
     
   }catch(erro){
 
