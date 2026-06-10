@@ -1,9 +1,11 @@
 {
   "hero": {
+    "visible": true,
     "produto": 15,
     "title": "Dica do Professor para Você! ",
     "description": "Um dos Melhores violões Custo-Benefício, com excelente acabamento e Som Incrível!",
     "cta": "Aproveite a Dica e o Preço"
   },
+  "kitsVisible": true,
   "kits": []
 }

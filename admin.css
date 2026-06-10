@@ -228,6 +228,21 @@ label {
   font-weight: 800;
 }
 
+.check-row {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  justify-content: start;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fffdf7;
+  color: var(--ink);
+}
+
+.check-row input {
+  width: auto;
+}
+
 input,
 textarea,
 select {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex">
     <title>Editor | Lojinha Magno Garcia</title>
-    <link rel="stylesheet" href="./admin.css">
+    <link rel="stylesheet" href="./admin.css?v=20260610-hero-kits">
   </head>
   <body>
     <header class="editor-header">
@@ -97,6 +97,10 @@
 
         <div id="listaHero" class="mini-list"></div>
 
+        <label class="check-row">
+          <input id="heroVisivel" type="checkbox">
+          Mostrar Hero na lojinha
+        </label>
         <label>Selecionar produto <select id="heroProduto"></select></label>
         <label>Título <input id="heroTitulo" type="text"></label>
         <label>Descrição <input id="heroDescricao" type="text"></label>
@@ -135,6 +139,10 @@
 
         <div id="listaKits" class="kit-list"></div>
 
+        <label class="check-row">
+          <input id="kitsVisivel" type="checkbox">
+          Mostrar Carrossel na lojinha
+        </label>
         <label>Título do kit <input id="kitTitulo" type="text"></label>
         <label>Descrição <input id="kitDescricao" type="text"></label>
 
@@ -151,6 +159,6 @@
       </div>
     </div>
 
-    <script src="./admin.js?v=20260608-0949"></script>
+    <script src="./admin.js?v=20260610-hero-kits"></script>
   </body>
 </html>

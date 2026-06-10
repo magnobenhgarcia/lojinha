@@ -88,6 +88,7 @@ mostrarMensagem("Token apagado");
 
 let editandoIndex = null;
 let menorPrecoIndex = null;
+let editandoKitIndex = null;
 
 let destaques = {
   hero: null,
@@ -924,6 +925,14 @@ select.appendChild(option);
 
 });
 
+const hero = destaques.hero || {};
+
+document.getElementById("heroVisivel").checked = hero.visible !== false;
+document.getElementById("heroProduto").value = hero.produto ?? 0;
+document.getElementById("heroTitulo").value = hero.title || "";
+document.getElementById("heroDescricao").value = hero.description || "";
+document.getElementById("heroCTA").value = hero.cta || "";
+
 /* mostrar hero atual */
 renderListaHero();
 
@@ -936,6 +945,7 @@ document.getElementById("modalHero").style.display="none";
 async function salvarHero(){
 
 destaques.hero={
+visible:document.getElementById("heroVisivel").checked,
 produto:Number(document.getElementById("heroProduto").value),
 title:document.getElementById("heroTitulo").value,
 description:document.getElementById("heroDescricao").value,
@@ -968,8 +978,11 @@ const p=produtos[destaques.hero.produto];
 
 lista.innerHTML=`
 <div class="produto-item">
-<img src="${p.image_url}">
-<div>${p.title}</div>
+<img src="${normalizarImagemAdmin(p?.image_url || "")}">
+<div class="produto-info">
+<div class="produto-title">${p?.title || "Produto não encontrado"}</div>
+<div>${destaques.hero.visible === false ? "Hero oculto na lojinha" : "Hero visível na lojinha"}</div>
+</div>
 </div>
 `;
 
@@ -981,6 +994,11 @@ function abrirKits(){
 
 document.getElementById("modalKits").style.display="flex";
 
+editandoKitIndex = null;
+document.getElementById("kitsVisivel").checked = destaques.kitsVisible !== false;
+document.getElementById("kitTitulo").value = "";
+document.getElementById("kitDescricao").value = "";
+document.getElementById("kitCTA").value = "";
 document.getElementById("kitProdutos").innerHTML="";
 
 adicionarProdutoKit();
@@ -1016,11 +1034,42 @@ container.appendChild(select);
 
 }
 
+function carregarKitParaEdicao(index){
+
+const kit = destaques.kits[index];
+
+if(!kit) return;
+
+editandoKitIndex = index;
+
+document.getElementById("kitTitulo").value = kit.title || "";
+document.getElementById("kitDescricao").value = kit.description || "";
+document.getElementById("kitCTA").value = kit.cta || "";
+
+const container = document.getElementById("kitProdutos");
+container.innerHTML = "";
+
+(kit.items || []).forEach((produtoIndex) => {
+adicionarProdutoKit();
+const selects = container.querySelectorAll("select");
+selects[selects.length - 1].value = produtoIndex;
+});
+
+if(!(kit.items || []).length){
+adicionarProdutoKit();
+}
+
+mostrarMensagem("Kit carregado para edição");
+
+}
+
 async function salvarKit(){
 
 const selects=document.querySelectorAll("#kitProdutos select");
 
 const items=[...selects].map(s=>Number(s.value));
+
+destaques.kitsVisible = document.getElementById("kitsVisivel").checked;
 
 const kit={
 title:document.getElementById("kitTitulo").value,
@@ -1030,17 +1079,35 @@ items:items
 };
 
 if(!kit.title){
-alert("Digite um título para o kit");
+await salvarDestaquesGithub();
+renderListaKits();
+mostrarMensagem("Configuração do carrossel salva");
 return;
 }
 
+if(!Array.isArray(destaques.kits)){
+destaques.kits = [];
+}
+
+if(editandoKitIndex === null){
 destaques.kits.push(kit);
+}else{
+destaques.kits[editandoKitIndex] = kit;
+}
+
 await salvarDestaquesGithub();
 
 /* atualizar lista visual */
 renderListaKits();
 
-alert("Kit salvo");
+editandoKitIndex = null;
+document.getElementById("kitTitulo").value = "";
+document.getElementById("kitDescricao").value = "";
+document.getElementById("kitCTA").value = "";
+document.getElementById("kitProdutos").innerHTML = "";
+adicionarProdutoKit();
+
+mostrarMensagem("Kit salvo");
 
 }
 
@@ -1050,6 +1117,10 @@ const lista=document.getElementById("listaKits");
 
 lista.innerHTML="";
 
+if(destaques.kitsVisible === false){
+lista.innerHTML = `<p>Carrossel oculto na lojinha.</p>`;
+}
+
 destaques.kits.forEach((kit,i)=>{
 
 lista.innerHTML+=`
@@ -1058,6 +1129,8 @@ lista.innerHTML+=`
 <h4>${kit.title}</h4>
 
 <p>${kit.description}</p>
+
+<button onclick="carregarKitParaEdicao(${i})">Editar</button>
 
 <button onclick="removerKit(${i})">Remover</button>
 
@@ -1076,21 +1149,6 @@ if(!confirm("Remover este kit?")) return;
 destaques.kits.splice(index,1);
 
 /* redesenha a lista */
-renderListaKits();
-
-/* salva novamente no GitHub */
-salvarDestaquesGithub();
-
-}
-
-function removerKit(index){
-
-if(!confirm("Deseja remover este kit?")) return;
-
-/* remove do array */
-destaques.kits.splice(index,1);
-
-/* atualiza lista visual */
 renderListaKits();
 
 /* salva novamente no GitHub */

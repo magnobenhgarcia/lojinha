@@ -194,6 +194,15 @@ h1 {
   min-width: 0;
 }
 
+[hidden] {
+  display: none !important;
+}
+
+.featured-layout.single-feature {
+  grid-template-columns: minmax(300px, 560px);
+  justify-content: center;
+}
+
 .recommendation-card,
 .kits-panel,
 .product-card {

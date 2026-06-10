@@ -164,14 +164,35 @@ function criarCardProduto(produto) {
 async function carregarDestaques() {
   try {
     const dados = await carregarJSON(resolvePath("data/destaques.json"));
+    const heroContainer = document.getElementById("hero");
+    const kitsPanel = document.querySelector(".kits-panel");
+    const featuredLayout = document.querySelector(".featured-layout");
+    const showcaseSection = document.querySelector(".showcase-section");
+    const heroVisivel = dados.hero && dados.hero.visible !== false;
+    const kitsVisivel = dados.kitsVisible !== false;
 
-    if (dados.hero) {
+    if (heroVisivel) {
       renderHero(dados.hero);
+      heroContainer?.removeAttribute("hidden");
+    } else {
+      if (heroContainer) heroContainer.hidden = true;
     }
 
-    kits = Array.isArray(dados.kits) ? dados.kits : [];
-    renderKits();
-    iniciarCarrossel();
+    kits = kitsVisivel && Array.isArray(dados.kits) ? dados.kits : [];
+
+    if (kits.length) {
+      kitsPanel?.removeAttribute("hidden");
+      renderKits();
+      iniciarCarrossel();
+    } else if (kitsPanel) {
+      kitsPanel.hidden = true;
+    }
+
+    featuredLayout?.classList.toggle("single-feature", heroVisivel !== Boolean(kits.length));
+
+    if (!heroVisivel && !kits.length && showcaseSection) {
+      showcaseSection.hidden = true;
+    }
   } catch (erro) {
     console.error("Erro ao carregar destaques:", erro);
   }
