@@ -942,6 +942,106 @@ const conteudo = decodeURIComponent(escape(atob(arquivo.content.replace(/\n/g, "
 return JSON.parse(conteudo);
 }
 
+async function requisicaoGithub(url, opcoes = {}){
+const resposta = await fetch(url, opcoes);
+
+if(resposta.status === 401){
+localStorage.removeItem("github_token");
+throw new Error("TOKEN_INVALIDO");
+}
+
+if(resposta.status === 403){
+throw new Error("O token não tem permissão para salvar no GitHub. Ele precisa de Contents: Read and write no repositório lojinha.");
+}
+
+if(!resposta.ok){
+const erro = await resposta.text();
+throw new Error(`Erro no GitHub (${resposta.status}): ${erro}`);
+}
+
+return resposta.json();
+}
+
+async function salvarArquivosGithubEmLote(token, owner, repo, arquivos, mensagem, tentativa = 1){
+if(!arquivos.length){
+return null;
+}
+
+const baseUrl = `https://api.github.com/repos/${owner}/${repo}`;
+const headers = {
+Authorization:`token ${token}`,
+Accept:"application/vnd.github+json",
+"Content-Type":"application/json"
+};
+
+try{
+const ref = await requisicaoGithub(`${baseUrl}/git/ref/heads/main?cacheBust=${Date.now()}`, {
+headers,
+cache:"no-store"
+});
+const headSha = ref.object.sha;
+const commitAtual = await requisicaoGithub(`${baseUrl}/git/commits/${headSha}`, {headers});
+const tree = [];
+
+for(const arquivo of arquivos){
+const blob = await requisicaoGithub(`${baseUrl}/git/blobs`, {
+method:"POST",
+headers,
+body:JSON.stringify({
+content: arquivo.conteudo,
+encoding: "utf-8"
+})
+});
+
+tree.push({
+path: arquivo.path,
+mode: "100644",
+type: "blob",
+sha: blob.sha
+});
+}
+
+const novaTree = await requisicaoGithub(`${baseUrl}/git/trees`, {
+method:"POST",
+headers,
+body:JSON.stringify({
+base_tree: commitAtual.tree.sha,
+tree
+})
+});
+
+const novoCommit = await requisicaoGithub(`${baseUrl}/git/commits`, {
+method:"POST",
+headers,
+body:JSON.stringify({
+message: mensagem,
+tree: novaTree.sha,
+parents: [headSha]
+})
+});
+
+const atualizacao = await requisicaoGithub(`${baseUrl}/git/refs/heads/main`, {
+method:"PATCH",
+headers,
+body:JSON.stringify({
+sha: novoCommit.sha,
+force: false
+})
+});
+
+console.log(`Commit em lote salvo: ${arquivos.length} arquivo(s)`, arquivos.map(arquivo => arquivo.path));
+return atualizacao;
+}catch(erro){
+if(/Reference update failed|Update is not a fast forward|409/.test(erro.message) && tentativa < 3){
+console.warn("Conflito ao salvar lote. Tentando novamente...");
+await aguardar(900);
+return salvarArquivosGithubEmLote(token, owner, repo, arquivos, mensagem, tentativa + 1);
+}
+
+throw erro;
+}
+}
+
 function montarProdutoPublicavel(p){
 const produto = {
 title: p.title,
@@ -1141,6 +1241,8 @@ async function salvarGithub() {
       { persistente: true, carregando: true }
     );
 
+    const arquivosParaSalvar = [];
+
     for (const produto of produtos) {
       if (!ordensAlteradas.has(Number(produto.order || 0))) {
         continue;
@@ -1151,40 +1253,36 @@ async function salvarGithub() {
       if (html && html.trim()) {
         const path = `html/produto_${produto.order}.html`;
 
-        await salvarArquivoGithub(
-          token,
-          owner,
-          repo,
+        arquivosParaSalvar.push({
           path,
-          html,
-          `update produto ${produto.order}`
-        );
+          conteudo: html
+        });
 
         produto.html_file = path;
       }
     }
 
     if(listaMudou){
-      await salvarArquivoGithub(
-        token,
-        owner,
-        repo,
-        "data/produtos.json",
-        JSON.stringify(lista, null, 2),
-        "update produtos"
-      );
+      arquivosParaSalvar.push({
+        path: "data/produtos.json",
+        conteudo: JSON.stringify(lista, null, 2)
+      });
     }
 
     for (const produto of produtosAlterados) {
-      await salvarArquivoGithub(
-        token,
-        owner,
-        repo,
-        `presell/produto-${produto.order}.html`,
-        gerarHTMLPresellProduto(produto),
-        `update presell produto ${produto.order}`
-      );
+      arquivosParaSalvar.push({
+        path: `presell/produto-${produto.order}.html`,
+        conteudo: gerarHTMLPresellProduto(produto)
+      });
     }
+
+    await salvarArquivosGithubEmLote(
+      token,
+      owner,
+      repo,
+      arquivosParaSalvar,
+      `update loja (${produtosAlterados.length} produto(s))`
+    );
 
     const listaConfirmada = await carregarArquivoGithubJSON(
       token,

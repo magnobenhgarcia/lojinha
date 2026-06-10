@@ -8,17 +8,11 @@
 /data/*.json
   Cache-Control: no-store
 
-/admin.js
-  Cache-Control: no-store
-
-/admin.css
-  Cache-Control: no-store
-
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
 /*.css
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=300, must-revalidate
 
 /*.js
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=300, must-revalidate
