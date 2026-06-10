@@ -54,34 +54,35 @@
     "html_file": "html/produto_5.html"
   },
   {
+    "title": "Microfone De Mão Profissional Cardioide Samson R21s Cor Preto",
+    "description": "Microfone Kadosh K-98 Dinâmico Cardióide cor azul/prateado",
+    "price": "R$ 189,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_756843-MLA99366484770_112025-O.webp",
+    "affiliate_url": "https://meli.la/216Wa3K",
+    "category": "Microfones",
+    "order": 6,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-kadosh-k-98-dinmico-cardioide-cor-azulprateado/p/MLB19076246",
+    "html_file": "html/produto_6.html"
+  },
+  {
     "title": "Caixa De Som Portátil 100w Karaokê 2 Microfone Bluetooth Preto",
     "description": "Caixa De Som Portátil 100w Karaokê 2 Microfone Bluetooth Pre",
     "price": "R$ 377,33",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_731521-MLA112738283103_062026-O.webp",
     "affiliate_url": "https://meli.la/2gYyck2",
     "category": "Karaokê (Treino Vocal)",
-    "order": 6,
+    "order": 7,
     "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-som-portatil-100w-karaok-2-microfone-bluetooth-preto/p/MLB72188653"
   },
   {
-    "title": "Microfone De Mão Profissional Cardioide Samson R21s Cor Preto",
-    "description": "Afinador Digital Cromático Violão Guitarra Baixo Ukulele Vio",
-    "price": "R$ 189,00",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_756843-MLA99366484770_112025-O.webp",
-    "affiliate_url": "https://meli.la/1htkaLD",
-    "category": "Microfones",
-    "order": 7,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-violo-guitarra-baixo-ukulele-violino-bravo-music-bt02/p/MLB41821610?utm_source=chatgpt.com",
-    "html_file": "html/produto_7.html"
-  },
-  {
-    "title": "Pedal de efeito Cuvave Cube Baby preto",
-    "description": "Óleo Essencial Mix Doterra Serenity Para Difusor e Massagens",
-    "price": "R$ 229,73",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_641658-MLA99993913673_112025-O.webp",
-    "affiliate_url": "https://meli.la/1cjBqym",
+    "title": "Pedal de Efeito M-Vave Cube Baby Preto Multifuncional Guitarra Elétrica",
+    "description": "Pedal de Efeito M-Vave Cube Baby Preto Multifuncional Guitar",
+    "price": "R$ 243,45",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_968308-MLA99454844904_112025-O.webp",
+    "affiliate_url": "https://meli.la/1FetqQJ",
     "category": "Pedais e Efeitos",
     "order": 8,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/pedal-de-efeito-m-vave-cube-baby-preto-multifuncional-guitarra-eletrica/p/MLB19464828",
     "html_file": "html/produto_8.html"
   },
   {
@@ -236,24 +237,13 @@
     "html_file": "html/produto_20.html"
   },
   {
-    "title": "Microfone De Mão Profissional Cardioide Samson R21s Cor Preto",
-    "description": "Microfone Kadosh K-98 Dinâmico Cardióide cor azul/prateado",
-    "price": "R$ 189,00",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_756843-MLA99366484770_112025-O.webp",
-    "affiliate_url": "https://meli.la/216Wa3K",
-    "category": "Microfones",
-    "order": 23,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-kadosh-k-98-dinmico-cardioide-cor-azulprateado/p/MLB19076246",
-    "html_file": "html/produto_21.html"
-  },
-  {
     "title": "Microfone Dinâmico Cardioide Le Son SM58 P4 Com Fio Champanhe",
     "description": "Microfone Dinâmico Cardioide Le Son SM58 P4 Com Fio Champanh",
     "price": "R$ 159,62",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_877999-MLA99933476061_112025-O.webp",
     "affiliate_url": "https://meli.la/2AzLWny",
     "category": "Microfones",
-    "order": 24,
+    "order": 23,
     "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-dinmico-cardioide-le-son-sm58-p4-com-fio-champanhe/p/MLB17450646",
     "html_file": "html/produto_22.html"
   },
@@ -264,7 +254,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_632588-MLA93094097612_092025-O.webp",
     "affiliate_url": "https://meli.la/1fptmph",
     "category": "Violões",
-    "order": 25,
+    "order": 24,
     "mercado_livre_url": "https://www.mercadolivre.com.br/violo-strinberg-acustico-folk-canhoto-le-30c-6-cordas-aco/p/MLB23572874",
     "html_file": "html/produto_24.html"
   },
@@ -275,7 +265,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_971947-MLA112984148833_062026-O.webp",
     "affiliate_url": "https://meli.la/1XkViUR",
     "category": "Violões",
-    "order": 26,
+    "order": 25,
     "mercado_livre_url": "https://www.mercadolivre.com.br/violo-tagima-andes-canhoto-folk-eq-aco-cor-natural/p/MLB39346854",
     "html_file": "html/produto_25.html"
   },
@@ -286,7 +276,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_951561-MLA99487738536_112025-O.webp",
     "affiliate_url": "https://meli.la/1tQibNu",
     "category": "Karaokê (Treino Vocal)",
-    "order": 27,
+    "order": 26,
     "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-som-portatil-basike-120w-bluetooth-tws-ipx6-led-preto/p/MLB46191527"
   },
   {
@@ -296,7 +286,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_842888-MLB94648022762_102025-O.webp",
     "affiliate_url": "https://meli.la/2PD7xRt",
     "category": "Karaokê (Treino Vocal)",
-    "order": 28,
+    "order": 27,
     "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-bluetooth-som-imenso-imsx32-120w-rgb-2-microfones/up/MLBU3437138791"
   },
   {
@@ -306,7 +296,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_797673-MLB110305784860_052026-O.webp",
     "affiliate_url": "https://meli.la/1dEv6dg",
     "category": "Karaokê (Treino Vocal)",
-    "order": 29,
+    "order": 28,
     "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-som-portatil-300w-karaoke-2-microfones-bluetooth/up/MLBU3934620253"
   },
   {
@@ -316,7 +306,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_636834-MLA95936407545_102025-O.webp",
     "affiliate_url": "https://meli.la/1BWUnBs",
     "category": "Viola Caipira",
-    "order": 30,
+    "order": 29,
     "mercado_livre_url": "https://www.mercadolivre.com.br/viola-caipira-giannini-vs14-cinturada-acustica-iniciante/p/MLB25964055",
     "html_file": "html/produto_30.html"
   },
@@ -327,7 +317,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_724569-MLB91052438882_092025-O.webp",
     "affiliate_url": "https://meli.la/2Vj7YRs",
     "category": "Viola Caipira",
-    "order": 31,
+    "order": 30,
     "mercado_livre_url": "https://www.mercadolivre.com.br/viola-caipira-giannini-acustica-vs14--kit-capa-acessorios/up/MLBU3830281341",
     "html_file": "html/produto_31.html"
   },
@@ -338,7 +328,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_881161-MLB107378097870_032026-O.webp",
     "affiliate_url": "https://meli.la/2qfx9zt",
     "category": "Viola Caipira",
-    "order": 32,
+    "order": 31,
     "mercado_livre_url": "https://www.mercadolivre.com.br/viola-caipira-giannini-vs14-eq-ns-eletrica-fosca-natural/up/MLBU1340493059",
     "html_file": "html/produto_32.html"
   },
@@ -349,7 +339,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_788464-MLB108857453880_032026-O.webp",
     "affiliate_url": "https://meli.la/2kSwKmh",
     "category": "Viola Caipira",
-    "order": 33,
+    "order": 32,
     "mercado_livre_url": "https://www.mercadolivre.com.br/viola-strinberg-vs25e-n-eletrica-com-afinador/up/MLBU3875008202",
     "html_file": "html/produto_33.html"
   },
@@ -360,7 +350,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_967718-MLB86397782236_062025-O.webp",
     "affiliate_url": "https://meli.la/1dLPytf",
     "category": "Viola Caipira",
-    "order": 34,
+    "order": 33,
     "mercado_livre_url": "https://www.mercadolivre.com.br/viola-acustica-cinturada-ponteio-marques-vil68-nsac/up/MLBU3259946890",
     "html_file": "html/produto_34.html"
   },
@@ -371,7 +361,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_789511-MLA100078710645_122025-O.webp",
     "affiliate_url": "https://meli.la/2J8Ea8w",
     "category": "Cabos Instrumento",
-    "order": 35,
+    "order": 34,
     "mercado_livre_url": "https://www.mercadolivre.com.br/cabo-mxt-p10xp10-5m-lilas-p-guitarra-violo-baixo-teclado/p/MLB22743210",
     "html_file": "html/produto_35.html"
   },
@@ -382,7 +372,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_820027-MLA105464264447_012026-O.webp",
     "affiliate_url": "https://meli.la/2PAgu2K",
     "category": "Cabos Instrumento",
-    "order": 36,
+    "order": 35,
     "mercado_livre_url": "https://www.mercadolivre.com.br/kit-2-cabos-p10-x-p10-3-metros-audio-mono-para-guitarra-violo-baixo-teclado-mixer-e-microfone-profissional-p10-para-p10-conectores-musica-show-festival-metal-instrumento-yuso/p/MLB64571770",
     "html_file": "html/produto_36.html"
   },
@@ -393,7 +383,7 @@
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_697818-MLA99529726268_122025-O.webp",
     "affiliate_url": "https://meli.la/1gYsSTT",
     "category": "Cabos Instrumento",
-    "order": 37,
+    "order": 36,
     "mercado_livre_url": "https://www.mercadolivre.com.br/cabo-p10-x-p10-santo-angelo-ninja-10ft-305m/p/MLB23218346",
     "html_file": "html/produto_37.html"
   }
