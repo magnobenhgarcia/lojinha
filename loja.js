@@ -207,9 +207,7 @@ function renderizarCategorias(container) {
 }
 
 function criarPresellURL(produto) {
-  const url = new URL(resolvePath("presell.html"), window.location.href);
-  url.searchParams.set("produto", produto.order);
-  return url.href;
+  return new URL(resolvePath(`presell/produto-${Number(produto.order)}.html`), window.location.href).href;
 }
 
 async function copiarPresellProduto(ordem) {

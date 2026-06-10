@@ -989,6 +989,63 @@ await aguardar(5000);
 return null;
 }
 
+function imagemPresellAbsoluta(src = ""){
+if(/^https?:\/\//.test(src)){
+return src;
+}
+
+return `https://magnobenhgarcia.github.io/lojinha/${String(src).replace(/^\.\//,"")}`;
+}
+
+function gerarHTMLPresellProduto(produto){
+const order = Number(produto.order || 0);
+const title = `${produto.title || "Oferta"} | Lojinha Magno Garcia`;
+const description = `${produto.price ? produto.price + " - " : ""}${produto.description || "Veja essa oferta na Lojinha Magno Garcia."}`.slice(0, 220);
+const image = imagemPresellAbsoluta(produto.image_url || "assets/selo_magno_garcia.png");
+const url = `https://magnobenhgarcia.github.io/lojinha/presell/produto-${order}.html`;
+
+return `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <title>${escaparHtml(title)}</title>
+  <meta name="description" content="${escaparHtml(description)}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${escaparHtml(title)}">
+  <meta property="og:description" content="${escaparHtml(description)}">
+  <meta property="og:image" content="${escaparHtml(image)}">
+  <meta property="og:image:secure_url" content="${escaparHtml(image)}">
+  <meta property="og:url" content="${escaparHtml(url)}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escaparHtml(title)}">
+  <meta name="twitter:description" content="${escaparHtml(description)}">
+  <meta name="twitter:image" content="${escaparHtml(image)}">
+  <link rel="canonical" href="${escaparHtml(url)}">
+  <link rel="stylesheet" href="../styles.css?v=20260610-presell-og">
+</head>
+<body class="presell-page" data-base-path="../" data-produto="${order}">
+  <header class="presell-header">
+    <p>Veja essa oferta na</p>
+    <h1>Lojinha Magno Garcia</h1>
+  </header>
+
+  <main class="presell-main">
+    <div id="presellStatus" class="status-message">Carregando oferta...</div>
+    <section id="presellProduto" class="presell-product" aria-live="polite"></section>
+  </main>
+
+  <footer class="presell-footer">
+    <a href="../">Visite a Loja Completa</a>
+  </footer>
+
+  <script src="../presell.js?v=20260610-presell-og"></script>
+</body>
+</html>
+`;
+}
+
 async function salvarGithub() {
   try {
     let token = localStorage.getItem("github_token");
@@ -1056,6 +1113,17 @@ async function salvarGithub() {
       JSON.stringify(lista, null, 2),
       "update produtos"
     );
+
+    for (const produto of lista) {
+      await salvarArquivoGithub(
+        token,
+        owner,
+        repo,
+        `presell/produto-${produto.order}.html`,
+        gerarHTMLPresellProduto(produto),
+        `update presell produto ${produto.order}`
+      );
+    }
 
     const listaConfirmada = await carregarArquivoGithubJSON(
       token,

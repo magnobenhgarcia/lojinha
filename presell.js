@@ -30,6 +30,18 @@ function resolvePath(path = "") {
   return path;
 }
 
+function getBasePath() {
+  return document.body?.dataset.basePath || "";
+}
+
+function resolveDataPath(path = "") {
+  if (/^(https?:|data:|\/)/.test(path)) {
+    return path;
+  }
+
+  return `${getBasePath()}${path}`;
+}
+
 async function carregarJSON(path) {
   const resposta = await fetch(`${path}?v=${Date.now()}`, {
     cache: "no-store"
@@ -44,7 +56,12 @@ async function carregarJSON(path) {
 
 function getProdutoSolicitado(produtos) {
   const params = new URLSearchParams(window.location.search);
-  const ordem = Number(params.get("produto") || params.get("p") || 0);
+  const ordem = Number(
+    params.get("produto") ||
+    params.get("p") ||
+    document.body?.dataset.produto ||
+    0
+  );
 
   if (ordem) {
     return produtos.find((produto) => Number(produto.order) === ordem);
@@ -67,7 +84,7 @@ function renderizarProduto(produto) {
 
         <div class="product-image-wrap">
           <img src="${escapeHtml(resolvePath(produto.image_url))}" class="produto-img" alt="${escapeHtml(produto.title)}">
-          <img src="${escapeHtml(resolvePath("assets/selo_afiliado_mercado_livre.png"))}" class="selo-card" alt="Afiliado Mercado Livre">
+          <img src="${escapeHtml(resolveDataPath("assets/selo_afiliado_mercado_livre.png"))}" class="selo-card" alt="Afiliado Mercado Livre">
         </div>
 
         <div class="card-content">
@@ -88,7 +105,7 @@ async function iniciarPresell() {
   const status = document.getElementById("presellStatus");
 
   try {
-    const produtos = (await carregarJSON("data/produtos.json"))
+    const produtos = (await carregarJSON(resolveDataPath("data/produtos.json")))
       .map(normalizarProduto)
       .sort((a, b) => a.order - b.order);
     const produto = getProdutoSolicitado(produtos);
