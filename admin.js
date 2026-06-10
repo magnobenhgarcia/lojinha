@@ -942,6 +942,53 @@ const conteudo = decodeURIComponent(escape(atob(arquivo.content.replace(/\n/g, "
 return JSON.parse(conteudo);
 }
 
+function montarProdutoPublicavel(p){
+const produto = {
+title: p.title,
+description: p.description,
+price: p.price,
+image_url: p.image_url,
+affiliate_url: p.affiliate_url,
+category: p.category,
+order: p.order
+};
+
+if(p.mercado_livre_url){
+produto.mercado_livre_url = p.mercado_livre_url;
+}
+
+if(p.html_file){
+produto.html_file = p.html_file;
+}
+
+return produto;
+}
+
+function assinaturaProduto(produto = {}){
+return JSON.stringify({
+title: produto.title || "",
+description: produto.description || "",
+price: produto.price || "",
+image_url: produto.image_url || "",
+affiliate_url: produto.affiliate_url || "",
+category: produto.category || "",
+order: Number(produto.order || 0),
+mercado_livre_url: produto.mercado_livre_url || "",
+html_file: produto.html_file || ""
+});
+}
+
+function produtoFoiAlterado(produto, produtosGithubPorOrdem){
+const produtoGithub = produtosGithubPorOrdem.get(Number(produto.order || 0));
+return !produtoGithub || assinaturaProduto(produtoGithub) !== assinaturaProduto(produto);
+}
+
+function assinaturaListaProdutos(lista = []){
+return lista
+.map(assinaturaProduto)
+.join("\n");
+}
+
 function aguardar(ms){
 return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -1062,7 +1109,43 @@ async function salvarGithub() {
 
     console.log("Produtos antes de salvar:", produtos);
 
+    const listaGithubInicial = await carregarArquivoGithubJSON(
+      token,
+      owner,
+      repo,
+      "data/produtos.json"
+    ).catch(() => []);
+
+    const produtosGithubPorOrdem = new Map(
+      listaGithubInicial.map(produto => [Number(produto.order || 0), produto])
+    );
+
     for (const produto of produtos) {
+      if (produto.product_html_snapshot?.trim()) {
+        produto.html_file = `html/produto_${produto.order}.html`;
+      }
+    }
+
+    const lista = produtos.map(montarProdutoPublicavel);
+    const produtosAlterados = lista.filter(produto => produtoFoiAlterado(produto, produtosGithubPorOrdem));
+    const ordensAlteradas = new Set(produtosAlterados.map(produto => Number(produto.order || 0)));
+    const listaMudou = assinaturaListaProdutos(listaGithubInicial) !== assinaturaListaProdutos(lista);
+
+    if(!listaMudou && produtosAlterados.length === 0){
+      mostrarMensagem("Nenhuma alteração nova para publicar.");
+      return;
+    }
+
+    mostrarMensagem(
+      `Preparando publicação: ${produtosAlterados.length} produto(s) alterado(s).`,
+      { persistente: true, carregando: true }
+    );
+
+    for (const produto of produtos) {
+      if (!ordensAlteradas.has(Number(produto.order || 0))) {
+        continue;
+      }
+
       const html = produto.product_html_snapshot;
 
       if (html && html.trim()) {
@@ -1081,38 +1164,18 @@ async function salvarGithub() {
       }
     }
 
-    const lista = produtos.map(p => {
-      const produto = {
-      title: p.title,
-      description: p.description,
-      price: p.price,
-      image_url: p.image_url,
-      affiliate_url: p.affiliate_url,
-      category: p.category,
-      order: p.order
-      };
+    if(listaMudou){
+      await salvarArquivoGithub(
+        token,
+        owner,
+        repo,
+        "data/produtos.json",
+        JSON.stringify(lista, null, 2),
+        "update produtos"
+      );
+    }
 
-      if(p.mercado_livre_url){
-        produto.mercado_livre_url = p.mercado_livre_url;
-      }
-
-      if(p.html_file){
-        produto.html_file = p.html_file;
-      }
-
-      return produto;
-    });
-
-    await salvarArquivoGithub(
-      token,
-      owner,
-      repo,
-      "data/produtos.json",
-      JSON.stringify(lista, null, 2),
-      "update produtos"
-    );
-
-    for (const produto of lista) {
+    for (const produto of produtosAlterados) {
       await salvarArquivoGithub(
         token,
         owner,
