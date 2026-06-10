@@ -49,7 +49,7 @@
     "price": "R$ 22,66",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_848304-MLB28131624258_092018-O.webp",
     "affiliate_url": "https://meli.la/2Cgzi5R",
-    "category": "Loja Casa e Cuidados",
+    "category": "Capotrastes",
     "order": 5,
     "html_file": "html/produto_5.html"
   },
@@ -90,10 +90,10 @@
     "price": "R$ 128,99",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_603874-MLB88724721458_072025-O.webp",
     "affiliate_url": "https://meli.la/1nJxyRH",
-    "category": "Capotrastes",
+    "category": "Loja Casa e Cuidados",
     "order": 9,
     "mercado_livre_url": "https://www.mercadolivre.com.br/capotraste-abracadeira-violao-guitarra-dolphin-metal-preto/up/MLBU1573413440",
-    "html_file": "html/produto_8.html"
+    "html_file": "html/produto_9.html"
   },
   {
     "title": "Microfone Jbl Duplo S/ Fio Wireless Jbl Micbr2 Karaokê Party",
@@ -112,9 +112,9 @@
     "price": "R$ 28,40",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_829454-MLA99605929442_122025-O.webp",
     "affiliate_url": "https://meli.la/2AqYkmU",
-    "category": "Loja Casa e Cuidados",
+    "category": "Afinadores",
     "order": 11,
-    "html_file": "html/produto_10.html"
+    "html_file": "html/produto_11.html"
   },
   {
     "title": "Afinador Digital Cromático com Clip 360° - Para Violão, Guitarra, Baixo, Ukulele e Violino - Marca Lorben",
@@ -122,10 +122,10 @@
     "price": "R$ 25,00",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_859344-MLU76369586360_052024-O.webp",
     "affiliate_url": "https://meli.la/2CHXuCv",
-    "category": "Microfones",
+    "category": "Afinadores",
     "order": 12,
     "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-de-mo-profissional-cardioide-samson-r21s-cor-preto/p/MLB23898664",
-    "html_file": "html/produto_11.html"
+    "html_file": "html/produto_12.html"
   },
   {
     "title": "Afinador Digital Cromático Saty ATS-10 Violão Guitarra Baixo Com Pinça",
@@ -133,10 +133,10 @@
     "price": "R$ 35,42",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_953248-MLA99609051348_122025-O.webp",
     "affiliate_url": "https://meli.la/1NW8F8d",
-    "category": "Pedais e Efeitos",
+    "category": "Afinadores",
     "order": 13,
     "mercado_livre_url": "https://www.mercadolivre.com.br/pedal-de-efeito-cuvave-cube-baby-preto/p/MLB17366232?pdp_filters=item_id%3AMLB4103846897&matt_event_ts=1780938111601&matt_d2id=88113ce0-f6a6-4063-bb66-ecbea82324e8&matt_tracing_id=78a9d3c1-1bb4-4e29-b5d7-bfc0c74382aa#polycard_client=recommendations_home_affiliate-profile&wid=MLB4103846897&sid=recos&reco_backend=item_decorator&reco_client=home_affiliate-profile&reco_item_pos=0&source=affiliate-profile&reco_backend_type=function&reco_id=fb40c002-284b-47f9-a33b-4396d907f5c0&tracking_id=cee768e9-049e-4106-bae2-ee1e892c3173&c_id=/home/card-featured/element&c_uid=2a7840db-9de2-43ba-97d4-dc807166b4ef",
-    "html_file": "html/produto_12.html"
+    "html_file": "html/produto_13.html"
   },
   {
     "title": "Violão Strinberg Forest Fs1a Mgs Aço Eletroacustico Artistic",
@@ -144,9 +144,9 @@
     "price": "R$ 773,50",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_829824-MLA94583964165_102025-O.webp",
     "affiliate_url": "https://meli.la/2oPTEi2",
-    "category": "Loja Casa e Cuidados",
+    "category": "Violões",
     "order": 14,
-    "html_file": "html/produto_13.html"
+    "html_file": "html/produto_14.html"
   },
   {
     "title": "Violão Eletroacústico Strinberg SF200C Tobacco Satin 6 Cordas Com Cutaway",
@@ -154,9 +154,9 @@
     "price": "R$ 871,13",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_611927-MLA96144087381_102025-O.webp",
     "affiliate_url": "https://meli.la/1EX3gu2",
-    "category": "Loja Casa e Cuidados",
+    "category": "Violões",
     "order": 15,
-    "html_file": "html/produto_14.html"
+    "html_file": "html/produto_15.html"
   },
   {
     "title": "Violão Eletroacústico Strinberg SD200C MGS Folk 6 Cordas Mahogany",
@@ -164,10 +164,10 @@
     "price": "R$ 820,99",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_896406-MLA95634816091_102025-O.webp",
     "affiliate_url": "https://meli.la/1sAdkB2",
-    "category": "Afinadores",
+    "category": "Violões",
     "order": 16,
     "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-com-clip-360-para-violo-guitarra-baixo-ukulele-e-violino-marca-lorben/p/MLB35435629?utm_source=chatgpt.com",
-    "html_file": "html/produto_15.html"
+    "html_file": "html/produto_16.html"
   },
   {
     "title": "Violão Elétrico Hofma HMF280 Folk Cutaway Natural 6 Cordas Com Afinador Digital",
@@ -175,10 +175,10 @@
     "price": "R$ 712,00",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_966704-MLA99514968920_112025-O.webp",
     "affiliate_url": "https://meli.la/2CYWewE",
-    "category": "Afinadores",
+    "category": "Violões",
     "order": 17,
     "mercado_livre_url": "https://www.mercadolivre.com.br/afinador-digital-cromatico-saty-ats-10-violo-guitarra-baixo-com-pinca/p/MLB26274464?utm_source=chatgpt.com",
-    "html_file": "html/produto_16.html"
+    "html_file": "html/produto_17.html"
   },
   {
     "title": "Capotraste Braçadeira Violão Guitarra Viola Ukulele (metal)",
@@ -186,10 +186,10 @@
     "price": "R$ 29,90",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_722155-MLB74398517049_022024-O-capotraste-bracadeira-violo-guitarra-viola-ukulele-metal.webp",
     "affiliate_url": "https://meli.la/2Zdzz5f",
-    "category": "Violões",
+    "category": "Capotrastes",
     "order": 18,
     "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-strinberg-sf200c-tobacco-satin-6-cordas-com-cutaway/p/MLB16050819?matt_tool=18956390&pdp_filters=item_id%3AMLB5514450608&from=gshop&utm_source=chatgpt.com",
-    "html_file": "html/produto_14.html"
+    "html_file": "html/produto_18.html"
   },
   {
     "title": "Capotraste Braçadeira Guitarra E Violão Aço E Nylon Preto",
@@ -197,10 +197,10 @@
     "price": "R$ 19,95",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_931421-MLB92293685978_092025-O-capotraste-bracadeira-guitarra-e-violo-aco-e-nylon-preto.webp",
     "affiliate_url": "https://meli.la/2qc2EkW",
-    "category": "Violões",
+    "category": "Capotrastes",
     "order": 19,
     "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-strinberg-sd200c-mgs-folk-6-cordas-mahogany/p/MLB28539802?utm_source=chatgpt.com",
-    "html_file": "html/produto_15.html"
+    "html_file": "html/produto_19.html"
   },
   {
     "title": "Capotraste Abraçadeira Violão Guitarra Dolphin Metal Preto",
@@ -219,10 +219,10 @@
     "price": "R$ 91,00",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_615612-MLA87782686580_072025-O.webp",
     "affiliate_url": "https://meli.la/1V8xELX",
-    "category": "Capotrastes",
+    "category": "Microfones",
     "order": 21,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-1854287207-capotraste-bracadeira-guitarra-e-violo-aco-e-nylon-preto-_JM",
-    "html_file": "html/produto_18.html"
+    "html_file": "html/produto_21.html"
   },
   {
     "title": "Microfone Kadosh K-98 Dinâmico Cardióide cor azul/prateado",
@@ -285,7 +285,7 @@
     "price": "R$ 549,00",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_951561-MLA99487738536_112025-O.webp",
     "affiliate_url": "https://meli.la/1tQibNu",
-    "category": "Karaokê",
+    "category": "Karaokê (Treino Vocal)",
     "order": 27,
     "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-som-portatil-basike-120w-bluetooth-tws-ipx6-led-preto/p/MLB46191527"
   },
@@ -295,7 +295,7 @@
     "price": "R$ 407,30",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_842888-MLB94648022762_102025-O.webp",
     "affiliate_url": "https://meli.la/2PD7xRt",
-    "category": "Karaokê",
+    "category": "Karaokê (Treino Vocal)",
     "order": 28,
     "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-bluetooth-som-imenso-imsx32-120w-rgb-2-microfones/up/MLBU3437138791"
   },
@@ -305,7 +305,7 @@
     "price": "R$ 504,39",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_797673-MLB110305784860_052026-O.webp",
     "affiliate_url": "https://meli.la/1dEv6dg",
-    "category": "Karaokê",
+    "category": "Karaokê (Treino Vocal)",
     "order": 29,
     "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-som-portatil-300w-karaoke-2-microfones-bluetooth/up/MLBU3934620253"
   },
@@ -363,5 +363,38 @@
     "order": 34,
     "mercado_livre_url": "https://www.mercadolivre.com.br/viola-acustica-cinturada-ponteio-marques-vil68-nsac/up/MLBU3259946890",
     "html_file": "html/produto_34.html"
+  },
+  {
+    "title": "Cabo Mxt P10xp10 5m Lilás P/ Guitarra Violão Baixo Teclado",
+    "description": "Cabo Mxt P10xp10 5m Lilás P/ Guitarra Violão Baixo Teclado",
+    "price": "R$ 31,99",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_789511-MLA100078710645_122025-O.webp",
+    "affiliate_url": "https://meli.la/2J8Ea8w",
+    "category": "Cabos Instrumento",
+    "order": 35,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/cabo-mxt-p10xp10-5m-lilas-p-guitarra-violo-baixo-teclado/p/MLB22743210",
+    "html_file": "html/produto_35.html"
+  },
+  {
+    "title": "Kit 2 Cabos P10 X P10 3 Metros Áudio Mono Para Guitarra Violão Baixo Teclado Mixer E Microfone Profissional P10 Para P10 Conectores Música Show Festival Metal Instrumento - Yuso",
+    "description": "Kit 2 Cabos P10 X P10 3 Metros Áudio Mono Para Guitarra Viol",
+    "price": "R$ 28,12",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_820027-MLA105464264447_012026-O.webp",
+    "affiliate_url": "https://meli.la/2PAgu2K",
+    "category": "Cabos Instrumento",
+    "order": 36,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/kit-2-cabos-p10-x-p10-3-metros-audio-mono-para-guitarra-violo-baixo-teclado-mixer-e-microfone-profissional-p10-para-p10-conectores-musica-show-festival-metal-instrumento-yuso/p/MLB64571770",
+    "html_file": "html/produto_36.html"
+  },
+  {
+    "title": "Cabo P10 X P10 Santo Angelo Ninja 10ft - 3.05m",
+    "description": "Cabo P10 X P10 Santo Angelo Ninja 10ft - 3.05m",
+    "price": "R$ 48,55",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_697818-MLA99529726268_122025-O.webp",
+    "affiliate_url": "https://meli.la/1gYsSTT",
+    "category": "Cabos Instrumento",
+    "order": 37,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/cabo-p10-x-p10-santo-angelo-ninja-10ft-305m/p/MLB23218346",
+    "html_file": "html/produto_37.html"
   }
 ]
