@@ -99,8 +99,43 @@ let produtoPreviewAtual = null;
 
 let destaques = {
   hero: null,
+  site: {},
   kits: []
 };
+
+const siteConfigPadrao = {
+principal: {
+backLabel: "Mini-site",
+backUrl: "https://magnobenhurgarcialinks.pages.dev",
+sealImage: "assets/selo_magno_garcia.png",
+sealAlt: "Magno Garcia Ensino de Música",
+eyebrow: "Músico · Professor · Produtor",
+title: "Lojinha Recomendada",
+copy: "Equipamentos e acessórios escolhidos para estudar, tocar e montar seu som com mais confiança.",
+photo: "assets/magno.png",
+photoAlt: "Magno Benhur Garcia com violão",
+footerText: "Os links desta página são afiliados do Mercado Livre de Magno Benhur Garcia."
+},
+casa: {
+backLabel: "Lojinha completa",
+backUrl: "../",
+sealImage: "assets/selo_magno_garcia.png",
+sealAlt: "Magno Garcia Ensino de Música",
+eyebrow: "Seleção Recomendada",
+title: "Loja Casa e Cuidados",
+copy: "Uma vitrine separada com produtos de casa, bem-estar e cuidados que eu recomendo.",
+photo: "assets/magno.png",
+photoAlt: "Magno Benhur Garcia com violão",
+footerText: "Os links desta página são afiliados do Mercado Livre de Magno Benhur Garcia."
+}
+};
+
+function getSiteConfig(pagina){
+return {
+...siteConfigPadrao[pagina],
+...(destaques.site?.[pagina] || {})
+};
+}
 
 function salvarLocal(){
 /* não salvamos mais produtos no localStorage */
@@ -1047,6 +1082,57 @@ mensagemTimer = null;
 
 
 /* HERO */
+
+function abrirSiteConfig(){
+document.getElementById("modalSiteConfig").style.display = "flex";
+carregarSiteConfigPagina();
+}
+
+function fecharSiteConfig(){
+document.getElementById("modalSiteConfig").style.display = "none";
+}
+
+function carregarSiteConfigPagina(){
+const pagina = document.getElementById("siteConfigPagina").value || "principal";
+const config = getSiteConfig(pagina);
+
+document.getElementById("siteBackLabel").value = config.backLabel || "";
+document.getElementById("siteBackUrl").value = config.backUrl || "";
+document.getElementById("siteSealImage").value = config.sealImage || "";
+document.getElementById("siteSealAlt").value = config.sealAlt || "";
+document.getElementById("siteEyebrow").value = config.eyebrow || "";
+document.getElementById("siteTitle").value = config.title || "";
+document.getElementById("siteCopy").value = config.copy || "";
+document.getElementById("sitePhoto").value = config.photo || "";
+document.getElementById("sitePhotoAlt").value = config.photoAlt || "";
+document.getElementById("siteFooterText").value = config.footerText || "";
+}
+
+async function salvarSiteConfig(){
+const pagina = document.getElementById("siteConfigPagina").value || "principal";
+
+if(!destaques.site){
+destaques.site = {};
+}
+
+destaques.site[pagina] = {
+backLabel: document.getElementById("siteBackLabel").value,
+backUrl: document.getElementById("siteBackUrl").value,
+sealImage: document.getElementById("siteSealImage").value,
+sealAlt: document.getElementById("siteSealAlt").value,
+eyebrow: document.getElementById("siteEyebrow").value,
+title: document.getElementById("siteTitle").value,
+copy: document.getElementById("siteCopy").value,
+photo: document.getElementById("sitePhoto").value,
+photoAlt: document.getElementById("sitePhotoAlt").value,
+footerText: document.getElementById("siteFooterText").value
+};
+
+await salvarDestaquesGithub();
+
+mostrarMensagem("Cabeçalho e rodapé salvos");
+fecharSiteConfig();
+}
 
 function abrirHero(){
 

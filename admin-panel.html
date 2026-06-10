@@ -40,6 +40,7 @@
         <h2>Como usar</h2>
         <p>Edite produtos, Hero e Kits. Depois clique em <strong>Salvar loja</strong> para publicar no GitHub.</p>
         <div class="quick-actions">
+          <button type="button" onclick="abrirSiteConfig()">Configurar Cabeçalho</button>
           <button type="button" onclick="abrirHero()">Configurar Hero</button>
           <button type="button" onclick="abrirKits()">Configurar Kits</button>
         </div>
@@ -84,6 +85,38 @@
         <div class="modal-actions">
           <button class="ghost-action" type="button" onclick="fecharModal()">Cancelar</button>
           <button type="button" onclick="salvarProduto()">Salvar oferta</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modalSiteConfig">
+      <div class="modal-content">
+        <div class="modal-title">
+          <h2>Cabeçalho e Rodapé</h2>
+          <button class="icon-close" type="button" onclick="fecharSiteConfig()">Fechar</button>
+        </div>
+
+        <label>Página
+          <select id="siteConfigPagina" onchange="carregarSiteConfigPagina()">
+            <option value="principal">Lojinha principal</option>
+            <option value="casa">Loja Casa e Cuidados</option>
+          </select>
+        </label>
+
+        <label>Texto do link de voltar <input id="siteBackLabel" type="text"></label>
+        <label>URL do link de voltar <input id="siteBackUrl" type="url"></label>
+        <label>Imagem da logo/selo <input id="siteSealImage" type="text"></label>
+        <label>Texto alternativo da logo <input id="siteSealAlt" type="text"></label>
+        <label>Texto superior <input id="siteEyebrow" type="text"></label>
+        <label>Título <input id="siteTitle" type="text"></label>
+        <label>Descrição <textarea id="siteCopy" rows="3"></textarea></label>
+        <label>Foto do cabeçalho <input id="sitePhoto" type="text"></label>
+        <label>Texto alternativo da foto <input id="sitePhotoAlt" type="text"></label>
+        <label>Texto do rodapé <textarea id="siteFooterText" rows="3"></textarea></label>
+
+        <div class="modal-actions">
+          <button class="ghost-action" type="button" onclick="fecharSiteConfig()">Cancelar</button>
+          <button type="button" onclick="salvarSiteConfig()">Salvar Cabeçalho</button>
         </div>
       </div>
     </div>
@@ -159,6 +192,6 @@
       </div>
     </div>
 
-    <script src="./admin.js?v=20260610-order-fix"></script>
+    <script src="./admin.js?v=20260610-site-config"></script>
   </body>
 </html>

@@ -6,10 +6,38 @@ const moneyRegex = /^R\$\s?[\d.,]+$/;
 const pageConfig = document.body?.dataset || {};
 const basePath = pageConfig.basePath || "./";
 const fixedCategory = pageConfig.pageCategory || "";
+const pageKey = pageConfig.pageKey || (fixedCategory ? "casa" : "principal");
 const excludedCategories = (pageConfig.excludeCategories || "")
   .split("|")
   .map((category) => category.trim())
   .filter(Boolean);
+
+const siteConfigPadrao = {
+  principal: {
+    backLabel: "Mini-site",
+    backUrl: "https://magnobenhurgarcialinks.pages.dev",
+    sealImage: "assets/selo_magno_garcia.png",
+    sealAlt: "Magno Garcia Ensino de Música",
+    eyebrow: "Músico · Professor · Produtor",
+    title: "Lojinha Recomendada",
+    copy: "Equipamentos e acessórios escolhidos para estudar, tocar e montar seu som com mais confiança.",
+    photo: "assets/magno.png",
+    photoAlt: "Magno Benhur Garcia com violão",
+    footerText: "Os links desta página são afiliados do Mercado Livre de Magno Benhur Garcia."
+  },
+  casa: {
+    backLabel: "Lojinha completa",
+    backUrl: "../",
+    sealImage: "assets/selo_magno_garcia.png",
+    sealAlt: "Magno Garcia Ensino de Música",
+    eyebrow: "Seleção Recomendada",
+    title: "Loja Casa e Cuidados",
+    copy: "Uma vitrine separada com produtos de casa, bem-estar e cuidados que eu recomendo.",
+    photo: "assets/magno.png",
+    photoAlt: "Magno Benhur Garcia com violão",
+    footerText: "Os links desta página são afiliados do Mercado Livre de Magno Benhur Garcia."
+  }
+};
 
 function escapeHtml(value = "") {
   return String(value)
@@ -28,6 +56,14 @@ function resolvePath(path = "") {
   return `${basePath}${path}`;
 }
 
+function resolveLink(path = "") {
+  if (/^(https?:|mailto:|tel:|#|\/|\.\.?\/)/.test(path)) {
+    return path;
+  }
+
+  return resolvePath(path);
+}
+
 function normalizarProduto(produto) {
   return {
     ...produto,
@@ -39,6 +75,46 @@ function normalizarProduto(produto) {
     affiliate_url: produto.affiliate_url || "#",
     order: Number(produto.order || 0)
   };
+}
+
+function aplicarConfiguracaoPagina(siteConfig = {}) {
+  const config = {
+    ...siteConfigPadrao[pageKey],
+    ...(siteConfig[pageKey] || {})
+  };
+
+  const backLink = document.querySelector(".back-link");
+  const brandSeal = document.querySelector(".brand-seal");
+  const eyebrow = document.querySelector(".brand-lockup .eyebrow");
+  const title = document.querySelector(".brand-lockup h1");
+  const copy = document.querySelector(".hero-copy");
+  const photo = document.querySelector(".hero-photo");
+  const footerText = document.querySelector(".site-footer p");
+
+  if (backLink) {
+    backLink.href = resolveLink(config.backUrl || siteConfigPadrao[pageKey].backUrl);
+    backLink.textContent = `← ${config.backLabel || siteConfigPadrao[pageKey].backLabel}`;
+  }
+
+  if (brandSeal) {
+    brandSeal.src = resolvePath(config.sealImage || siteConfigPadrao[pageKey].sealImage);
+    brandSeal.alt = config.sealAlt || siteConfigPadrao[pageKey].sealAlt;
+  }
+
+  if (eyebrow) eyebrow.textContent = config.eyebrow || "";
+  if (title) title.textContent = config.title || "";
+  if (copy) copy.textContent = config.copy || "";
+
+  if (config.title) {
+    document.title = `${config.title} | Magno Benhur Garcia`;
+  }
+
+  if (photo) {
+    photo.src = resolvePath(config.photo || siteConfigPadrao[pageKey].photo);
+    photo.alt = config.photoAlt || siteConfigPadrao[pageKey].photoAlt;
+  }
+
+  if (footerText) footerText.textContent = config.footerText || "";
 }
 
 async function carregarJSON(path) {
@@ -170,6 +246,8 @@ async function carregarDestaques() {
     const showcaseSection = document.querySelector(".showcase-section");
     const heroVisivel = dados.hero && dados.hero.visible !== false;
     const kitsVisivel = dados.kitsVisible !== false;
+
+    aplicarConfiguracaoPagina(dados.site);
 
     if (heroVisivel) {
       renderHero(dados.hero);
