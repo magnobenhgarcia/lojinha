@@ -207,7 +207,8 @@ function renderizarCategorias(container) {
 }
 
 function criarPresellURL(produto) {
-  return new URL(resolvePath(`presell/produto-${Number(produto.order)}.html`), window.location.href).href;
+  const versao = encodeURIComponent(String(produto.updated_at || produto.price || produto.image_url || Date.now()));
+  return new URL(resolvePath(`presell/produto-${Number(produto.order)}.html?v=${versao}`), window.location.href).href;
 }
 
 async function copiarPresellProduto(ordem) {

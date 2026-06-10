@@ -104,6 +104,7 @@ let destaques = {
 };
 
 const lojaPublicaBaseURL = "https://magnobenhgarcia-lojinha.pages.dev";
+const presellAssetsVersion = "20260610-presell-gold";
 
 const siteConfigPadrao = {
 principal: {
@@ -1012,13 +1013,15 @@ return `<!DOCTYPE html>
   <meta property="og:description" content="${escaparHtml(description)}">
   <meta property="og:image" content="${escaparHtml(image)}">
   <meta property="og:image:secure_url" content="${escaparHtml(image)}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="${escaparHtml(url)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escaparHtml(title)}">
   <meta name="twitter:description" content="${escaparHtml(description)}">
   <meta name="twitter:image" content="${escaparHtml(image)}">
   <link rel="canonical" href="${escaparHtml(url)}">
-  <link rel="stylesheet" href="../styles.css?v=20260610-presell-og">
+  <link rel="stylesheet" href="../styles.css?v=${presellAssetsVersion}">
 </head>
 <body class="presell-page" data-base-path="../" data-produto="${order}">
   <header class="presell-header">
@@ -1035,7 +1038,7 @@ return `<!DOCTYPE html>
     <a href="../">Visite a Loja Completa</a>
   </footer>
 
-  <script src="../presell.js?v=20260610-presell-og"></script>
+  <script src="../presell.js?v=${presellAssetsVersion}"></script>
 </body>
 </html>
 `;
