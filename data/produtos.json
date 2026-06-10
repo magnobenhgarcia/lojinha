@@ -201,5 +201,38 @@
     "order": 19,
     "mercado_livre_url": "https://www.mercadolivre.com.br/capotraste-abracadeira-violao-guitarra-dolphin-metal-preto/up/MLBU1573413440",
     "html_file": "html/produto_19.html"
+  },
+  {
+    "title": "Microfone Com Fio Kadosh K300 Profissional Cor Preto",
+    "description": "Microfone Com Fio Kadosh K300 Profissional Cor Preto",
+    "price": "R$ 91,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_615612-MLA87782686580_072025-O.webp",
+    "affiliate_url": "https://meli.la/2wF5ENj",
+    "category": "Microfones",
+    "order": 20,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-com-fio-kadosh-k300-profissional-cor-preto/p/MLB52677184",
+    "html_file": "html/produto_20.html"
+  },
+  {
+    "title": "Microfone Kadosh K-98 Dinâmico Cardióide cor azul/prateado",
+    "description": "Microfone Kadosh K-98 Dinâmico Cardióide cor azul/prateado",
+    "price": "R$ 147,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_954638-MLA99479879232_112025-O.webp",
+    "affiliate_url": "https://meli.la/216Wa3K",
+    "category": "Microfones",
+    "order": 21,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-kadosh-k-98-dinmico-cardioide-cor-azulprateado/p/MLB19076246",
+    "html_file": "html/produto_21.html"
+  },
+  {
+    "title": "Microfone Dinâmico Cardioide Le Son SM58 P4 Com Fio Champanhe",
+    "description": "Microfone Dinâmico Cardioide Le Son SM58 P4 Com Fio Champanh",
+    "price": "R$ 159,62",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_877999-MLA99933476061_112025-O.webp",
+    "affiliate_url": "https://meli.la/2AzLWny",
+    "category": "Microfones",
+    "order": 22,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-dinmico-cardioide-le-son-sm58-p4-com-fio-champanhe/p/MLB17450646",
+    "html_file": "html/produto_22.html"
   }
 ]
