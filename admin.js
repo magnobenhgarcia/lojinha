@@ -1062,9 +1062,7 @@ cache:"no-store"
 });
 const headSha = ref.object.sha;
 const commitAtual = await requisicaoGithub(`${baseUrl}/git/commits/${headSha}`, {headers});
-const tree = [];
-
-for(const arquivo of arquivos){
+const tree = await Promise.all(arquivos.map(async (arquivo) => {
 const blob = await requisicaoGithub(`${baseUrl}/git/blobs`, {
 method:"POST",
 headers,
@@ -1074,13 +1072,13 @@ encoding: "utf-8"
 })
 });
 
-tree.push({
+return {
 path: arquivo.path,
 mode: "100644",
 type: "blob",
 sha: blob.sha
-});
-}
+};
+}));
 
 const novaTree = await requisicaoGithub(`${baseUrl}/git/trees`, {
 method:"POST",
@@ -1221,21 +1219,16 @@ return resposta.json();
 }
 
 async function aguardarPublicacaoDaLoja(owner, repo, listaEsperada){
-const ultimoEsperado = listaEsperada[listaEsperada.length - 1];
+const assinaturaEsperada = assinaturaListaProdutos(listaEsperada);
 
-for(let tentativa = 0; tentativa < 12; tentativa++){
+for(let tentativa = 0; tentativa < 8; tentativa++){
 const listaPublica = await carregarProdutosPublicos(owner, repo);
-const ultimoPublicado = listaPublica[listaPublica.length - 1];
 
-if(
-listaPublica.length === listaEsperada.length &&
-ultimoPublicado?.title === ultimoEsperado?.title &&
-Number(ultimoPublicado?.order) === Number(ultimoEsperado?.order)
-){
+if(assinaturaListaProdutos(listaPublica) === assinaturaEsperada){
 return listaPublica;
 }
 
-await aguardar(5000);
+await aguardar(3000);
 }
 
 return null;
