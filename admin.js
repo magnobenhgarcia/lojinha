@@ -795,6 +795,56 @@ const conteudo = decodeURIComponent(escape(atob(arquivo.content.replace(/\n/g, "
 return JSON.parse(conteudo);
 }
 
+function aguardar(ms){
+return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function getProdutosPublicosURL(owner, repo){
+const emArquivoLocal = window.location.protocol === "file:";
+const emLocalhost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+
+if(emArquivoLocal || emLocalhost){
+return `https://raw.githubusercontent.com/${owner}/${repo}/main/data/produtos.json`;
+}
+
+return new URL("data/produtos.json", window.location.href).href;
+}
+
+async function carregarProdutosPublicos(owner, repo){
+const url = getProdutosPublicosURL(owner, repo);
+const separator = url.includes("?") ? "&" : "?";
+const resposta = await fetch(`${url}${separator}v=${Date.now()}`, {
+cache: "no-store"
+});
+
+if(!resposta.ok){
+throw new Error(`Erro ao conferir publicação da loja: ${resposta.status}`);
+}
+
+return resposta.json();
+}
+
+async function aguardarPublicacaoDaLoja(owner, repo, listaEsperada){
+const ultimoEsperado = listaEsperada[listaEsperada.length - 1];
+
+for(let tentativa = 0; tentativa < 12; tentativa++){
+const listaPublica = await carregarProdutosPublicos(owner, repo);
+const ultimoPublicado = listaPublica[listaPublica.length - 1];
+
+if(
+listaPublica.length === listaEsperada.length &&
+ultimoPublicado?.title === ultimoEsperado?.title &&
+Number(ultimoPublicado?.order) === Number(ultimoEsperado?.order)
+){
+return listaPublica;
+}
+
+await aguardar(5000);
+}
+
+return null;
+}
+
 async function salvarGithub() {
   try {
     let token = localStorage.getItem("github_token");
@@ -877,7 +927,17 @@ async function salvarGithub() {
     renderizarProdutos();
 
     const ultimoProduto = produtos[produtos.length - 1]?.title || "produto";
-    mostrarMensagem(`Loja salva no GitHub ✔ ${produtos.length} produtos. Último: ${ultimoProduto}`);
+    mostrarMensagem(`Loja salva no GitHub. Aguardando publicar ${produtos.length} produtos...`);
+
+    const listaPublicada = await aguardarPublicacaoDaLoja(owner, repo, listaConfirmada);
+
+    if(listaPublicada){
+      produtos = listaPublicada;
+      renderizarProdutos();
+      mostrarMensagem(`Loja publicada ✔ ${produtos.length} produtos. Último: ${ultimoProduto}`);
+    }else{
+      mostrarMensagem(`GitHub salvo ✔ ${produtos.length} produtos. A publicação ainda está processando.`);
+    }
     
   }catch(erro){
 
