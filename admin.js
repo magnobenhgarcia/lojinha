@@ -1007,7 +1007,24 @@ return JSON.parse(conteudo);
 }
 
 async function requisicaoGithub(url, opcoes = {}){
-const resposta = await fetch(url, opcoes);
+const controller = new AbortController();
+const timeout = setTimeout(() => controller.abort(), 30000);
+let resposta;
+
+try{
+resposta = await fetch(url, {
+...opcoes,
+signal: controller.signal
+});
+}catch(erro){
+if(erro.name === "AbortError"){
+throw new Error("A conexão com o GitHub demorou demais. Tente salvar novamente em alguns instantes.");
+}
+
+throw erro;
+}finally{
+clearTimeout(timeout);
+}
 
 if(resposta.status === 401){
 localStorage.removeItem("github_token");
@@ -1142,9 +1159,37 @@ html_file: produto.html_file || ""
 });
 }
 
+function chaveProduto(produto = {}){
+return [
+produto.mercado_livre_url,
+produto.affiliate_url,
+produto.image_url,
+produto.title
+]
+.filter(Boolean)
+.join("|");
+}
+
+function assinaturaConteudoProduto(produto = {}){
+return JSON.stringify({
+title: produto.title || "",
+description: produto.description || "",
+price: produto.price || "",
+image_url: produto.image_url || "",
+affiliate_url: produto.affiliate_url || "",
+category: produto.category || "",
+mercado_livre_url: produto.mercado_livre_url || ""
+});
+}
+
 function produtoFoiAlterado(produto, produtosGithubPorOrdem){
 const produtoGithub = produtosGithubPorOrdem.get(Number(produto.order || 0));
 return !produtoGithub || assinaturaProduto(produtoGithub) !== assinaturaProduto(produto);
+}
+
+function produtoConteudoFoiAlterado(produto, produtosGithubPorChave){
+const produtoGithub = produtosGithubPorChave.get(chaveProduto(produto));
+return !produtoGithub || assinaturaConteudoProduto(produtoGithub) !== assinaturaConteudoProduto(produto);
 }
 
 function assinaturaListaProdutos(lista = []){
@@ -1283,6 +1328,9 @@ async function salvarGithub() {
     const produtosGithubPorOrdem = new Map(
       listaGithubInicial.map(produto => [Number(produto.order || 0), produto])
     );
+    const produtosGithubPorChave = new Map(
+      listaGithubInicial.map(produto => [chaveProduto(produto), produto])
+    );
 
     for (const produto of produtos) {
       if (produto.product_html_snapshot?.trim()) {
@@ -1292,7 +1340,8 @@ async function salvarGithub() {
 
     const lista = produtos.map(montarProdutoPublicavel);
     const produtosAlterados = lista.filter(produto => produtoFoiAlterado(produto, produtosGithubPorOrdem));
-    const ordensAlteradas = new Set(produtosAlterados.map(produto => Number(produto.order || 0)));
+    const produtosComConteudoAlterado = lista.filter(produto => produtoConteudoFoiAlterado(produto, produtosGithubPorChave));
+    const ordensComConteudoAlterado = new Set(produtosComConteudoAlterado.map(produto => Number(produto.order || 0)));
     const listaMudou = assinaturaListaProdutos(listaGithubInicial) !== assinaturaListaProdutos(lista);
 
     if(!listaMudou && produtosAlterados.length === 0){
@@ -1301,14 +1350,14 @@ async function salvarGithub() {
     }
 
     mostrarMensagem(
-      `Preparando publicação: ${produtosAlterados.length} produto(s) alterado(s).`,
+      `Preparando publicação: ${produtosComConteudoAlterado.length} produto(s) com conteúdo alterado.`,
       { persistente: true, carregando: true }
     );
 
     const arquivosParaSalvar = [];
 
     for (const produto of produtos) {
-      if (!ordensAlteradas.has(Number(produto.order || 0))) {
+      if (!ordensComConteudoAlterado.has(Number(produto.order || 0))) {
         continue;
       }
 
@@ -1333,7 +1382,7 @@ async function salvarGithub() {
       });
     }
 
-    for (const produto of produtosAlterados) {
+    for (const produto of produtosComConteudoAlterado) {
       arquivosParaSalvar.push({
         path: `presell/produto-${produto.order}.html`,
         conteudo: gerarHTMLPresellProduto(produto)
@@ -1345,7 +1394,7 @@ async function salvarGithub() {
       owner,
       repo,
       arquivosParaSalvar,
-      `update loja (${produtosAlterados.length} produto(s))`
+      `update loja (${produtosComConteudoAlterado.length} produto(s))`
     );
 
     const listaConfirmada = await carregarArquivoGithubJSON(
