@@ -93,7 +93,9 @@ mostrarMensagem("Token apagado");
 });
 
 let editandoIndex = null;
+let editandoProdutoId = null;
 let menorPrecoIndex = null;
+let menorPrecoProdutoId = null;
 let editandoKitIndex = null;
 let produtoPreviewAtual = null;
 
@@ -189,6 +191,8 @@ select.appendChild(option);
 }
 
 function normalizarOrdensProdutos(){
+garantirProdutoIds();
+
 produtos = produtos
 .map((produto, indiceOriginal) => ({ produto, indiceOriginal }))
 .sort((a, b) => {
@@ -209,10 +213,29 @@ order: index + 1
 return produtos;
 }
 
-function reposicionarProduto(produto, indiceAtual){
+function gerarEditorId(){
+if(window.crypto?.randomUUID){
+return window.crypto.randomUUID();
+}
+
+return `produto-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
+function garantirProdutoIds(){
+produtos.forEach(produto => {
+if(!produto.__editorId){
+produto.__editorId = gerarEditorId();
+}
+});
+}
+
+function reposicionarProduto(produto, produtoId){
+const idAtual = produtoId || produto.__editorId || gerarEditorId();
+produto.__editorId = idAtual;
+
 const listaOrdenada = produtos
 .map((item, indiceOriginal) => ({ item, indiceOriginal }))
-.filter(({ indiceOriginal }) => indiceOriginal !== indiceAtual)
+.filter(({ item }) => item.__editorId !== idAtual)
 .sort((a, b) => {
 const ordemA = Number(a.item.order || 0);
 const ordemB = Number(b.item.order || 0);
@@ -238,6 +261,22 @@ order: index + 1
 }));
 
 return ordemDesejada - 1;
+}
+
+function getProdutoPorOrder(order){
+return produtos.find(produto => Number(produto.order) === Number(order)) || null;
+}
+
+function getProdutoDestaquePorReferencia(referencia){
+if(referencia?.produtoOrder){
+return getProdutoPorOrder(referencia.produtoOrder);
+}
+
+if(referencia?.produto !== undefined){
+return produtos[Number(referencia.produto)] || null;
+}
+
+return null;
 }
 
 function renderizarProdutos(){
@@ -291,6 +330,8 @@ function abrirMenorPreco(index){
 menorPrecoIndex = index;
 
 const produto = produtos[index];
+menorPrecoProdutoId = produto.__editorId || gerarEditorId();
+produto.__editorId = menorPrecoProdutoId;
 const buscaUrl = gerarUrlBuscaMenorPreco(produto);
 const produtoAtualUrl = produto.mercado_livre_url || produto.affiliate_url || "";
 const conteudo = document.getElementById("menorPrecoConteudo");
@@ -329,16 +370,19 @@ document.getElementById("modalMenorPreco").style.display = "flex";
 function fecharMenorPreco(){
 document.getElementById("modalMenorPreco").style.display = "none";
 menorPrecoIndex = null;
+menorPrecoProdutoId = null;
 }
 
 function abrirBuscaMenorPreco(){
-if(menorPrecoIndex === null) return;
-window.open(gerarUrlBuscaMenorPreco(produtos[menorPrecoIndex]), "_blank", "noopener");
+const produto = getProdutoMenorPreco();
+if(!produto) return;
+window.open(gerarUrlBuscaMenorPreco(produto), "_blank", "noopener");
 }
 
 async function copiarTituloMenorPreco(){
-if(menorPrecoIndex === null) return;
-const titulo = produtos[menorPrecoIndex].title || "";
+const produto = getProdutoMenorPreco();
+if(!produto) return;
+const titulo = produto.title || "";
 
 try{
 await navigator.clipboard.writeText(titulo);
@@ -348,8 +392,21 @@ prompt("Copie o titulo do produto:", titulo);
 }
 }
 
+function getProdutoMenorPreco(){
+if(menorPrecoProdutoId){
+return produtos.find(produto => produto.__editorId === menorPrecoProdutoId) || null;
+}
+
+if(menorPrecoIndex === null){
+return null;
+}
+
+return produtos[menorPrecoIndex] || null;
+}
+
 function aplicarMenorPrecoNoProduto(){
-if(menorPrecoIndex === null) return;
+const produto = getProdutoMenorPreco();
+if(!produto) return;
 
 const novoLink = document.getElementById("menorPrecoNovoLink").value.trim();
 const novoAfiliado = document.getElementById("menorPrecoNovoAfiliado").value.trim();
@@ -361,37 +418,37 @@ return;
 }
 
 if(novoLink){
-produtos[menorPrecoIndex].mercado_livre_url = novoLink;
-produtos[menorPrecoIndex].product_html_snapshot = "";
-delete produtos[menorPrecoIndex].html_file;
+produto.mercado_livre_url = novoLink;
+produto.product_html_snapshot = "";
+delete produto.html_file;
 }
 
 if(novoAfiliado){
-produtos[menorPrecoIndex].affiliate_url = novoAfiliado;
+produto.affiliate_url = novoAfiliado;
 }
 
 if(novoHtml){
 const dados = extrairDadosDoHtml(novoHtml);
 
 if(dados.title){
-produtos[menorPrecoIndex].title = dados.title;
-produtos[menorPrecoIndex].description = dados.description;
+produto.title = dados.title;
+produto.description = dados.description;
 }
 
 if(dados.price){
-produtos[menorPrecoIndex].price = dados.price;
+produto.price = dados.price;
 }
 
 if(dados.image){
-produtos[menorPrecoIndex].image_url = dados.image;
+produto.image_url = dados.image;
 }
 
 if(!novoLink && dados.url){
-produtos[menorPrecoIndex].mercado_livre_url = dados.url;
+produto.mercado_livre_url = dados.url;
 }
 
-produtos[menorPrecoIndex].product_html_snapshot = novoHtml;
-delete produtos[menorPrecoIndex].html_file;
+produto.product_html_snapshot = novoHtml;
+delete produto.html_file;
 }
 
 renderizarProdutos();
@@ -402,6 +459,7 @@ mostrarMensagem(novoHtml ? "Dados novos aplicados na oferta" : "Link aplicado na
 function abrirModal(){
 
 editandoIndex = null;
+editandoProdutoId = null;
 
 document.getElementById("modalProduto").style.display = "flex";
 
@@ -413,6 +471,8 @@ document.getElementById("ordem").value = produtos.length + 1;
 
 function fecharModal(){
 document.getElementById("modalProduto").style.display = "none";
+editandoIndex = null;
+editandoProdutoId = null;
 }
 
 function limparCampos(){
@@ -431,6 +491,9 @@ document.getElementById("categoriaSelect").value = "";
 }
 
 function obterProdutoDoFormulario(){
+const produtoExistente = editandoProdutoId
+? produtos.find(p => p.__editorId === editandoProdutoId)
+: null;
 
 let ordemInput = document.getElementById("ordem").value;
 
@@ -469,6 +532,14 @@ product_html_snapshot: document.getElementById("htmlProduto").value
 
 };
 
+if(produtoExistente?.__editorId){
+produto.__editorId = produtoExistente.__editorId;
+}
+
+if(produtoExistente?.html_file && !produto.product_html_snapshot?.trim()){
+produto.html_file = produtoExistente.html_file;
+}
+
 return produto;
 }
 
@@ -476,7 +547,7 @@ function salvarProduto(){
 
 const produto = obterProdutoDoFormulario();
 
-reposicionarProduto(produto, editandoIndex);
+editandoIndex = reposicionarProduto(produto, editandoProdutoId);
 
 salvarLocal();
 renderizarProdutos();
@@ -493,7 +564,7 @@ return;
 
 const produto = obterProdutoDoFormulario();
 
-editandoIndex = reposicionarProduto(produto, editandoIndex);
+editandoIndex = reposicionarProduto(produto, editandoProdutoId);
 
 renderizarProdutos();
 }
@@ -503,6 +574,8 @@ async function editarProduto(index){
 const p = produtos[index];
 
 editandoIndex = index;
+editandoProdutoId = p.__editorId || gerarEditorId();
+p.__editorId = editandoProdutoId;
 
 document.getElementById("modalProduto").style.display = "flex";
 
@@ -520,13 +593,6 @@ if(p.product_html_snapshot){
 
 document.getElementById("htmlProduto").value = p.product_html_snapshot;
 
-}else if(p.html_file){
-
-const res = await fetch(p.html_file);
-const html = await res.text();
-
-document.getElementById("htmlProduto").value = html;
-
 }else{
 
 document.getElementById("htmlProduto").value = "";
@@ -540,6 +606,10 @@ function excluirProduto(index){
 if(!confirm("Excluir produto?")) return;
 
 produtos.splice(index,1);
+if(index === editandoIndex){
+editandoIndex = null;
+editandoProdutoId = null;
+}
 normalizarOrdensProdutos();
 
 salvarLocal();
@@ -686,50 +756,44 @@ for(const [index, p] of produtos.entries()){
 
 let html = p.product_html_snapshot;
 
-// 🔥 1. FALLBACK → se snapshot não existe
 if(!html || typeof html !== "string" || html.trim() === ""){
-
-  try{
-
-    // gera caminho automático baseado no índice
-    const caminho = `html/produto_${index+1}.html`;
-
-    const res = await fetch(caminho);
-    html = await res.text();
-
-    // salva snapshot automaticamente
-    p.product_html_snapshot = html;
-
-    console.log("Snapshot recriado:", caminho);
-
-  }catch(e){
-    console.warn("Erro ao carregar HTML:", index+1, e);
+  if(!p.html_file){
+    console.warn("Produto sem HTML salvo para atualizar:", index + 1, p.title);
     continue;
   }
 
-}
-
-// 🔥 2. EXTRAÇÃO (igual botão individual)
-
-const titleMatch = html.match(/<meta property="og:title" content="([^"]+)"/);
-const imageMatch = html.match(/<meta property="og:image" content="([^"]+)"/);
-
-if(titleMatch){
-
-  let title = titleMatch[1];
-
-  const priceMatch = title.match(/R\$\s?[\d\.,]+/);
-
-  if(priceMatch){
-    p.price = formatarPreco(priceMatch[0]);
-    title = title.replace(/-?\s?R\$\s?[\d\.,]+/,"").trim();
-    p.title = title;
+  try{
+    const res = await fetch(p.html_file);
+    if(!res.ok){
+      throw new Error(`HTTP ${res.status}`);
+    }
+    html = await res.text();
+  }catch(e){
+    console.warn("Erro ao carregar HTML salvo:", p.html_file, e);
+    continue;
   }
-
 }
 
-if(imageMatch){
-  p.image_url = imageMatch[1];
+const dados = extrairDadosDoHtml(html);
+const urlAtual = String(p.mercado_livre_url || "").split("#")[0];
+const urlHtml = String(dados.url || "").split("#")[0];
+
+if(urlAtual && urlHtml && urlAtual !== urlHtml){
+  console.warn("HTML ignorado porque parece ser de outro produto:", p.title, urlHtml);
+  continue;
+}
+
+if(dados.title){
+  p.title = dados.title;
+  p.description = dados.description;
+}
+
+if(dados.price){
+  p.price = dados.price;
+}
+
+if(dados.image){
+  p.image_url = dados.image;
 }
 
 }
@@ -1297,6 +1361,7 @@ async function salvarGithub() {
 
     produtos = listaConfirmada;
     renderizarProdutos();
+    restaurarProdutoAbertoAposRecarregar();
 
     const ultimoProduto = produtos[produtos.length - 1]?.title || "produto";
     mostrarMensagem(
@@ -1309,6 +1374,7 @@ async function salvarGithub() {
     if(listaPublicada){
       produtos = listaPublicada;
       renderizarProdutos();
+      restaurarProdutoAbertoAposRecarregar();
       mostrarMensagem(`Loja publicada ✔ ${produtos.length} produtos. Último: ${ultimoProduto}`);
     }else{
       mostrarMensagem(`GitHub salvo ✔ ${produtos.length} produtos. A publicação ainda está processando.`);
@@ -1333,6 +1399,26 @@ console.error("ERRO AO SALVAR:",erro);
 alert("Erro ao salvar no GitHub:\n\n"+erro.message);
 
 }
+}
+
+function restaurarProdutoAbertoAposRecarregar(){
+const modal = document.getElementById("modalProduto");
+
+if(!modal || modal.style.display !== "flex"){
+return;
+}
+
+const ordemAberta = Number(document.getElementById("ordem").value || 0);
+const produto = produtos.find(item => Number(item.order) === ordemAberta);
+
+if(!produto){
+editandoIndex = null;
+editandoProdutoId = null;
+return;
+}
+
+editandoIndex = produtos.indexOf(produto);
+editandoProdutoId = produto.__editorId;
 }
 
 let mensagemAtual = null;
@@ -1533,7 +1619,7 @@ produtos.forEach((p,i)=>{
 
 const option=document.createElement("option");
 
-option.value=i;
+option.value=p.order;
 
 option.textContent=p.title;
 
@@ -1542,9 +1628,10 @@ select.appendChild(option);
 });
 
 const hero = destaques.hero || {};
+const heroProduto = getProdutoDestaquePorReferencia(hero);
 
 document.getElementById("heroVisivel").checked = hero.visible !== false;
-document.getElementById("heroProduto").value = hero.produto ?? 0;
+document.getElementById("heroProduto").value = heroProduto?.order ?? produtos[0]?.order ?? "";
 document.getElementById("heroTitulo").value = hero.title || "";
 document.getElementById("heroDescricao").value = hero.description || "";
 document.getElementById("heroCTA").value = hero.cta || "";
@@ -1562,7 +1649,7 @@ async function salvarHero(){
 
 destaques.hero={
 visible:document.getElementById("heroVisivel").checked,
-produto:Number(document.getElementById("heroProduto").value),
+produtoOrder:Number(document.getElementById("heroProduto").value),
 title:document.getElementById("heroTitulo").value,
 description:document.getElementById("heroDescricao").value,
 cta:document.getElementById("heroCTA").value
@@ -1590,7 +1677,7 @@ return;
 
 }
 
-const p=produtos[destaques.hero.produto];
+const p=getProdutoDestaquePorReferencia(destaques.hero);
 
 lista.innerHTML=`
 <div class="produto-item">
@@ -1634,11 +1721,11 @@ const container=document.getElementById("kitProdutos");
 
 const select=document.createElement("select");
 
-produtos.forEach((p,i)=>{
+produtos.forEach((p)=>{
 
 const option=document.createElement("option");
 
-option.value=i;
+option.value=p.order;
 
 option.textContent=p.title;
 
@@ -1665,10 +1752,11 @@ document.getElementById("kitCTA").value = kit.cta || "";
 const container = document.getElementById("kitProdutos");
 container.innerHTML = "";
 
-(kit.items || []).forEach((produtoIndex) => {
+(kit.items || []).forEach((item) => {
 adicionarProdutoKit();
 const selects = container.querySelectorAll("select");
-selects[selects.length - 1].value = produtoIndex;
+const produto = getProdutoPorOrder(item?.produtoOrder ?? item) || produtos[Number(item)] || null;
+selects[selects.length - 1].value = produto?.order ?? "";
 });
 
 if(!(kit.items || []).length){
@@ -1683,7 +1771,10 @@ async function salvarKit(){
 
 const selects=document.querySelectorAll("#kitProdutos select");
 
-const items=[...selects].map(s=>Number(s.value));
+const items=[...selects]
+.map(s=>Number(s.value))
+.filter(Boolean)
+.map(order => ({ produtoOrder: order }));
 
 destaques.kitsVisible = document.getElementById("kitsVisivel").checked;
 

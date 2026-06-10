@@ -327,9 +327,25 @@ function getProdutoPorIndice(indice) {
   return produtos[Number(indice)] || null;
 }
 
+function getProdutoPorReferencia(referencia) {
+  if (referencia && typeof referencia === "object" && referencia.produtoOrder) {
+    return produtos.find((produto) => Number(produto.order) === Number(referencia.produtoOrder)) || null;
+  }
+
+  return getProdutoPorIndice(referencia);
+}
+
+function getProdutoHero(hero) {
+  if (hero?.produtoOrder) {
+    return produtos.find((produto) => Number(produto.order) === Number(hero.produtoOrder)) || null;
+  }
+
+  return getProdutoPorIndice(hero?.produto);
+}
+
 function renderHero(hero) {
   const heroContainer = document.getElementById("hero");
-  const produto = getProdutoPorIndice(hero.produto);
+  const produto = getProdutoHero(hero);
 
   if (!heroContainer || !produto) return;
 
@@ -357,7 +373,7 @@ function renderKits() {
 
   track.innerHTML = kits.map((kit) => {
     const itemsHTML = (kit.items || [])
-      .map((indice) => getProdutoPorIndice(indice))
+      .map((item) => getProdutoPorReferencia(item))
       .filter(Boolean)
       .slice(0, 3)
       .map((produto) => `
