@@ -103,6 +103,8 @@ let destaques = {
   kits: []
 };
 
+const lojaPublicaBaseURL = "https://magnobenhgarcia-lojinha.pages.dev";
+
 const siteConfigPadrao = {
 principal: {
 backLabel: "Mini-site",
@@ -944,14 +946,7 @@ return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function getProdutosPublicosURL(owner, repo){
-const emArquivoLocal = window.location.protocol === "file:";
-const emLocalhost = ["localhost", "127.0.0.1"].includes(window.location.hostname);
-
-if(emArquivoLocal || emLocalhost){
-return `https://raw.githubusercontent.com/${owner}/${repo}/main/data/produtos.json`;
-}
-
-return new URL("data/produtos.json", window.location.href).href;
+return `${lojaPublicaBaseURL}/data/produtos.json`;
 }
 
 async function carregarProdutosPublicos(owner, repo){
@@ -994,7 +989,7 @@ if(/^https?:\/\//.test(src)){
 return src;
 }
 
-return `https://magnobenhgarcia.github.io/lojinha/${String(src).replace(/^\.\//,"")}`;
+return `${lojaPublicaBaseURL}/${String(src).replace(/^\.\//,"")}`;
 }
 
 function gerarHTMLPresellProduto(produto){
@@ -1002,7 +997,7 @@ const order = Number(produto.order || 0);
 const title = `${produto.title || "Oferta"} | Lojinha Magno Garcia`;
 const description = `${produto.price ? produto.price + " - " : ""}${produto.description || "Veja essa oferta na Lojinha Magno Garcia."}`.slice(0, 220);
 const image = imagemPresellAbsoluta(produto.image_url || "assets/selo_magno_garcia.png");
-const url = `https://magnobenhgarcia.github.io/lojinha/presell/produto-${order}.html`;
+const url = `${lojaPublicaBaseURL}/presell/produto-${order}.html`;
 
 return `<!DOCTYPE html>
 <html lang="pt-BR">

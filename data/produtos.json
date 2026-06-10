@@ -179,7 +179,7 @@
     "category": "Violões",
     "order": 17,
     "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-strinberg-sf200c-tobacco-satin-6-cordas-com-cutaway/p/MLB16050819?matt_tool=18956390&pdp_filters=item_id%3AMLB5514450608&from=gshop&utm_source=chatgpt.com",
-    "html_file": "html/produto_14.html"
+    "html_file": "html/produto_17.html"
   },
   {
     "title": "Capotraste Braçadeira Guitarra E Violão Aço E Nylon Preto",
@@ -190,7 +190,7 @@
     "category": "Violões",
     "order": 18,
     "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-strinberg-sd200c-mgs-folk-6-cordas-mahogany/p/MLB28539802?utm_source=chatgpt.com",
-    "html_file": "html/produto_15.html"
+    "html_file": "html/produto_18.html"
   },
   {
     "title": "Capotraste Abraçadeira Violão Guitarra Dolphin Metal Preto",
@@ -201,7 +201,7 @@
     "category": "Capotrastes",
     "order": 19,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-1795530732-capotraste-bracadeira-violo-guitarra-viola-ukulele-metal-_JM",
-    "html_file": "html/produto_17.html"
+    "html_file": "html/produto_19.html"
   },
   {
     "title": "Microfone Com Fio Kadosh K300 Profissional Cor Preto",
@@ -212,7 +212,7 @@
     "category": "Capotrastes",
     "order": 20,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-1854287207-capotraste-bracadeira-guitarra-e-violo-aco-e-nylon-preto-_JM",
-    "html_file": "html/produto_18.html"
+    "html_file": "html/produto_20.html"
   },
   {
     "title": "Microfone Kadosh K-98 Dinâmico Cardióide cor azul/prateado",
@@ -223,7 +223,7 @@
     "category": "Microfones",
     "order": 21,
     "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-com-fio-kadosh-k300-profissional-cor-preto/p/MLB52677184",
-    "html_file": "html/produto_20.html"
+    "html_file": "html/produto_21.html"
   },
   {
     "title": "Microfone De Mão Profissional Cardioide Samson R21s Cor Preto",
@@ -234,7 +234,7 @@
     "category": "Microfones",
     "order": 22,
     "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-kadosh-k-98-dinmico-cardioide-cor-azulprateado/p/MLB19076246",
-    "html_file": "html/produto_21.html"
+    "html_file": "html/produto_22.html"
   },
   {
     "title": "Microfone Dinâmico Cardioide Le Son SM58 P4 Com Fio Champanhe",
@@ -245,7 +245,7 @@
     "category": "Microfones",
     "order": 23,
     "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-dinmico-cardioide-le-son-sm58-p4-com-fio-champanhe/p/MLB17450646",
-    "html_file": "html/produto_22.html"
+    "html_file": "html/produto_23.html"
   },
   {
     "title": "Violão Strinberg Acústico Folk Canhoto LE 30C 6 Cordas Aço",
@@ -277,7 +277,8 @@
     "affiliate_url": "https://meli.la/1tQibNu",
     "category": "Karaokê (Treino Vocal)",
     "order": 26,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-som-portatil-basike-120w-bluetooth-tws-ipx6-led-preto/p/MLB46191527"
+    "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-som-portatil-basike-120w-bluetooth-tws-ipx6-led-preto/p/MLB46191527",
+    "html_file": "html/produto_26.html"
   },
   {
     "title": "Caixa De Bluetooth Som Imenso Ims-x32 120w Rgb 2 Microfones",
@@ -287,7 +288,8 @@
     "affiliate_url": "https://meli.la/2PD7xRt",
     "category": "Karaokê (Treino Vocal)",
     "order": 27,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-bluetooth-som-imenso-imsx32-120w-rgb-2-microfones/up/MLBU3437138791"
+    "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-bluetooth-som-imenso-imsx32-120w-rgb-2-microfones/up/MLBU3437138791",
+    "html_file": "html/produto_27.html"
   },
   {
     "title": "Caixa De Som Portátil 300w Karaokê 2 Microfones Bluetooth",
@@ -297,7 +299,8 @@
     "affiliate_url": "https://meli.la/1dEv6dg",
     "category": "Karaokê (Treino Vocal)",
     "order": 28,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-som-portatil-300w-karaoke-2-microfones-bluetooth/up/MLBU3934620253"
+    "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-som-portatil-300w-karaoke-2-microfones-bluetooth/up/MLBU3934620253",
+    "html_file": "html/produto_28.html"
   },
   {
     "title": "Caixa De Som Portátil 100w Karaokê 2 Microfone Bluetooth Preto",
@@ -307,6 +310,7 @@
     "affiliate_url": "https://meli.la/2gYyck2",
     "category": "Karaokê (Treino Vocal)",
     "order": 29,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-som-portatil-100w-karaok-2-microfone-bluetooth-preto/p/MLB72188653"
+    "mercado_livre_url": "https://www.mercadolivre.com.br/caixa-de-som-portatil-100w-karaok-2-microfone-bluetooth-preto/p/MLB72188653",
+    "html_file": "html/produto_29.html"
   }
 ]
