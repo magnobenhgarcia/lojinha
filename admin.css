@@ -105,6 +105,20 @@ button,
   color: var(--ink);
 }
 
+.extract-action {
+  width: 100%;
+  border: 1px solid rgba(16, 106, 48, .18);
+  background: linear-gradient(180deg, #51ef83 0%, #2fd66a 100%);
+  color: #041707;
+  box-shadow:
+    0 12px 28px rgba(47, 214, 106, .24),
+    inset 0 1px 0 rgba(255, 255, 255, .38);
+}
+
+.extract-action:hover {
+  filter: brightness(1.04);
+}
+
 .editor-header .ghost-button {
   border-color: rgba(255, 255, 255, .18);
   background: rgba(255, 255, 255, .08);
