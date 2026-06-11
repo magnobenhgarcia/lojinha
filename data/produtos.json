@@ -140,13 +140,14 @@
     "html_file": "html/produto_13.html"
   },
   {
-    "title": "Violão Eletroacústico Strinberg SF200C Tobacco Satin 6 Cordas Com Cutaway",
-    "description": "Violão Eletroacústico Strinberg SF200C Tobacco Satin 6 Corda",
-    "price": "R$ 871,13",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_611927-MLA96144087381_102025-O.webp",
-    "affiliate_url": "https://meli.la/1EX3gu2",
+    "title": "Violão Eletroacústico Strinberg Forest Fs4d Tobacco Satin",
+    "description": "Violão Eletroacústico Strinberg Forest Fs4d Tobacco Satin",
+    "price": "R$ 879,12",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_912465-MLB111760100405_052026-O.webp",
+    "affiliate_url": "https://meli.la/16CbL4f",
     "category": "Violões",
     "order": 14,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violao-eletroacustico-strinberg-forest-fs4d-tobacco-satin/up/MLBU3965777755",
     "html_file": "html/produto_14.html"
   },
   {
@@ -464,5 +465,38 @@
     "order": 43,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-6912810840-acordeon-todeschini-80-baixos-preto-_JM",
     "html_file": "html/produto_43.html"
+  },
+  {
+    "title": "Violão Strinberg Canhoto Sd301 Hcr Lh Mgs C/ Efeitos + Bag",
+    "description": "Violão Strinberg Canhoto Sd301 Hcr Lh Mgs C/ Efeitos + Bag",
+    "price": "R$ 1946,21",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_793638-MLB90281438730_082025-O.webp",
+    "affiliate_url": "https://meli.la/1fezUb7",
+    "category": "Violões",
+    "order": 44,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violao-strinberg-canhoto-sd301-hcr-lh-mgs-c-efeitos--bag/up/MLBU1372209325",
+    "html_file": "html/produto_44.html"
+  },
+  {
+    "title": "Violão Michael Freebird VMF420 Canhoto Folk Aço Mahogany Cor Satin | Som Encorpado, Design Elegante, Ideal Para Estudo e Apresentações",
+    "description": "Violão Michael Freebird VMF420 Canhoto Folk Aço Mahogany Cor",
+    "price": "R$ 1314,78",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_623428-MLA99539195074_122025-O.webp",
+    "affiliate_url": "https://meli.la/1S9iR1v",
+    "category": "Violões",
+    "order": 45,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-michael-freebird-vmf420-canhoto-folk-aco-mahogany-cor-satin-som-encorpado-design-elegante-ideal-para-estudo-e-apresentacoes/p/MLB45197166",
+    "html_file": "html/produto_45.html"
+  },
+  {
+    "title": "Violão Acústico Fender Classic Design CD-60S para Canhotos Natural Nogueira Brilhante",
+    "description": "Violão Acústico Fender Classic Design CD-60S para Canhotos N",
+    "price": "R$ 1899,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_996478-MLA99995624599_112025-O.webp",
+    "affiliate_url": "https://meli.la/1th9cYH",
+    "category": "Violões",
+    "order": 46,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-acustico-fender-classic-design-cd-60s-para-canhotos-natural-nogueira-brilhante/p/MLB14073504",
+    "html_file": "html/produto_46.html"
   }
 ]
