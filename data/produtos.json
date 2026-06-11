@@ -420,5 +420,49 @@
     "order": 39,
     "mercado_livre_url": "https://www.mercadolivre.com.br/contrabaixo-strinberg-pbs40-precision-bass-4-cordas/up/MLBU3982855757",
     "html_file": "html/produto_39.html"
+  },
+  {
+    "title": "Acordeon Sanfona Gaita Infantil 8 Baixos 17 Teclas Estudo",
+    "description": "Acordeon Sanfona Gaita Infantil 8 Baixos 17 Teclas ",
+    "price": "R$ 237,59",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_670490-MLB112673034083_062026-O.webp",
+    "affiliate_url": "https://meli.la/1xGymZz",
+    "category": "Acordeon para Estudo",
+    "order": 40,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/acordeon-sanfona-gaita-infantil-8-baixos-17-teclas-brinquedo/up/MLBU4050490922",
+    "html_file": "html/produto_40.html"
+  },
+  {
+    "title": "Acordeon Profissional Vedo 34 Teclas 60 Baixos Em Madeira",
+    "description": "Acordeon Profissional Vedo 34 Teclas 60 Baixos Em Madeira",
+    "price": "R$ 3499,99",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_640575-MLB112678476427_062026-O-acordeon-profissional-vedo-34-teclas-60-baixos-em-madeira.webp",
+    "affiliate_url": "https://meli.la/1mDXYAi",
+    "category": "Acordeon para Estudo",
+    "order": 41,
+    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-4734160481-acordeon-profissional-vedo-34-teclas-60-baixos-em-madeira-_JM",
+    "html_file": "html/produto_41.html"
+  },
+  {
+    "title": "Acordeon Todeschini 80 baixos - cor vermelho",
+    "description": "Acordeon Todeschini 80 baixos - cor vermelho",
+    "price": "R$ 6547,89",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_899678-MLA99939890959_112025-O.webp",
+    "affiliate_url": "https://meli.la/1etV4Lo",
+    "category": "Acordeon para Estudo",
+    "order": 42,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/acordeon-todeschini-80-baixos-cor-vermelho/p/MLB38184900",
+    "html_file": "html/produto_42.html"
+  },
+  {
+    "title": "Acordeon Todeschini 80 Baixos - Preto",
+    "description": "Acordeon Todeschini 80 Baixos - Preto",
+    "price": "R$ 1098,90",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_638172-MLA99477051646_112025-O-acordeon-todeschini-80-baixos-preto.webp",
+    "affiliate_url": "https://meli.la/2zdMFAh",
+    "category": "Acordeon para Estudo",
+    "order": 43,
+    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-6912810840-acordeon-todeschini-80-baixos-preto-_JM",
+    "html_file": "html/produto_43.html"
   }
 ]
