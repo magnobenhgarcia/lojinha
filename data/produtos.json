@@ -44,13 +44,14 @@
     "html_file": "html/produto_4.html"
   },
   {
-    "title": "Capotraste Abraçadeira Violão Guitarra Dolphin Metal Preto",
-    "description": "Doterra Breathe 15ml - Mix De Óleos Essenciais",
-    "price": "R$ 22,66",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_848304-MLB28131624258_092018-O.webp",
-    "affiliate_url": "https://meli.la/2Cgzi5R",
+    "title": "Capotraste Para Violão Aço E Nylon Guitarra Braçadeira Metal",
+    "description": "Capotraste Para Violão Aço E Nylon Guitarra Braçadeira Metal",
+    "price": "R$ 29,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_717265-MLB89762478168_082025-O-capotraste-para-violo-aco-e-nylon-guitarra-bracadeira-metal.webp",
+    "affiliate_url": "https://meli.la/2pt5abz",
     "category": "Capotrastes",
     "order": 5,
+    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-3559304429-capotraste-para-violo-aco-e-nylon-guitarra-bracadeira-metal-_JM",
     "html_file": "html/produto_5.html"
   },
   {
@@ -172,13 +173,13 @@
   },
   {
     "title": "Capotraste Abraçadeira Violão Guitarra Dolphin Metal Preto",
-    "description": "Capotraste Braçadeira Violão Guitarra Viola Ukulele (metal)",
+    "description": "Capotraste Abraçadeira Violão Guitarra Dolphin Metal Preto",
     "price": "R$ 22,66",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_848304-MLB28131624258_092018-O.webp",
-    "affiliate_url": "https://meli.la/2vEfvUR",
+    "affiliate_url": "https://meli.la/1nJxyRH",
     "category": "Capotrastes",
     "order": 17,
-    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-1795530732-capotraste-bracadeira-violo-guitarra-viola-ukulele-metal-_JM",
+    "mercado_livre_url": "https://www.mercadolivre.com.br/capotraste-abracadeira-violao-guitarra-dolphin-metal-preto/up/MLBU1573413440",
     "html_file": "html/produto_17.html"
   },
   {
@@ -187,7 +188,7 @@
     "price": "R$ 19,95",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_931421-MLB92293685978_092025-O-capotraste-bracadeira-guitarra-e-violo-aco-e-nylon-preto.webp",
     "affiliate_url": "https://meli.la/1V8xELX",
-    "category": "Capotrastes",
+    "category": "Microfones",
     "order": 18,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-1854287207-capotraste-bracadeira-guitarra-e-violo-aco-e-nylon-preto-_JM",
     "html_file": "html/produto_18.html"
@@ -353,5 +354,71 @@
     "order": 33,
     "mercado_livre_url": "https://www.mercadolivre.com.br/cabo-p10-x-p10-santo-angelo-ninja-10ft-305m/p/MLB23218346",
     "html_file": "html/produto_37.html"
+  },
+  {
+    "title": "Microfone Dinâmico Kadosh K-98",
+    "description": "Microfone Dinâmico Kadosh K-98",
+    "price": "R$ 147,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_999759-MLB70650180102_072023-O.webp",
+    "affiliate_url": "https://meli.la/1CXCTPQ",
+    "category": "Microfones",
+    "order": 34,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/microfone-dinamico-kadosh-k98/up/MLBU1409407872",
+    "html_file": "html/produto_34.html"
+  },
+  {
+    "title": "Guitarra Stratocaster Strinberg LPS200 Preta Captadores Humbucker",
+    "description": "Guitarra Stratocaster Strinberg LPS200 Preta Captadores Humb",
+    "price": "R$ 1093,75",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_655609-MLA99459937130_112025-O.webp",
+    "affiliate_url": "https://meli.la/24cxrKC",
+    "category": "Guitarras",
+    "order": 35,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/guitarra-stratocaster-strinberg-lps200-preta-captadores-humbucker/p/MLB24819932",
+    "html_file": "html/produto_35.html"
+  },
+  {
+    "title": "Guitarra Elétrica Tagima TG-530 Stratocaster Sunburst 3 Captadores Tremolo",
+    "description": "Guitarra Elétrica Tagima TG-530 Stratocaster Sunburst 3 Capt",
+    "price": "R$ 949,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_847976-MLA110749973936_052026-O.webp",
+    "affiliate_url": "https://meli.la/32hNFgk",
+    "category": "Guitarras",
+    "order": 36,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/guitarra-eletrica-tagima-tg-530-stratocaster-sunburst-3-captadores-tremolo/p/MLB17449694",
+    "html_file": "html/produto_36.html"
+  },
+  {
+    "title": "Guitarra Elétrica Canhoto Tagima TG-500 Stratocaster Sunburst TW Series",
+    "description": "Guitarra Elétrica Canhoto Tagima TG-500 Stratocaster Sunburs",
+    "price": "R$ 983,85",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_703810-MLA95405501448_102025-O.webp",
+    "affiliate_url": "https://meli.la/2bULzLv",
+    "category": "Guitarras",
+    "order": 37,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/guitarra-eletrica-canhoto-tagima-tg-500-stratocaster-sunburst-tw-series/p/MLB17842885",
+    "html_file": "html/produto_37.html"
+  },
+  {
+    "title": "Contra Baixo Eletrico Tagima Tw-66 Woodstock Butterscotsh Cor Dourado Orientação da mão Destro Quantidade de 4",
+    "description": "Contra Baixo Eletrico Tagima Tw-66 Woodstock Butterscotsh Co",
+    "price": "R$ 1135,87",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_763332-MLA99498943656_112025-O.webp",
+    "affiliate_url": "https://meli.la/33p2vR8",
+    "category": "Baixos",
+    "order": 38,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/contra-baixo-eletrico-tagima-tw-66-woodstock-butterscotsh-cor-dourado-orientaco-da-mo-destro-quantidade-de-4/p/MLB23495591",
+    "html_file": "html/produto_38.html"
+  },
+  {
+    "title": "Contrabaixo Strinberg Pbs40 Precision Bass 4 Cordas",
+    "description": "Contrabaixo Strinberg Pbs40 Precision Bass 4 Cordas",
+    "price": "R$ 1221,70",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_825286-MLB111079836472_052026-O.webp",
+    "affiliate_url": "https://meli.la/2orP61W",
+    "category": "Baixos",
+    "order": 39,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/contrabaixo-strinberg-pbs40-precision-bass-4-cordas/up/MLBU3982855757",
+    "html_file": "html/produto_39.html"
   }
 ]
