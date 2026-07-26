@@ -509,5 +509,27 @@
     "order": 47,
     "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-zaidans-heritage-folk-41-com-cutaway-mogno-e-spruce/p/MLB66803005",
     "html_file": "html/produto_47.html"
+  },
+  {
+    "title": "Bateria Odery Cafe Kit Black Ash Odery S/ Pratos 4pçs",
+    "description": "Bateria Odery Cafe Kit Black Ash Odery S/ Pratos 4pçs",
+    "price": "R$ 5148,88",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_787176-MLB113590522451_062026-O-bateria-odery-cafe-kit-black-ash-odery-s-pratos-4pcs.webp",
+    "affiliate_url": "https://meli.la/2Ji5jkg",
+    "category": "Bateria",
+    "order": 48,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/bateria-odery-cafe-kit-black-ash-odery-s-pratos-4pcs/up/MLBU3418948244",
+    "html_file": "html/produto_48.html"
+  },
+  {
+    "title": "Set Kit De Pratos Bateria 14 18 E 20 Alloy Profire + Brindes",
+    "description": "Set Kit De Pratos Bateria 14 18 E 20 Alloy Profire + Brindes",
+    "price": "R$ 497,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_904982-MLB83624813323_042025-O-set-kit-de-pratos-bateria-14-18-e-20-alloy-profire--brindes.webp",
+    "affiliate_url": "https://meli.la/1s2AFBm",
+    "category": "Bateria",
+    "order": 49,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/set-kit-de-pratos-bateria-14-18-e-20-alloy-profire--brindes/up/MLBU3927411992",
+    "html_file": "html/produto_49.html"
   }
 ]
