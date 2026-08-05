@@ -4,11 +4,10 @@
     "description": "Violão Eletroacústico CLASS CLD41CE Folk 6 Cordas Mogno Spru",
     "price": "R$ 575,59",
     "image_url": "https://http2.mlstatic.com/D_NQ_NP_816254-MLA100698389988_122025-O.webp",
-    "affiliate_url": "https://meli.la/2D5ea3Z",
+    "affiliate_url": "https://www.mercadolivre.com.br/kit-violao-tagima-acustico-classico-memphis-corda-aco-destro-profissional-basswood-estudo-iniciante-brilhante-sunburst-start-completo-correia-capa-bag-capotraste-suporte/p/MLB72995320?pdp_filters=item_id:MLB4758388831#polycard_client=recommendations_pdp-pads-up&wid=MLB4758388831&sid=recos&reco_backend=recomm_platform_base_pads_rfa_MERGE&reco_model=search_recos_backend_merge&reco_client=pdp-pads-up&reco_item_pos=4&reco_backend_type=low_level&reco_id=167f0c55-8e4d-4ab3-aebd-b4a251456ad4&is_advertising=true&ad_domain=PDPDESKTOP_UP_INACTIVE&ad_position=5&ad_click_id=MThkNjkyM2YtMmE3YS00MDEyLWE0OWEtOTRjMWZjMDA3NTli",
     "category": "Violões",
     "order": 1,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/violo-eletroacustico-class-cld41ce-folk-6-cordas-mogno-spruce/p/MLB63124013#polycard_client=search-desktop&be_origin=backend&search_layout=grid&position=3&type=product&tracking_id=fed32068-ace4-40ac-a464-ad2ee6b6a20c&wid=MLB6048448544&sid=search",
-    "html_file": "html/produto_1.html"
+    "mercado_livre_url": "https://meli.la/2f4CyFj"
   },
   {
     "title": "Violão Elétrico Hofma HMF280 Folk Cutaway Natural 6 Cordas Com Afinador Digital",
@@ -531,5 +530,16 @@
     "order": 49,
     "mercado_livre_url": "https://www.mercadolivre.com.br/set-kit-de-pratos-bateria-14-18-e-20-alloy-profire--brindes/up/MLBU3927411992",
     "html_file": "html/produto_49.html"
+  },
+  {
+    "title": "Kit Violao Tagima Acustico Classico Memphis Corda Aço Destro Profissional Basswood Estudo Iniciante Brilhante Sunburst Start Completo Correia Capa Bag Capotraste Suporte",
+    "description": "Kit Violao Tagima Acustico Classico Memphis Corda Aço Destro",
+    "price": "R$ 581,03",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_906641-MLA111869344354_062026-O.webp",
+    "affiliate_url": "https://meli.la/2f4CyFj",
+    "category": "Violões",
+    "order": 50,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/kit-violao-tagima-acustico-classico-memphis-corda-aco-destro-profissional-basswood-estudo-iniciante-brilhante-sunburst-start-completo-correia-capa-bag-capotraste-suporte/p/MLB72995320",
+    "html_file": "html/produto_50.html"
   }
 ]
