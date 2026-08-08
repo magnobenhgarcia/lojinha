@@ -86,14 +86,14 @@
     "html_file": "html/produto_8.html"
   },
   {
-    "title": "Capacete Aberto Pro Tork New Liberty 3 Three Masculino Femin",
-    "description": "Capacete Aberto Pro Tork New Liberty 3 Three Masculino Femin",
-    "price": "R$ 128,99",
-    "image_url": "https://http2.mlstatic.com/D_NQ_NP_603874-MLB88724721458_072025-O.webp",
-    "affiliate_url": "https://meli.la/1nJxyRH",
+    "title": "Capacete Pro Tork New Liberty 3 Aberto Com Viseira",
+    "description": "Capacete Pro Tork New Liberty 3 Aberto Com Viseira",
+    "price": "R$ 116,85",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_924099-MLB110218200916_052026-O-capacete-pro-tork-new-liberty-3-aberto-com-viseira.webp",
+    "affiliate_url": "https://meli.la/2dGsrq9",
     "category": "Loja Casa e Cuidados",
     "order": 9,
-    "mercado_livre_url": "https://www.mercadolivre.com.br/capotraste-abracadeira-violao-guitarra-dolphin-metal-preto/up/MLBU1573413440",
+    "mercado_livre_url": "https://www.mercadolivre.com.br/capacete-pro-tork-new-liberty-3-aberto-com-viseira/up/MLBU3872870832",
     "html_file": "html/produto_9.html"
   },
   {
@@ -541,5 +541,16 @@
     "order": 50,
     "mercado_livre_url": "https://www.mercadolivre.com.br/kit-violao-tagima-acustico-classico-memphis-corda-aco-destro-profissional-basswood-estudo-iniciante-brilhante-sunburst-start-completo-correia-capa-bag-capotraste-suporte/p/MLB72995320",
     "html_file": "html/produto_50.html"
+  },
+  {
+    "title": "Baú Puff Estofado Bouclê Bege Tampa Madeira Sala",
+    "description": "Baú Puff Estofado Bouclê Bege Tampa Madeira Sala",
+    "price": "R$ 399,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_736349-MLB112213154824_062026-O-bau-puff-estofado-boucle-bege-tampa-madeira-sala.webp",
+    "affiliate_url": "https://meli.la/2WD94uK",
+    "category": "Loja Casa e Cuidados",
+    "order": 51,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/bau-puff-estofado-boucle-bege-tampa-madeira-sala/up/MLBU4117749002",
+    "html_file": "html/produto_51.html"
   }
 ]
