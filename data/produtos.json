@@ -563,5 +563,27 @@
     "order": 52,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-4300424603-bateria-nagano-beat-bumbo-16-com-banco-ferragens-baqueta-_JM",
     "html_file": "html/produto_52.html"
+  },
+  {
+    "title": "Lixeira Inteligente 16l Sensor Automático Tampa Touch Casa",
+    "description": "Lixeira Inteligente 16l Sensor Automático Tampa Touch Casa",
+    "price": "R$ 69,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_844008-MLB112258869982_062026-O-lixeira-inteligente-16l-sensor-automatico-tampa-touch-casa.webp",
+    "affiliate_url": "https://meli.la/346zhgY",
+    "category": "Loja Casa e Cuidados",
+    "order": 53,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/lixeira-inteligente-16l-sensor-automatico-tampa-touch-casa/up/MLBU3746568325",
+    "html_file": "html/produto_53.html"
+  },
+  {
+    "title": "Canfora Bendita Cânfora Com 16 Tabletes",
+    "description": "Canfora Bendita Cânfora Com 16 Tabletes",
+    "price": "R$ 43,90",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_842084-MLB50043201442_052022-O-canfora-bendita-canfora-com-16-tabletes.webp",
+    "affiliate_url": "https://meli.la/2jmMM6z",
+    "category": "Loja Casa e Cuidados",
+    "order": 54,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/canfora-bendita-canfora-com-16-tabletes/up/MLBU1426422686",
+    "html_file": "html/produto_54.html"
   }
 ]
