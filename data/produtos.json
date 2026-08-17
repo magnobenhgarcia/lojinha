@@ -585,5 +585,27 @@
     "order": 54,
     "mercado_livre_url": "https://www.mercadolivre.com.br/canfora-bendita-canfora-com-16-tabletes/up/MLBU1426422686",
     "html_file": "html/produto_54.html"
+  },
+  {
+    "title": "Fone De Ouvido Jbl Com Fio Tune 110 Original",
+    "description": "Fone De Ouvido Jbl Com Fio Tune 110 Original",
+    "price": "R$ 108,55",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_771001-MLB105268422071_012026-O-fone-de-ouvido-jbl-com-fio-tune-110-original.webp",
+    "affiliate_url": "https://meli.la/24zXSG7",
+    "category": "Loja Casa e Cuidados",
+    "order": 55,
+    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-5202888940-fone-de-ouvido-jbl-com-fio-tune-110-original-_JM",
+    "html_file": "html/produto_55.html"
+  },
+  {
+    "title": "Pastilha de Cânfora para Armários e Gavetas - Controla Mofo e Umidade (Pack com 200)",
+    "description": "Pastilha de Cânfora para Armários e Gavetas - Controla Mofo ",
+    "price": "R$ 99,48",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_800320-MLA105383617849_012026-O.webp",
+    "affiliate_url": "https://meli.la/23BwQcj",
+    "category": "Loja Casa e Cuidados",
+    "order": 56,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/pastilha-de-canfora-para-armarios-e-gavetas-controla-mofo-e-umidade-pack-com-200/p/MLB20628665",
+    "html_file": "html/produto_56.html"
   }
 ]
