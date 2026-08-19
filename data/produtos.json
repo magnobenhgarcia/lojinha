@@ -663,5 +663,16 @@
     "order": 61,
     "mercado_livre_url": "https://www.mercadolivre.com.br/pilha-recarregavel-aa-pequena-duracell-com-4-unidades/up/MLBU1441913424",
     "html_file": "html/produto_61.html"
+  },
+  {
+    "title": "Mouse Pad Gamer 90x35 Escritório Alta Qualidade Preto Liso Isoprene",
+    "description": "Mouse Pad Gamer 90x35 Escritório Alta Qualidade Preto Liso I",
+    "price": "R$ 31,38",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_640013-MLA110949415713_042026-O.webp",
+    "affiliate_url": "https://meli.la/1GcpoWB",
+    "category": "Loja Casa e Cuidados",
+    "order": 62,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/mouse-pad-gamer-90x35-escritorio-alta-qualidade-preto-liso-isoprene/p/MLB36193824",
+    "html_file": "html/produto_62.html"
   }
 ]
