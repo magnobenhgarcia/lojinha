@@ -630,5 +630,38 @@
     "order": 58,
     "mercado_livre_url": "https://www.mercadolivre.com.br/violao-eletroac-tagima-porteno-cor-metallic-deep-silver-satin-techwood-destro/p/MLB28588415",
     "html_file": "html/produto_58.html"
+  },
+  {
+    "title": "LIXEIRA AUTOMÁTICA COM SENSOR INTELIGENTE PARA BANHEIRO COZINHA ESCRITÓRIO LOJA XCOLDS",
+    "description": "LIXEIRA AUTOMÁTICA COM SENSOR INTELIGENTE PARA BANHEIRO COZI",
+    "price": "R$ 74,95",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_870551-MLA109855721770_042026-O.webp",
+    "affiliate_url": "https://meli.la/1yx3sFo",
+    "category": "Loja Casa e Cuidados",
+    "order": 59,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/lixeira-automatica-com-sensor-inteligente-para-banheiro-cozinha-escritorio-loja-xcolds/p/MLB68415674",
+    "html_file": "html/produto_59.html"
+  },
+  {
+    "title": "Lixeira Inteligente 18l Sensor Automático Cozinha Banheiro",
+    "description": "Lixeira Inteligente 18l Sensor Automático Cozinha Banheiro",
+    "price": "R$ 77,49",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_753126-MLB106008147027_012026-O-lixeira-inteligente-18l-sensor-automatico-cozinha-banheiro.webp",
+    "affiliate_url": "https://meli.la/2Bdinxp",
+    "category": "Loja Casa e Cuidados",
+    "order": 60,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/lixeira-inteligente-18l-sensor-automatico-cozinha-banheiro/up/MLBU3764009106",
+    "html_file": "html/produto_60.html"
+  },
+  {
+    "title": "Pilha Recarregável Aa Pequena Duracell Com 4 Unidades",
+    "description": "Pilha Recarregável Aa Pequena Duracell Com 4 Unidades",
+    "price": "R$ 99,90",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_674001-MLB68852627404_042023-O-pilha-recarregavel-aa-pequena-duracell-com-4-unidades.webp",
+    "affiliate_url": "https://meli.la/2DKQsmo",
+    "category": "Loja Casa e Cuidados",
+    "order": 61,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/pilha-recarregavel-aa-pequena-duracell-com-4-unidades/up/MLBU1441913424",
+    "html_file": "html/produto_61.html"
   }
 ]
