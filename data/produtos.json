@@ -685,5 +685,27 @@
     "order": 63,
     "mercado_livre_url": "https://www.mercadolivre.com.br/guitarra-seizi-fun-vintage-budokan-fun-vintage-white/p/MLB69560570",
     "html_file": "html/produto_63.html"
+  },
+  {
+    "title": "Pedaleira M-Vave Cube-Baby Bass Multi-efeitos Azul para Baixo Elétrico",
+    "description": "Pedaleira M-Vave Cube-Baby Bass Multi-efeitos Azul para Baix",
+    "price": "R$ 198,23",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_683887-MLA99450337020_112025-O.webp",
+    "affiliate_url": "https://meli.la/14uFstL",
+    "category": "Pedais e Efeitos",
+    "order": 64,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/pedaleira-m-vave-cube-baby-bass-multi-efeitos-azul-para-baixo-eletrico/p/MLB19553722",
+    "html_file": "html/produto_64.html"
+  },
+  {
+    "title": "Pedal Multi-Efeitos Cuvave Tank-B Para Baixo c/ 36 Efeitos e Bluetooth",
+    "description": "Pedal Multi-Efeitos Cuvave Tank-B Para Baixo c/ 36 Efeitos e",
+    "price": "R$ 325,28",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_884264-MLA99938952875_112025-O.webp",
+    "affiliate_url": "https://meli.la/1tMDwbV",
+    "category": "Pedais e Efeitos",
+    "order": 65,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/pedal-multi-efeitos-cuvave-tank-b-para-baixo-c-36-efeitos-e-bluetooth/p/MLB40550778",
+    "html_file": "html/produto_65.html"
   }
 ]
