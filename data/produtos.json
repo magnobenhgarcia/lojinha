@@ -674,5 +674,16 @@
     "order": 62,
     "mercado_livre_url": "https://www.mercadolivre.com.br/mouse-pad-gamer-90x35-escritorio-alta-qualidade-preto-liso-isoprene/p/MLB36193824",
     "html_file": "html/produto_62.html"
+  },
+  {
+    "title": "Guitarra Seizi Fun Vintage Budokan Fun Vintage White",
+    "description": "Guitarra Seizi Fun Vintage Budokan Fun Vintage White",
+    "price": "R$ 1309,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_899945-MLA111585100469_052026-O.webp",
+    "affiliate_url": "https://meli.la/159jf4A",
+    "category": "Guitarras",
+    "order": 63,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/guitarra-seizi-fun-vintage-budokan-fun-vintage-white/p/MLB69560570",
+    "html_file": "html/produto_63.html"
   }
 ]
