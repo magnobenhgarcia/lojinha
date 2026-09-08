@@ -718,5 +718,16 @@
     "order": 66,
     "mercado_livre_url": "https://www.mercadolivre.com.br/kit-2-estantes-industrial-5-prateleiras-aco-madeira/up/MLBU3934115921",
     "html_file": "html/produto_66.html"
+  },
+  {
+    "title": "Fone Ouvido Monitor Palco Dylan De-635 3 Drivers In-ear",
+    "description": "Fone Ouvido Monitor Palco Dylan De-635 3 Drivers In-ear",
+    "price": "R$ 317,21",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_902780-MLB80681785883_112024-O-fone-ouvido-monitor-palco-dylan-de635-3-drivers-inear.webp",
+    "affiliate_url": "https://meli.la/2K4uqNZ",
+    "category": "Monitores e Fones",
+    "order": 67,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/fone-ouvido-monitor-palco-dylan-de635-3-drivers-inear/up/MLBU2768701346",
+    "html_file": "html/produto_67.html"
   }
 ]
