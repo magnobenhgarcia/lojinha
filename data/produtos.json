@@ -740,5 +740,16 @@
     "order": 68,
     "mercado_livre_url": "https://www.mercadolivre.com.br/fritadeira-eletrica-sem-oleo-fryer-air-forno-mueller-35-litros-prata-mfb35g/p/MLB19472508",
     "html_file": "html/produto_68.html"
+  },
+  {
+    "title": "Purificador de Ar Sterilair STR4 para 20 m² Bivolt Cinza",
+    "description": "Purificador de Ar Sterilair STR4 para 20 m² Bivolt Cinza",
+    "price": "R$ 549,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_630972-MLA99984652833_112025-O.webp",
+    "affiliate_url": "https://meli.la/12pKrNu",
+    "category": "Loja Casa e Cuidados",
+    "order": 69,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/purificador-de-ar-sterilair-str4-para-20-m-bivolt-cinza/p/MLB26209043",
+    "html_file": "html/produto_69.html"
   }
 ]
