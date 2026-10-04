@@ -784,5 +784,49 @@
     "order": 72,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-2751782543-caneca-termica-original-354ml-camp-mug-stanley-com-tampa-_JM",
     "html_file": "html/produto_72.html"
+  },
+  {
+    "title": "Pijama Juvenil Masculino Curto Estampados 100% Algodão",
+    "description": "Pijama Juvenil Masculino Curto Estampados 100% Algodão",
+    "price": "R$ 50,25",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_798251-MLB92972819603_092025-O-pijama-juvenil-masculino-curto-estampados-100-algodo.webp",
+    "affiliate_url": "https://meli.la/2j1WFyo",
+    "category": "Loja Casa e Cuidados",
+    "order": 73,
+    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-2841940151-pijama-juvenil-masculino-curto-estampados-100-algodo-_JM",
+    "html_file": "html/produto_73.html"
+  },
+  {
+    "title": "Kit 3 Potes Ômega 3 6 9 Mulher Prímula Linhaça E Borragem",
+    "description": "Kit 3 Potes Ômega 3 6 9 Mulher Prímula Linhaça E Borragem",
+    "price": "R$ 99,90",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_916299-MLB101173594735_122025-O-kit-3-potes-omega-3-6-9-mulher-primula-linhaca-e-borragem.webp",
+    "affiliate_url": "https://meli.la/2dDWdwT",
+    "category": "Loja Casa e Cuidados",
+    "order": 74,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/kit-3-potes-omega-3-6-9-mulher-primula-linhaca-e-borragem/up/MLBU1973569444",
+    "html_file": "html/produto_74.html"
+  },
+  {
+    "title": "Top Alta Sustentação Academia Premium Sutiã Esportivo Treino",
+    "description": "Top Alta Sustentação Academia Premium Sutiã Esportivo Treino",
+    "price": "R$ 72,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_655243-MLB116015412938_092026-O-top-alta-sustentacao-academia-premium-sutia-esportivo-treino.webp",
+    "affiliate_url": "https://meli.la/2nGR7J6",
+    "category": "Loja Casa e Cuidados",
+    "order": 75,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/top-alta-sustentacao-academia-premium-sutia-esportivo-treino/up/MLBU5288907092",
+    "html_file": "html/produto_75.html"
+  },
+  {
+    "title": "Caneleira Peso 3 Kg Par Won Treine Em Casa Academia Crossfit Fisioterapia Fitness Treino Funcional",
+    "description": "Caneleira Peso 3 Kg Par Won Treine Em Casa Academia Crossfit",
+    "price": "R$ 56,99",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_803827-MLA96872403878_112025-O.webp",
+    "affiliate_url": "https://meli.la/1EC4HrN",
+    "category": "Loja Casa e Cuidados",
+    "order": 76,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/caneleira-peso-3-kg-par-won-treine-em-casa-academia-crossfit-fisioterapia-fitness-treino-funcional/p/MLB61702952",
+    "html_file": "html/produto_76.html"
   }
 ]
