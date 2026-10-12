@@ -850,5 +850,16 @@
     "order": 78,
     "mercado_livre_url": "https://www.mercadolivre.com.br/fogao-de-embutir-brastemp-4-bocas-chama-dupla-byo4ebr-cor-inox-bivolt/p/MLB20806820",
     "html_file": "html/produto_78.html"
+  },
+  {
+    "title": "Máquina de lavar Consul 10 kg CWB10BB branca",
+    "description": "Máquina de lavar Consul 10 kg CWB10BB branca",
+    "price": "R$ 1649,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_900135-MLA110393262477_042026-O.webp",
+    "affiliate_url": "https://meli.la/1AZBvg7",
+    "category": "Loja Casa e Cuidados",
+    "order": 79,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/maquina-de-lavar-consul-10-kg-cwb10bb-branca/p/MLB67965923",
+    "html_file": "html/produto_79.html"
   }
 ]
