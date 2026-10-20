@@ -861,5 +861,49 @@
     "order": 79,
     "mercado_livre_url": "https://www.mercadolivre.com.br/maquina-de-lavar-consul-10-kg-cwb10bb-branca/p/MLB67965923",
     "html_file": "html/produto_79.html"
+  },
+  {
+    "title": "Luminária De Piso Led Articulada Moderna Para Sala E Quarto",
+    "description": "Luminária De Piso Led Articulada Moderna Para Sala E Quarto",
+    "price": "R$ 193,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_826754-MLB115979921926_092026-O-luminaria-de-piso-led-articulada-moderna-para-sala-e-quarto.webp",
+    "affiliate_url": "https://meli.la/2LbTcgf",
+    "category": "Loja Casa e Cuidados",
+    "order": 80,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/luminaria-de-piso-led-articulada-moderna-para-sala-e-quarto/up/MLBU4049920616",
+    "html_file": "html/produto_80.html"
+  },
+  {
+    "title": "Kit 2x Creatina Dux Human Health Em Pó Sem Sabor 300g",
+    "description": "Kit 2x Creatina Dux Human Health Em Pó Sem Sabor 300g",
+    "price": "R$ 75,14",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_981752-MLA99371714096_112025-O.webp",
+    "affiliate_url": "https://meli.la/2QHMQXj",
+    "category": "Loja Casa e Cuidados",
+    "order": 81,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/kit-2x-creatina-dux-human-health-em-po-sem-sabor-300g/p/MLB49955361",
+    "html_file": "html/produto_81.html"
+  },
+  {
+    "title": "Collagen Colágeno Verisol 315g - Dux Nutrition Lab",
+    "description": "Collagen Colágeno Verisol 315g - Dux Nutrition Lab",
+    "price": "R$ 109,90",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_979208-MLA99516245678_112025-O.webp",
+    "affiliate_url": "https://meli.la/21ivwzH",
+    "category": "Loja Casa e Cuidados",
+    "order": 82,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/collagen-colageno-verisol-315g-dux-nutrition-lab/p/MLB22384271",
+    "html_file": "html/produto_82.html"
+  },
+  {
+    "title": "Creme hidratante para mãos naturais Ekos Chestnut 75 G",
+    "description": "Creme hidratante para mãos naturais Ekos Chestnut 75 G",
+    "price": "R$ 44,64",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_750100-MLA93289751052_092025-O.webp",
+    "affiliate_url": "https://meli.la/1d88JLb",
+    "category": "Loja Casa e Cuidados",
+    "order": 83,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/creme-hidratante-para-maos-naturais-ekos-chestnut-75-g/p/MLB19937901",
+    "html_file": "html/produto_83.html"
   }
 ]
