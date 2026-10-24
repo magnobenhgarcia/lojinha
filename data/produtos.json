@@ -905,5 +905,16 @@
     "order": 83,
     "mercado_livre_url": "https://www.mercadolivre.com.br/creme-hidratante-para-maos-naturais-ekos-chestnut-75-g/p/MLB19937901",
     "html_file": "html/produto_83.html"
+  },
+  {
+    "title": "Tênis Futsal Topper Maestro Club V Branco Verde Unissex",
+    "description": "Tênis Futsal Topper Maestro Club V Branco Verde Unissex",
+    "price": "R$ 248,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_711834-MLB102478827898_122025-O-tnis-futsal-topper-maestro-club-v-branco-verde-unissex.webp",
+    "affiliate_url": "https://meli.la/1bTjPbc",
+    "category": "Loja Casa e Cuidados",
+    "order": 84,
+    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-3956765151-tnis-futsal-topper-maestro-club-v-branco-verde-unissex-_JM",
+    "html_file": "html/produto_84.html"
   }
 ]
