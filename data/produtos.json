@@ -938,5 +938,16 @@
     "order": 86,
     "mercado_livre_url": "https://www.mercadolivre.com.br/encordoamento-guitarra-solez-010-dlp-gray-alloy-slg10ga-jogo-cordas-profissional-resistente-anti-oxidacao/p/MLB42155579",
     "html_file": "html/produto_86.html"
+  },
+  {
+    "title": "Encordoamento Solez Contrabaixo 4 Cordas 0.40 Slb-440",
+    "description": "Encordoamento Solez Contrabaixo 4 Cordas 0.40 Slb-440",
+    "price": "R$ 159,90",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_651739-MLB117602035684_102026-O-encordoamento-solez-contrabaixo-4-cordas-040-slb440.webp",
+    "affiliate_url": "https://meli.la/1bPBdmx",
+    "category": "Cordas",
+    "order": 87,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/encordoamento-solez-contrabaixo-4-cordas-040-slb440/up/MLBU2362561297",
+    "html_file": "html/produto_87.html"
   }
 ]
