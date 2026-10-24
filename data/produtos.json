@@ -927,5 +927,16 @@
     "order": 85,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-3471363481-descascador-legumes-e-frutas-tramontina-utilita-inox-batata-_JM",
     "html_file": "html/produto_85.html"
+  },
+  {
+    "title": "Encordoamento Guitarra Solez 010 Dlp Gray Alloy Slg10ga Jogo Cordas Profissional Resistente Anti-Oxidação",
+    "description": "Encordoamento Guitarra Solez 010 Dlp Gray Alloy Slg10ga Jogo",
+    "price": "R$ 44,79",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_660114-MLA99554953636_122025-O.webp",
+    "affiliate_url": "https://meli.la/1CxRUcx",
+    "category": "Cordas",
+    "order": 86,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/encordoamento-guitarra-solez-010-dlp-gray-alloy-slg10ga-jogo-cordas-profissional-resistente-anti-oxidacao/p/MLB42155579",
+    "html_file": "html/produto_86.html"
   }
 ]
