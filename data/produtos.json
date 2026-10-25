@@ -971,5 +971,16 @@
     "order": 89,
     "mercado_livre_url": "https://www.mercadolivre.com.br/10-vidro-ambar-marrom-100-ml-conta-gotas-canula-vidro/up/MLBU727328709",
     "html_file": "html/produto_89.html"
+  },
+  {
+    "title": "Óleo Andirobada Amazônia 1 Litro 100% Puro",
+    "description": "Óleo Andirobada Amazônia 1 Litro 100% Puro",
+    "price": "R$ 189,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_864735-MLB106737207293_022026-O-oleo-andirobada-amazonia-1-litro-100-puro.webp",
+    "affiliate_url": "https://meli.la/2zydcL2",
+    "category": "Loja Casa e Cuidados",
+    "order": 90,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/oleo-andirobada-amazonia-1-litro-100-puro/up/MLBU1418237844",
+    "html_file": "html/produto_90.html"
   }
 ]
