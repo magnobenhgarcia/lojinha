@@ -993,5 +993,16 @@
     "order": 91,
     "mercado_livre_url": "https://www.mercadolivre.com.br/memoria-ram-para-notebook-16-gb-1x16gb-ddr4-3200mhz-cl22-adata-premier-ad4s320016g22-sgn-cor-verde/p/MLB18724279",
     "html_file": "html/produto_91.html"
+  },
+  {
+    "title": "Gaita Boca Harmônica Orleans Stone Diatônica G Sol 10 Furos",
+    "description": "Gaita Boca Harmônica Orleans Stone Diatônica G Sol 10 Furos",
+    "price": "R$ 45,99",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_751039-MLA100120722339_122025-O.webp",
+    "affiliate_url": "https://meli.la/2MMJvfQ",
+    "category": "Gaita de Boca",
+    "order": 92,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/gaita-boca-harmonica-orleans-stone-diatonica-g-sol-10-furos/p/MLB29076011",
+    "html_file": "html/produto_92.html"
   }
 ]
