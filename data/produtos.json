@@ -982,5 +982,16 @@
     "order": 90,
     "mercado_livre_url": "https://www.mercadolivre.com.br/oleo-andirobada-amazonia-1-litro-100-puro/up/MLBU1418237844",
     "html_file": "html/produto_90.html"
+  },
+  {
+    "title": "Memória RAM Para Notebook 16 GB 1x16gb DDR4 3200Mhz Cl22 Adata Premier AD4S320016G22-SGN Cor Verde",
+    "description": "Memória RAM Para Notebook 16 GB 1x16gb DDR4 3200Mhz Cl22 Ada",
+    "price": "R$ 641,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_714638-MLA99453121622_112025-O.webp",
+    "affiliate_url": "https://meli.la/33Q6ddg",
+    "category": "Loja Casa e Cuidados",
+    "order": 91,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/memoria-ram-para-notebook-16-gb-1x16gb-ddr4-3200mhz-cl22-adata-premier-ad4s320016g22-sgn-cor-verde/p/MLB18724279",
+    "html_file": "html/produto_91.html"
   }
 ]
