@@ -1026,5 +1026,16 @@
     "order": 94,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-3689396961-cama-box-bau-solteiro-53cm-de-altura-super-reforcado-_JM",
     "html_file": "html/produto_94.html"
+  },
+  {
+    "title": "Kit 50 Palhetas Alice Guitarra Violão Baixo ABS Espessuras Diversas",
+    "description": "Kit 50 Palhetas Alice Guitarra Violão Baixo ABS Espessuras D",
+    "price": "R$ 28,70",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_858311-MLA99508240542_112025-O.webp",
+    "affiliate_url": "https://meli.la/2ZTARKZ",
+    "category": "Palhetas",
+    "order": 95,
+    "mercado_livre_url": "https://www.mercadolivre.com.br/kit-50-palhetas-alice-guitarra-violao-baixo-abs-espessuras-diversas/p/MLB28643692",
+    "html_file": "html/produto_95.html"
   }
 ]
