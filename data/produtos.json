@@ -1037,5 +1037,16 @@
     "order": 95,
     "mercado_livre_url": "https://www.mercadolivre.com.br/kit-50-palhetas-alice-guitarra-violao-baixo-abs-espessuras-diversas/p/MLB28643692",
     "html_file": "html/produto_95.html"
+  },
+  {
+    "title": "Escorredor Duplo De Louça 2 Andares Aço Reforçado Prato Copo",
+    "description": "Escorredor Duplo De Louça 2 Andares Aço Reforçado Prato Copo",
+    "price": "R$ 59,90",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_920428-MLB85575622188_062025-O-escorredor-duplo-de-louca-2-andares-aco-reforcado-prato-copo.webp",
+    "affiliate_url": "https://meli.la/31sAXaY",
+    "category": "Loja Casa e Cuidados",
+    "order": 96,
+    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-5242283816-escorredor-duplo-de-louca-2-andares-aco-reforcado-prato-copo-_JM",
+    "html_file": "html/produto_96.html"
   }
 ]
