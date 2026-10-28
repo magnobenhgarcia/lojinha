@@ -1070,5 +1070,16 @@
     "order": 98,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-3840155205",
     "html_file": "html/produto_98.html"
+  },
+  {
+    "title": "Encordoamento Violão Elixir Nanoweb Coating - 010 011 012",
+    "description": "Encordoamento Violão Elixir Nanoweb Coating - 010 011 012",
+    "price": "R$ 261,77",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_641845-MLB98619890887_112025-O-encordoamento-violo-elixir-nanoweb-coating-010-011-012.webp",
+    "affiliate_url": "https://meli.la/2UWZfgG",
+    "category": "Cordas",
+    "order": 99,
+    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-1644266530",
+    "html_file": "html/produto_99.html"
   }
 ]
