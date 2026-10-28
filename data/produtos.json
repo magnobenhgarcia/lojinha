@@ -1059,5 +1059,16 @@
     "order": 97,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-5646278596",
     "html_file": "html/produto_97.html"
+  },
+  {
+    "title": "Creatina Pura 300g + Camiseta Dark Lab",
+    "description": "Creatina Pura 300g + Camiseta Dark Lab",
+    "price": "R$ 78,90",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_675886-MLB92124160379_092025-O-creatina-pura-300g-camiseta-dark-lab.webp",
+    "affiliate_url": "https://meli.la/1WW6PnF",
+    "category": "Loja Casa e Cuidados",
+    "order": 98,
+    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-3840155205",
+    "html_file": "html/produto_98.html"
   }
 ]
