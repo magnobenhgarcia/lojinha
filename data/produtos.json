@@ -1048,5 +1048,16 @@
     "order": 96,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-5242283816-escorredor-duplo-de-louca-2-andares-aco-reforcado-prato-copo-_JM",
     "html_file": "html/produto_96.html"
+  },
+  {
+    "title": "Celular Samsung Galaxy A26 5g 256gb, 8gb Ram, Câmera De 50mp, Ip67, Tela Super Amoled 6.7 , Nfc - Preto",
+    "description": "Celular Samsung Galaxy A26 5g 256gb, 8gb Ram, Câmera De 50mp",
+    "price": "R$ 1899,00",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_792472-MLA100025549859_122025-O.webp",
+    "affiliate_url": "https://meli.la/1kaFdk4",
+    "category": "Loja Casa e Cuidados",
+    "order": 97,
+    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-5646278596",
+    "html_file": "html/produto_97.html"
   }
 ]
