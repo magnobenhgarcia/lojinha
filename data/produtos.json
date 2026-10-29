@@ -1081,5 +1081,16 @@
     "order": 99,
     "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-1644266530",
     "html_file": "html/produto_99.html"
+  },
+  {
+    "title": "Pedal Efeito Guitarra Distorção Chorus Drive Vários Vintage",
+    "description": "Pedal Efeito Guitarra Distorção Chorus Drive Vários Vintage",
+    "price": "R$ 134,99",
+    "image_url": "https://http2.mlstatic.com/D_NQ_NP_665782-MLB119230142911_102026-O-pedal-efeito-guitarra-distorco-chorus-drive-varios-vintage.webp",
+    "affiliate_url": "https://meli.la/2BzRFFr",
+    "category": "Instrumentos e AcessÃ³rios",
+    "order": 100,
+    "mercado_livre_url": "https://produto.mercadolivre.com.br/MLB-5468359060-pedal-efeito-guitarra-distorco-chorus-drive-varios-vintage-_JM",
+    "html_file": "html/produto_100.html"
   }
 ]
